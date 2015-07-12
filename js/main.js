@@ -1221,8 +1221,13 @@ function set_font_pattern(font_pattern_id) {
 					.classed("pattern_image", true)
 					.attr("x", "0")
 					.attr("y", "0")
+<<<<<<< HEAD
+					.attr("preserveAspectRatio", "xMidYMid slice");
+				//	.attr("transform", "rotate("+(-rotate)+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
+=======
 					.attr("preserveAspectRatio", "xMidYMid slice")
 					.attr("transform", "rotate("+(-rotate)+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
+>>>>>>> 45ea1c19e8f1ecc45bd4e2ce4fc3444579d615c9
 	
 	getImageBase64(url, function (data) {
 		d3.select(".pattern_image")
@@ -1489,8 +1494,13 @@ var rotate_text =  d3.behavior.drag()
 
 						d3.select(this).attr("data-rotate", rotate);
 					
+<<<<<<< HEAD
+						d3.select("#wood")
+							 .attr("patternTransform", "rotate("+(-rotate)+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
+=======
 						d3.select("#wood image")
 							 .attr("transform", "rotate("+(-rotate)+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
+>>>>>>> 45ea1c19e8f1ecc45bd4e2ce4fc3444579d615c9
 					
 					})
 					.on('dragend', function() {
@@ -2007,6 +2017,15 @@ var drag_stretch_smile =  d3.behavior.drag()
 						var dx = (newx+(d3.event.x-prevx));
 						var dy = (newy+(d3.event.y-prevy));
 						
+<<<<<<< HEAD
+
+						var width_smile = parseFloat(d3.select(".image_smile."+current_smile).attr("width"));
+						var height_smile = parseFloat(d3.select(".image_smile."+current_smile).attr("height"));
+
+
+						var constant = height_smile/width_smile; 
+=======
+>>>>>>> 45ea1c19e8f1ecc45bd4e2ce4fc3444579d615c9
 						
 						var deltax = dx - newx;
 							
@@ -2014,6 +2033,16 @@ var drag_stretch_smile =  d3.behavior.drag()
 							
 						if (
 							(parseInt(d3.select("image."+current_smile).attr("height"))+deltay)<10		
+<<<<<<< HEAD
+						) 
+
+						if (
+							(parseInt(d3.select("image."+current_smile).attr("height"))+deltax)<10		
+						) 
+
+						d3.select(".image_smile."+current_smile).attr("width", smile_width_stretch + deltax);
+						d3.select(".image_smile."+current_smile).attr("height", smile_height_stretch+ deltax*);
+=======
 						) return;
 
 						if (
@@ -2022,6 +2051,7 @@ var drag_stretch_smile =  d3.behavior.drag()
 
 						d3.select(".image_smile."+current_smile).attr("width", smile_width_stretch + deltax);
 						d3.select(".image_smile."+current_smile).attr("height", smile_height_stretch+ deltay);
+>>>>>>> 45ea1c19e8f1ecc45bd4e2ce4fc3444579d615c9
 
 
 						restart_depend_smile();
