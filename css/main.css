@@ -1,8 +1,28 @@
+/*Время ощибки тескт*/
+.alert_out_svg {
+
+	/*милисекунды     элементы   эффект - переменные отсюда(https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)*/
+
+	transition: 300ms all  ease-out;
+}
+
+
+
+
+
+
+
+
+/*Остальное*/
+
+
+
 @font-face {
 	font-family: HelveticaNeueCyr;
 	src: local("HelveticaNeueCyr"),
 	url(../fonts/HelveticaNeueCyr-Roman.otf);
 }
+
 
 
 #info_block-5, #info_block-6, #info_block-3, #info_block-2, #info_block-4 {
@@ -964,10 +984,6 @@ svg {
 
 /*alerts and text input*/
 
-
-
-
-
 .alert_out_svg {
 	height: 0px;
 	opacity: 0;
@@ -975,8 +991,12 @@ svg {
 	width: 100%;
 	visibility: hidden;
 	position: fixed;
-	transition: 300ms all  ease-out;
+	
 }
+
+
+
+
 
 
 .alert_out_svg.active {
