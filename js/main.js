@@ -202,7 +202,7 @@ function preparing_data(){
 	$.ajax({
 	  type: "POST",
 	  dataType: "json",
-	  url: location.href+"get_data.php",
+	  url: location.href+"get_data",
 	  success: function(data){
 	  	config=data;
 		prepare_devices();
@@ -1106,9 +1106,17 @@ function set_device(device_id) {
 		d3.select(".device_image")
       		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
 	});
+
+
+
+
+
 		
 	$('.library-device_row').removeClass('library-device_row-selected');
 	$('#library-device_row-' + device_id).addClass('library-device_row-selected');
+
+	$("#phone_model").text($(".library-device_row-selected").text());
+	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
 	//$('#device').css('background-image', 'url(' + config.devices_desctop_path + config.devices[device_id].desctop_img + ')');
@@ -1312,7 +1320,7 @@ function save_image() {
 			
 		$.ajax({ 
 			type: "POST", 
-			url: location.href+"save_png.php",
+			url: location.href+"save_img",
 			dataType: 'text',
 			data: {
 				image : canvas.toDataURL("image/png" )

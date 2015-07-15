@@ -1,4 +1,9 @@
 <?php
+
+
+session_start();
+
+
 require 'mail_functions.PHPMailerAutoload.php';
 mb_internal_encoding("UTF-8");
 
@@ -37,3 +42,5 @@ if(!$mail->send()) {
 } else {
     echo 'Письмо отправлено';
 }
+
+?>
