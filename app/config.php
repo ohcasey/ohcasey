@@ -1,10 +1,18 @@
 <?php
 
-mb_internal_encoding("UTF-8");
 
-include 'function.php';
 
-//тут папка фона
+//страницы
+global $pages; 
+$pages= array("main","basket");
+
+
+global $subfunctions;
+$subfunctions= array("main" =>array("get_data", "save_img"));
+
+//конфиги девайсов
+global $config;
+$pages= array("main","basket");
 
 $config = array(
 		//Конфигурации
@@ -29,8 +37,7 @@ $config = array(
 					 "lib_img"=>"device-1.png",
 					 "desctop_img"=>"iphone-6-6.png",
 					 "width"=>240,
-					 "height"=>472,
-					 
+					 "height"=>472,	 
 				),
 			array(
 					   "id"=>"iphone6",	
@@ -144,6 +151,7 @@ $config = array(
 											"desctop_img" => "iphone6_gold_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
+											"cost"=>1000,
 											"default"=>true
 									),
 									array(	
@@ -151,14 +159,16 @@ $config = array(
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
-											"desctop_camera" => "iphone6_silver_camera.png"
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1100
 									),
 									array(	
 										//серый прозрачный прозрачный
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
-											"desctop_camera" => "iphone6_gray_camera.png"
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1200
 									),
 
 										
@@ -178,6 +188,7 @@ $config = array(
 											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
+											"cost"=>1300,
 											"default"=>true
 									),
 									array(	
@@ -185,14 +196,16 @@ $config = array(
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
-											"desctop_camera" => "iphone6_silver_camera.png"
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1400
 									),
 									array(	
 										//серый прозрачный прозрачный
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
-											"desctop_camera" => "iphone6_gray_camera.png"
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1500
 									),
 
 										
@@ -211,6 +224,7 @@ $config = array(
 											"desctop_img" => "iphone6_ST__0001s_0000s_0001_white.png",
 											"desctop_mask" => "white_mask.png", //обрезка
 											"desctop_camera" => "camera.png",
+											"cost"=>1600
 										)
 									
 									)
@@ -227,6 +241,7 @@ $config = array(
 											"desctop_img" => "iphone6_ST_0001s_0000s_0002_black.png",
 											"desctop_mask" => "white_mask.png", //обрезка
 											"desctop_camera" => "camera.png",
+											"cost"=>1700
 										)
 									
 									)
@@ -247,19 +262,22 @@ $config = array(
 											"desctop_img" => "iphone6_0003s_0002_gold.png",
 											"desctop_mask" => "white_mask.png", //обрезка
 											"desctop_camera" => "camera.png",
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
 											"color"=>"#0000ff",
 											"desctop_img" => "iphone6_0003s_0001_silver.png",
 											"desctop_mask" => "white_mask.png",
-											"desctop_camera" => "camera.png"
+											"desctop_camera" => "camera.png",
+											"cost"=>1900
 										),
 										 array(
 											"color"=>"red",
 											"desctop_img" => "iphone5_0002s_0002s_0000_black.png",
 											"desctop_mask" => "white_mask.png",
-											"desctop_camera" => "camera.png"
+											"desctop_camera" => "camera.png",
+											"cost"=>2000
 										)
 								)
 				),
@@ -275,8 +293,8 @@ $config = array(
 											"desctop_img" => "material-1.png",
 											"desctop_mask" => "white_mask.png", //обрезка
 											"desctop_camera" => "camera.png",
+											"cost"=>1450
 										)
-									
 									)
 				),
 				array(
@@ -990,7 +1008,6 @@ $config = array(
 			),
 
 		)
-			
 );
 
 ?>
