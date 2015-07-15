@@ -67,16 +67,24 @@ body {
 	text-align: center;
 	cursor: pointer;
 	background: #669AC4;
-	
 	user-select: none;
+}
+
+
+#header-menu>li#header-logo a{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 #header-menu > li:hover > span {
 	color: #295E93;
 }
 
-#header-menu > li > span {
+#header-menu > li:not(#header-logo) > a {
 	color: #fff;
+	text-decoration: none;
 	transition: 400ms all easy-in;
 	font-size: 12px;
 	line-height: 32px;
@@ -106,62 +114,67 @@ body {
 }
 
 
-#header-menu > li.header-menu-selected > span,  #header-menu > li.header-menu-active > span {
+#header-menu > li.header-menu-selected:not(#header-logo) > a,  #header-menu > li.header-menu-active:not(#header-logo) > a{
 	border-left: 2px solid #fff;
 	margin-left: 13px;
 	color: #fff;
 }
-#header-menu > li.header-menu-active:not(.header-menu-selected) > span { 
+
+
+
+
+
+#header-menu > li.header-menu-active:not(.header-menu-selected) > a { 
 	border-left: 2px solid #fff;
 }
 
 
-#header-menu > li:hover:nth-child(2) span {
+#header-menu > li:hover:nth-child(2) a {
 	background: url('../img/icon-menu-1.png') right -69px no-repeat;
 }
 
-#header-menu > li:hover:nth-child(3) span {
+#header-menu > li:hover:nth-child(3) a {
 	background: url('../img/icon-menu-2.png') right -70px no-repeat;
 }
 
-#header-menu > li:hover:nth-child(4) span {
+#header-menu > li:hover:nth-child(4) a {
 	background: url('../img/icon-menu-3.png') right -72px no-repeat;
 }
 
-#header-menu > li:hover:nth-child(5) span {
+#header-menu > li:hover:nth-child(5) a {
 	background: url('../img/icon-menu-4.png') right -72px no-repeat;
 }
 
-#header-menu > li:hover:nth-child(6) span {
+#header-menu > li:hover:nth-child(6) a {
 	background: url('../img/icon-menu-5.png') right -73px no-repeat;
 }
 
-#header-menu > li:hover:nth-child(7) span {
+#header-menu > li:hover:nth-child(7) a {
 	background: url('../img/icon-menu-6.png') right -73px no-repeat;
 }
 
 
-#header-menu > li:nth-child(2) span, #header-menu > li.header-menu-selected:nth-child(2) > span, #header-menu > li.header-menu-active:nth-child(2) > span   {
+#header-menu > li:nth-child(2) a, #header-menu > li.header-menu-selected:nth-child(2) > a, #header-menu > li.header-menu-active:nth-child(2) > a   {
 	background: url('../img/icon-menu-1.png') right -1px no-repeat;
 }
 
-#header-menu > li:nth-child(3) span, #header-menu > li.header-menu-selected:nth-child(3) > span, #header-menu > li.header-menu-active:nth-child(3) > span {
+#header-menu > li:nth-child(3) a, #header-menu > li.header-menu-selected:nth-child(3) > a, #header-menu > li.header-menu-active:nth-child(3) > a {
 	background: url('../img/icon-menu-2.png') right -1px no-repeat;
 }
 
-#header-menu > li:nth-child(4) span, #header-menu > li.header-menu-selected:nth-child(4) > span, #header-menu > li.header-menu-active:nth-child(4) > span {
+#header-menu > li:nth-child(4) a, #header-menu > li.header-menu-selected:nth-child(4) > a, #header-menu > li.header-menu-active:nth-child(4) > a {
 	background: url('../img/icon-menu-3.png') right 2px no-repeat;
 }
 
-#header-menu > li:nth-child(5) span, #header-menu > li.header-menu-selected:nth-child(5) > span, #header-menu > li.header-menu-active:nth-child(5) > span {
+#header-menu > li:nth-child(5) a, #header-menu > li.header-menu-selected:nth-child(5) > a, #header-menu > li.header-menu-active:nth-child(5) > a {
 	background: url('../img/icon-menu-4.png') right 2px no-repeat;
 }
 
-#header-menu > li:nth-child(6) span, #header-menu > li.header-menu-selected:nth-child(6) > span, #header-menu > li.header-menu-active:nth-child(6) > span {
+#header-menu > li:nth-child(6) a, #header-menu > li.header-menu-selected:nth-child(6) > a, #header-menu > li.header-menu-active:nth-child(6) > a {
 	background: url('../img/icon-menu-5.png') right 3px no-repeat;
 }
 
-#header-menu > li:nth-child(7) span, #header-menu > li.header-menu-selected:nth-child(7) > span, #header-menu > li.header-menu-active:nth-child(7) > span {
+#header-menu > li:nth-child(7) a, #header-menu > li.header-menu-selected:nth-child(7) > a, #header-menu > li.header-menu-active:nth-child(7) > a {
 	background: url('../img/icon-menu-6.png') right 3px no-repeat;
 }
 
@@ -239,8 +252,11 @@ body {
 }
 
 #cart {
+	position: relative;
+	width: 100%;
+	display: block;
 	padding: 0 6px;
-	margin-top: 30px;
+	text-decoration: none;
 	font-size: 13px;
 	font-weight: bold;
 	color: #444;
@@ -250,9 +266,15 @@ body {
 	cursor: pointer;
 }
 
+
+
 #cart:hover {
 	color: #fff;
 	background: #295E93 url('../img/icon-bag-hover.png') 94px 5px no-repeat;
+}
+
+#cart:hover a {
+	color: #fff;
 }
 
 #price {

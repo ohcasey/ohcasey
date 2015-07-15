@@ -36,12 +36,45 @@ var text_width_constant=20;
 var text_height_constant=20;
 
 var desctop = {
+	
 		device_id: "",
 		material_id: "",
 		font_id: "",
 		text: "",
 		font_color_id: "",
 		font_pattern_id: "",
+
+		/*new*/
+
+		device_name: "",
+		device_color: "",
+
+		name_case_1:"",
+		name_case_2:"",
+
+		bg_case: "",
+
+		font_size: "",
+		font_color: "",
+		font_family: "",
+		font_pattern: "",
+
+		font_x: "",
+		font_y: "",
+
+		font_rotate: "",
+
+		preview_url:"",
+
+		smiles: {
+			1 : {
+				smile_width: "",
+				smile_height: "",
+				smile_x: "",
+				smile_y: "",
+				smile_rotate:""
+			}
+		}
 };
 
 
@@ -122,7 +155,7 @@ $(document).on("click", ".library-device_row" , function(){
 });
 
 $(document).on("click", ".chech_colors div" , function(){
-	set_material_color($(this).data('material_id'), $(this).data('material_color'));
+	set_material_color($(this).data('material_id'), $(this).data('material_color'),$(this).data('cost'));
 });
 
 
@@ -199,10 +232,13 @@ $(document).ready(function() {
 
 var object_id;
 function preparing_data(){
+
+	
+
 	$.ajax({
 	  type: "POST",
 	  dataType: "json",
-	  url: location.href+"get_data",
+	  url: "main/get_data",
 	  success: function(data){
 	  	config=data;
 		prepare_devices();
@@ -896,11 +932,13 @@ function set_material(material_id) {
 	$("#header-menu-item-2").addClass("header-menu-active");
 	var id_device = config.devices[desctop.device_id].id;
 	desctop.material_id = material_id;		
+
+	set_material_color_default(material_id);
+
 	$(".library-case_row").removeClass("library-case_row-selected");
 	$("#library-case_row-"+material_id).addClass("library-case_row-selected");
-	set_material_color_default(material_id);
+	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
-
 }
 
 
@@ -927,28 +965,24 @@ function set_material_default() {
 }
 
 
-
 function set_material_color_default(material_id) {
-	
-	
 	console.log("Cтавлю дефолтный цвет");
 	$(".device_colors").find("div").remove();
-
 	var id_device = config.devices[desctop.device_id].id;
 	
 	if (config.materials[id_device][material_id].colors.length>1) {
 			var breakpoint = true;
 			for (value in config.materials[id_device][material_id].colors) {
 				var color = config.materials[id_device][material_id].colors[value].color;
-				var html_text = '<div data-material_id="'+material_id+'" data-material_color="'+value+'" id ="button_material_color-'+0+'" style="background:'+color+'"></div>';
-				
+				var cost = config.materials[id_device][material_id].colors[value].cost;
+				var html_text = '<div data-material_id="'+material_id+'" data-cost="'+cost+'" data-material_color="'+value+'" id ="button_material_color-'+value+'" style="background:'+color+'"></div>';
 				$(".device_colors").append(html_text);
 				
 				if (config.materials[id_device][material_id].colors[value].default==true) {
 					if (breakpoint==false) {
 						console.log("Ошибка, несколько дефолтных чехлов при телефоне" + id_device);
 					}else{
-					   set_material_color(material_id, value);
+					   set_material_color(material_id, value, cost);
 					  
 					   breakpoint = false;
 					}
@@ -957,23 +991,22 @@ function set_material_color_default(material_id) {
 	}else{
 		
 		var color = config.materials[id_device][material_id].colors[0].color;
-		
+		var cost = config.materials[id_device][material_id].colors[0].cost;
 		//var html_text = '<div  data-material_id="'+material_id+'" data-material_color="'+0+'" style="background:'+color+'" id ="button_material_color-'+0+'"></div>';
 		//$(".device_colors").append(html_text);
-		set_material_color(material_id ,0);
+		set_material_color(material_id ,0, cost);
 	}
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
 }
 
-function set_material_color(material_id, material_color) {
+function set_material_color(material_id, material_color, cost) {
 	var id_device = config.devices[desctop.device_id].id;
-	
 	var color_object = config.materials[id_device][material_id].colors[material_color];
 
 	$(".chech_colors").find("div").removeClass("device_colors-selected");
+
 	
-	$("#button_material_color-"+material_color).addClass("device_colors-selected");
 	
 	svg_mask_container.selectAll("mask").remove();
 	svg_material_body.selectAll("image").remove();
@@ -1043,10 +1076,11 @@ function set_material_color(material_id, material_color) {
 		d3.select(".camera")
       		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
 	});
-	
-	
-	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
+
+	$("#price_total").text(cost+" Р")
+	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
+	$("#button_material_color-"+material_color).addClass("device_colors-selected");
 }
 
 function set_check() {
@@ -1069,9 +1103,8 @@ function set_check() {
 		$(".library_check").append(html_text);	
 	}	
 	set_material_default();
+
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
-
-
 }
 
 function set_device(device_id) {
@@ -1116,6 +1149,7 @@ function set_device(device_id) {
 	$('#library-device_row-' + device_id).addClass('library-device_row-selected');
 
 	$("#phone_model").text($(".library-device_row-selected").text());
+	$("#price_total").text("");
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
@@ -1288,9 +1322,6 @@ function save_image() {
 	
 	$(".svg_controls").css("display","none");
 	
-	
-	
-	
 	var svg = document.querySelector("svg");
 	var svgData = new XMLSerializer().serializeToString( svg );
 
@@ -1300,9 +1331,6 @@ function save_image() {
 	canvas.height = $("#device").height();
 	
 	var ctx = canvas.getContext( "2d" );
-	
-	
-	
 
 	var img = document.createElement("img");
 	
@@ -1320,13 +1348,16 @@ function save_image() {
 			
 		$.ajax({ 
 			type: "POST", 
-			url: location.href+"save_img",
+			url: "main/save_img",
 			dataType: 'text',
 			data: {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
-				sweetAlert("Успешно", data, "success");
+				/*sweetAlert("Успешно", data, "success");*/
+				var result = {
+
+				}
 			},
 			fail: function(data){
 				sweetAlert("Ошибка", data, "error");
@@ -1335,6 +1366,10 @@ function save_image() {
 		
 		$("body").append(img);
 		$(".svg_controls").css("display","block");
+
+
+
+
 
 	};
 }
