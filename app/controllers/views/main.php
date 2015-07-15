@@ -1,114 +1,9 @@
-<?php 	
 
-?>
-
-
-<!DOCTYPE html>
+<?php include "templates/header.php";?>
 
 
-<html>
-<head>
-<title></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
-<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">	
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
-
-</head>
-
-<body>
-<div class="alert_write"> 
-	
-	<div class="alert_opacity"></div>
-	<div class="alert_write_block">
-		<div class="alert_write_item">
-			<input type="text" class="input_write" placeholder="Введите текст">
-			<button class="btn_write no_write"></button>
-			<button class="btn_write ok_write"></button>
-		</div>
-		<span>Вы можете написать любой текст,<br>
-не превышая 20 знаков</span>
-	</div>
-</div>
-<div class="alert_out_svg">
-	<div class="alert_out_svg-overlay">
-	</div>
-	<span class="alert_out_svg-text">Осторожно!<br>Ваш текст выходит за границу печатной области чехла</span>
-</div>
-
-<div class="alert_block alert_device">
-	<div class="alert_block_item">
-			<div class="alert_block_item-overlay"></div>
-			<h2>Вы хотите выбрать новый девайс?</h2>
-			<div class="left_button buttons_block">
-				<button class="btn no_device no_button">Нет</button>
-			</div>
-			<div class="right_button buttons_block">
-				<button class="btn yes_device yes_button">Да</button>
-			</div>
-			<span>Выбирая новый девайс,<br>
-		Вам придется начать все оформление сначала.</span>
-	
-	</div>
-</div>
-
-<div class="alert_block alert_save">
-	<div class="alert_block_item">
-			<div class="alert_block_item-overlay"></div>
-			<h2>Отправить чехол в корзину?</h2>
-			<div class="left_button buttons_block">
-				<button class="btn no_device no_button">Нет</button>
-			</div>
-			<div class="right_button buttons_block">
-				<button class="btn yes_save yes_button">Да</button>
-			</div>
-			<span>Поместив чехол в корзину,<br>
-		Вы не сможете более отредактировать его.</span>
-	
-	</div>
-</div>
-
-
-<div id="header">
-	<ul id="header-menu">
-		<li id="header-logo">
-			<a href="index.html"></a>
-		</li>
-		<li data-menu-id="1" id="header-menu-item-1" class="header-menu-selected">
-			<span>ДЕВАЙС</span>
-		</li>
-		<li data-menu-id="2" id="header-menu-item-2">
-			<span>ЧЕХОЛ</span>
-		</li>
-		<li data-menu-id="3" id="header-menu-item-3">
-			<span>ТЕКСТ</span>
-		</li>
-		<li data-menu-id="4" id="header-menu-item-4">
-			<span>ЦВЕТ</span>
-		</li>
-		<li data-menu-id="5" id="header-menu-item-5">
-			<span>ФОН</span>
-		</li>
-		<li data-menu-id="6" id="header-menu-item-6">
-			<span>СМАЙЛЫ</span>
-		</li>
-	</ul>
-</div>
 <div id="main">
-	<div id="left">
-		<div id="phone"><a href="tel:79037905810"> +7 (903) 790-58-10</a></div>
-		<div id="left_menu">
-			<div id="cart">6 ТОВАРОВ</div>
-			<div id="price">
-				<div id="phone_model">iPhone 6</div>
-				<div id="price_total">1500 Р</div>
-				<div id="price-point"></div>
-			</div>
-			<div id="left_menu-shipping">О ДОСТАВКЕ</div>
-			<div id="left_menu-help" class="left_menu-selected">НУЖНА ПОМОЩЬ</div>
-		</div>
-	</div>
+	<?php include "templates/left_block.php";?>
 	<div id="center">
 		<div id="center_in" >
 				<svg  xmlns="http://www.w3.org/2000/svg"  id="device" class="center_device_svg">
@@ -330,7 +225,56 @@
 		ВДОХНОВИТЬСЯ
 	</div>
 </div>
+<div class="alert_write"> 
+	
+	<div class="alert_opacity"></div>
+	<div class="alert_write_block">
+		<div class="alert_write_item">
+			<input type="text" class="input_write" placeholder="Введите текст">
+			<button class="btn_write no_write"></button>
+			<button class="btn_write ok_write"></button>
+		</div>
+		<span>Вы можете написать любой текст,<br>
+не превышая 20 знаков</span>
+	</div>
+</div>
+<div class="alert_out_svg">
+	<div class="alert_out_svg-overlay">
+	</div>
+	<span class="alert_out_svg-text">Осторожно!<br>Ваш текст выходит за границу печатной области чехла</span>
+</div>
 
+<div class="alert_block alert_device">
+	<div class="alert_block_item">
+			<div class="alert_block_item-overlay"></div>
+			<h2>Вы хотите выбрать новый девайс?</h2>
+			<div class="left_button buttons_block">
+				<button class="btn no_device no_button">Нет</button>
+			</div>
+			<div class="right_button buttons_block">
+				<button class="btn yes_device yes_button">Да</button>
+			</div>
+			<span>Выбирая новый девайс,<br>
+		Вам придется начать все оформление сначала.</span>
+	
+	</div>
+</div>
+
+<div class="alert_block alert_save">
+	<div class="alert_block_item">
+			<div class="alert_block_item-overlay"></div>
+			<h2>Отправить чехол в корзину?</h2>
+			<div class="left_button buttons_block">
+				<button class="btn no_device no_button">Нет</button>
+			</div>
+			<div class="right_button buttons_block">
+				<button class="btn yes_save yes_button">Да</button>
+			</div>
+			<span>Поместив чехол в корзину,<br>
+		Вы не сможете более отредактировать его.</span>
+	
+	</div>
+</div>
 </body>
 <script type="text/javascript" src="js/d3.min.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>

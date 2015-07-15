@@ -4,15 +4,15 @@
 
 //страницы
 global $pages; 
-$pages= array("main","basket");
+$pages= array("main","cart");
 
 
 global $subfunctions;
-$subfunctions= array("main" =>array("get_data", "save_img"));
+
+$subfunctions= array("main" =>array("get_data", "save_img"), "cart" =>array(""));
 
 //конфиги девайсов
 global $config;
-$pages= array("main","basket");
 
 $config = array(
 		//Конфигурации
@@ -147,6 +147,7 @@ $config = array(
 					"colors"=> array(
 									array(		
 										//золотой прозрачный
+											"id"=>0,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -156,6 +157,7 @@ $config = array(
 									),
 									array(	
 										//серебристый прозрачный
+											"id"=>1,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -164,6 +166,7 @@ $config = array(
 									),
 									array(	
 										//серый прозрачный прозрачный
+											"id"=>2,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -180,10 +183,10 @@ $config = array(
 					"descr_1" => "Матовый",
 					"descr_2" => "Полупрозрачный чехол",
 					"lib_img" => "iphone6_transparent_plastic_icon.png",
-					"default"=>true,
 					"colors"=> array(
 									array(		
 										//золотой прозрачный
+											"id"=>3,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -193,6 +196,7 @@ $config = array(
 									),
 									array(	
 										//серебристый прозрачный
+											"id"=>4,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -201,6 +205,7 @@ $config = array(
 									),
 									array(	
 										//серый прозрачный прозрачный
+											"id"=>5,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -220,6 +225,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
+											"id"=>6,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_ST__0001s_0000s_0001_white.png",
 											"desctop_mask" => "white_mask.png", //обрезка
@@ -237,6 +243,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
+											"id"=>7,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_ST_0001s_0000s_0002_black.png",
 											"desctop_mask" => "white_mask.png", //обрезка
@@ -258,6 +265,7 @@ $config = array(
 					"default"=>true,
 					"colors"=> array(
 									array(		
+											"id"=>8,
 											"color"=>"#00FFFF",
 											"desctop_img" => "iphone6_0003s_0002_gold.png",
 											"desctop_mask" => "white_mask.png", //обрезка
@@ -266,6 +274,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
+											"id"=>9,
 											"color"=>"#0000ff",
 											"desctop_img" => "iphone6_0003s_0001_silver.png",
 											"desctop_mask" => "white_mask.png",
@@ -273,6 +282,7 @@ $config = array(
 											"cost"=>1900
 										),
 										 array(
+										 	"id"=>10,
 											"color"=>"red",
 											"desctop_img" => "iphone5_0002s_0002s_0000_black.png",
 											"desctop_mask" => "white_mask.png",
@@ -288,7 +298,8 @@ $config = array(
 					"lib_img" => "iphone6_ST__0001s_0000s_0001_white.png",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
-										array(		
+										array(	
+											"id"=>11,	
 											"color"=>"transparent",
 											"desctop_img" => "material-1.png",
 											"desctop_mask" => "white_mask.png", //обрезка
