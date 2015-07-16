@@ -9,7 +9,7 @@ $pages= array("main","cart");
 
 global $subfunctions;
 
-$subfunctions= array("main" =>array("get_data", "save_img"), "cart" =>array(""));
+$subfunctions= array("main" =>array("get_data", "save_img", "add_to_cart"), "cart" =>array("remove_item"));
 
 //конфиги девайсов
 global $config;
@@ -22,6 +22,7 @@ $config = array(
 			"patterns_path_big"=>"img/patterns/big/",
 			"patterns_path_small"=>"img/patterns/small/",
 			"desctop_font_size"=>"50",
+			"default_font_color"=>"black",
 			"desctop_font_path"=>"fonts/",
 			"desctop_bg_path"=>'img/backgrounds/',
 			"smiles_path"=>'img/smiles/',
