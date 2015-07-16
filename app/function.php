@@ -18,15 +18,32 @@ function styles_setup($config){
 }
 
 function get_config($config){
-    $result =  json_encode($config, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+    $result =  json_encode($config, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
     echo $result;
 }
 
 
+
+
+function add_to_cart() {
+    if(isset($_POST['desctop'])) {
+        print_r($_POST['desctop']);
+        $array =  json_decode($_POST['desctop'], true);
+        if (isset($_SESSION['items'])) {
+            array_push($_SESSION['items'], $array);
+        }else{
+            $_SESSION['items'] = array($array);
+        }
+        
+    }else{
+        echo $data['errors'] = "Произошла ошибка, попробуйте еще раз";
+    }  
+}
+
+
+
 function save_img(){
     $dir = "uploaded_png";
-
-
     if(isset($_POST['image'])) {
         $image = $_POST['image'];
         $image = str_replace('data:image/png;base64,', '', $image);

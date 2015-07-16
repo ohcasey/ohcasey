@@ -32,15 +32,15 @@
 
 			if (in_array($controller_name, $pages)){
 				if ((in_array($action_name, $subfunctions[$controller_name])) || ($action_name=="main") || ($action_name==$controller_name)){
-					include('controllers/'.$controller_name.'.php');
+					
 				}else{
-					include('controllers/404.php');
+					$controller_name = "404";
 				}
 
-				
-
 			}else{
-				include('controllers/404.php');
+				$controller_name = "404";
 			}
+
+			include('controllers/controller.php');
 ?>
 

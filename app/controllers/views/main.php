@@ -282,9 +282,7 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/perfect-scrollbar.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-<script type="text/javascript" src="js/html2canvas.js"></script>
 
-<script type="text/javascript" src="js/canvg.js"></script>
 <script type="text/javascript" src="js/sweet-alert.min.js"></script>	
 
 	
