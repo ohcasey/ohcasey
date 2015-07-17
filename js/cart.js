@@ -1,18 +1,251 @@
 function preparing_html() {
 	var html_width = $("body").width();
 	var html_height = $(document).height();
+	
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 }
 
 $(window).resize(function(){
 	preparing_html();
+
+	var count = $(".cart_item_block").length;
+
+	if (count>2){
+		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
+	}
+	
+
+	$(".ps-container .ps-scrollbar-x-rail").remove();
 })
 
 preparing_html();
 
+$(document).on('click',".checkbox_item input", function(){
+	$(this).parent().parent().find("input").removeClass("error");
+});
 
+$(document).on('click',".checkbox_item span", function(){
+	$(this).parent().find("input").click();
+});
+
+$(document).on("focus", ".item_important", function(){
+	$(this).removeClass("error");
+});
+
+$(document).on('click','input.disabled', function(event){
+	event.preventDefault();
+});
+
+
+$(document).on('input','.city', function(){
+	reset_city_depend();
+});
+
+
+var breakpoint_delete = true;
+$(document).on('click',".cart_item_block__close", function(){
+
+	if (breakpoint_delete==false) return;
+
+	var id = $(this).parent().attr("id");
+			breakpoint_delete==false;
+			$.ajax({ 
+					type: "POST", 
+					url: "cart/remove_item",
+					dataType: 'text',
+					data: {
+						item : id 
+					},
+					success: function(data){
+
+							console.log(data);
+
+							$("#"+id).remove();
+							var count=$(".cart_item_block").length;
+							
+							var text;
+							if (count==0) {
+								text = "Товаров";
+							}
+							if (count==1) {
+								text = "Товар";
+							}
+
+
+							if ((count>=2) &&(count<5)) {
+								text = "Товара";
+							}
+							if (count>=5) {
+								text = "Товаров";
+							}
+
+							if (count<3){
+
+							}
+
+							$("#cart").html("<span><span class='cart_count'>"+count+"</span> "+text+"</span>");
+							reset_cost_total();
+							breakpoint_delete==true;
+						
+					},
+					fail: function(data){
+						sweetAlert("Ошибка", data, "error");
+						breakpoint_delete==true;
+					}
+				});
+
+
+
+});
+
+
+$(document).on('change','input[name="deliver"]', function(){
+
+	var delivery_cost = $(this).data("delivery");
+
+	$(".delivery_cost").text(delivery_cost+" рублей").attr("data-delivery",delivery_cost);
+
+	$('input[name="payment"]').removeClass("disabled");
+
+	$(".cart_item.adress")
+			.addClass("item_important")
+			.attr("placeholder","* Адрес");
+	
+
+	var radio_val = $('input[name="deliver"]:checked').val();
+
+	if (radio_val=="self") {
+		$(".cart_item.adress")
+			.removeClass("error")
+			.removeClass("item_important")
+			.attr("placeholder","Адрес");
+	}
+	if (radio_val=="kur_mos") {
+	
+	}
+	if ((radio_val=="kur_rus") || (radio_val=="mail_ru")) {
+		var radio_vs = $('input[name="payment"]:checked').val();
+
+		if (radio_vs === "cash") {
+			$('input[name="payment"]:checked').prop("checked","");
+		}
+
+		$(".checkbox_item.cash input").addClass("disabled");
+	}
+
+	reset_cost_total();
+	
+});
+
+$(document).on('keydown',".phone", function(){
+        // Разрешаем: backspace, delete, tab и escape
+        if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
+             // Разрешаем: Ctrl+A
+            (event.keyCode == 65 && event.ctrlKey === true) || 
+             // Разрешаем: home, end, влево, вправо
+            (event.keyCode >= 35 && event.keyCode <= 39)) {
+                 // Ничего не делаем
+                 return;
+        }
+        else {
+            // Обеждаемся, что это цифра, и останавливаем событие keypress
+            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+                event.preventDefault(); 
+            }   
+        }
+ });
+
+
+
+$(document).on('click',"#steps_controller-next_but div", function(){
+	var breakpoint = true;
+
+	$(".item_important").each(function(){
+		if ($(this).val() == "") {
+			breakpoint=false;
+			$(this).addClass("error");
+		}
+	});
+
+	if (validateEmail($(".email").val())==false) {
+		$(".email").addClass("error");
+		breakpoint=false;
+	}
+
+	var radio_val = $('input[name="deliver"]:checked').val();
+
+	if (( radio_val=="") || (radio_val===undefined) || (radio_val===null)|| (radio_val===NaN)) {
+		$('input[name="deliver"]').addClass("error");
+		breakpoint=false;
+	}
+
+	var radio_val = $('input[name="payment"]:checked').val();
+
+	if (( radio_val=="") || (radio_val===undefined) || (radio_val===null)|| (radio_val===NaN)) {
+		$('input[name="payment"]').addClass("error");
+		breakpoint=false;
+	}
+
+});
 
 
 $(document).ready(function(){
+	reset_cost_total();
+	reset_city_depend();
+	
+	var count = $(".cart_item_block").length;
+
+	if (count>2){
+		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
+	}
+	
+
+	$(".ps-container .ps-scrollbar-x-rail").remove();
 	$("#phone_model").append("Итого");
+	$('.phone').mask('+7 (999) 999-99-99');
 });
+
+function reset_cost_total() {
+	var cost =0;
+	$(".cart_item_block").each(function(){
+		cost+=$(this).data("cost");
+	});
+
+	$(".cost_item").text(cost +" рублей");
+	cost+=parseInt($(".delivery_cost").attr("data-delivery"));
+	$("#price_total").text(cost+ " р");
+	$(".result").text("Итого: "+cost+ " рублей");
+}
+
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}
+
+function reset_city_depend(){
+
+	var city = $(".cart_item.city").val();
+	
+
+	console.log(city);
+
+	if (city=="Москва") {
+		$('input[name="deliver"]').removeClass("disabled");
+	}else{
+		$('#self, #kur_mos').addClass("disabled");
+	}
+
+	var radio_val = $('input[name="deliver"]:checked').val();
+
+	if ((radio_val=="kur_mos") || (radio_val=="self")) { 
+		$('input[name="deliver"]:checked').prop("checked","");
+		var radio_vs = $('input[name="payment"]:checked').val();
+
+		if (radio_vs === "cash") {
+			$('input[name="payment"]:checked').prop("checked","");
+		}
+
+		$(".checkbox_item.cash input").addClass("disabled");
+	}
+
+}	

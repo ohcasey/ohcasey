@@ -50,6 +50,10 @@
 		if ($action_name=="main" ) {
 			include("views/cart.php");
 		}
+
+		if ($action_name=="remove_item" ) {
+			remove_item();
+		}
 	}
 
 ?>

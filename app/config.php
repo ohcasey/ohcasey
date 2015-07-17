@@ -15,6 +15,12 @@ $subfunctions= array("main" =>array("get_data", "save_img", "add_to_cart"), "car
 global $config;
 
 $config = array(
+		"deliver_cost" => array(
+			"self" =>  0, //самовывоз
+			"kur_mos" =>  250,
+			"kur_rus" =>  650,
+			"mail_ru" => 200,  //самовывоз
+		),
 		//Конфигурации
 			"default_text"=>"Текст",
 			"devices_desctop_path"=>"img/devices/desctop/",
@@ -51,7 +57,8 @@ $config = array(
 				),
 			//Для остальных width и height не было, пока поставил 0
 			array(
-					   "id"=>2,	
+
+					   "id"=>"iphone5s",	
 					   "name"=>"iPhone 5s",
 					   "lib_img"=>"device-3.png",
 					   "desctop_img"=>"iphone-5s.png",
@@ -60,7 +67,7 @@ $config = array(
 					   //"default"=>true
 				),
 			array(
-					   "id"=>3,	
+					   "id"=>"iphone5c",		
 					   "name"=>"iPhone 5c",
 					   "lib_img"=>"device-4.png",
 					   "desctop_img"=>"iphone-5c.png",
@@ -69,7 +76,7 @@ $config = array(
 					   //"default"=>true
 				),
 			array(
-						"id"=>4,	
+						"id"=>"iphone4s",		
 						"name" => "iPhone 4s",
 						"lib_img" => "device-6.png",
 						"desctop_img" => "iphone-4s.png",
@@ -78,15 +85,23 @@ $config = array(
 					   
         		),
 			array(
-						 "id"=>5,	
+						 "id"=>"iphone4",		
 						 "name" => "iPhone 4",
 						 "lib_img" => "device-7.png",
 						 "desctop_img" => "iphone-4.png",
 						 "width"=>240,
 					   	 "height"=>472
 				),
+			array(			 
+						"id"=>"galaxyS6",
+						"name" => "Galaxy S6",
+						 "lib_img" => "device-9.png",
+						 "desctop_img" => "device-1.png",
+						 "width"=>0,
+						 "height"=>0
+				),
 			array(
-						"id"=>6,	
+						"id"=>"galaxyS5",		
 						"name" => "Galaxy S5",
 						"lib_img" => "device-8.png",
 						"desctop_img" => "device-1.png",
@@ -94,7 +109,7 @@ $config = array(
 						"height"=>0
         		),
   			array(
-						 "id"=>7,
+						 "id"=>"galaxyS4",
 						 "name" => "Galaxy S4",
 						 "lib_img" => "device-9.png",
 						 "desctop_img" => "device-1.png",
@@ -102,37 +117,30 @@ $config = array(
 						 "height"=>0
 				),
 			array(
-						"id"=>8,
-						 "name" => "Galaxy S4",
+						 "id"=>"galaxyS3",
+						 "name" => "Galaxy S3",
 						 "lib_img" => "device-9.png",
 						 "desctop_img" => "device-1.png",
 						 "width"=>0,
 						 "height"=>0
 			),
 			array(
-						 "id"=>9,
-						 "name" => "Galaxy S4",
+						 "id"=>"galaxyS2",
+						 "name" => "Galaxy S2",
 						 "lib_img" => "device-9.png",
 						 "desctop_img" => "device-1.png",
 						 "width"=>0,
 						 "height"=>0
 				),
 			array(
-						 "id"=>10,
-						 "name" => "Galaxy S4",
+						 "id"=>"galaxyS",
+						 "name" => "Galaxy S",
 						 "lib_img" => "device-9.png",
 						 "desctop_img" => "devi.style();ce-1.png",
 						 "width"=>0,
 						 "height"=>0
 				),
-			array(
-						 "id"=>11,
-						 "name" => "Galaxy S4",
-						 "lib_img" => "device-9.png",
-						 "desctop_img" => "device-1.png",
-						 "width"=>0,
-						 "height"=>0
-				)
+		
 		),
 		/*Материалы*/
 		"materials" => array(
@@ -256,7 +264,6 @@ $config = array(
 				)
 			),
 			
-
 			"iphone6plus"=>array(
 				array(
 					"name" => "Soft Touch",
@@ -313,7 +320,9 @@ $config = array(
 					"name" => "Soft Touch",
 					"descr_1" => "матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол.",
-					"lib_img" => "iphone6_ST_0001s_0000s_0002_black.png"
+					"lib_img" => "iphone6_ST_0001s_0000s_0002_black.png",
+					"colors"=> array(
+					)
 				)
 			)
 			

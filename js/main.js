@@ -40,6 +40,9 @@ var text_height_constant=20;
 
 var desctop = {
 
+		image_size_width: "",
+		image_size_height: "",
+
 		device_id: "",
 		material_id: "",
 		text: "",
@@ -49,6 +52,7 @@ var desctop = {
 
 		device_name: "",
 		device_color: "",
+
 
 		case_id: "",
 		name_case_1:"",
@@ -63,19 +67,15 @@ var desctop = {
 
 		font_x: "",
 		font_y: "",
+		font_width: "",
+		font_height: "",
 
 		font_rotate: "",
 
 		preview_url:"",
 		
-		smiles: {/*
-			1 : {
-				smile_width: "",
-				smile_height: "",
-				smile_x: "",
-				smile_y: "",
-				smile_rotate:""
-			}*/
+		smiles: {
+
 		}
 };
 
@@ -173,6 +173,10 @@ $(document).on("click", ".library-pattern_row" , function(){
 
 $(document).on("click", ".library-case_row" , function(){
 		set_material($(this).data('materialId'));
+
+
+		
+
 });
 
 $(document).on("click", "#right-6 .library_tab_but" , function(){
@@ -203,6 +207,7 @@ $(document).on("click", "#right-5 .library_tab_but" , function(){
 
 $(document).on("click", "#info_block-5 .icon-close" , function(){
 	svg_background.selectAll("image").remove();
+	desctop.bg_case = "";
 	$(".library-background_row").removeClass("library-background_row-selected");
 	$("#info_block-5 .icon-close").css("display","none");
 });
@@ -684,6 +689,7 @@ function set_smiles_image(url) {
 	svg_smiles.append("image")
 								.classed("image_smile", true)
 								.attr("data-object_id", object_id)
+								.attr("data-url", url)
 								.classed(object_id, true)
 								.attr("id",object_id )
 								.attr("width", 62)
@@ -691,6 +697,9 @@ function set_smiles_image(url) {
 								.attr("x",config.devices[desctop.device_id].width/2-31)
 								.attr("y", config.devices[desctop.device_id].height/2-31);
 	
+
+
+
 	getImageBase64( url, function (data) {
 		d3.selectAll(".image_smile."+object_id)
       		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
@@ -838,7 +847,7 @@ function change_step(obj) {
 			
 			if ($(".library_font div").length==0) setup_font();
 			
-			if ($(".svg_camera").find('image').length==0) set_material_default();
+			if ($(".svg_camera").find('image').length==0) set_check();
 			
 			if ($(".svg_text text").length==0) {
 					set_default_text();	
@@ -848,7 +857,7 @@ function change_step(obj) {
 		}
 		if (id=="4") {
 			if ($(".library_font div").length==0) setup_font();
-			if ($(".svg_camera").find('image').length==0) set_material_default();
+			if ($(".svg_camera").find('image').length==0) set_check();
 			if (!($(".library_color div").length>0)) {
 				setup_colors();
 				setup_patterns();
@@ -865,12 +874,12 @@ function change_step(obj) {
 				setup_backgrounds();
 			}
 			
-			if ($(".svg_camera").find('image').length==0) set_material_default();
+			if ($(".svg_camera").find('image').length==0) set_check();
 				
 		}
 		if (id=="6"){
 			$("#steps_controller-next_but").removeClass("active");
-			if ($(".svg_camera").find('image').length==0) set_material_default();
+			if ($(".svg_camera").find('image').length==0) set_check();
 			if (!($("#right-6 .category_buttons div").length>0)) {
 				setup_smiles();
 			}
@@ -898,14 +907,14 @@ function set_step(obj, id) {
 }
 
 function remove_setting() {
-	
 	$("#price_total").text("");
 	$("#steps_controller-checkout_but").removeClass("active");
 	$("#header-menu li").removeClass("header-menu-active");
 	$("#header-menu-item-1").addClass("header-menu-active");
 	$("#header-menu-item-1").addClass("header-menu-selected");
 	
-	
+	desctop.image_size_width ="";
+	desctop.image_size_height ="";
 	desctop.material_id="";
 	desctop.text= "";
 	desctop.font_pattern_id="";
@@ -915,26 +924,23 @@ function remove_setting() {
 	desctop.font_pattern_id="";
 	desctop.device_name="";
 	desctop.device_color="";
+	desctop.device_id_case = "";
 	desctop.case_id="";
 	desctop.name_case_1="";
 	desctop.name_case_2="";
 	desctop.bg_case="";
+	desctop.bg_id = "";
 	desctop.font_size="";
 	desctop.font_color="";
 	desctop.font_family="";
 	desctop.font_pattern="";
 	desctop.font_x="";
 	desctop.font_y="";
+	desctop.font_width = "";
+	desctop.font_height = "";
 	desctop.font_rotate="";
 	desctop.preview_url="";
-	desctop.smiles = {/*
-			1 : {
-				smile_width: "",
-				smile_height: "",
-				smile_x: "",
-				smile_y: "",
-				smile_rotate:""
-			}*/
+	desctop.smiles = {
 		};
 
 	//Remove
@@ -959,6 +965,7 @@ function remove_setting() {
 
 
 function set_material(material_id) {	
+
 	$("#steps_controller-checkout_but").addClass("active");
 	$("#header-menu-item-2").addClass("header-menu-active");
 	var id_device = config.devices[desctop.device_id].id;
@@ -968,6 +975,9 @@ function set_material(material_id) {
 
 	$(".library-case_row").removeClass("library-case_row-selected");
 	$("#library-case_row-"+material_id).addClass("library-case_row-selected");
+
+	desctop.name_case_1 = $("#library-case_row-"+material_id).find(".library-case_row-block-1").text();
+	desctop.name_case_2 = $("#library-case_row-"+material_id).find(".library-case_row-block-2").text();
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 }
@@ -1006,7 +1016,7 @@ function set_material_color_default(material_id) {
 			for (value in config.materials[id_device][material_id].colors) {
 				var color = config.materials[id_device][material_id].colors[value].color;
 				var cost = config.materials[id_device][material_id].colors[value].cost;
-				var html_text = '<div data-material_id="'+material_id+'" data-cost="'+cost+'" data-material_color="'+value+'" id ="button_material_color-'+value+'" style="background:'+color+'"></div>';
+				var html_text = '<div data-material_id="'+material_id+'" data-cost="'+cost+'" data-material_color="'+value+'" id ="button_material_color-'+value+'" style="background:'+color+'" data-color="'+color+'"></div>';
 				$(".device_colors").append(html_text);
 				
 				if (config.materials[id_device][material_id].colors[value].default==true) {
@@ -1032,12 +1042,20 @@ function set_material_color_default(material_id) {
 }
 
 function set_material_color(material_id, material_color, cost) {
+
+
+
+
 	var id_device = config.devices[desctop.device_id].id;
 	var color_object = config.materials[id_device][material_id].colors[material_color];
 
+
+	desctop.case_id = color_object.id;
+
+
+
 	$(".chech_colors").find("div").removeClass("device_colors-selected");
 
-	
 	
 	svg_mask_container.selectAll("mask").remove();
 	svg_material_body.selectAll("image").remove();
@@ -1045,6 +1063,7 @@ function set_material_color(material_id, material_color, cost) {
 	svg_mask_body.selectAll("rect").remove();
 	
 	
+
 	svg_material_body
 		.append("image")
 			.attr("width", config.devices[desctop.device_id].width+"px")
@@ -1111,7 +1130,10 @@ function set_material_color(material_id, material_color, cost) {
 
 	$("#price_total").text(cost+" Р")
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
+	
 	$("#button_material_color-"+material_color).addClass("device_colors-selected");
+
+	desctop.device_color = $("#button_material_color-"+material_color).data("color");
 }
 
 function set_check() {
@@ -1122,7 +1144,7 @@ function set_check() {
 		
 		var html_text = "";
 		
-		html_text+='<div class="library-case_row" id="library-case_row-'+value+'" data-material-id="'+value+'" style="background-image: url('+lib_path+config.materials[id_device][value].lib_img+');">';
+		html_text+='<div class="library-case_row"  id="library-case_row-'+value+'" data-material-id="'+value+'" style="background-image: url('+lib_path+config.materials[id_device][value].lib_img+');">';
 		html_text+='<div class="library-case_row-block-1">'+config.materials[id_device][value].name+'</div>';	
 		html_text+='<div class="library-case_row-block-2">'+config.materials[id_device][value].descr_1+'</div>';	
 		html_text+='<div class="library-case_row-block-3">'+config.materials[id_device][value].descr_2+'</div>';	
@@ -1139,10 +1161,13 @@ function set_check() {
 }
 
 function set_device(device_id) {
+
 	$("#header-menu-item-1").addClass("header-menu-active");
 	remove_setting();
 	desctop.device_id = parseInt(device_id);
 
+	desctop.device_id_case = config.devices[device_id].id;
+	desctop.device_name = config.devices[device_id].name;
 	svg_device.selectAll("image").remove();
 	
 	
@@ -1201,8 +1226,12 @@ function set_smile(smile_id) {
 
 
 function set_bg(bg_id) {
+
 	desctop.bg_id = bg_id;
 	var url = d3.select("#library-background_row-"+bg_id).attr("data-url");
+
+	desctop.bg_case = url;
+
 	svg_background.selectAll("image").remove();
 
 	svg_background
@@ -1261,14 +1290,22 @@ function set_font_color(color_id,color) {
 	$(".library-color_row").removeClass("library-color_row-selected");
 	$('.library-pattern_row').removeClass('library-pattern_row-selected');
 	$("#library-color_row-"+color_id).addClass("library-color_row-selected");
+
+	desctop.font_pattern = "";
+	desctop.font_color = color;
 }
 
 function set_font_pattern(font_pattern_id) {
+
 	$("#header-menu-item-4").addClass("header-menu-active");
 
 	desctop.font_pattern_id = font_pattern_id;
+
 	
 	var url = d3.select('#library-pattern_row-' + font_pattern_id).attr("data-url");
+
+	desctop.font_pattern = url;
+	desctop.font_color = "";
 	
 	svg_mask_container.selectAll("pattern").remove();
 
@@ -1349,8 +1386,7 @@ var getImageBase64 = function (url, callback) {
 
 function save_image() {
 	
-	$(".svg_controls").css("display","none");
-	
+
 	var svg = document.querySelector("svg");
 	var svgData = new XMLSerializer().serializeToString( svg );
 
@@ -1385,9 +1421,44 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
+				desctop.preview_url = data;
+
+				desctop.image_size_width = img.width;
+				desctop.image_size_height = img.height;
+
+				var text_width = $(".svg_text text").width();
+				var text_height = $(".svg_text text").height();
+				var text_x = parseFloat($(".svg_text text").attr("x"));
+				var text_y =parseFloat($(".svg_text text").attr("y"));
+
+				desctop.font_x = text_x-text_width/2;
+				desctop.font_y = text_y-text_height/2;
+				desctop.font_width = text_width;
+				desctop.font_height = text_height;
+				desctop.font_rotate = $(".control_text.rotate_button").data("rotate");
+
+				$(".svg_smiles image").each(function(){
+					var id = $(this).attr("id");
+
+
+					var element = {
+						smile_width: $(this).width(),
+						smile_height: $(this).height(),
+						smile_x: $(this).attr("x"),
+						smile_y: $(this).attr("y"),
+						smile_rotate: $(".control_smile.rotate_button."+id).attr("data-rotate"),
+						smile_url: $(this).data("url")
+					}
+
+					desctop.smiles[id]= element;
+
+					console.log(desctop.smiles)
+
+				});
+
 				/*sweetAlert("Успешно", data, "success");*/
-				alert(JSON.stringify(desctop));
-				/*
+			
+				
 				$.ajax({ 
 					type: "POST", 
 					url: "main/add_to_cart",
@@ -1402,7 +1473,7 @@ function save_image() {
 						sweetAlert("Ошибка", data, "error");
 					}
 				});
-				*/
+				
 			},
 			fail: function(data){
 
@@ -1412,9 +1483,7 @@ function save_image() {
 		});
 		
 	
-		$(".svg_controls").css("display","block");
-
-
+	
 
 
 

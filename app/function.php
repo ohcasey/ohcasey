@@ -1,5 +1,5 @@
 <?php
-
+global $config;
 function styles_setup($config){
 
     $path = $config["desctop_font_path"];
@@ -17,21 +17,41 @@ function styles_setup($config){
     }
 }
 
+
+function get_cost_case($id_case, $config, $id_phone) {
+    $cost = 0;
+    $count = count($config["materials"][$id_phone]); 
+    for ($i=0; $i<$count; $i++) {
+        $colors_var = $config["materials"][$id_phone][$i]["colors"];
+        $count2 = count( $colors_var); 
+       
+        for ($j=0; $j<$count2; $j++) {
+            if ($colors_var[$j]["id"]==$id_case) {
+                $cost = $colors_var[$j]["cost"];
+                break 2;
+            }
+        }
+
+    }
+
+    return $cost;
+}
+
+
 function get_config($config){
     $result =  json_encode($config, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
     echo $result;
 }
 
-
-
-
 function add_to_cart() {
     if(isset($_POST['desctop'])) {
+
         print_r($_POST['desctop']);
         $array =  json_decode($_POST['desctop'], true);
+
         if (isset($_SESSION['items'])) {
             array_push($_SESSION['items'], $array);
-        }else{
+        } else {
             $_SESSION['items'] = array($array);
         }
         
@@ -40,6 +60,19 @@ function add_to_cart() {
     }  
 }
 
+function remove_item() {
+    if ((isset($_POST['item'])) && (isset($_SESSION['items']))) { 
+        $k =  (int) $_POST['item'];
+        
+
+        unset($_SESSION['items'][$k]); 
+   
+
+       print_r($_SESSION['items']);
+    }else{
+        echo $data['errors'] = "Элемента не существует";
+    }
+}
 
 
 function save_img(){

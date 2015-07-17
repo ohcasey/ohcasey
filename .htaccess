@@ -6,6 +6,22 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php [L]
 
+
+
+# Установите директорию хранения сессий для сайта с помощью session.save_path.
+
+
+# Установите максимальное время жизни сессии в секундах.
+# 604800 - 1 неделя.
+php_value session.gc_maxlifetime 604800
+
+# Установите время жизни cookie, которая сохраняет идентификатор сессии
+# в браузере пользователя.
+php_value session.cookie_lifetime 604800
+
+
+
+
 <ifModule mod_headers.c>
     # Все html и htm файлы будут храниться в кэше браузера один день
     <FilesMatch "\.(html|htm)$">
