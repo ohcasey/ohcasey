@@ -8,8 +8,8 @@
 				</span>
 			</a>
 			<div id="price">
-				<div id="phone_model"></div>
-				<div id="price_total"></div>
+				<div id="phone_model" class="<?php  if ($controller_name=="cart") {		echo 'cart_name_price';	}?>"></div>
+				<div id="price_total" class="<?php  if ($controller_name=="cart") {		echo 'cart_name_price';	}?>"></div>
 				<div id="price-point"></div>
 			</div>
 			<a id="left_menu-shipping" title="О доставке">О ДОСТАВКЕ</a>

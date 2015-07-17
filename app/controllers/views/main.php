@@ -182,7 +182,6 @@
 			<div class="right_menu_title">Выберите шрифт</div>
 			<div class="library_2 ">
 				<div class="library_in library_font">
-					
 				</div>
 			</div>
 		</div>
@@ -190,14 +189,12 @@
 			<div class="right_menu_title">Выберите цвет</div>
 			<div class="library_3">
 				<div class="library_in library_color">
-								
-							</div>
+				</div>
 			</div>
 			<div class="right_menu_title_2">или<br>Выберите паттерн</div>
 			<div class="library_4">
 				<div class="library_in library_pattern">
-								
-						</div>
+				</div>
 			</div>
 		</div>
 		<div id="right-5" class="right_content_block" style="display: none;">
@@ -214,8 +211,8 @@
 			</div>
 		</div>
 		<div id="steps_controller">
-			<div id="steps_controller-checkout_but"><div>ЗАКАЗАТЬ</div></div>
-			<div id="steps_controller-next_but" class=" active"><div>ДАЛЕЕ</div></div>
+			<div id="steps_controller-checkout_but"><div title="Заказать">ЗАКАЗАТЬ</div></div>
+			<div id="steps_controller-next_but" class=" active"><div title="Далее">ДАЛЕЕ</div></div>
 		</div>
 	</div>
 </div>
