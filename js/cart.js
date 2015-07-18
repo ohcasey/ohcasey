@@ -3,22 +3,39 @@ function preparing_html() {
 	var html_height = $(document).height();
 	
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
+	
+	
+
+
+	var count = $(".cart_item_block").length;
+
+	if (((count>2) && (html_width<1200))||((count>1) && (html_width>=1200))) {
+		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
+	}else{
+		$(".ps-scrollbar-y-rail").remove();
+		$(".ps-container").removeClass("ps-container");
+	}
+	
+
+	$(".ps-container .ps-scrollbar-x-rail").remove();
+
+
 }
 
 $(window).resize(function(){
 	preparing_html();
 
-	var count = $(".cart_item_block").length;
-
-	if (count>2){
-		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
-	}
-	
-
-	$(".ps-container .ps-scrollbar-x-rail").remove();
 })
 
-preparing_html();
+
+$(document).on('click','.checkbox_item input.disabled', function(event){
+	event.preventDefault();
+});
+
+$(document).on('change','.checkbox_item input.disabled', function(event){
+	event.preventDefault();
+});
+
 
 $(document).on('click',".checkbox_item input", function(){
 	$(this).parent().parent().find("input").removeClass("error");
@@ -32,17 +49,54 @@ $(document).on("focus", ".item_important", function(){
 	$(this).removeClass("error");
 });
 
-$(document).on('click','input.disabled', function(event){
-	event.preventDefault();
-});
 
-
-$(document).on('input','.city', function(){
+$(document).on('click',".result_city span", function(){
+	$(".city").val($(this).text());
+	$(".result_city").find("span").remove();
+	
 	reset_city_depend();
 });
 
 
+
+
+$(document).on('input','.city', function(){
+	$(".result_city").find("span").remove();
+	$.ajax({ 
+		type: "POST", 
+		url: "cart/get_city",
+		dataType: 'text',
+		data: {
+			string : $(".city").val()
+		},
+		success: function(data)
+			{		
+					
+				if (data!=false){
+					var result = JSON.parse(data);
+					console.log(result);
+					for (var i = 0; i < result.length; i++) {
+
+   						 $(".result_city").append("<span>"+result[i][0]+"</span>");
+   						 $('.result_city').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
+					}
+
+				}
+				
+			},
+		fail: function(data){
+					
+					}
+	});
+	reset_city_depend();
+	
+});
+
+
+
+
 var breakpoint_delete = true;
+
 $(document).on('click',".cart_item_block__close", function(){
 
 	if (breakpoint_delete==false) return;
@@ -85,6 +139,7 @@ $(document).on('click',".cart_item_block__close", function(){
 
 							$("#cart").html("<span><span class='cart_count'>"+count+"</span> "+text+"</span>");
 							reset_cost_total();
+							preparing_html();
 							breakpoint_delete==true;
 						
 					},
@@ -99,13 +154,16 @@ $(document).on('click',".cart_item_block__close", function(){
 });
 
 
+
+
 $(document).on('change','input[name="deliver"]', function(){
 
 	var delivery_cost = $(this).data("delivery");
-
 	$(".delivery_cost").text(delivery_cost+" рублей").attr("data-delivery",delivery_cost);
 
 	$('input[name="payment"]').removeClass("disabled");
+	$('input[name="payment"]').prop({"disabled": false, "readonly": false });
+
 
 	$(".cart_item.adress")
 			.addClass("item_important")
@@ -127,15 +185,18 @@ $(document).on('change','input[name="deliver"]', function(){
 		var radio_vs = $('input[name="payment"]:checked').val();
 
 		if (radio_vs === "cash") {
-			$('input[name="payment"]:checked').prop("checked","");
+			$('input[name="payment"]:checked').prop("checked",false);
+
 		}
 
 		$(".checkbox_item.cash input").addClass("disabled");
+		$('.checkbox_item.cash').prop({"disabled": true, "readonly": true });
 	}
 
 	reset_cost_total();
-	
 });
+
+
 
 $(document).on('keydown',".phone", function(){
         // Разрешаем: backspace, delete, tab и escape
@@ -193,11 +254,7 @@ $(document).ready(function(){
 	reset_cost_total();
 	reset_city_depend();
 	
-	var count = $(".cart_item_block").length;
-
-	if (count>2){
-		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
-	}
+	preparing_html();
 	
 
 	$(".ps-container .ps-scrollbar-x-rail").remove();
@@ -226,26 +283,47 @@ function reset_city_depend(){
 
 	var city = $(".cart_item.city").val();
 	
-
-	console.log(city);
-
-	if (city=="Москва") {
-		$('input[name="deliver"]').removeClass("disabled");
-	}else{
-		$('#self, #kur_mos').addClass("disabled");
-	}
-
 	var radio_val = $('input[name="deliver"]:checked').val();
 
 	if ((radio_val=="kur_mos") || (radio_val=="self")) { 
-		$('input[name="deliver"]:checked').prop("checked","");
+
+		var delivery_cost = 0;
+		$(".delivery_cost").text(delivery_cost+" рублей").attr("data-delivery",delivery_cost);
+			reset_cost_total();
+
+
+		$('input[name="deliver"]:checked').prop("checked",false);
 		var radio_vs = $('input[name="payment"]:checked').val();
 
+		
+
 		if (radio_vs === "cash") {
-			$('input[name="payment"]:checked').prop("checked","");
+			$('input[name="payment"]:checked').prop("checked",false);
+
 		}
 
 		$(".checkbox_item.cash input").addClass("disabled");
+		$('.checkbox_item.cash input').prop({"disabled": true, "readonly": true });
 	}
 
+	if ((city=="Москва") || (city=="москва")) {
+		$('input[name="deliver"]').removeClass("disabled");
+		$('input[name="deliver"]').prop({"disabled": false, "readonly": false });
+	}else{
+		$('#self, #kur_mos').addClass("disabled");
+		$('#self, #kur_mos').prop({"disabled": true, "readonly": true });		
+	}
 }	
+
+
+jQuery(function($){
+	$(document).mouseup(function (e){ // событие клика по веб-документу
+		var div = $(".result_city"); // тут указываем ID элемента
+		if (!div.is(e.target) // если клик был не по нашему блоку
+		   && (div.has(e.target).length === 0)
+			) {
+			$(".result_city").find("span").remove();
+			
+		}
+	});
+});
