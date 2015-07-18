@@ -9,7 +9,7 @@ $pages= array("main","cart");
 
 global $subfunctions;
 
-$subfunctions= array("main" =>array("get_data", "save_img", "add_to_cart"), "cart" =>array("remove_item"));
+$subfunctions= array("main" =>array("get_data", "save_img", "add_to_cart"), "cart" =>array("remove_item", "confirm_order", "get_city"));
 
 //конфиги девайсов
 global $config;

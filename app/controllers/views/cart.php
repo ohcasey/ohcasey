@@ -5,17 +5,9 @@
 		 <div class="cart_items_block"  >
 		<?php // print_r($_SESSION['items']) 
 			if (isset($_SESSION['items'])) {
-				$count = count($_SESSION['items']);
-
-
-
-
-
 				   foreach ($_SESSION['items'] as $i => $value) {
 				   	$price = get_cost_case($_SESSION['items'][$i]["case_id"], $config, $_SESSION['items'][$i]["device_id_case"]);
 				   	?>
-
-				  
 				   		<div class="cart_item_block" data-cost="<?php echo 	$price; ?>" id="<?php echo $i ;?>" style ="background-image: url(<?php echo $_SESSION['items'][$i]["preview_url"] ;?>);">
 				   			<div class="cache_name_block">
 				   				<span class="library-case_row-block-1"><?php echo $_SESSION['items'][$i]["name_case_1"] ;?></span>
@@ -28,9 +20,7 @@
 				   			<div class="cart_item_block__close"></div>
 				   		</div>
 				   	
-				   	<?php
-				   		//print_r($_SESSION['items'][$i]);
-					      
+				   	<?php      
 				   }
 				
 			}
@@ -62,7 +52,15 @@
 				<input type="text" placeholder = "* Имя, Фамилия" class="cart_item item_important fio">
 				<input type="email" placeholder = "* E-mail" class="cart_item half_item item_important email" >
 				<input type="text" placeholder = "* Телефон" class="cart_item item_right half_item item_important phone">
-				<input type="text" placeholder = "* Город" class="cart_item item_important city" value="Москва">
+				<div class="city_block">
+					<input type="text" placeholder = "* Город" class="cart_item item_important city" value="<?php echo get_city(); ?>" autocomplete="off">
+				
+					<div class = "result_city">
+
+					</div>
+				
+				</div>
+			
 				<textarea placeholder="Адрес" class="cart_item adress"></textarea>
 				<textarea placeholder="Комментарии к заказу" class="cart_item comments"></textarea>
 			</div>

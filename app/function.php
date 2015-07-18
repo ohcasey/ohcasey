@@ -40,7 +40,58 @@ function get_cost_case($id_case, $config, $id_phone) {
 
 function get_config($config){
     $result =  json_encode($config, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+    $result = preg_replace_callback(
+                '/\\\\u([0-9a-f]{4})/i',
+                function ($matches) {
+                    $sym = mb_convert_encoding(
+                        pack('H*', $matches[1]),
+                        'UTF-8',
+                        'UTF-16'
+                    );
+                    return $sym;
+                },
+                $result 
+            );
     echo $result;
+}
+
+
+function get_city() {
+    $ipinfo = get_ip_info($_SERVER['REMOTE_ADDR']);
+    return $ipinfo->city; // город
+
+}
+
+
+function get_ip_info($ip)
+{
+    $postData = "
+        <ipquery>
+            <fields>
+                <all/>
+            </fields>
+            <ip-list>
+                <ip>$ip</ip>
+            </ip-list>
+        </ipquery>
+    "; 
+ 
+    $curl = curl_init(); 
+ 
+    curl_setopt($curl, CURLOPT_URL, 'http://194.85.91.253:8090/geo/geo.html'); 
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $postData); 
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); 
+ 
+    $responseXml = curl_exec($curl);
+    curl_close($curl);
+ 
+    if (substr($responseXml, 0, 5) == '<?xml')
+    {
+        $ipinfo = new SimpleXMLElement($responseXml);
+        return $ipinfo->ip;
+    }
+ 
+    return false;
 }
 
 function add_to_cart() {
@@ -131,8 +182,64 @@ function save_img(){
     }
 }
 
+
+function mysqlconnect(){
+
+    if (gethostname() === "dmitry-HP-Pavilion-dv7-Notebook-PC") {
+        $dbhost = "localhost"; 
+        // Имя пользователя базы данных 
+        $dbuser = "root"; 
+            // и его пароль 
+        $dbpass = "as210100"; 
+            // Имя базы данных, на хостинге или локальной машине 
+        $dbname = "cities"; 
+    }else{
+        $dbhost = "mysql.server"; 
+        // Имя пользователя базы данных 
+        $dbuser = "u11014_ohcasey"; 
+            // и его пароль 
+        $dbpass = "ohcasey"; 
+            // Имя базы данных, на хостинге или локальной машине 
+        $dbname = "u11014_ohcasey"; 
+    }
+
+  
+
+    $db = @mysql_connect($dbhost, $dbuser, $dbpass) or die(mysql_error()); 
+    if (!$db) { 
+        exit ("<P>Сервер базы данных не доступен</P>" ); 
+    } 
+    if (!@mysql_select_db($dbname, $db)) { 
+        exit( "<P>База данных $dbname не доступна</P>" ); 
+    }
+    mysql_query('SET NAMES utf8 COLLATE utf8_general_ci');
+    return $db;
+}
    
 
+function get_city_input($string) {
+    $db =  mysqlconnect();
+    $query = mysql_query("SELECT name FROM city WHERE country_id = 3159 AND name Like '$string%' LIMIT 20") or die(mysql_error());
+    mysql_close($db);
+    $array = array();
+    while ($value = mysql_fetch_array($query)) {
+        array_push($array, $value);
+    }
+    $result = json_encode( $array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+      $result = preg_replace_callback(
+                '/\\\\u([0-9a-f]{4})/i',
+                function ($matches) {
+                    $sym = mb_convert_encoding(
+                        pack('H*', $matches[1]),
+                        'UTF-8',
+                        'UTF-16'
+                    );
+                    return $sym;
+                },
+                $result 
+            );
+    echo $result;
+}
 
 
 function base64DataUri($sFile)

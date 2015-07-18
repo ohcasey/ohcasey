@@ -1,13 +1,6 @@
 <?php
 		//main
-	if ($controller_name == "404") {	
-		//404
-		if ($action_name=="main" ) {
-			include("views/main.php");
-		}
-		return;
-	}
-
+	
 	//
 	if (isset($_SESSION['items'])) {
 		$count_tov = count($_SESSION['items']);
@@ -30,6 +23,14 @@
 		$count_text = "Товаров";
 	}
 
+	
+	if ($controller_name == "404") {	
+		//404
+		if ($action_name=="main" ) {
+			include("views/main.php");
+		}
+		return;
+	}
 
 	if ($controller_name == "main") {	
 		if ($action_name=="main" ) {
@@ -53,6 +54,31 @@
 
 		if ($action_name=="remove_item" ) {
 			remove_item();
+		}
+
+		if ($action_name=="get_city") {
+			if (isset($_POST['string'])) {
+
+				$string = $_POST['string'];
+				
+				get_city_input($string);
+			}else{
+				$array = array();
+				$result = json_encode($array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP  );
+				$result = preg_replace_callback(
+                '/\\\\u([0-9a-f]{4})/i',
+		                function ($matches) {
+		                    $sym = mb_convert_encoding(
+		                        pack('H*', $matches[1]),
+		                        'UTF-8',
+		                        'UTF-16'
+		                    );
+		                    return $sym;
+		                },
+               		$result 
+           		 );
+				echo $result;
+			}
 		}
 	}
 
