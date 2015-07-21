@@ -272,6 +272,9 @@
 	
 	</div>
 </div>
+<div class="overlay-inspire">
+	<div class="overlay-inspire__overlay"></div>
+</div>
 </body>
 <script type="text/javascript" src="js/d3.min.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>

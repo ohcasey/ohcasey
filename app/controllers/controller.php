@@ -49,6 +49,8 @@
 	if ($controller_name == "cart") {	
 		//cart
 		if ($action_name=="main" ) {
+			
+			$city = get_city();
 			include("views/cart.php");
 		}
 
@@ -79,6 +81,10 @@
            		 );
 				echo $result;
 			}
+		}
+
+		if ($action_name=="confirm_order" ) {
+			get_mail($config);
 		}
 	}
 

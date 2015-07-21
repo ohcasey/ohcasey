@@ -18,8 +18,6 @@ function preparing_html() {
 	
 
 	$(".ps-container .ps-scrollbar-x-rail").remove();
-
-
 }
 
 $(window).resize(function(){
@@ -115,29 +113,7 @@ $(document).on('click',".cart_item_block__close", function(){
 							console.log(data);
 
 							$("#"+id).remove();
-							var count=$(".cart_item_block").length;
 							
-							var text;
-							if (count==0) {
-								text = "Товаров";
-							}
-							if (count==1) {
-								text = "Товар";
-							}
-
-
-							if ((count>=2) &&(count<5)) {
-								text = "Товара";
-							}
-							if (count>=5) {
-								text = "Товаров";
-							}
-
-							if (count<3){
-
-							}
-
-							$("#cart").html("<span><span class='cart_count'>"+count+"</span> "+text+"</span>");
 							reset_cost_total();
 							preparing_html();
 							breakpoint_delete==true;
@@ -247,6 +223,37 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 		breakpoint=false;
 	}
 
+
+	if ((breakpoint==true) && ($(".cart_item_block").length>0)) {
+		$("input,textarea").removeClass("error");
+
+		$(".cart_item_block").remove();
+		reset_cost_total();
+
+
+		$.ajax({
+		  type: "POST",
+		  dataType: "json",
+		  url: "cart/confirm_order",
+		  data: {
+		  	fio : $(".fio").val(),
+		  	email : $(".email").val(),
+		  	phone : $(".phone").val(),
+		  	city : $(".city").val(),
+		  	adress : $(".adress").val(),
+		  	comments : $(".comments").val(),
+		  	deliver: $('input[name="deliver"]:checked').attr("id"),
+		  	payment : $('input[name="payment"]:checked').attr("id")
+		  },
+		  success: function(data){
+		  	sweetAlert("Успешно", data, "success");
+		  },
+		  fail: function(data){
+		  	sweetAlert("Ошибка", data, "error");
+		  }
+	  	});
+	}
+	
 });
 
 
@@ -260,9 +267,41 @@ $(document).ready(function(){
 	$(".ps-container .ps-scrollbar-x-rail").remove();
 	$("#phone_model").append("Итого");
 	$('.phone').mask('+7 (999) 999-99-99');
+
+	$('input,textarea').focus(function(){
+	   $(this).data('placeholder',$(this).attr('placeholder'))
+	   $(this).attr('placeholder','');
+ 	});
+	 $('input,textarea').blur(function(){
+	   $(this).attr('placeholder',$(this).data('placeholder'));
+	 });
 });
 
 function reset_cost_total() {
+
+	var count=$(".cart_item_block").length;
+							
+							var text;
+							if (count==0) {
+								text = "Товаров";
+							}
+							if (count==1) {
+								text = "Товар";
+							}
+
+
+							if ((count>=2) &&(count<5)) {
+								text = "Товара";
+							}
+							if (count>=5) {
+								text = "Товаров";
+							}
+
+							
+
+							$("#cart").html("<span><span class='cart_count'>"+count+"</span> "+text+"</span>");
+
+	
 	var cost =0;
 	$(".cart_item_block").each(function(){
 		cost+=$(this).data("cost");
@@ -280,7 +319,6 @@ function validateEmail(email) {
 }
 
 function reset_city_depend(){
-
 	var city = $(".cart_item.city").val();
 	
 	var radio_val = $('input[name="deliver"]:checked').val();
@@ -327,3 +365,5 @@ jQuery(function($){
 		}
 	});
 });
+
+

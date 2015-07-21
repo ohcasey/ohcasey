@@ -49,19 +49,18 @@
 		<div id="right-1" class="right_content_block">
 			<div class="right_menu_title">Заполните форму заказа</div>
 			<div class="right_item"> 
-				<input type="text" placeholder = "* Имя, Фамилия" class="cart_item item_important fio">
-				<input type="email" placeholder = "* E-mail" class="cart_item half_item item_important email" >
-				<input type="text" placeholder = "* Телефон" class="cart_item item_right half_item item_important phone">
+				<input type="text" placeholder = "* Имя, Фамилия" class="cart_item item_important fio" value="<?php  if (isset($_SESSION['fio'])) { echo $_SESSION['fio'];}?>">
+				<input type="email" placeholder = "* E-mail" class="cart_item half_item item_important email" value="<?php  if (isset($_SESSION['email'])) { echo $_SESSION['email'];}?>">
+				<input type="text" placeholder = "* Телефон" class="cart_item item_right half_item item_important phone" value="<?php  if (isset($_SESSION['phone'])) { echo $_SESSION['phone'];}?>">
 				<div class="city_block">
-					<input type="text" placeholder = "* Город" class="cart_item item_important city" value="<?php echo get_city(); ?>" autocomplete="off">
+					<input type="text" placeholder = "* Город" class="cart_item item_important city" value="<?php echo $city; ?>" autocomplete="off">
 				
 					<div class = "result_city">
-
 					</div>
 				
 				</div>
 			
-				<textarea placeholder="Адрес" class="cart_item adress"></textarea>
+				<textarea placeholder="Адрес" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
 				<textarea placeholder="Комментарии к заказу" class="cart_item comments"></textarea>
 			</div>
 			
@@ -89,15 +88,15 @@
 			<div class="right_item">
 				<div class="right_menu_title_2">Выберите способ оплаты</div>
 				<div class="checkbox_item cash">
-					<input type="radio" name="payment" value="cash"  class="disabled" >
+					<input type="radio" name="payment" value="cash" id = "cash"  class="disabled" >
 					<span >Наличными</span>
 				</div>
 				<div class="checkbox_item sber">
-					<input type="radio" name="payment" value="sber"  class="disabled">
+					<input type="radio" name="payment" value="sber" id = "sber"  class="disabled">
 					<span >Картой сбербанка</span>
 				</div>
 				<div class="checkbox_item robocassa">
-					<input type="radio" name="payment" value="robocassa" class="disabled">
+					<input type="radio" name="payment" value="robocassa" id = "robocassa" class="disabled">
 					<span >Робокасса</span>
 				</div>
 			</div>
