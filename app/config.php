@@ -36,6 +36,22 @@ $config = array(
 			"chech_material_path" =>'img/materials/chech/',
 			"material_mask_path"=>"img/materials/mask/"	,
 			"material_mask_camera"=>"img/materials/camera/",
+			"inspire_path"=>"img/inspire/",
+		//Картинки inspire
+		"inspire" => array(
+			"pict1" => "bg1.jpg",
+			"pict2" => "bg1.jpg",
+			"pict3" => "bg1.jpg",
+			"pict4" => "bg1.jpg",
+			"pict5" => "bg1.jpg",
+			"pict6" => "bg1.jpg",
+			"pict7" => "bg1.jpg",
+			"pict8" => "bg1.jpg",
+			"pict9" => "bg1.jpg",
+			"pict10" => "bg1.jpg",
+			"pict11" => "bg1.jpg",
+		),
+
 		//Девайсы (номер => девайс)
 		"devices"=>array(
 			array(
@@ -150,6 +166,7 @@ $config = array(
 				array(
 					"name" => "Crystal clear",
 					"descr_1" => "Прозрачный",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"descr_2" => "Полностью прозрачный",
 					"lib_img" => "iphone6_transparent_plastic_icon.png",
 					"default"=>true,
@@ -270,6 +287,7 @@ $config = array(
 					"descr_1" => "Прозрачный",
 					"descr_2" => "Полностью прозрачный",
 					"lib_img" => "iphone6_0003s_0002_gold.png",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"default"=>true,
 					"colors"=> array(
 									array(		

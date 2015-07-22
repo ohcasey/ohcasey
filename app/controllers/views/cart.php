@@ -101,13 +101,14 @@
 				</div>
 			</div>
 		</div>
+
+	</form>
+</div>
+<div id ="footer"></div>
 		<div id="steps_controller">
 			<div id="steps_controller-checkout_but" class="active make_more"><div><a title="Сделать еще" href="/">Сделать еше</a></div></div>
 			<div id="steps_controller-next_but" class=" active cart_item"><div title="Оформить">Оформить</div></div>
 		</div>
-	</form>
-</div>
-<div id ="footer"></div>
 </body>
 
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>

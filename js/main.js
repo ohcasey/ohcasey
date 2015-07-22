@@ -5,10 +5,15 @@ function preparing_html() {
 	var html_width = $("body").width();
 	var html_height = $(document).height();
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
+	to_down_of_page();
 }
 
 $(window).resize(function(){
 	preparing_html();
+	to_down_of_page();
+});
+$(window).scroll(function(){
+	to_down_of_page();
 })
 
 preparing_html();
@@ -85,6 +90,29 @@ var cur_step=1;
 
 var config = {}; //Return config
 
+$(document).on('click','#gallery_but', function(event){
+	var path = config["inspire_path"];
+	$(".overlay-inspire").addClass("active");
+	if (($("#pict1").prop("src") != "") || ($("#pict1").prop("src") !=(path+config["inspire"]["pict1"])) || ($("#pict1").prop("src") == null) || ($("#pict1").prop("src") == undefined) || ($("#pict1").prop("src") == window.location.href)) {
+		
+		 
+	for (var i = 1; i <= Object.keys(config["inspire"]).length; i++) {
+		$("#pict"+i).prop("src",path+config["inspire"]["pict"+i] );
+		
+	};
+
+
+
+	}
+});
+
+$(document).on('click','.back_block', function(event){
+	$(".overlay-inspire").removeClass("active");
+});
+
+
+
+
 
 $(document).on("click", "#steps_controller-checkout_but" , function(){
 
@@ -130,6 +158,7 @@ $(document).on("click",".no_button", function(){
 
 $(document).on("click",".yes_device", function(){
 	$(".alert_block").removeClass("active");
+	$(".svg_device").css("display","block");
 	remove_setting(); 
 	set_step($("#header-menu-item-1"), 1);
 });
@@ -205,11 +234,11 @@ $(document).on("click", "#right-5 .library_tab_but" , function(){
 		$('#library_backgrouds-' + id).show();
 });
 
-$(document).on("click", "#info_block-5 .icon-close" , function(){
+$(document).on("click", ".icon-close" , function(){
 	svg_background.selectAll("image").remove();
 	desctop.bg_case = "";
 	$(".library-background_row").removeClass("library-background_row-selected");
-	$("#info_block-5 .icon-close").css("display","none");
+	$(".icon-close").css("display","none");
 });
 
 
@@ -217,6 +246,7 @@ $(document).on("click", "#info_block-5 .icon-close" , function(){
 $(document).ready(function() {
 	preparing_html();
 	preparing_data();
+
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
@@ -487,17 +517,7 @@ function setup_backgrounds() {
 				}
 			}
 		
-		/*
-			
-									<div class="library-background_row" style="background-image: url(img/backgrounds/1/bg1.jpg);" id="library-background_row-1" data-url="img/backgrounds/1/bg1.jpg" data-bg-id="1"></div>
-									<div class="library-background_row" style="background-image: url(img/backgrounds/1/bg1.jpg);" id="library-background_row-2" data-url="img/backgrounds/1/bg1.jpg" data-bg-id="2"></div>
-									<div class="library-background_row library-background_row-last" style="background-image: url(img/backgrounds/1/bg1.jpg);" data-url="img/backgrounds/1/bg1.jpg" id="library-background_row-3" data-bg-id="3"></div>
-									<div class="library-background_row library-background_row-first" style="background-image: url(img/backgrounds/1/bg1.jpg);" data-url="img/backgrounds/1/bg1.jpg" id="library-background_row-4" data-bg-id="4"></div>
-									<div class="library-background_row" style="background-image: url(img/backgrounds/1/bg1.jpg);" id="library-background_row-5" data-url="img/backgrounds/1/bg1.jpg" data-bg-id="5"></div>
-							
-		
-		
-		*/
+	
 		
 			html_text+="</div></div>";
 		$("#right-5").append(html_text);
@@ -517,7 +537,7 @@ function setup_backgrounds() {
 	if ($("body").width()<1980) {
 		$(".library-backgrouds").css("top", 50+$("#right-5 .category_buttons").height()+"px");
 	}else{
-		$(".library-backgrouds").css("top", 100+$("#right-5 .category_buttons").height()+"px");	
+		$(".library-backgrouds").css("top", 85+$("#right-5 .category_buttons").height()+"px");	
 	}
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
@@ -688,6 +708,7 @@ function set_smiles_image(url) {
 	object_id = randomHash(10);
 
 	svg_smiles.append("image")
+								.attr("preserveAspectRatio", "xMidYMid slice")
 								.classed("image_smile", true)
 								.attr("data-object_id", object_id)
 								.attr("data-url", url)
@@ -838,7 +859,7 @@ function change_step(obj) {
 				
 		set_step(obj, id);
 
-		
+		$(".svg_device").css("display","none");
 		if (id=="2") {
 			if (!($(".library_check div").length>0)) {
 				set_check();
@@ -955,6 +976,7 @@ function remove_setting() {
 	svg_controls.selectAll('circle').remove();
 	svg_background.selectAll("image").remove();
 	svg_mask_body.selectAll("rect").remove();
+	svg_mask_body.selectAll("image").remove();
 	svg_material_body.selectAll("image").remove();
 	svg_camera.selectAll("image").remove();
 	svg_smiles.selectAll("image").remove();
@@ -963,7 +985,7 @@ function remove_setting() {
 	$(".library-smile_row").removeClass("library-smile_row-selected");
 	$(".library-color_row").removeClass("library-color_row-selected");
 	$('.library-pattern_row').removeClass('library-pattern_row-selected');
-	$("#info_block-5 .icon-close").css("display", "none");
+	$(" .icon-close").css("display", "none");
 	
 	$(".library_check").find("div").remove();
 	$(".chech_colors").find("div").remove();
@@ -1048,9 +1070,9 @@ function set_material_color_default(material_id) {
 function set_material_color(material_id, material_color, cost) {
 
 
-
-
 	var id_device = config.devices[desctop.device_id].id;
+
+
 	var color_object = config.materials[id_device][material_id].colors[material_color];
 
 
@@ -1065,17 +1087,18 @@ function set_material_color(material_id, material_color, cost) {
 	svg_material_body.selectAll("image").remove();
 	svg_camera.selectAll("image").remove();
 	svg_mask_body.selectAll("rect").remove();
+	svg_mask_body.selectAll("image").remove();
 	
 	
 
 	svg_material_body
 		.append("image")
+			.attr("preserveAspectRatio", "xMidYMid slice")
 			.attr("width", config.devices[desctop.device_id].width+"px")
 			.attr("height", config.devices[desctop.device_id].height+"px")
 			//.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
 			.classed("material_body", true);
-	
-	
+
 	var path = config.chech_material_path;
 		
 	
@@ -1084,6 +1107,15 @@ function set_material_color(material_id, material_color, cost) {
 		d3.select(".material_body")
       		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
 	});
+
+
+
+	
+	
+	
+
+
+
 	
 	svg_mask_container
 			.append("mask")
@@ -1099,6 +1131,9 @@ function set_material_color(material_id, material_color, cost) {
 				.attr("width", "100%")
 				.attr("height", "100%")
 				.attr("preserveAspectRatio", "xMidYMid slice");
+
+	
+	
 	
 	var path = config.material_mask_path;
 	
@@ -1111,19 +1146,73 @@ function set_material_color(material_id, material_color, cost) {
 		.append("rect")
 			.attr("width", config.devices[desctop.device_id].width+"px")
 			.attr("height", config.devices[desctop.device_id].height+"px")
-			//.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
 			.classed("mask_body", true)
 			.style("fill","#E8E8E8")
 			.style("mask","url(#mask1)");
+
+
+
+	if ((config.materials[id_device][material_id]["desctop_mask_2"]!= undefined) && (config.materials[id_device][material_id]["desctop_mask_2"]!= 'undefined')) {
+		
+		var path = config.material_mask_path;
+
+		svg_mask_container
+			.append("mask")
+			.attr("id", "mask2")
+			.attr("x", "0")
+			.attr("y", "0")
+			.attr("width", "100%")
+			.attr("height", "100%")
+				.append("image")
+				.classed("mask_image_2", true)
+				.attr("x", "0")
+				.attr("y", "0")
+				.attr("xlink:href", path+config.materials[id_device][material_id]["desctop_mask_2"])
+				.attr("width", "100%")
+				.attr("height", "100%")
+				.attr("preserveAspectRatio", "xMidYMid slice");
+
 	
+		
+		path = config.chech_material_path;
+
+
 	
+		svg_mask_body
+			.append("rect")
+			.attr("width", config.devices[desctop.device_id].width+"px")
+			.attr("height", config.devices[desctop.device_id].height+"px")
+			.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
+			.classed("mask_body", true)
+			.style("fill","#E8E8E8")
+			.style("mask","url(#mask2)");
+			
+			
+
+		alert(path + color_object.desctop_img);
+
+
+		svg_mask_body
+			.append("image")
+				.attr("width", config.devices[desctop.device_id].width+"px")
+				.attr("height", config.devices[desctop.device_id].height+"px")
+				.attr("xlink:href", path + color_object.desctop_img)
+				.classed("mask_body_2", true)
+				.attr("preserveAspectRatio", "xMidYMid slice")
+				.style("mask","url(#mask2)");
+			
+	}
+	
+
+
+
 	var path = config.material_mask_camera;
 	
 	svg_camera
 		.append("image")
+			.attr("preserveAspectRatio", "xMidYMid slice")
 			.attr("width", config.devices[desctop.device_id].width+"px")
 			.attr("height", config.devices[desctop.device_id].height+"px")
-		
 			.classed("camera", true);
 	
 	getImageBase64( path+color_object.desctop_camera, function (data) {
@@ -1187,8 +1276,10 @@ function set_device(device_id) {
 			.attr("height", config.devices[desctop.device_id].height+"px");
 	svg_device
 		.append("image")
+
 			.attr("width", config.devices[desctop.device_id].width+"px")
 			.attr("height", config.devices[desctop.device_id].height+"px")
+			.attr("preserveAspectRatio", "xMidYMid slice")
 			.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
 			.classed("device_image", true);
 	
@@ -1240,6 +1331,7 @@ function set_bg(bg_id) {
 
 	svg_background
 		.append("image")
+			.attr("preserveAspectRatio", "xMidYMid slice")
 			.attr("width", config.devices[desctop.device_id].width+"px")
 			.attr("height", config.devices[desctop.device_id].height+"px")
 			//.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
@@ -1252,7 +1344,7 @@ function set_bg(bg_id) {
 	});
 	$(".library-background_row").removeClass("library-background_row-selected");
 	$("#library-background_row-"+bg_id).addClass("library-background_row-selected");
-	$("#info_block-5 .icon-close").css("display", "block");
+	$(".icon-close").css("display", "block");
 	
 	//Append mask and camera
 	//required data
@@ -1656,7 +1748,10 @@ var drag_smile =  d3.behavior.drag()
 					.on('dragstart', function() {
 						d3.event.sourceEvent.stopPropagation();
 						
+
+
 						d3.selectAll(".control_smile").classed("work", false);
+						d3.selectAll(".control_text").classed("work", false);
 						current_smile = d3.select(this).attr("data-object_id");
 						d3.selectAll(".control_smile."+current_smile).classed("work", true);
 				
@@ -1742,12 +1837,13 @@ var drag_smile =  d3.behavior.drag()
 var drag_text =  d3.behavior.drag() 					
 					.on('dragstart', function() {	
 						d3.event.sourceEvent.stopPropagation();
-						
+
+						d3.selectAll(".control_smile").classed("work",false);
 				
 						newx = parseFloat(d3.select(this).attr("cx"));
 						newy = parseFloat(d3.select(this).attr("cy"));
 						
-						
+						d3.selectAll(".control_smile").classed("work", false);
 						
 						d3.event.sourceEvent.stopPropagation();
 						rotate = d3.select(".control_text.rotate_button").attr("data-rotate");
@@ -1831,11 +1927,12 @@ var drag_smile_rect = d3.behavior.drag()
 						d3.event.sourceEvent.stopPropagation();
 
 						d3.selectAll(".control_smile").classed("work", false);
+
 						current_smile = d3.select(this).attr("data-object_id");
 						d3.selectAll(".control_smile."+current_smile).classed("work", true);
 
 						
-
+						d3.selectAll(".control_text").classed("work",false);
 						rotate = d3.select(".control_smile.rotate_button."+current_smile).attr("data-rotate");
 
 						d3.selectAll("image.image_smile."+current_smile+", .svg_controls rect.control_smile."+current_smile).each(function (d) {
@@ -1922,6 +2019,9 @@ var drag_smile_rect = d3.behavior.drag()
 
 var drag_rect =  d3.behavior.drag() 					
 					.on('dragstart', function() {	
+
+
+						d3.selectAll(".control_smile").classed("work", false);
 						d3.event.sourceEvent.stopPropagation();
 							click_text_control();
 				
@@ -2012,12 +2112,17 @@ var delete_smile = function(){
 	current_smile = "";
 };
 
-function check_alert() {
+
+
+
+function check_alert(event) {
+	if ($(".alert_out_svg").hasClass("active")) return;
 	if (check_coords()===false) {
 		$(".alert_out_svg").addClass("active");
+
 		setTimeout(function() { 
 			$(".alert_out_svg").removeClass("active");
-		}, 2000);
+		}, 1500);
 	}else{
 		$(".alert_out_svg").removeClass("active");
 	}
@@ -2113,11 +2218,14 @@ var drag_stretch =  d3.behavior.drag()
 						var dx = (newx+(d3.event.x-prevx));
 						var dy = (newy+(d3.event.y-prevy));
 						
-						
+						var rotate = parseInt(d3.select(".control_text.rotate_button").attr("data-rotate"));
 						var deltax = dx - newx;
 							
 						var deltay = dy - newy;
 						
+						if ((rotate>120) || (rotate<-30)) {
+							deltay = deltay*(-1);
+						}
 				
 						
 						if ((parseInt(d3.select(".svg_text text").attr("data-font_size"))-deltay)<10) return;
@@ -2172,6 +2280,15 @@ var drag_stretch_smile =  d3.behavior.drag()
 						var deltax = dx - newx;
 							
 						var deltay = dy - newy;
+
+						var rotate = parseInt(d3.select(".control_smile.rotate_button."+current_smile).attr("data-rotate"));
+
+						if ((rotate>40) && (rotate<220)) {
+							deltax = deltax*(-1);
+						}
+				
+
+
 							
 						if (
 							(parseInt(d3.select("image."+current_smile).attr("height"))+deltay)<10		
@@ -2328,3 +2445,11 @@ jQuery(function($){
 		}
 	});
 });
+
+function to_down_of_page() {
+	var browser_height = $(window).height();
+	$("#steps_controller").css("width", $("#right").width());
+	$("#gallery_but").css({"top": (browser_height - 2- $("#gallery_but").height() + $(window).scrollTop()), "visibility":"visible" });
+	$("#steps_controller").css({"top":  (browser_height- 2- $("#steps_controller").height() + $(window).scrollTop()), "visibility": "visible" });
+}
+
