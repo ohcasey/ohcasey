@@ -31,6 +31,7 @@
 
 
 html, body {
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	color: #666;
@@ -321,16 +322,26 @@ body {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 3px;
+	transition: 100ms all linear;
 }
 
+	#cart:hover span{  
+		color: #669AC4;
+	}
 
+#cart:hover{
+	background:  url('../img/icon-bag-hover.png') 94px 7px no-repeat;
+}
 
-#cart:hover {
+#cart:active span {
 	color: #fff;
-	background: #295E93 url('../img/icon-bag-hover.png') 94px 7px no-repeat;
+}
+#cart:active {
+	color: #fff;
+	background: #295E93 url('../img/icon-bag-active.png') 94px 7px no-repeat;
 }
 
-#cart:hover a {
+#cart:active a {
 	color: #fff;
 }
 
@@ -374,7 +385,12 @@ body {
 	cursor: pointer;
 }
 
+
 #left_menu-shipping:hover, #left_menu-help:hover {
+	color: #669AC4;
+}
+
+#left_menu-shipping:active, #left_menu-help:active {
 	color: white;
 	background: #295E93;
 }
@@ -417,7 +433,7 @@ body {
 .library_6, .library_5, .library_2, .library {
 	background: none;
 	height: auto;
-	bottom: 85px;
+	bottom: 60px;
 	top: 100px;
 	position: absolute;
 	overflow: hidden;
@@ -772,25 +788,25 @@ body {
 }
 
 
-
-
-
-#footer {
+#footer, .line_block {
 	height: 7px;
 	background: #669AC4;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	z-index: 10;
 }
 
 #gallery_but {
 	position: absolute;
-	height: 23px;
+	height: 30px;
+	
 	width: 186px;
 	color: #fff;
-	top: -20px;
+	visibility: hidden;
+	
 	background: #669AC4;
-	left: 240px;
+	left: 110px;
 	text-align: center;
 	padding-top: 1px;
 	cursor: pointer;
@@ -805,10 +821,13 @@ body {
 }
 
 #steps_controller {
+	background: #E8E8E8;
+	visibility: hidden;
+	right: 0px;
 	width: 365px;
 	border-top: 2px dotted #669AC4;
 	position: absolute;
-	bottom: 0;
+	
 }
 
 #steps_controller > div {
@@ -1084,16 +1103,26 @@ svg {
 .overlay-inspire {
 	top: 0px;
 	left: 0px;
-	/*opacity: 0;*/
 	z-index: 200;
 	width: 100%;
 	height: 100%;
+	opacity: 0;
+	visibility: hidden;
 	position: fixed;
-
+	transition: all 300ms ease-out;
 }
+
+
+.overlay-inspire.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+
 .overlay-inspire__overlay {
 	position: absolute;
 	left: 0px; top: 0px;
+
 	width: 100%; height: 100%;
 	background: #e3e3e3;
 
@@ -1204,7 +1233,8 @@ text-align: center;
 .alert_write_block {
 	margin: 0 auto;
 	width: 620px;
-	margin-top: 15%;
+	top: 50%;
+	margin-top: -84px;
 
 	position: relative;
 }
@@ -1420,6 +1450,93 @@ text-align: center;
 	background: #295E93;
 	outline: none;
 	border: none;
+}
+
+/*inspire_popup*/
+
+.line_block.top {
+	top: 0px;
+}
+
+.inspire__container {
+	position: relative;
+	width: 940px;
+	margin: 0px auto;
+	overflow: hidden;
+	height: 100%;
+}
+
+.inspire__container .back_block {
+	position: absolute;
+	width: 186px;
+	height: 30px;
+	line-height: 25px;
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	top: 7px;
+	background: #669AC4 ;
+	cursor: pointer;
+	z-index: 100;
+}
+
+.inspire_item_block {
+	margin-top: 20px;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	top: 50%;
+	margin-top: -335px;
+}
+
+.back_block div {
+	position: absolute;
+  background: url('../img/gallery_but.png') 0 0 no-repeat;
+   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform:  rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform:  rotate(180deg);
+  height: 20px;
+  width: 100%;
+  top: 22px;
+}
+
+
+.inspire__container h2 {
+	position: absolute;
+	line-height: 30px;
+	width: 100%;
+	color:  #295e8c;
+	font-size: 18px;/* Приближение из-за подстановки шрифтов */
+	font-weight: normal;
+	text-align: center;
+}
+
+
+.instagram_button {
+	position: absolute;
+	top: 7px;
+	right: 5px;
+	display: block;
+	background: #669AC4 url(../img/inst.png) center no-repeat;
+	width: 130px;
+	height: 50px;
+
+}
+
+.inspire__container  .item {
+	margin: 5px;
+	width: 178px;
+	height: 213px;
+	overflow: hidden;
+	float: left;
+	position: relative;
+	background: #6d6e71;
+}
+
+.inspire__container  .item.big {
+	width: 366px;
 }
 
 
@@ -1936,12 +2053,114 @@ input.cart_item.error,  textarea.cart_item.error{
 	}
 
 	#gallery_but {
-		left: 240px;
+		left: 140px;
 	}
-
-	
 }
+
+
+
+
+
+
+
 @media screen and (min-width:  1979px)  {
+
+.library_6, .library_5, .library_2, .library { 
+
+	    bottom: 80px;
+}
+
+.inspire__container {
+	
+	  width: 1300px;
+}
+
+
+.device_colors.chech_colors {
+	width: 366px;
+}
+
+.inspire__container .back_block {
+	position: absolute;
+	width: 186px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	top: 7px;
+	background: #669AC4 ;
+	cursor: pointer;
+	z-index: 100;
+	left: 40px;
+}
+
+.inspire_item_block {
+	
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	top: 50%;
+	margin-top: -450px;
+}
+
+.back_block div {
+	position: absolute;
+  background: url('../img/gallery_but.png') 0 0 no-repeat;
+   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform:  rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform:  rotate(180deg);
+  height: 20px;
+  width: 100%;
+  top: 22px;
+}
+
+
+.inspire__container h2 {
+	position: absolute;
+	line-height: 40px;
+	width: 100%;
+	color:  #295e8c;
+	font-size: 22px;/* Приближение из-за подстановки шрифтов */
+	font-weight: normal;
+	text-align: center;
+}
+
+
+.instagram_button {
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	display: block;
+	background: #669AC4 url(../img/inst2.png) center no-repeat;
+	width: 180px;
+	height: 50px;
+
+}
+
+.inspire__container  .item {
+	margin: 5px;
+	width: 250px;
+	height: 300px;
+	overflow: hidden;
+	float: left;
+	position: relative;
+	background: #6d6e71;
+}
+
+.inspire__container  .item.big {
+	width: 510px;
+}
+
+
+
+
+
+
+
+
 
 	.result_city span {
 		font-size: 18px;
@@ -2208,8 +2427,18 @@ input.cart_item.error,  textarea.cart_item.error{
 		padding-bottom: 14px;
 	}
 
-	#cart:hover { 
-		background: #295E93 url('../img/icon-bag-hover.png') 147px 13px no-repeat;
+	#cart:hover span{  
+		color: #669AC4;
+	}
+
+	#cart:hover {  
+		color: #669AC4;
+		background: url('../img/icon-bag-hover.png') 147px 13px no-repeat;
+	}
+
+
+	#cart:active { 
+		background: #295E93 url('../img/icon-bag-active.png') 147px 13px no-repeat;
 	}
 
 	#price-point {
@@ -2238,7 +2467,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	  width: 286px;
 	  color: #fff;
 	  top: -30px;
-	  left: 230px;
+	  left: 115px;
 	}
 
 	#gallery_but-point {

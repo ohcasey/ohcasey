@@ -77,6 +77,7 @@
 			</div>
 			<div class="info_block" id="info_block-3" style="display: none;">
 				<div class="icon-question" data-answer-id="3"></div>
+				<div class="icon-close"></div>
 				<div class="answer_block" id="answer_block-3">
 					<div class="info_block-row">
 						<div class="info_block-point"></div>
@@ -97,6 +98,7 @@
 			</div>
 			<div class="info_block" id="info_block-4">
 				<div class="icon-question" data-answer-id="4"></div>
+				<div class="icon-close"></div>
 				<div class="answer_block" id="answer_block-4">
 					<div class="info_block-row">
 						<div class="info_block-point"></div>
@@ -210,17 +212,19 @@
 				
 			</div>
 		</div>
-		<div id="steps_controller">
-			<div id="steps_controller-checkout_but"><div title="Заказать">ЗАКАЗАТЬ</div></div>
-			<div id="steps_controller-next_but" class=" active"><div title="Далее">ДАЛЕЕ</div></div>
-		</div>
+		
 	</div>
 </div>
 <div id="footer">
-	<div id="gallery_but">
+	
+</div>
+<div id="gallery_but">
 		<div id="gallery_but-point"></div>
 		ВДОХНОВИТЬСЯ
-	</div>
+</div>
+<div id="steps_controller">
+			<div id="steps_controller-checkout_but"><div title="Заказать">ЗАКАЗАТЬ</div></div>
+			<div id="steps_controller-next_but" class=" active"><div title="Далее">ДАЛЕЕ</div></div>
 </div>
 <div class="alert_write"> 
 	
@@ -274,6 +278,35 @@
 </div>
 <div class="overlay-inspire">
 	<div class="overlay-inspire__overlay"></div>
+	<div class="line_block top"></div>
+	<div class="line_block"></div>
+	<div class="inspire__container">
+		<div class="back_block">
+			вернуться
+			<div></div>
+		</div>
+		<h2>Для большего вдохновения, посетите наш Инстаграм</h2>
+		<a class="instagram_button" href="https://instagram.com/_ohcasey_" title="Наш инстаграм"></a>
+		<div class="inspire_item_block">
+
+			<img class="item" id = "pict1" src="">	
+			<img class="item big" id = "pict2" src="">	
+			<img class="item" id = "pict3" src="">	
+			<img class="item" id = "pict4" src="">	
+
+			<img class="item" id = "pict5" src="">	
+			<img class="item" id = "pict6" src="">	
+			<img class="item" id = "pict7" src="">	
+			<img class="item big" id = "pict8" src="">	
+
+			<img class="item big" id = "pict9" src="">	
+			<img class="item big" id = "pict10" src="">	
+			<img class="item" id = "pict11" src="">	
+		
+
+		</div>
+
+	</div>
 </div>
 </body>
 <script type="text/javascript" src="js/d3.min.js"></script>

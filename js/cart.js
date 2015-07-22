@@ -4,7 +4,7 @@ function preparing_html() {
 	
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 	
-	
+	to_down_of_page();
 
 
 	var count = $(".cart_item_block").length;
@@ -24,6 +24,10 @@ $(window).resize(function(){
 	preparing_html();
 
 })
+
+
+
+
 
 
 $(document).on('click','.checkbox_item input.disabled', function(event){
@@ -366,4 +370,11 @@ jQuery(function($){
 	});
 });
 
+function to_down_of_page() {
+	var browser_height = $(window).height();
 
+
+	$("#steps_controller").css("width", $("#right").width());
+	
+	$("#steps_controller").css({"top":  (browser_height- 2- $("#steps_controller").height() + $(window).scrollTop()), "visibility": "visible" });
+}
