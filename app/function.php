@@ -343,6 +343,11 @@ function get_mail($config){
 
     }  
 
+
+    echo $_SESSION['fio'];
+
+
+
  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
     $zakaz_number=time();
@@ -473,11 +478,10 @@ function get_mail($config){
     $mail->MsgHTML($body);
     $mail->CharSet="utf-8";
 
-    echo "<pre>\n"; 
-    print_r( $_SESSION['items']);
+   
    
 
-    echo $body;
+    
 
 
  
@@ -487,21 +491,56 @@ function get_mail($config){
 
     if(!$mail->send()) {
         
-        echo 'Письмо не отправлено.';
-        echo 'Oшибка письма: ' . $mail->ErrorInfo;
+     //   echo 'Письмо админу не отправлено.';
+      //  echo 'Oшибка письма: ' . $mail->ErrorInfo;
     } else {
-        echo 'Письмо отправлено';
+       // echo 'Письмо админу отправлено';
     }
-   }
 
 
 
-   $_SESSION['items'] = array();
+    /*Варианты выбора*/
+    if ($payment=="cash"){
+        $payment_type = "Наличными";
+
+    }
+
+    if ($payment=="sber"){
+        $payment_type = "Карта сбербанка";
+    }
+
+    if ($payment=="robocassa"){
+        $userId = "Я";
+        $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100', true); //4 убрать
+        /* назначение параметров */
+        $kassa->OutSum       = 500;
+        $kassa->IncCurrLabel = 'WMRM';
+        $kassa->Desc         = 'Тестовая оплата';
+        $kassa->addCustomValues(array(
+            'shp_user' => $userId, // все ключи массива должны быть с префиксом shp_
+            'shp_someData' => 'someValue'
+        ));
+        /* редирект на сайт робокассы */
+        header('Location: ' . $kassa->getRedirectURL());
+    }
+
+
+
+
+
+}else{
+    header("Location: /cart"); 
+}
+
+
+
+  // $_SESSION['items'] = array();
 }    
 
 
 function get_elements_to_admin_mail($config) {
     $cost_cur =0;
+    $cost = 0;
     $count = count($_SESSION['items']); 
 
 
@@ -598,6 +637,110 @@ function url(){
     $_SERVER['SERVER_NAME'],
     $_SERVER['REQUEST_URI']
   );
+}
+
+class Robokassa {
+    private $login, $password1, $password2,
+    $endpoint = 'https://merchant.roboxchange.com/Index.aspx?',
+    $customVars = array();
+    public $OutSum, $Email = false, $InvId = 0, $Desc, $IncCurrLabel = '', $Culture = 'ru'; /* request parameters */
+    /**
+    * Вносит в класс данные для генерации защищенной подписи
+    *
+    * @param string $login логин мерчанта
+    * @param string $pass1 пароль №1
+    * @param string $pass2 пароль №2
+    * @param boolean $test работа с тестовым сервером
+    *
+    * @return none
+    */
+    public function __construct($login, $pass1, $pass2, $test = false)
+    {
+        $this->login = $login;
+        $this->password1 = $pass1;
+        $this->password2 = $pass2;
+        if($test) $this->endpoint = 'http://test.robokassa.ru/Index.aspx?';
+    }
+    /**
+    * Добавление пользовательских значений в запрос
+    *
+    * @param array $vars именованный массив с переменными(названия указывать с суффиксом shp_)
+    * @return none
+    */
+    public function addCustomValues($vars)
+    {
+        if(!is_array($vars)) throw new Exception('Function `addCustomValues` take only array`s');
+        foreach($vars as $k => $v)
+            $this->customVars[$k] = $v;
+    }
+    /**
+    * Получение URL для запроса
+    *
+    * @return string $url
+    */
+    public function getRedirectURL()
+    {
+        $customVars = $this->getCustomValues();
+        $hash = md5("{$this->login}:{$this->OutSum}:{$this->InvId}:{$this->password1}{$customVars}");
+        $invId = ($this->InvId !== '') ? '&InvId=' . $this->InvId : '';
+        $IncCurrLabel = ($this->IncCurrLabel !== '') ? '&IncCurrLabel=' . $this->IncCurrLabel : '';
+        $Email = ($this->Email !== '') ? '&Email=' . $this->Email : '';
+        return $this->endpoint . 'MrchLogin=' . $this->login
+            . '&OutSum=' . (float) $this->OutSum
+            . $invId
+            . '&Desc=' . urlencode($this->Desc)
+            . '&SignatureValue=' . $hash
+            . $IncCurrLabel
+            . $Email
+            . '&Culture=' . $this->Culture
+            . $this->getCustomValues($url = true);
+    }
+    /**
+    * Проверка исполнения операции. Сравнение хеша
+    *
+    * @param string $hash значение SignatureValue, переданное кассой на Result URL
+    * @param boolean $checkSuccess проверка параметров в скрипте завершения операции (SuccessURL)
+    * @return boolean $hashValid
+    */
+    public function checkHash($hash, $checkSuccess = false)
+    {
+        $customVars = $this->getCustomValues();
+        $password = $checkSuccess ? $this->password1 :$this->password2;
+        $hashGenerated = md5("{$this->OutSum}:{$this->InvId}:{$password}{$customVars}");
+        return (strtolower($hash) == $hashGenerated);
+    }
+    /**
+     * Проверка завершения операции (проверка оплаты). Сравнение хеша
+     *
+     * @param string $hash значение SignatureValue, переданное кассой на Result URL
+     * @return boolean $hashValid
+     */
+    public function checkSuccess($hash) {
+        return $this->checkHash($hash, true);
+    }
+    /**
+    * Получение строки с пользовательскими данными для шифрования
+    *
+    * @param boolean $url генерация строки для использования в URL true/false
+    * @return string
+    */
+    private function getCustomValues($url = false)
+    {
+        $out = '';
+        $customVars = array();
+        if(!empty($this->customVars))
+        {
+            foreach($this->customVars as $k => $v)
+                $customVars[$k] = $k . '=' . $v;
+                
+            sort($customVars);
+            if($url === TRUE)
+                $out = '&' . join('&', $customVars);
+            else
+                $out = ':' . join(':', $customVars);
+        }
+        return $out;
+    }
 }
 
 ?>

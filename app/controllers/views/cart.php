@@ -2,7 +2,13 @@
 <div id="main" class="cart_page">
 	<?php include "templates/left_block.php";?>
 	<div id="center">
-		 <div class="cart_items_block"  >
+		 <div class="cart_items_block" >
+		 <div class="empty_cart">
+		 	В корзине пока ничего нет :(
+		 </div>
+
+
+
 		<?php // print_r($_SESSION['items']) 
 			if (isset($_SESSION['items'])) {
 				   foreach ($_SESSION['items'] as $i => $value) {
@@ -22,11 +28,8 @@
 				   	
 				   	<?php      
 				   }
-				
 			}
-
 		?>
-		
 		</div>
 		<div class="center_bottom"> 
 			<div class="half">
@@ -45,23 +48,23 @@
 		</div>
 
 	</div>
-	<form id="right">
+	<form id="right" id = "order_form" name="order_form"  action="/cart/confirm_order" method="post">
 		<div id="right-1" class="right_content_block">
 			<div class="right_menu_title">Заполните форму заказа</div>
 			<div class="right_item"> 
-				<input type="text" placeholder = "* Имя, Фамилия" class="cart_item item_important fio" value="<?php  if (isset($_SESSION['fio'])) { echo $_SESSION['fio'];}?>">
-				<input type="email" placeholder = "* E-mail" class="cart_item half_item item_important email" value="<?php  if (isset($_SESSION['email'])) { echo $_SESSION['email'];}?>">
-				<input type="text" placeholder = "* Телефон" class="cart_item item_right half_item item_important phone" value="<?php  if (isset($_SESSION['phone'])) { echo $_SESSION['phone'];}?>">
+				<input type="text" name="fio" placeholder = "* Имя, Фамилия" class="cart_item item_important fio" value="<?php  if (isset($_SESSION['fio'])) { echo $_SESSION['fio'];}?>">
+				<input type="email" name="email" placeholder = "* E-mail" class="cart_item half_item item_important email" value="<?php  if (isset($_SESSION['email'])) { echo $_SESSION['email'];}?>">
+				<input type="text" name="phone" placeholder = "* Телефон" class="cart_item item_right half_item item_important phone" value="<?php  if (isset($_SESSION['phone'])) { echo $_SESSION['phone'];}?>">
 				<div class="city_block">
-					<input type="text" placeholder = "* Город" class="cart_item item_important city" value="<?php echo $city; ?>" autocomplete="off">
+					<input type="text" name="city" placeholder = "* Город" class="cart_item item_important city" value="<?php echo $city; ?>" autocomplete="off">
 				
 					<div class = "result_city">
 					</div>
 				
 				</div>
 			
-				<textarea placeholder="Адрес" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
-				<textarea placeholder="Комментарии к заказу" class="cart_item comments"></textarea>
+				<textarea placeholder="Адрес" name="adress" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
+				<textarea placeholder="Комментарии к заказу" name="comments" class="cart_item comments"></textarea>
 			</div>
 			
 			<div class="right_item">
@@ -104,11 +107,27 @@
 
 	</form>
 </div>
+
 <div id ="footer"></div>
-		<div id="steps_controller">
-			<div id="steps_controller-checkout_but" class="active make_more"><div><a title="Сделать еще" href="/">Сделать еше</a></div></div>
-			<div id="steps_controller-next_but" class=" active cart_item"><div title="Оформить">Оформить</div></div>
+<div id="steps_controller">
+	<div id="steps_controller-checkout_but" class="active make_more"><div><a title="Сделать еще" href="/">Сделать еше</a></div></div>
+	<div id="steps_controller-next_but" class=" active cart_item"><div title="Оформить">Оформить</div></div>
+</div>
+<?php 
+	if ((isset($_SESSION['payment_result'])) && ($_SESSION['payment_result']!="")) {
+		?>
+		<div class="payment_message active <?php if ($_SESSION['payment_result']=='Оплата прошла неуспешно :(') echo('error'); ?>">
+			<?php echo($_SESSION['payment_result']); ?>
 		</div>
+
+		<?php
+	
+	$_SESSION['payment_result']="";
+
+	}
+?>
+</div>
+
 </body>
 
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
