@@ -46,6 +46,12 @@
 			add_to_cart();
 		}		
 	}
+
+	if ($controller_name == "success") {	
+		include("views/success.php");
+	}
+
+
 	if ($controller_name == "cart") {	
 		//cart
 		if ($action_name=="main" ) {
@@ -57,6 +63,22 @@
 		if ($action_name=="remove_item" ) {
 			remove_item();
 		}
+
+		if (($action_name=="robo_success") || ($action_name=="robo_fail")) {
+
+			if ($action_name=="robo_success") {
+				$_SESSION['payment_result']=='Оплата прошла успешно :)';
+			}
+			if ($action_name=="robo_fail") {
+				$_SESSION['payment_result']=='Оплата прошла неуспешно :(';
+			}
+
+			header("Location: /cart"); 
+			exit;
+		}
+
+
+
 
 		if ($action_name=="get_city") {
 			if (isset($_POST['string'])) {

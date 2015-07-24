@@ -5,6 +5,7 @@ function preparing_html() {
 	var html_width = $("body").width();
 	var html_height = $(document).height();
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
+	$(".main_container").css("height", html_height+"px");
 	to_down_of_page();
 }
 
@@ -318,12 +319,15 @@ function preparing_data(){
 	svg_controls  = svg_controls_svg .append("g")
 			.classed("svg_controls", true);
 
+	
 	g_texts = svg_controls
 				.append("g")
 					.classed("g_texts", true);
 
 	g_smiles = svg_controls.append("g")
 					.classed("g_smiles", true);
+
+	
 	
 	steps.push(cur_step);
 	object_id = randomHash(10);
@@ -1172,6 +1176,11 @@ function set_material_color(material_id, material_color, cost) {
 				.attr("height", "100%")
 				.attr("preserveAspectRatio", "xMidYMid slice");
 
+
+		getImageBase64( path+config.materials[id_device][material_id]["desctop_mask_2"], function (data) {
+			d3.select(".mask_image_2")
+	      		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
+		});
 	
 		
 		path = config.chech_material_path;
@@ -1182,16 +1191,11 @@ function set_material_color(material_id, material_color, cost) {
 			.append("rect")
 			.attr("width", config.devices[desctop.device_id].width+"px")
 			.attr("height", config.devices[desctop.device_id].height+"px")
-			.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
 			.classed("mask_body", true)
 			.style("fill","#E8E8E8")
 			.style("mask","url(#mask2)");
 			
-			
-
-		alert(path + color_object.desctop_img);
-
-
+		
 		svg_mask_body
 			.append("image")
 				.attr("width", config.devices[desctop.device_id].width+"px")
@@ -1200,6 +1204,12 @@ function set_material_color(material_id, material_color, cost) {
 				.classed("mask_body_2", true)
 				.attr("preserveAspectRatio", "xMidYMid slice")
 				.style("mask","url(#mask2)");
+
+
+		getImageBase64( path + color_object.desctop_img, function (data) {
+			d3.select(".mask_body_2")
+	      		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
+		});
 			
 	}
 	
@@ -1482,7 +1492,6 @@ var getImageBase64 = function (url, callback) {
 
 function save_image() {
 	
-
 	var svg = document.querySelector("svg");
 	var svgData = new XMLSerializer().serializeToString( svg );
 
@@ -1497,16 +1506,14 @@ function save_image() {
 	
 	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 
-	/*
-	devices.smiles = {
 
-	};
-	*/
-	
-	img.onload = function() {
-
+/*
+	setTimeout(function() { 
 
 		ctx.drawImage( img, 0, 0 );
+
+		$("body").append(img);
+	
 		// Now is done
 			
 		$.ajax({ 
@@ -1517,6 +1524,8 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
+
+
 				desctop.preview_url = data;
 
 				desctop.image_size_width = img.width;
@@ -1525,7 +1534,7 @@ function save_image() {
 				var text_width = $(".svg_text text").width();
 				var text_height = $(".svg_text text").height();
 				var text_x = parseFloat($(".svg_text text").attr("x"));
-				var text_y =parseFloat($(".svg_text text").attr("y"));
+				var text_y = parseFloat($(".svg_text text").attr("y"));
 
 				desctop.font_x = text_x-text_width/2;
 				desctop.font_y = text_y-text_height/2;
@@ -1551,8 +1560,90 @@ function save_image() {
 
 				});
 
-				/*sweetAlert("Успешно", data, "success");*/
 			
+				$.ajax({ 
+					type: "POST", 
+					url: "main/add_to_cart",
+					dataType: 'text',
+					data: {
+						desctop : JSON.stringify(desctop)
+					},
+					success: function(data){
+						document.location = "/cart";
+					},
+					fail: function(data){
+						sweetAlert("Ошибка", data, "error");
+					}
+				});
+			
+			},
+			fail: function(data){
+
+
+				sweetAlert("Ошибка", data, "error");
+			}
+		});
+	}, 10000);
+
+
+
+*/
+
+
+
+
+	img.onload = function() {
+
+
+		ctx.drawImage( img, 0, 0 );
+	
+		
+		// Now is done
+			
+		$.ajax({ 
+			type: "POST", 
+			url: "main/save_img",
+			dataType: 'text',
+			data: {
+				image : canvas.toDataURL("image/png" )
+			},
+			success: function(data){
+
+
+				desctop.preview_url = data;
+
+				desctop.image_size_width = img.width;
+				desctop.image_size_height = img.height;
+
+				var text_width = $(".svg_text text").width();
+				var text_height = $(".svg_text text").height();
+				var text_x = parseFloat($(".svg_text text").attr("x"));
+				var text_y = parseFloat($(".svg_text text").attr("y"));
+
+				desctop.font_x = text_x-text_width/2;
+				desctop.font_y = text_y-text_height/2;
+				desctop.font_width = text_width;
+				desctop.font_height = text_height;
+				desctop.font_rotate = parseInt($(".control_text.rotate_button").data("rotate"));
+
+				$(".svg_smiles image").each(function(){
+					var id = $(this).attr("id");
+
+					var element = {
+						smile_width: d3.select(this).attr("width"),
+						smile_height: d3.select(this).attr("height"),
+						smile_x: $(this).attr("x"),
+						smile_y: $(this).attr("y"),
+						smile_rotate: parseInt($(".control_smile.rotate_button."+id).attr("data-rotate")),
+						smile_url: $(this).data("url")
+					}
+
+					desctop.smiles[id]= element;
+
+					console.log(desctop.smiles)
+
+				});
+
 				
 				$.ajax({ 
 					type: "POST", 
@@ -1571,8 +1662,6 @@ function save_image() {
 				
 			},
 			fail: function(data){
-
-
 				sweetAlert("Ошибка", data, "error");
 			}
 		});
@@ -1583,6 +1672,8 @@ function save_image() {
 
 
 	};
+
+	
 }
 
 
@@ -2162,13 +2253,26 @@ function check_coords(){
 	coords.se.y-=coord_screen.top;
 	coords.sw.y-=coord_screen.top;
 	
-	if (((coords.nw.x-0)<0) || ((coords.nw.y-0)<0)) {  return false;}
-	
+
+	console.log(coords);
+	//nw
+	if (((coords.nw.x-0)<0) || ((coords.nw.y-0)<0) || ((coords.nw.x+0)>config.devices[desctop.device_id].width)  || ((coords.nw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
+	//ne
+
 	if (((coords.ne.x+0)>config.devices[desctop.device_id].width) || ((coords.nw.y-0)<0)) {  return false;}
-	
+	if (((coords.ne.x-0)<0) || ((coords.nw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
+
+	//sw	
 	if (((coords.sw.x-0)<0) || ((coords.sw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
-	
+
+	if (((coords.sw.x+0)>config.devices[desctop.device_id].width) || ((coords.sw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
+
+
+
+	//se	
 	if (((coords.se.x+0)>config.devices[desctop.device_id].width) || ((coords.se.y+0)>config.devices[desctop.device_id].height)) {  return false;}
+
+	if (((coords.se.x-0)<0) || ((coords.se.y-0)<0)) {  return false;}
 	
 	return true;
 }
@@ -2412,39 +2516,42 @@ var randomHash = (function () {
 
 //SVG DOM injection
 jQuery(function($){
-	$(document).mouseup(function (e){ // событие клика по веб-документу
+	$(document).mouseup(function (event){ // событие клика по веб-документу
 		var div = $(".control_text"); // тут указываем ID элемента
 
-		if (!div.is(e.target) // если клик был не по нашему блоку
-		    && (div.has(e.target).length === 0)
-		    && (e.target.closest("svg")!==null)) { // и не по его дочерним элементам
+		if (!div.is(event.target) // если клик был не по нашему блоку
+		    && (div.has(event.target).length === 0)
+		    && ($(event.target).closest("svg")!==null)) { // и не по его дочерним элементам
 			d3.selectAll(".control_text").classed("work", false); // скрываем его
 		}
 	});
 });
 
 jQuery(function($){
-	$(document).mouseup(function (e){ // событие клика по веб-документу
+	$(document).mouseup(function (event){ // событие клика по веб-документу
 		var div = $(".control_smile"); // тут указываем ID элемента
-		if (!div.is(e.target) // если клик был не по нашему блоку
-		    && (div.has(e.target).length === 0)
-		    && (e.target.closest("svg")!==null)) { // и не по его дочерним элементам
+		if (!div.is(event.target) // если клик был не по нашему блоку
+		    && (div.has(event.target).length === 0)
+		    && ($(event.target).closest("svg")!==null)) { // и не по его дочерним элементам
 			d3.selectAll(".control_smile").classed("work", false); // скрываем его
 		}
 	});
 });
 
 jQuery(function($){
-	$(document).mouseup(function (e){ // событие клика по веб-документу
+	$(document).mouseup(function (event){ // событие клика по веб-документу
 		var div = $(".alert_block_item"); // тут указываем ID элемента
-		if (!div.is(e.target) // если клик был не по нашему блоку
-		   && (div.has(e.target).length === 0)
+		if (!div.is(event.target) // если клик был не по нашему блоку
+		   && (div.has(event.target).length === 0)
 			) {
 			$(".alert_block").removeClass("active");
 			
 		}
 	});
 });
+
+
+
 
 function to_down_of_page() {
 	var browser_height = $(window).height();
