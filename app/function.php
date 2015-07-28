@@ -58,7 +58,6 @@ function get_config($config){
 function get_city() {
     $ipinfo = get_ip_info($_SERVER['REMOTE_ADDR']);
     return $ipinfo->city; // город
-
 }
 
 
@@ -554,8 +553,23 @@ function get_mail($config, $mail_controls){
 
     $body = preg_replace('/\\\\/','', $body);
  
-    $body = str_replace('$fio', $fio, $body);
-    echo $body;
+    
+
+     $body = str_replace('$fio', $fio, $body);
+    $body = str_replace('$zakaz_number',  $zakaz_number, $body);
+    $body = str_replace('$email', $email, $body);
+    $body = str_replace('$phone', $phone, $body);
+    $body = str_replace('$city', $city, $body);
+
+
+
+
+
+
+
+
+
+    
 
     $mail->Subject = 'Заказ на сайте ohcasey.ru №'.$zakaz_number;
     $mail->MsgHTML($body);
@@ -605,7 +619,7 @@ function get_mail($config, $mail_controls){
 
 
 
-     //header("Location: /cart"); 
+     header("Location: /success"); 
 
 
 /*
