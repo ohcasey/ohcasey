@@ -1255,7 +1255,7 @@ svg {
 
 
 .alert_write.active, .payment_message.active{
-	z-index: 400;
+	z-index: 1100;
 	opacity: 1;
 	visibility: visible;
 }
