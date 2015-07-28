@@ -401,7 +401,7 @@ $config = array(
 			
 			)
 			
-		),
+		), 
 		//Цвета текста
 		"colors" => array(
 			array("#cccccc"),
