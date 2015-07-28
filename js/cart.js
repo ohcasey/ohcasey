@@ -19,13 +19,10 @@ function preparing_html() {
 		$(".ps-container").removeClass("ps-container");
 	}
 
-
 	if (count==0){
 		$(".empty_cart").addClass("active");
 	}
 
-	
-	
 
 	$(".ps-container .ps-scrollbar-x-rail").remove();
 }

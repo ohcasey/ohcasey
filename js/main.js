@@ -116,8 +116,6 @@ $(document).on('click','.back_block', function(event){
 
 
 
-
-
 $(document).on("click", "#steps_controller-checkout_but" , function(){
 
 	if ($(this).hasClass("active")) {
@@ -195,21 +193,17 @@ $(document).on("click", ".chech_colors div" , function(){
 
 
 $(document).on("click", ".library-background_row" , function() {
-		set_bg($(this).data('bgId'));
+	set_bg($(this).data('bgId'));
 });
 
 
 
 $(document).on("click", ".library-pattern_row" , function(){
-		set_font_pattern($(this).data('fontPatternId'));
+	set_font_pattern($(this).data('fontPatternId'));
 });
 
 $(document).on("click", ".library-case_row" , function(){
-		set_material($(this).data('materialId'));
-
-
-		
-
+	set_material($(this).data('materialId'));
 });
 
 $(document).on("click", "#right-6 .library_tab_but" , function(){
@@ -839,7 +833,10 @@ function control_smile_click(){
 function click_text(){
 	$(".alert_write").addClass("active");
 	$(".input_write").val(svg_text.select("text").text());
-	$(".input_write").select();
+	setTimeout(function() { 
+		$(".input_write").select();
+	 }, 50);
+	
 }
 
 function change_step(obj) {
