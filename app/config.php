@@ -59,7 +59,7 @@ $config = array(
 			"mail_ru" => 200,  //самовывоз
 		),
 		//Конфигурации
-			"default_text"=>"Текст",
+			"default_text"=>"Введите текст",
 			"devices_desctop_path"=>"img/devices/desctop/",
 			"devices_library_path"=>"img/devices/library/",
 			"patterns_path_big"=>"img/patterns/big/",
@@ -145,54 +145,7 @@ $config = array(
 						 "width"=>240,
 					   	 "height"=>472
 				),
-			array(			 
-						"id"=>"galaxyS6",
-						"name" => "Galaxy S6",
-						 "lib_img" => "device-9.png",
-						 "desctop_img" => "device-1.png",
-						 "width"=>0,
-						 "height"=>0
-				),
-			array(
-						"id"=>"galaxyS5",		
-						"name" => "Galaxy S5",
-						"lib_img" => "device-8.png",
-						"desctop_img" => "device-1.png",
-						"width"=>0,
-						"height"=>0
-        		),
-  			array(
-						 "id"=>"galaxyS4",
-						 "name" => "Galaxy S4",
-						 "lib_img" => "device-9.png",
-						 "desctop_img" => "device-1.png",
-						 "width"=>0,
-						 "height"=>0
-				),
-			array(
-						 "id"=>"galaxyS3",
-						 "name" => "Galaxy S3",
-						 "lib_img" => "device-9.png",
-						 "desctop_img" => "device-1.png",
-						 "width"=>0,
-						 "height"=>0
-			),
-			array(
-						 "id"=>"galaxyS2",
-						 "name" => "Galaxy S2",
-						 "lib_img" => "device-9.png",
-						 "desctop_img" => "device-1.png",
-						 "width"=>0,
-						 "height"=>0
-				),
-			array(
-						 "id"=>"galaxyS",
-						 "name" => "Galaxy S",
-						 "lib_img" => "device-9.png",
-						 "desctop_img" => "devi.style();ce-1.png",
-						 "width"=>0,
-						 "height"=>0
-				),
+
 		
 		),
 		/*Материалы*/
@@ -291,7 +244,7 @@ $config = array(
 											"id"=>6,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_ST__0001s_0000s_0001_white.png",
-											"desctop_mask" => "white_mask.png", //обрезка
+											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "camera.png",
 											"cost"=>1600
 										)
@@ -309,7 +262,7 @@ $config = array(
 											"id"=>7,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_ST_0001s_0000s_0002_black.png",
-											"desctop_mask" => "white_mask.png", //обрезка
+											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "camera.png",
 											"cost"=>1700
 										)
@@ -329,29 +282,103 @@ $config = array(
 					"colors"=> array(
 									array(		
 											"id"=>8,
-											"color"=>"#00FFFF",
+											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_0003s_0002_gold.png",
-											"desctop_mask" => "white_mask.png", //обрезка
+											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "camera.png",
 											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
 											"id"=>9,
-											"color"=>"#0000ff",
+											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_0003s_0001_silver.png",
-											"desctop_mask" => "white_mask.png",
+											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "camera.png",
 											"cost"=>1900
 										),
 										 array(
 										 	"id"=>10,
-											"color"=>"red",
+											"color"=>"#888888",
 											"desctop_img" => "iphone5_0002s_0002s_0000_black.png",
-											"desctop_mask" => "white_mask.png",
+											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "camera.png",
 											"cost"=>2000
 										)
+								)
+				),
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "матовый белый",
+					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
+					"lib_img" => "iphone6_ST__0001s_0000s_0001_white.png",
+					"colors"=> array(
+									//цвет - вид (hex, rgb, transparent или название цвета)
+										array(	
+											"id"=>11,	
+											"color"=>"transparent",
+											"desctop_img" => "material-1.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "camera.png",
+											"cost"=>1450
+										)
+									)
+				),
+				
+			),
+		
+		"iphone5s"=>array(
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "Прозрачный",
+					"descr_2" => "Полностью прозрачный",
+					"lib_img" => "iphone6_0003s_0002_gold.png",
+					//"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"default"=>true,
+					"colors"=> array(
+									array(		
+											"id"=>8,
+											"color"=>"#CF9657",   
+											"desctop_img" => "iphone5s_gold_crystal_case.png",
+											"desctop_mask" => "iphone5-5s.png", //обрезка
+											"desctop_camera" => "iphone5s_gold_camera.png",
+											"cost"=>1800,
+											"default"=>true
+									),
+										array(	
+											"id"=>9,
+											"color"=>"#BBBBBB",
+											"desctop_img" => "iphone5s_silver_crystal_case.png",
+											"desctop_mask" => "iphone5-5s.png",
+											"desctop_camera" => "iphone5s_silver_camera.png",
+											"cost"=>1900
+										),
+										 array(
+										 	"id"=>10,
+											"color"=>"#888888",
+											"desctop_img" => "iphone5s_gray_crystal_case.png",
+											"desctop_mask" => "iphone5-5s.png",
+											"desctop_camera" => "iphone5s_gray_camera.png",
+											"cost"=>2000
+										),
+									array(		
+											"id"=>8,
+											"color"=>"#FFFFFF",   
+											"desctop_img" => "iphone5_white_crystal_case.png",
+											"desctop_mask" => "iphone5-5s.png", //обрезка
+											"desctop_camera" => "iphone5_white_camera.png",
+											"cost"=>1800,
+											"default"=>true
+									),
+										array(	
+											"id"=>9,
+											"color"=>"#000000",
+											"desctop_img" => "iphone5_black_crystal_case.png",
+											"desctop_mask" => "iphone5-5s.png",
+											"desctop_camera" => "iphone5_black_camera.png",
+											"cost"=>1900
+										),
+									
 								)
 				),
 				array(
@@ -371,14 +398,7 @@ $config = array(
 										)
 									)
 				),
-				array(
-					"name" => "Soft Touch",
-					"descr_1" => "матовый черный",
-					"descr_2" => "Бархатистый, приятный на ощупь чехол.",
-					"lib_img" => "iphone6_ST_0001s_0000s_0002_black.png",
-					"colors"=> array(
-					)
-				)
+			
 			)
 			
 		),
