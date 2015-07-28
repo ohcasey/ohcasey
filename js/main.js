@@ -8,6 +8,7 @@ function preparing_html() {
 	var html_height = $(document).height();
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 	$(".main_container").css("height", html_height+"px");
+	$(".main_container").css("width", html_width+"px");
 	to_down_of_page();
 }
 
@@ -43,8 +44,8 @@ var result_url; //Result link to picture
 var back_canvas; //Back of phone
 
 
-var text_width_constant=20;
-var text_height_constant=20;
+var text_width_constant=10;
+var text_height_constant=10;
 
 var desctop = {
 
@@ -838,6 +839,7 @@ function control_smile_click(){
 function click_text(){
 	$(".alert_write").addClass("active");
 	$(".input_write").val(svg_text.select("text").text());
+	$(".input_write").select();
 }
 
 function change_step(obj) {
@@ -2261,8 +2263,8 @@ function check_coords(){
 	if (((coords.nw.x-0)<0) || ((coords.nw.y-0)<0) || ((coords.nw.x+0)>config.devices[desctop.device_id].width)  || ((coords.nw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
 	//ne
 
-	if (((coords.ne.x+0)>config.devices[desctop.device_id].width) || ((coords.nw.y-0)<0)) {  return false;}
-	if (((coords.ne.x-0)<0) || ((coords.nw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
+	if (((coords.ne.x+0)>config.devices[desctop.device_id].width) || ((coords.ne.y-0)<0)) {  return false;}
+	if (((coords.ne.x-0)<0) || ((coords.ne.y+0)>config.devices[desctop.device_id].height)) {  return false;}
 
 	//sw	
 	if (((coords.sw.x-0)<0) || ((coords.sw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
@@ -2329,7 +2331,7 @@ var drag_stretch =  d3.behavior.drag()
 							
 						var deltay = dy - newy;
 						
-						if ((rotate>120) || (rotate<-30)) {
+						if ((rotate>150) || (rotate<-30)) {
 							deltay = deltay*(-1);
 						}
 				

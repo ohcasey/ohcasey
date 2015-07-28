@@ -490,7 +490,7 @@ function get_mail($config, $mail_controls){
 
 
     /*mail client*/
-    $email = "contact@shmakovdima.ru";
+ /*   $email = "contact@shmakovdima.ru";*/
     $mail = new PHPMailer;
     $mail->SMTPDebug = 0;                               // Enable verbose debug output  
     $mail->CharSet = 'UTF-8';
