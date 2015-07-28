@@ -4,7 +4,7 @@
 <title>
 <?php 
 	if ($controller_name=="main") {
-		echo "Ohcasey | Конструктор";
+		echo "Ohcasey | Конструктор чехлов";
 	}
 	if ($controller_name=="cart") {
 		echo "Ohcasey | Корзина";
@@ -12,6 +12,15 @@
 ?>
 
 </title>
+	<link rel="shortcut icon" href="img/128.png" type="image/png" />
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">	

@@ -2,6 +2,39 @@
 
 
 
+global $mail_controls;
+
+$mail_controls = array(
+	/*
+	"Host" => 'smtp.yandex.ru',
+    "Port" => "25",
+    "Username" => 'wisethetwice@yandex.ru',              
+    "Password" => '2glvPRO100'                  
+  	*/
+
+
+  	"Host" => 'smtp.mail.ru',
+    "Port" => "25",
+    "Username" => 'Hot-a-dog@mail.ru',              
+    "Password" => '2101'   
+);
+
+
+
+
+
+global $bd_controls; 
+$bd_controls = array(
+	"dbhost" => "mysql.server",
+        // Имя пользователя базы данных 
+     "dbuser" => "u11014_ohcasey", 
+            // и его пароль 
+     "dbpass" => "ohcasey",
+            // Имя базы данных, на хостинге или локальной машине 
+     "dbname" => "u11014_ohcasey" 
+);
+
+
 //страницы
 global $pages; 
 $pages= array("main","cart","success");
@@ -9,7 +42,11 @@ $pages= array("main","cart","success");
 
 global $subfunctions;
 
-$subfunctions= array("main" =>array("get_data", "save_img", "add_to_cart"), "success"=>array() , "cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail"));
+$subfunctions= array(
+	"main" =>array("get_data", "save_img", "add_to_cart"),
+	"success"=>array() , 
+	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result")
+ );
 
 //конфиги девайсов
 global $config;

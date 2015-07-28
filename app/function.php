@@ -182,7 +182,7 @@ function save_img(){
 }
 
 
-function mysqlconnect(){
+function mysqlconnect($bd_controls){
 
     if (gethostname() === "dmitry-HP-Pavilion-dv7-Notebook-PC") {
         $dbhost = "localhost"; 
@@ -193,13 +193,13 @@ function mysqlconnect(){
             // Имя базы данных, на хостинге или локальной машине 
         $dbname = "cities"; 
     }else{
-        $dbhost = "mysql.server"; 
+        $dbhost = $bd_controls["mysql.server"]; 
         // Имя пользователя базы данных 
-        $dbuser = "u11014_ohcasey"; 
+        $dbuser = $bd_controls["u11014_ohcasey"]; 
             // и его пароль 
-        $dbpass = "ohcasey"; 
+        $dbpass = $bd_controls["ohcasey"]; 
             // Имя базы данных, на хостинге или локальной машине 
-        $dbname = "u11014_ohcasey"; 
+        $dbname = $bd_controls["u11014_ohcasey"]; 
     }
 
   
@@ -216,8 +216,10 @@ function mysqlconnect(){
 }
    
 
-function get_city_input($string) {
-    $db =  mysqlconnect();
+function get_city_input($string,$bd_controls) {
+
+
+    $db =  mysqlconnect($bd_controls);
     $query = mysql_query("SELECT name FROM city WHERE country_id = 3159 AND name Like '$string%' LIMIT 20") or die(mysql_error());
     mysql_close($db);
     $array = array();
@@ -300,7 +302,7 @@ function generatePassword($length = 24){
 
 
 
-function get_mail($config){
+function get_mail($config, $mail_controls){
   
 
     if (isset($_POST['fio'])) {
@@ -348,7 +350,7 @@ function get_mail($config){
 
 
 
- if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
+/* if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {*/
 
     $zakaz_number=time();
     $_SESSION['zakaz_number'] = $zakaz_number;
@@ -356,19 +358,20 @@ function get_mail($config){
     $_SESSION['time_order'] =  $time_order;
 
     require 'mail_functions/PHPMailerAutoload.php';
+
     $mail = new PHPMailer;
     $mail->SMTPDebug = 0;                               // Enable verbose debug output  
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();  
-    $mail->Host = 'smtp.yandex.ru';
-    $mail->Port = 25;
-    $mail->SMTPAuth = true;                                    // Set mailer to use SMTP
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'wisethetwice@yandex.ru';                 // SMTP username
-    $mail->Password = '2glvPRO100';                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
+    $mail->SMTPAuth = true;   
+    $mail->Host = $mail_controls["Host"];
+    $mail->Port = $mail_controls["Port"];
+                                 // Set mailer to use SMTP                               // Enable SMTP authentication
+    $mail->Username = $mail_controls["Username"];                 // SMTP username
+    $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
                                 // TCP port to connect to
 
-    $mail->From = 'wisethetwice@yandex.ru';
+    $mail->From = $mail_controls["Username"];
     $mail->FromName = 'Сайт ohcasey';
     $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
 
@@ -378,15 +381,16 @@ function get_mail($config){
     $body = file_get_contents('mail_templates/admin.html');
 
 
-    $body = str_replace(' $zakaz_number',  $zakaz_number, $body);
+    
     $body = str_replace('$time_order', $time_order, $body);
     $body = str_replace('$fio', $fio, $body);
+    $body = str_replace(' $zakaz_number',  $zakaz_number, $body);
     $body = str_replace('$email', $email, $body);
     $body = str_replace('$phone', $phone, $body);
     $body = str_replace('$city', $city, $body);
 
     $cost = 0;
-    $cost+= $config["deliver_cost"][$deliver];
+    $cost += $config["deliver_cost"][$deliver];
 
     /*
         тут все остальное
@@ -437,15 +441,6 @@ function get_mail($config){
 
     $body = str_replace('$cost', $cost, $body);
 
-
-
-
-
-
- 
-
-
-
     if (isset($adress)) {
          $body = str_replace('$adress','<tr>
                                                         <td style ="padding: 5px;" width="50%">Адрес</td>
@@ -478,26 +473,125 @@ function get_mail($config){
     $mail->MsgHTML($body);
     $mail->CharSet="utf-8";
 
-   
-   
-
+    
     
 
-
- 
-    
-
-   /* $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; */
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if(!$mail->send()) {
         
-     //   echo 'Письмо админу не отправлено.';
-      //  echo 'Oшибка письма: ' . $mail->ErrorInfo;
+       echo 'Письмо админу не отправлено.';
+       echo 'Oшибка письма: ' . $mail->ErrorInfo;
     } else {
+
        // echo 'Письмо админу отправлено';
+         
+    } 
+
+
+
+    /*mail client*/
+    $email = "contact@shmakovdima.ru";
+    $mail = new PHPMailer;
+    $mail->SMTPDebug = 0;                               // Enable verbose debug output  
+    $mail->CharSet = 'UTF-8';
+    $mail->isSMTP();  
+
+    $mail->SMTPAuth = true;  
+
+    $mail->Host = $mail_controls["Host"];
+    $mail->Port = $mail_controls["Port"];
+                                 // Set mailer to use SMTP                               // Enable SMTP authentication
+    $mail->Username = $mail_controls["Username"];                 // SMTP username
+    $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
+                                // TCP port to connect to
+
+    $mail->From = $mail_controls["Username"];
+
+    $mail->FromName = 'Сайт ohcasey';
+
+    $mail->addAddress($email, $fio);     // Add a recipient
+
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+    $body = file_get_contents('mail_templates/client.html');
+
+
+
+
+
+    /*$src = $_SERVER['HTTP_HOST'];*/
+    $src = 'ohcasey.dragon-web.vps-private.net';
+    $fontface ="    @font-face {
+    font-family: HelveticaNeueCyr;
+    src: local('HelveticaNeueCyr'),
+    url(".$src."/fonts/HelveticaNeueCyr-Roman.otf);}";
+
+    $body = str_replace('$fontface',$fontface  , $body);
+
+
+    
+     
+    $body =  str_replace('$href_logo', 'http://'.$src , $body);
+
+    $body =  str_replace('$logo', 'http://'.$src.'/img/logo_white.png' , $body);
+
+    $body = str_replace('$bottomemail', 'http://'.$src.'/img/mail_background.png' , $body);
+
+
+   
+    $body = str_replace('$inst', 'http://'.$src.'/img/inst.png'  , $body);
+
+
+    $body =  str_replace('$logo', 'http://'.$src.'/img/logo_white.png' , $body);
+
+    $date = date("d.m.y");
+    $body = str_replace('$date', $date  , $body);
+
+
+    $time = date("H:i"); 
+    $body = str_replace('$time', $time  , $body);
+
+    $body = preg_replace('/\\\\/','', $body);
+ 
+    $body = str_replace('$fio', $fio, $body);
+    echo $body;
+
+    $mail->Subject = 'Заказ на сайте ohcasey.ru №'.$zakaz_number;
+    $mail->MsgHTML($body);
+    $mail->CharSet="utf-8";
+
+ 
+    
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; 
+
+    if(!$mail->send()) {
+        
+        echo 'Письмо клиенту не отправлено.';
+        echo 'Oшибка письма: ' . $mail->ErrorInfo;
+    } else {
+
+        echo 'Письмо админу отправлено';
+       
     }
 
 
+    if ($payment=="robocassa"){
+
+        $kassa = new Robokassa('ohcasey.ru', 'hnb128gbz2', 'hnb128gbz3');
+        /* назначение параметров */
+        $kassa->OutSum       = $cost;
+        $kassa->IncCurrLabel = 'WMRM';
+        $kassa->Email = $email;
+
+        $kassa->Desc         = 'Оплата заказа '.$zakaz_number;
+        $kassa->addCustomValues(array(
+            'shp_user' => $fio// все ключи массива должны быть с префиксом shp_    
+        ));
+        /* редирект на сайт робокассы */
+        header('Location: ' . $kassa->getRedirectURL());
+       exit;
+    }
 
     /*Варианты выбора*/
     if ($payment=="cash"){
@@ -509,135 +603,26 @@ function get_mail($config){
         $payment_type = "Карта сбербанка";
     }
 
-    if ($payment=="robocassa"){
-        $userId = "Я";
-        $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100', true); //4 убрать
-        /* назначение параметров */
-        $kassa->OutSum       = 500;
-        $kassa->IncCurrLabel = 'WMRM';
-        $kassa->Desc         = 'Тестовая оплата';
-        $kassa->addCustomValues(array(
-            'shp_user' => $userId, // все ключи массива должны быть с префиксом shp_
-            'shp_someData' => 'someValue'
-        ));
-        /* редирект на сайт робокассы */
-        header('Location: ' . $kassa->getRedirectURL());
-    }
 
 
+     //header("Location: /cart"); 
 
 
-
+/*
 }else{
     header("Location: /cart"); 
 }
-
+*/
 
 
   // $_SESSION['items'] = array();
 }    
 
 
-function get_elements_to_admin_mail($config) {
-    $cost_cur =0;
-    $cost = 0;
-    $count = count($_SESSION['items']); 
-
-
-    $result ="";
-    for ($i=0; $i<$count; $i++) {
-        $result.='  <table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">
-             <caption style="font-size: 16px; margin-bottom: 15px; padding-top:20px;" >Элемент '.($i+1).'</caption>';
-
-        $result.=' <tr><td  width="60%"><table width="100%" style = "text-align: center; font-size: 14px; " border="1" cellpadding="0" cellspacing="0" class="half_table admin_table">';
-      
-
-      
-        $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о чехле</td></tr>';
-
-        $result.='<tr><td style ="padding: 5px;">Устройство</td><td>'.$_SESSION['items'][$i]["device_name"].'</td></tr>';
-         $result.='<tr><td style ="padding: 5px;">Id чехла</td><td>'.$_SESSION['items'][$i]["case_id"].'</td></tr>';
-        $result.='<tr><td style ="padding: 5px;">Цвет устройства</td><td style="background-color: '.$_SESSION['items'][$i]["device_color"].';"></td></tr>';
-        $result.='<tr><td style ="padding: 5px;">Название чехла</td><td>'.$_SESSION['items'][$i]["name_case_1"].'</td></tr>';
-        $result.='<tr><td style ="padding: 5px;">Подназвание чехла</td><td>'.$_SESSION['items'][$i]["name_case_2"].'</td></tr>';
-        $result.='<tr><td style ="padding: 5px;">Ссылка на изображение</td><td style ="padding: 5px;"><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'</a></td></tr>';
-        $result.='<tr><td style ="padding: 5px;">Ширина картинки</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["image_size_width"].'</td></tr>';
-        $result.='<tr><td style ="padding: 5px;">Высота картинки</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["image_size_height"].'</td></tr>';
-
-
-         if ($_SESSION['items'][$i]["bg_case"]!="") {
-             $result.='<tr><td style ="padding: 5px;">Фон чехла</td><td style ="padding: 5px;"><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["bg_case"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["bg_case"].'</a></td></tr>';
-        }
-
-
-       
-        $cur_cost = get_cost_case(($_SESSION['items'][$i]["case_id"]), $config, ($_SESSION['items'][$i]["device_id_case"]));
-        $cost+=$cur_cost;
-        $result.='<tr><td style ="padding: 5px;">Стоимость</td><td style ="padding: 5px;">'.$cur_cost.'</td></tr>';
-
-        if ($_SESSION['items'][$i]["text"]!="") {
-             $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о тексте</td></tr>';
-             $result.='<tr><td style ="padding: 5px;">Текст</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["text"].'</td></tr>';
-             if( $_SESSION['items'][$i]["font_color"]!="") {
-                 $result.='<tr><td style ="padding: 5px;">Цвет текста</td><td>'.$_SESSION['items'][$i]["font_color"].'</td></tr>';
-             }
-             if( $_SESSION['items'][$i]["font_pattern"]!="") {
-                 $result.='<tr><td style ="padding: 5px;">Паттерн текста</td><td><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["font_pattern"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["font_pattern"].'</a></td></tr>';
-             }
-             $result.='<tr><td style ="padding: 5px;">Размер текста</td><td>'.$_SESSION['items'][$i]["font_size"].'</td></tr>';
-             $result.='<tr><td style ="padding: 5px;">Шрифт</td><td>'.$_SESSION['items'][$i]["font_family"].'</td></tr>';
-             $result.='<tr><td style ="padding: 5px;">Координата X</td><td>'.$_SESSION['items'][$i]["font_x"].'</td></tr>';
-             $result.='<tr><td style ="padding: 5px;">Координата Y</td><td>'.$_SESSION['items'][$i]["font_y"].'</td></tr>';
-             $result.='<tr><td style ="padding: 5px;">Ширина текста</td><td>'.$_SESSION['items'][$i]["font_width"].'</td></tr>';
-              $result.='<tr><td style ="padding: 5px;">Высота текста</td><td>'.$_SESSION['items'][$i]["font_height"].'</td></tr>';
 
 
 
 
-             $result.='<tr><td style ="padding: 5px;">Угол поворота текста</td><td>'.$_SESSION['items'][$i]["font_rotate"].'</td></tr>';
-             
-             
-        }
-        if (count($_SESSION['items'][$i]["smiles"])>0) {
-            $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о cмайлах</td></tr>';
-            $count_smiles = 0;
-     
-            foreach ($_SESSION['items'][$i]["smiles"] as $j => $value) {
-                $count_smiles++;
-                $result.='<tr><td style ="padding: 5px;" colspan="2">Смайл '.$count_smiles.'</td></tr>';
-                $result.='<tr><td style ="padding: 5px;">Ширина смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_width"].'</td></tr>';
-                $result.='<tr><td style ="padding: 5px;">Высота смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_height"].'</td></tr>';
-                $result.='<tr><td style ="padding: 5px;">Координата по X</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_x"].'</td></tr>';
-                $result.='<tr><td style ="padding: 5px;">Координата по Y</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_y"].'</td></tr>';
-                $result.='<tr><td style ="padding: 5px;">Поворот смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_rotate"].'</td></tr>';
-               $result.='<tr><td style ="padding: 5px;">Ссылка на смайл</td><td><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["smiles"][$j]["smile_url"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["smiles"][$j]["smile_url"].'</a></td></tr>';
-
-            }
-                
-        }
-
-
-
-        $src = "http://".$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"];
-
-        $result.='</table></td><td style ="padding: 5px;" width="40%"><img width="auto" height="auto" src="'.$src.'" alt ="Элемент '.($i+1).'"></td></tr>';
-
-        $result.='</table>';
-    }
-     return array($result, $cost);
-}
-
-
-
-
-function url(){
-  return sprintf(
-    "%s://%s%s",
-    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-    $_SERVER['SERVER_NAME'],
-    $_SERVER['REQUEST_URI']
-  );
-}
 
 class Robokassa {
     private $login, $password1, $password2,
@@ -742,5 +727,112 @@ class Robokassa {
         return $out;
     }
 }
+
+
+
+
+
+function get_elements_to_admin_mail($config) {
+    $cost_cur =0;
+    $cost = 0;
+    $count = count($_SESSION['items']); 
+
+
+    $result ="";
+    for ($i=0; $i<$count; $i++) {
+        $result.='  <table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">
+             <caption style="font-size: 16px; margin-bottom: 15px; padding-top:20px;" >Элемент '.($i+1).'</caption>';
+
+        $result.=' <tr><td  width="60%"><table width="100%" style = "text-align: center; font-size: 14px; " border="1" cellpadding="0" cellspacing="0" class="half_table admin_table">';
+      
+
+      
+        $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о чехле</td></tr>';
+
+        $result.='<tr><td style ="padding: 5px;">Устройство</td><td>'.$_SESSION['items'][$i]["device_name"].'</td></tr>';
+         $result.='<tr><td style ="padding: 5px;">Id чехла</td><td>'.$_SESSION['items'][$i]["case_id"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Цвет устройства</td><td style="background-color: '.$_SESSION['items'][$i]["device_color"].';"></td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Название чехла</td><td>'.$_SESSION['items'][$i]["name_case_1"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Подназвание чехла</td><td>'.$_SESSION['items'][$i]["name_case_2"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Ссылка на изображение</td><td style ="padding: 5px;"><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'</a></td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Ширина картинки</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["image_size_width"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Высота картинки</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["image_size_height"].'</td></tr>';
+
+
+         if ($_SESSION['items'][$i]["bg_case"]!="") {
+             $result.='<tr><td style ="padding: 5px;">Фон чехла</td><td style ="padding: 5px;"><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["bg_case"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["bg_case"].'</a></td></tr>';
+        }
+
+
+       
+        $cur_cost = get_cost_case(($_SESSION['items'][$i]["case_id"]), $config, ($_SESSION['items'][$i]["device_id_case"]));
+        $cost+=$cur_cost;
+        $result.='<tr><td style ="padding: 5px;">Стоимость</td><td style ="padding: 5px;">'.$cur_cost.'</td></tr>';
+
+        if ($_SESSION['items'][$i]["text"]!="") {
+             $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о тексте</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Текст</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["text"].'</td></tr>';
+             if( $_SESSION['items'][$i]["font_color"]!="") {
+                 $result.='<tr><td style ="padding: 5px;">Цвет текста</td><td>'.$_SESSION['items'][$i]["font_color"].'</td></tr>';
+             }
+             if( $_SESSION['items'][$i]["font_pattern"]!="") {
+                 $result.='<tr><td style ="padding: 5px;">Паттерн текста</td><td><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["font_pattern"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["font_pattern"].'</a></td></tr>';
+             }
+             $result.='<tr><td style ="padding: 5px;">Размер текста</td><td>'.$_SESSION['items'][$i]["font_size"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Шрифт</td><td>'.$_SESSION['items'][$i]["font_family"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Координата X</td><td>'.$_SESSION['items'][$i]["font_x"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Координата Y</td><td>'.$_SESSION['items'][$i]["font_y"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Ширина текста</td><td>'.$_SESSION['items'][$i]["font_width"].'</td></tr>';
+              $result.='<tr><td style ="padding: 5px;">Высота текста</td><td>'.$_SESSION['items'][$i]["font_height"].'</td></tr>';
+
+
+
+
+             $result.='<tr><td style ="padding: 5px;">Угол поворота текста</td><td>'.$_SESSION['items'][$i]["font_rotate"].'</td></tr>';
+             
+             
+        }
+        if (count($_SESSION['items'][$i]["smiles"])>0) {
+            $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о cмайлах</td></tr>';
+            $count_smiles = 0;
+     
+            foreach ($_SESSION['items'][$i]["smiles"] as $j => $value) {
+                $count_smiles++;
+                $result.='<tr><td style ="padding: 5px;" colspan="2">Смайл '.$count_smiles.'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Ширина смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_width"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Высота смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_height"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Координата по X</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_x"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Координата по Y</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_y"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Поворот смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_rotate"].'</td></tr>';
+               $result.='<tr><td style ="padding: 5px;">Ссылка на смайл</td><td><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["smiles"][$j]["smile_url"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["smiles"][$j]["smile_url"].'</a></td></tr>';
+
+            }
+                
+        }
+
+
+
+        $src = "http://".$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"];
+
+        $result.='</table></td><td style ="padding: 5px;" width="40%"><img width="auto" height="auto" src="'.$src.'" alt ="Элемент '.($i+1).'"></td></tr>';
+
+        $result.='</table>';
+    }
+     return array($result, $cost);
+}
+
+
+
+
+function url(){
+  return sprintf(
+    "%s://%s%s",
+    isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+    $_SERVER['SERVER_NAME'],
+    $_SERVER['REQUEST_URI']
+  );
+}
+
+
 
 ?>
