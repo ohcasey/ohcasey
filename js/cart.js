@@ -1,3 +1,5 @@
+
+
 function preparing_html() {
 	var html_width = $("body").width();
 	var html_height = $(document).height();
@@ -20,6 +22,8 @@ function preparing_html() {
 	if (count==0){
 		$(".empty_cart").addClass("active");
 	}
+
+	
 	
 
 	$(".ps-container .ps-scrollbar-x-rail").remove();
@@ -30,7 +34,9 @@ $(window).resize(function(){
 
 })
 
-
+$(window).scroll(function(){
+	preparing_html();
+})
 
 
 
