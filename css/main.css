@@ -72,7 +72,12 @@ html, body {
 
 body {
 	height: 100%;
+	background-color: #669AC4;
 }
+.main_container {
+	background-color: #E8E8E8;
+}
+
 
 
 
