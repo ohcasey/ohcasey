@@ -242,7 +242,7 @@
 <div class="alert_out_svg">
 	<div class="alert_out_svg-overlay">
 	</div>
-	<span class="alert_out_svg-text">Осторожно!<br>Ваш текст выходит за границу печатной области чехла</span>
+	<span class="alert_out_svg-text">Осторожно!<br>Ваш текст приближается к границе печати чехла.</span>
 </div>
 
 <div class="alert_block alert_device">

@@ -64,7 +64,7 @@ $config = array(
 			"devices_library_path"=>"img/devices/library/",
 			"patterns_path_big"=>"img/patterns/big/",
 			"patterns_path_small"=>"img/patterns/small/",
-			"desctop_font_size"=>"50",
+			"desctop_font_size"=>"25",
 			"default_font_color"=>"black",
 			"desctop_font_path"=>"fonts/",
 			"desctop_bg_path"=>'img/backgrounds/',
@@ -151,8 +151,20 @@ $config = array(
 		/*Материалы*/
 		"materials" => array(
 			//id device
-			"iphone6"=>array(
+			"iphone6plus"=>array(
+				/*
 
+				iphone6_gold_crystal_case.png
+				iphone6_silver_crystal_case.png
+				iphone6_gray_crystal_case.png
+
+				iphone6_gold_whitecrystal_case.png
+				iphone6_silver_whitecrystal_case.png
+				iphone6_gray_whitecrystal_case.png
+
+				iphone6_white_softtouch_case.png
+				iphone6_black_softtouch_case.png
+				*/
 				array(
 					"name" => "Crystal clear",
 					"descr_1" => "Прозрачный",
@@ -195,9 +207,10 @@ $config = array(
 				),
 				
 				array(
-					"name" => "White clear",
+					"name" => "White crystal",
 					"descr_1" => "Матовый",
 					"descr_2" => "Полупрозрачный чехол",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"lib_img" => "iphone6_transparent_plastic_icon.png",
 					"colors"=> array(
 									array(		
@@ -237,15 +250,16 @@ $config = array(
 					"name" => "Soft Touch",
 					"descr_1" => "матовый белый",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
-					"lib_img" => "iphone6_ST__0001s_0000s_0001_white.png",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
 											"id"=>6,
 											"color"=>"transparent",
-											"desctop_img" => "iphone6_ST__0001s_0000s_0001_white.png",
+											"desctop_img" => "iphone6_white_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
-											"desctop_camera" => "camera.png",
+											"desctop_camera" => "iphone6_silver_camera.png",
 											"cost"=>1600
 										)
 									
@@ -255,15 +269,151 @@ $config = array(
 					"name" => "Soft Touch",
 					"descr_1" => "матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол.",
-					"lib_img" => "iphone6_ST_0001s_0000s_0002_black.png",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
 											"id"=>7,
 											"color"=>"transparent",
-											"desctop_img" => "iphone6_ST_0001s_0000s_0002_black.png",
+											"desctop_img" => "iphone6_black_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
-											"desctop_camera" => "camera.png",
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1700
+										)
+									
+									)
+				)
+			),
+			//id device
+			"iphone6"=>array(
+/*
+
+iphone6_gold_crystal_case.png
+iphone6_silver_crystal_case.png
+iphone6_gray_crystal_case.png
+
+iphone6_gold_whitecrystal_case.png
+iphone6_silver_whitecrystal_case.png
+iphone6_gray_whitecrystal_case.png
+
+iphone6_white_softtouch_case.png
+iphone6_black_softtouch_case.png
+*/
+				array(
+					"name" => "Crystal clear",
+					"descr_1" => "Прозрачный",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"descr_2" => "Полностью прозрачный",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
+					"default"=>true,
+					"colors"=> array(
+									array(		
+										//золотой прозрачный
+											"id"=>0,
+											"color"=>"#CF9657",
+											"desctop_img" => "iphone6_gold_crystal_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_gold_camera.png",
+											"cost"=>1000,
+											"default"=>true
+									),
+									array(	
+										//серебристый прозрачный
+											"id"=>1,
+											"color"=>"#BBBBBB",
+											"desctop_img" => "iphone6_silver_crystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1100
+									),
+									array(	
+										//серый прозрачный прозрачный
+											"id"=>2,
+											"color"=>"#888888",
+											"desctop_img" => "iphone6_gray_crystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1200
+									),
+
+										
+								)
+				),
+				
+				array(
+					"name" => "White crystal",
+					"descr_1" => "Матовый",
+					"descr_2" => "Полупрозрачный чехол",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
+					"colors"=> array(
+									array(		
+										//золотой прозрачный
+											"id"=>3,
+											"color"=>"#CF9657",
+											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_gold_camera.png",
+											"cost"=>1300,
+											"default"=>true
+									),
+									array(	
+										//серебристый прозрачный
+											"id"=>4,
+											"color"=>"#BBBBBB",
+											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1400
+									),
+									array(	
+										//серый прозрачный прозрачный
+											"id"=>5,
+											"color"=>"#888888",
+											"desctop_img" => "iphone6_gray_whitecrystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1500
+									),
+
+										
+								)
+				),
+
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "матовый белый",
+					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
+					"colors"=> array(
+									//цвет - вид (hex, rgb, transparent или название цвета)
+										array(		
+											"id"=>6,
+											"color"=>"transparent",
+											"desctop_img" => "iphone6_white_softtouch_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1600
+										)
+									
+									)
+				),
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "матовый черный",
+					"descr_2" => "Бархатистый, приятный на ощупь чехол.",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
+					"colors"=> array(
+									//цвет - вид (hex, rgb, transparent или название цвета)
+										array(		
+											"id"=>7,
+											"color"=>"transparent",
+											"desctop_img" => "iphone6_black_softtouch_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_gray_camera.png",
 											"cost"=>1700
 										)
 									
@@ -271,68 +421,30 @@ $config = array(
 				)
 			),
 			
-			"iphone6plus"=>array(
-				array(
-					"name" => "Soft Touch",
-					"descr_1" => "Прозрачный",
-					"descr_2" => "Полностью прозрачный",
-					"lib_img" => "iphone6_0003s_0002_gold.png",
-					"desctop_mask_2"=>"iphone_6_mask_2.png",
-					"default"=>true,
-					"colors"=> array(
-									array(		
-											"id"=>8,
-											"color"=>"#CF9657",
-											"desctop_img" => "iphone6_0003s_0002_gold.png",
-											"desctop_mask" => "iphone6-6+.png", //обрезка
-											"desctop_camera" => "camera.png",
-											"cost"=>1800,
-											"default"=>true
-									),
-										array(	
-											"id"=>9,
-											"color"=>"#BBBBBB",
-											"desctop_img" => "iphone6_0003s_0001_silver.png",
-											"desctop_mask" => "iphone6-6+.png",
-											"desctop_camera" => "camera.png",
-											"cost"=>1900
-										),
-										 array(
-										 	"id"=>10,
-											"color"=>"#888888",
-											"desctop_img" => "iphone5_0002s_0002s_0000_black.png",
-											"desctop_mask" => "iphone6-6+.png",
-											"desctop_camera" => "camera.png",
-											"cost"=>2000
-										)
-								)
-				),
-				array(
-					"name" => "Soft Touch",
-					"descr_1" => "матовый белый",
-					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
-					"lib_img" => "iphone6_ST__0001s_0000s_0001_white.png",
-					"colors"=> array(
-									//цвет - вид (hex, rgb, transparent или название цвета)
-										array(	
-											"id"=>11,	
-											"color"=>"transparent",
-											"desctop_img" => "material-1.png",
-											"desctop_mask" => "iphone6-6+.png", //обрезка
-											"desctop_camera" => "camera.png",
-											"cost"=>1450
-										)
-									)
-				),
-				
-			),
+/*
+iphone5-5s_white_softtouch_case.png
+iphone5-5s_black_softtouch_case.png
+
+
+iphone5-5s_gold_whitecrystal_case.png
+iphone5-5s_light_whitecrystal_case.png
+iphone5-5s_dark_whitecrystal_case.png
+
+
+iphone5s_gold_crystal_case.png
+iphone5s_silver_crystal_case.png
+iphone5s_gray_crystal_case.png
+iphone5_white_crystal_case.png
+iphone5_black_crystal_case.png
+
+*/
 		
 		"iphone5s"=>array(
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Прозрачный",
 					"descr_2" => "Полностью прозрачный",
-					"lib_img" => "iphone6_0003s_0002_gold.png",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
 					//"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"default"=>true,
 					"colors"=> array(
@@ -381,19 +493,74 @@ $config = array(
 									
 								)
 				),
+				/* матовый полупрозрачный*/
 				array(
 					"name" => "Soft Touch",
-					"descr_1" => "матовый белый",
+					"descr_1" => "Полупрозрачный",
+					"descr_2" => "Полупрозрачный чехол",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
+					//"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"default"=>true,
+					"colors"=> array(
+									array(		
+											"id"=>8,
+											"color"=>"#CF9657",   
+											"desctop_img" => "iphone5-5s_gold_whitecrystal_case.png",
+											"desctop_mask" => "iphone5-5s.png", //обрезка
+											"desctop_camera" => "iphone5s_gold_camera.png",
+											"cost"=>1800,
+											"default"=>true
+									),
+										array(	
+											"id"=>9,
+											"color"=>"#BBBBBB",
+											"desctop_img" => "iphone5-5s_light_whitecrystal_case.png",
+											"desctop_mask" => "iphone5-5s.png",
+											"desctop_camera" => "iphone5s_silver_camera.png",
+											"cost"=>1900
+										),
+										 array(
+										 	"id"=>10,
+											"color"=>"#888888",
+											"desctop_img" => "iphone5-5s_dark_whitecrystal_case.png",
+											"desctop_mask" => "iphone5-5s.png",
+											"desctop_camera" => "iphone5s_gray_camera.png",
+											"cost"=>2000
+										),
+									
+									
+								)
+				),
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "Матовый белый",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
-					"lib_img" => "iphone6_ST__0001s_0000s_0001_white.png",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
 											"id"=>11,	
 											"color"=>"transparent",
-											"desctop_img" => "material-1.png",
-											"desctop_mask" => "white_mask.png", //обрезка
-											"desctop_camera" => "camera.png",
+											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
+											"desctop_mask" => "iphone5-5s.png", //обрезка
+											"desctop_camera" => "iphone5_white_camera.png",
+											"cost"=>1450
+										)
+									)
+				),
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "Матовый черный",
+					"descr_2" => "Бархатистый, приятный на ощупь чехол..",
+					"lib_img" => "iphone6_transparent_plastic_icon.png",
+					"colors"=> array(
+									//цвет - вид (hex, rgb, transparent или название цвета)
+										array(	
+											"id"=>11,	
+											"color"=>"transparent",
+											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
+											"desctop_mask" => "iphone5-5s.png", //обрезка
+											"desctop_camera" => "iphone5_black_camera.png",
 											"cost"=>1450
 										)
 									)
@@ -404,48 +571,57 @@ $config = array(
 		), 
 		//Цвета текста
 		"colors" => array(
-			array("#cccccc"),
-			array("#444444"),
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),	
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),	
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),				
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),	
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),					
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),	
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc"),		
-			array("#cccccc")				
+			array("#000000"),
+			array("#989898"),
+			array("#ffffff"),
+			array("#181c90"),
+			array("#3539a6"),
+			array("#676abc"),
+			array("#0d7cc3"),
+			array("#6eafdb"),
+			array("#d00349"),
+			array("#e26891"),
+			array("#a0a61a"),
+			array("#d5dd23"),
+			array("#5a9125"),
+			array("#9bbd7c"),
+			array("#9380"),
+			array("#98e7dd"),
+			array("#2ea2cd"),
+			array("#abdaeb"),
+			array("#90278d"),
+			array("#9c1f63"),
+			array("#550460"),
+			array("#e91000"),
+			array("#7a4407"),
+			array("#efa3bd"),
+			array("#f6d1dd"),
+			array("#fdba33"),
+			array("#fed685"),
+			array("#fff336"),
+			array("#ef5a29"),
+			array("#f9cbbc"),
+			array("#3d0d73"),
+			array("#7a1ae4"),
+			array("#00460a"),
+			array("#668f6c"),
+			array("#a2bed8"),
+			array("#ecca48"),
+			array("#d60c00"),
+			array("#d4ef10"),
+			array("#c1c66c"),
+			array("#ae8e6a"),
+			array("#f2805a"),
+			array("#d57307"),
+			array("#c4deec"),
+			array("#da4437"),
+			array("#0f5aba"),
+			array("#3212d6"),
+			array("#29efd8"),
+			array("#c61f83"),
+			array("#cbcbcb"),
+			array("#510600"),
+				
 		),
 		"fonts"=> array(
 			/*Только в */
@@ -463,17 +639,18 @@ $config = array(
 						"name" => "SimplyGlamorous",
 						"filename" => "SimplyGlamorous.ttf"
 					),
-
+/* нет файла
 				array(
 						"name" => "Remachine Script",
 						"filename" => "Remachine_Script_Personal_Use.otf"
 					),
-
+*/
+/* 0 байт
 				array(
 						"name" => "Mustang",
 						"filename" => "Mustang.otf"
 					),
-
+*/
 				array(
 						"name" => "LeagueGothic-CondensedRegular",
 						"filename" =>"LeagueGothic-CondensedRegular.otf"
@@ -488,21 +665,24 @@ $config = array(
 						"name" => "Feathergraphy Decoration",
 						"filename" => "Feathergraphy_Decoration.ttf"
 					),
-
+/* нет файла
 				 array(
 						"name" => "Bira",
 						"filename" => "Bira_PERSONAL_USE_ONLY.ttf"
 					), 
-
+*/
+/* 0 байт
 				array(
 						"name" => "AngillaTattoo",
 						"filename" => "AngillaTattoo_PERSONAL_USE_ONLY.ttf"
 					),
-
+*/
+/* нет файла
 				 array(
 						"name" => "AGLettericaExtraCompressed Roman",
 						"filename" => "AGLettericaExtraCompressed Roman.ttf"
 					)
+*/
 		),
 		
 		"backgrounds" => array(
