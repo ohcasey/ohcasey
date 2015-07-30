@@ -1,5 +1,3 @@
-
-
 //some css checkers 
 
 
@@ -10,6 +8,18 @@ function preparing_html() {
 	$(".main_container").css("height", html_height+"px");
 	$(".main_container").css("width", html_width+"px");
 	to_down_of_page();
+	
+	if ($(window).height()<650) {
+		$("#center_in").css({
+			"top": "0px",
+			"margin-top": "45px"
+		});
+	}else{
+		$("#center_in").css({
+			"top": "50%",
+			"margin-top": "-240px"
+		});
+	}
 }
 
 $(window).resize(function(){
