@@ -850,7 +850,7 @@ body {
 	visibility: hidden;
 	
 	background: #669AC4;
-	left: 110px;
+	left: 140px;
 	text-align: center;
 	padding-top: 1px;
 	cursor: pointer;
@@ -1588,7 +1588,6 @@ text-align: center;
 .instagram_button {
 	position: absolute;
 	top: 7px;
-	right: 5px;
 	display: block;
 	background: #669AC4 url(../img/inst.png) center no-repeat;
 	width: 130px;
@@ -2154,9 +2153,7 @@ input.cart_item.error,  textarea.cart_item.error{
 		margin-top: 4px;
 	}
 
-	#gallery_but {
-		left: 140px;
-	}
+	
 }
 
 
@@ -2194,7 +2191,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	background: #669AC4 ;
 	cursor: pointer;
 	z-index: 100;
-	left: 40px;
+	
 }
 
 .inspire_item_block {
@@ -2234,7 +2231,7 @@ input.cart_item.error,  textarea.cart_item.error{
 .instagram_button {
 	position: absolute;
 	top: 7px;
-	right: 10px;
+
 	display: block;
 	background: #669AC4 url(../img/inst2.png) center no-repeat;
 	width: 180px;
@@ -2573,7 +2570,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	  width: 286px;
 	  color: #fff;
 	  top: -30px;
-	  left: 115px;
+	  left: 265px;
 	}
 
 	#gallery_but-point {
