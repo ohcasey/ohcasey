@@ -629,7 +629,6 @@ function get_mail($config, $mail_controls){
 */
 
 
-  // $_SESSION['items'] = array();
 }    
 
 

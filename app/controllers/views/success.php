@@ -24,7 +24,7 @@
 			<a class="instagram_button" href="https://instagram.com/_ohcasey_" title="Наш инстаграм"></a>
 			<div class="center_block_success">
 				<h1>СПАСИБО, ВАШ ЗАКАЗ ПРИНЯТ!</h1>
-				<h2>№ <?php echo $_SESSION['zakaz_number']; $_SESSION['zakaz_number'] = "";?></h2>
+				<h2>№ <?php echo $_SESSION['zakaz_number']; $_SESSION['zakaz_number'] = "";$_SESSION['items'] = array();?></h2>
 				<span>Мы отправили Вам письмо с данными заказа,<br>
 проверьте, пожалуйста, все ли правильно и ждите нашего звонка.</span>
 			</h1>.
