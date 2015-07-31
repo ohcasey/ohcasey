@@ -5,18 +5,18 @@
 global $mail_controls;
 
 $mail_controls = array(
-	/*
+	
 	"Host" => 'smtp.yandex.ru',
     "Port" => "25",
     "Username" => 'wisethetwice@yandex.ru',              
     "Password" => '2glvPRO100'                  
-  	*/
+  	
 
-
+    /*
   	"Host" => 'smtp.mail.ru',
     "Port" => "25",
     "Username" => 'Hot-a-dog@mail.ru',              
-    "Password" => '2101'   
+    "Password" => '2101'   */
 );
 
 
