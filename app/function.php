@@ -359,9 +359,13 @@ function get_mail($config, $mail_controls){
     require 'mail_functions/PHPMailerAutoload.php';
 
     $mail = new PHPMailer;
-    $mail->SMTPDebug = 0;                               // Enable verbose debug output  
+    $mail->SMTPDebug = 3;                               // Enable verbose debug output  
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();  
+
+
+
+    $mail->SMTPSecure = 'tls';
     $mail->SMTPAuth = true;   
     $mail->Host = $mail_controls["Host"];
     $mail->Port = $mail_controls["Port"];
@@ -493,9 +497,9 @@ function get_mail($config, $mail_controls){
 
 
     /*mail client*/
- /*   $email = "contact@shmakovdima.ru";*/
+
     $mail = new PHPMailer;
-    $mail->SMTPDebug = 0;                               // Enable verbose debug output  
+    $mail->SMTPDebug = 3;                               // Enable verbose debug output  
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();  
 
@@ -619,7 +623,7 @@ function get_mail($config, $mail_controls){
                                             padding-bottom: 3px;
                                             font-weight: 400;
                                             text-align: left;">Карта сбербанка для оплаты:  <span style="color:  #405e88;
-                                            font-size: 16px;" >1111 1111 1111 1111</span></span>', $body);
+                                            font-size: 16px;" >6761 9600 0133 359217</span></span>', $body);
     }else{
         $body = str_replace('$sber_option', "", $body);
     }
@@ -646,7 +650,7 @@ function get_mail($config, $mail_controls){
 
 
     
-
+    $mail->SMTPSecure = 'tls';
     $mail->Subject = 'Заказ на сайте ohcasey.ru №'.$zakaz_number;
     $mail->MsgHTML($body);
     $mail->CharSet="utf-8";
