@@ -721,7 +721,7 @@ function get_client_mail($config) {
                                                     background-position: top right;
                                                     width: 34%;
                                                     ">
-                                                    <img src = "http://'.$_SERVER['HTTP_HOST'].'/'.$_SESSION['items'][$i]["preview_url"].' height="240px" width="auto">
+                                                    <img src = "http://'.$_SERVER['HTTP_HOST'].'/'.$_SESSION['items'][$i]["preview_url"].' height="240px" width="auto" style="height: 250px; width: auto;">
                                                         
                                                     </td>
                                                     <td style="width: 2%;"></td>
