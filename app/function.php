@@ -447,7 +447,7 @@ function get_mail($config, $mail_controls){
 
     $body = str_replace('$cost', $cost, $body);
 
-    if (isset($adress)) {
+    if (isset($adress) && ($adress!="")) {
          $body = str_replace('$adress','<tr>
                                                         <td style ="padding: 5px;" width="50%">Адрес</td>
                                                         <td style ="padding: 5px;">'.$adress.'</td>
@@ -456,7 +456,7 @@ function get_mail($config, $mail_controls){
         $body = str_replace('$adress', "", $body);
     }
 
-    if (isset($comments)) {
+    if (isset($comments) && ($comments!="")) {
          $body = str_replace('$comments', '<tr>
                                                         <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
                                                         <td style ="padding: 5px;">'.$comments.'</td>
