@@ -637,7 +637,7 @@ function get_mail($config, $mail_controls){
 
     $body = str_replace('$finaf', $cost." рублей", $body);
     
-     = get_client_mail($config);
+    $elem = get_client_mail($config);
     $body = str_replace('$plant', $elem[0]   , $body);
    
 
