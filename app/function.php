@@ -359,13 +359,13 @@ function get_mail($config, $mail_controls){
     require 'mail_functions/PHPMailerAutoload.php';
 
     $mail = new PHPMailer;
-    $mail->SMTPDebug = 3;                               // Enable verbose debug output  
+    $mail->SMTPDebug = 0;                               // Enable verbose debug output  
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();  
 
 
 
-    $mail->SMTPSecure = 'tls';
+    
     $mail->SMTPAuth = true;   
     $mail->Host = $mail_controls["Host"];
     $mail->Port = $mail_controls["Port"];
@@ -499,7 +499,7 @@ function get_mail($config, $mail_controls){
     /*mail client*/
 
     $mail = new PHPMailer;
-    $mail->SMTPDebug = 3;                               // Enable verbose debug output  
+    $mail->SMTPDebug = 0;                               // Enable verbose debug output  
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();  
 
@@ -650,6 +650,7 @@ function get_mail($config, $mail_controls){
     
     $mail->SMTPSecure = 'tls';
     $mail->Subject = 'Заказ на сайте ohcasey.ru №'.$zakaz_number;
+    $mail->addAddress($email, $fio);
     $mail->MsgHTML($body);
     $mail->CharSet="utf-8";
 
