@@ -658,12 +658,12 @@
                             <tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN PREHEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader" width="765px" style="
-                                    	width: 765px!important; 
-                                    	min-width: 765px!important; 
-                                    	background:#efefef;
-                                    	margin-bottom: -20px;
-                                    ">
+	                                 <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader" width="765px" style="
+	                                    	width: 765px!important; 
+	                                    	min-width: 765px!important; 
+	                                    	background:#E8E8E8;
+	                                    	margin-bottom: -20px;
+	                                    ">
                                         <tr >
                                            	<td style="padding: 30px 60px;"><span style="    text-align: center;
 												    width: 100%;
@@ -708,26 +708,210 @@
 											color:  #000000;
 											font-size: 14px;
 											padding-top: 10px;
-											padding-bottom: 10px;
+											padding-bottom: 3px;
 											font-weight: 400;
 											text-align: left;">Номер заказа: <span style="color:  #405e88;
-											 font-weight: bold; font-size: 16px;" >$zakaz_number</span></span>
+											font-size: 16px;" >$zakaz_number</span></span>
+
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 3px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">ФИО: <span style="color:  #405e88;
+											font-size: 16px;" >$fio</span></span>
+
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 3px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">E-mail: <span style="color:  #405e88;
+											font-size: 16px;" >$email</span></span>
+
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 3px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">Телефон: <span style="color:  #405e88;
+											font-size: 16px;" >$phone</span></span>
+
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 3px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">Город: <span style="color:  #405e88;
+											font-size: 16px;" >$city</span></span>
 											 
+											$adress_mail
+											$comments_mail
 
 
-ФИО: Настас Яна
-E-mail: yannyn@me.com
-Телефон: 8 (925) 355-47-51 
-Город: Москва
-Адрес: —
-Комментарий: —
-Способ доставки: Самовывоз
-Способ оплаты: Наличными
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 20px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">Способ доставки: <span style="color:  #405e88;
+											font-size: 16px;" >$deliver</span></span>
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 3px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">Способ оплаты: <span style="color:  #405e88;
+											font-size: 16px;" >$payment</span></span>
 
-Сумма: 1500 р.
-Доставка: 0 р.
-Итого: 1500 р.
 
+											$sber_option
+
+
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 20px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">Cумма: <span style="color:  #405e88;
+											font-size: 16px;" >$summ</span></span>
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 3px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">Доставка: <span style="color:  #405e88;
+											font-size: 16px;" >$delicer_cost</span></span>
+											<span  style="display: block;
+											color:  #000000;
+											font-size: 14px;
+											padding-top: 3px;
+											padding-bottom: 3px;
+											font-weight: 400;
+											text-align: left;">Итого: <span style="color:  #405e88;
+											font-size: 16px;" >$final</span></span>
+
+											$plant
+<!--
+											<table style="width: 100%; margin-top: 20px;">
+												<tr>
+													<td style="
+													background-image: url(../../uploaded_images/2015/07/31/tGTsS394aAKHKTr6QkE2R8tt.png);
+													background-repeat: no-repeat;
+													background-size: contain;
+													background-position: top right;
+													width: 34%;
+													">
+														
+													</td>
+													<td style="width: 2%;"></td>
+													<td style="width: 49%;">
+														<table>
+															<tr>
+																<td style="
+																width: 122px;
+																height: 122px;
+																background-color: #f7f7f7;
+																text-align: center;
+																color: #669AC4;
+																font-size: 16px;/* Приближение из-за подстановки шрифтов */
+																font-weight: 300;
+																text-align: center;
+																">
+																<span style ="display: block; padding: 5px 0px; pa">IPhone 5 Plus</span>
+																<img alt="" src = "http://localhost/img/devices/library/device-1.png">
+
+																</td>
+																<td style="width: 3px;"></td>
+																<td style="
+
+																width: 122px;
+																height: 122px;
+																background-color: #f7f7f7;
+																text-align: center;
+																"
+																>
+																	<span style="color:  #405e88;
+																font-size: 18px;
+																font-weight: 300;
+																text-align: center;">Силикон + пластик</span><br>
+
+
+
+
+																	<span style="color:  #669AC4;
+															font-size: 16px;
+															display: block;
+															padding-top: 4px;
+															font-weight: 300;
+														text-align: center;">Цвет прозрачный</span>
+																</td>
+															</tr>
+															<tr style="height: 5px;"></tr>
+															<tr style="
+																
+															">
+																<td style="
+																width: 122px;
+																height: 122px;
+																background-color: #f7f7f7;
+																text-align: center;
+																">
+																<span style="text-transform: uppercase; 
+												color: #405e88;
+												font-size: 16px;
+												font-weight: 300;
+												text-align: center;
+												">#ОБЪЁМНАЯ
+												ПЕЧАТЬ
+												</span><br><span style=" color:  #669AC4; font-size: 16px;
+																		display: block;
+																		padding-top: 4px;
+
+																	">уникальная
+													технология</span>
+
+
+
+																</td>
+																<td style="width: 3px;"></td>
+																<td style="
+
+																width: 122px;
+																height: 122px;
+																background-color: #f7f7f7;
+
+																  color: #669AC4;
+																  font-size: 18px;
+																  text-align: center;
+
+
+																"
+																>
+																	<span style="font-size: 18px;">Цена:</span><br>
+																	<span style="
+																		display: block;
+																		padding-top: 4px;
+
+																	">1500 р.</span>
+																</td>
+															</tr>
+														</table>
+
+													</td>
+												</tr>
+
+											</table>
+-->
+											<span style="letter-spacing: normal; display: block; background: #2F6EA3; padding: 10px 15px; height:30px; padding-top: 12px; text-transform: uppercase; color: white; width:170px; margin-left: 215px; margin-top: 38px;">Итого: $finaf</span>
 
 
 
@@ -749,7 +933,7 @@ E-mail: yannyn@me.com
                 	<td style="background-repeat: no-repeat; background: url($bottomemail); vertical-align: top; padding: 60px 110px ;" height="411px" width="640px">
                 		
                 		<span style="font-size: 14px; letter-spacing: normal; line-height: 18px;"><nobr>Если все верно, скоро с Вами свяжутся для подтверждения заказа.</nobr><br>
-                		<nobr>В противном случае позвоните в службу доставки по телефону <a style="color:#405e88!; font-size: 16px; text-decoration: none" href="tel:79037905810" title="Наш телефон">+7 (903) 790-58-10</a></nobr>
+                		<nobr>В противном случае позвоните в службу доставки по телефону <a style="color:#405e88!important; font-size: 16px; text-decoration: none" href="tel:79037905810" title="Наш телефон">+7 (903) 790-58-10</a></nobr>
                 		</span>
                 		<a href="https://instagram.com/_ohcasey_" title="Наш инстаграм" style="letter-spacing: normal; display: block; background: #7491b9; padding: 10px 15px; padding-top: 20px; height:30px; width:110px; margin-left: 245px; margin-top: 38px;" width="130px" height="60px">
                 			<img src="$inst" >

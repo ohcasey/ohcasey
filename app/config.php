@@ -13,10 +13,10 @@ $mail_controls = array(
   	*/
 
 
-  	"Host" => 'smtp.mail.ru',
-    "Port" => "25",
-    "Username" => 'Hot-a-dog@mail.ru',              
-    "Password" => '2101'   
+  	"Host" => 'smtp.gmail.com',
+    "Port" => "465",
+    "Username" => 'ohcaseysales@gmail.com',              
+    "Password" => 'ohcaseyohcasey'   
 );
 
 
