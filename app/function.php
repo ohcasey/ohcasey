@@ -433,6 +433,9 @@ function get_mail($config, $mail_controls){
   
     $body = str_replace('$elements', $elements[0], $body);
 
+
+
+
     $cost+=$elements[1];
     $body = str_replace('$deliver', $deliver_type, $body);
 
@@ -555,16 +558,89 @@ function get_mail($config, $mail_controls){
  
     
 
-     $body = str_replace('$fio', $fio, $body);
+    $body = str_replace('$fio', $fio, $body);
     $body = str_replace('$zakaz_number',  $zakaz_number, $body);
     $body = str_replace('$email', $email, $body);
     $body = str_replace('$phone', $phone, $body);
     $body = str_replace('$city', $city, $body);
 
+     if (isset($adress))   {
+      $body = str_replace('$adress_mail','<span  style="display: block;
+                                            color:  #000000;
+                                            font-size: 14px;
+                                            padding-top: 3px;
+                                            padding-bottom: 3px;
+                                            font-weight: 400;
+                                            text-align: left;">Адрес: <span style="color:  #405e88;
+                                            font-size: 16px;" >'.$adress.'</span></span>', $body);
+    }else{
+        $body = str_replace('$adress_mail','<span  style="display: block;
+                                            color:  #000000;
+                                            font-size: 14px;
+                                            padding-top: 3px;
+                                            padding-bottom: 3px;
+                                            font-weight: 400;
+                                            text-align: left;">Адрес: <span style="color:  #405e88;
+                                            font-size: 16px;" >—</span></span>', $body);
+    }
+
+    if (isset($comments)) {
+        $body = str_replace('$comments_mail','<span  style="display: block;
+                                            color:  #000000;
+                                            font-size: 14px;
+                                            padding-top: 3px;
+                                            padding-bottom: 3px;
+                                            font-weight: 400;
+                                            text-align: left;">Комментарии: <span style="color:  #405e88;
+                                            font-size: 16px;" >'.$comments.'</span></span>', $body);
+    }else{
+         $body = str_replace('$comments_mail','<span  style="display: block;
+                                            color:  #000000;
+                                            font-size: 14px;
+                                            padding-top: 3px;
+                                            padding-bottom: 3px;
+                                            font-weight: 400;
+                                            text-align: left;">Комментарии: <span style="color:  #405e88;
+                                            font-size: 16px;" >—</span></span>', $body);
+    }
+
+    $body = str_replace('$deliver', $deliver_type, $body);
+
+    $body = str_replace('$payment', $payment_type, $body);
 
 
 
 
+    if ($payment=="sber"){
+        $body = str_replace('$sber_option','<span  style="display: block;
+                                            color:  #000000;
+                                            font-size: 14px;
+                                            padding-top: 3px;
+                                            padding-bottom: 3px;
+                                            font-weight: 400;
+                                            text-align: left;">Карта сбербанка для оплаты:  <span style="color:  #405e88;
+                                            font-size: 16px;" >1111 1111 1111 1111</span></span>', $body);
+    }else{
+        $body = str_replace('$sber_option', "", $body);
+    }
+
+
+    
+
+    $body = str_replace('$summ', $elements[1]." р." , $body);
+    $body = str_replace('$delicer_cost', $config["deliver_cost"][$deliver]." р.", $body);
+    $body = str_replace('$final', $cost." р.", $body);
+
+    $body = str_replace('$finaf', $cost." рублей", $body);
+    
+
+    $body = str_replace('$plant',  get_client_mail($config)[0] , $body);
+   
+
+   
+
+
+    echo $body;
 
 
 
@@ -607,16 +683,6 @@ function get_mail($config, $mail_controls){
        exit;
     }
 
-    /*Варианты выбора*/
-    if ($payment=="cash"){
-        $payment_type = "Наличными";
-
-    }
-
-    if ($payment=="sber"){
-        $payment_type = "Карта сбербанка";
-    }
-
 
 
      header("Location: /success"); 
@@ -631,6 +697,216 @@ function get_mail($config, $mail_controls){
 
 }    
 
+/*
+
+
+*/
+
+function get_client_mail($config) {
+    $cost_cur =0;
+    $cost = 0;
+    $count = count($_SESSION['items']); 
+    print_r($_SESSION['items']);
+
+    $result ="";
+    for ($i=0; $i<$count; $i++) {
+        $cur_cost = get_cost_case(($_SESSION['items'][$i]["case_id"]), $config, ($_SESSION['items'][$i]["device_id_case"]));
+       
+
+         $result.='<table style="width: 100%; margin-top: 20px;">
+                                                <tr>
+                                                    <td style="
+                                                    background-image: url(http://'.$_SERVER['HTTP_HOST'].'/'.$_SESSION['items'][$i]["preview_url"].');
+                                                    background-repeat: no-repeat;
+                                                    background-size: contain;
+                                                    background-position: top right;
+                                                    width: 34%;
+                                                    ">
+                                                        
+                                                    </td>
+                                                    <td style="width: 2%;"></td>
+                                                    <td style="width: 49%;">
+                                                        <table>
+                                                            <tr>
+                                                                <td style="
+                                                                width: 122px;
+                                                                height: 122px;
+                                                                background-color: #f7f7f7;
+                                                                text-align: center;
+                                                                color: #669AC4;
+                                                                font-size: 16px;
+                                                                font-weight: 300;
+                                                                text-align: center;
+                                                                ">
+                                                                <span style ="display: block; padding: 5px 0px; pa">'.$_SESSION['items'][$i]["device_name"].'</span>
+                                                                <img alt="" src = "http://'.$_SERVER['HTTP_HOST'].'/'.$config["devices_library_path"].$_SESSION['items'][$i]["lib_img"].'">
+
+                                                                </td>
+                                                                <td style="width: 3px;"></td>
+                                                                <td style="
+
+                                                                width: 122px;
+                                                                height: 122px;
+                                                                background-color: #f7f7f7;
+                                                                text-align: center;
+                                                                "
+                                                                >
+                                                                    <span style="color:  #405e88;
+                                                                font-size: 18px;
+                                                                font-weight: 300;
+                                                                text-align: center;">'.$_SESSION['items'][$i]["name_case_1"].'</span><br>
+
+
+
+
+                                                                    <span style="color:  #669AC4;
+                                                            font-size: 16px;
+                                                            display: block;
+                                                            padding-top: 4px;
+                                                            font-weight: 300;
+                                                        text-align: center;">'.$_SESSION['items'][$i]["name_case_2"].'</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr style="height: 5px;"></tr>
+                                                            <tr style="
+                                                                
+                                                            ">
+                                                                <td style="
+                                                                width: 122px;
+                                                                height: 122px;
+                                                                background-color: #f7f7f7;
+                                                                text-align: center;
+                                                                ">
+                                                                <span style="text-transform: uppercase; 
+                                                color: #405e88;
+                                                font-size: 16px;
+                                                font-weight: 300;
+                                                text-align: center;
+                                                ">#ОБЪЁМНАЯ
+                                                ПЕЧАТЬ
+                                                </span><br><span style=" color:  #669AC4; font-size: 16px;
+                                                                        display: block;
+                                                                        padding-top: 4px;
+
+                                                                    ">уникальная
+                                                    технология</span>
+
+
+
+                                                                </td>
+                                                                <td style="width: 3px;"></td>
+                                                                <td style="
+
+                                                                width: 122px;
+                                                                height: 122px;
+                                                                background-color: #f7f7f7;
+
+                                                                  color: #669AC4;
+                                                                  font-size: 18px;
+                                                                  text-align: center;
+
+
+                                                                "
+                                                                >
+                                                                    <span style="font-size: 18px;">Цена:</span><br>
+                                                                    <span style="
+                                                                        display: block;
+                                                                        padding-top: 4px;
+
+                                                                    ">'.$cur_cost.' р.</span>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </td>
+                                                </tr>
+
+                                            </table>';
+
+
+        /*
+        $result.='  <table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">
+             <caption style="font-size: 16px; margin-bottom: 15px; padding-top:20px;" >Элемент '.($i+1).'</caption>';
+
+        $result.=' <tr><td  width="60%"><table width="100%" style = "text-align: center; font-size: 14px; " border="1" cellpadding="0" cellspacing="0" class="half_table admin_table">';
+      
+
+      
+        $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о чехле</td></tr>';
+
+        $result.='<tr><td style ="padding: 5px;">Устройство</td><td>'.$_SESSION['items'][$i]["device_name"].'</td></tr>';
+         $result.='<tr><td style ="padding: 5px;">Id чехла</td><td>'.$_SESSION['items'][$i]["case_id"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Цвет устройства</td><td style="background-color: '.$_SESSION['items'][$i]["device_color"].';"></td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Название чехла</td><td>'.$_SESSION['items'][$i]["name_case_1"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Подназвание чехла</td><td>'.$_SESSION['items'][$i]["name_case_2"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Ссылка на изображение</td><td style ="padding: 5px;"><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'</a></td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Ширина картинки</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["image_size_width"].'</td></tr>';
+        $result.='<tr><td style ="padding: 5px;">Высота картинки</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["image_size_height"].'</td></tr>';
+
+
+         if ($_SESSION['items'][$i]["bg_case"]!="") {
+             $result.='<tr><td style ="padding: 5px;">Фон чехла</td><td style ="padding: 5px;"><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["bg_case"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["bg_case"].'</a></td></tr>';
+        }
+
+
+       
+        $cur_cost = get_cost_case(($_SESSION['items'][$i]["case_id"]), $config, ($_SESSION['items'][$i]["device_id_case"]));
+        $cost+=$cur_cost;
+        $result.='<tr><td style ="padding: 5px;">Стоимость</td><td style ="padding: 5px;">'.$cur_cost.'</td></tr>';
+
+        if ($_SESSION['items'][$i]["text"]!="") {
+             $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о тексте</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Текст</td><td style ="padding: 5px;">'.$_SESSION['items'][$i]["text"].'</td></tr>';
+             if( $_SESSION['items'][$i]["font_color"]!="") {
+                 $result.='<tr><td style ="padding: 5px;">Цвет текста</td><td>'.$_SESSION['items'][$i]["font_color"].'</td></tr>';
+             }
+             if( $_SESSION['items'][$i]["font_pattern"]!="") {
+                 $result.='<tr><td style ="padding: 5px;">Паттерн текста</td><td><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["font_pattern"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["font_pattern"].'</a></td></tr>';
+             }
+             $result.='<tr><td style ="padding: 5px;">Размер текста</td><td>'.$_SESSION['items'][$i]["font_size"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Шрифт</td><td>'.$_SESSION['items'][$i]["font_family"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Координата X</td><td>'.$_SESSION['items'][$i]["font_x"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Координата Y</td><td>'.$_SESSION['items'][$i]["font_y"].'</td></tr>';
+             $result.='<tr><td style ="padding: 5px;">Ширина текста</td><td>'.$_SESSION['items'][$i]["font_width"].'</td></tr>';
+              $result.='<tr><td style ="padding: 5px;">Высота текста</td><td>'.$_SESSION['items'][$i]["font_height"].'</td></tr>';
+
+
+
+
+             $result.='<tr><td style ="padding: 5px;">Угол поворота текста</td><td>'.$_SESSION['items'][$i]["font_rotate"].'</td></tr>';
+             
+             
+        }
+        if (count($_SESSION['items'][$i]["smiles"])>0) {
+            $result.='<tr><td style ="padding: 5px;" colspan="2">Информация о cмайлах</td></tr>';
+            $count_smiles = 0;
+     
+            foreach ($_SESSION['items'][$i]["smiles"] as $j => $value) {
+                $count_smiles++;
+                $result.='<tr><td style ="padding: 5px;" colspan="2">Смайл '.$count_smiles.'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Ширина смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_width"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Высота смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_height"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Координата по X</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_x"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Координата по Y</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_y"].'</td></tr>';
+                $result.='<tr><td style ="padding: 5px;">Поворот смайла</td><td>'.$_SESSION['items'][$i]["smiles"][$j]["smile_rotate"].'</td></tr>';
+               $result.='<tr><td style ="padding: 5px;">Ссылка на смайл</td><td><a href="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["smiles"][$j]["smile_url"].'">http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["smiles"][$j]["smile_url"].'</a></td></tr>';
+
+            }
+                
+        }
+
+
+
+        $src = "http://".$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"];
+
+        $result.='</table></td><td style ="padding: 5px;" width="40%"><img width="auto" height="auto" src="'.$src.'" alt ="Элемент '.($i+1).'"></td></tr>';
+
+        $result.='</table>';
+
+        */
+    }
+     return array($result, $cost);
+}
 
 
 

@@ -1,4 +1,7 @@
 //some css checkers 
+var scale_coof = 7;
+
+
 
 
 function preparing_html() {
@@ -66,7 +69,7 @@ var desctop = {
 		material_id: "",
 		text: "",
 		font_pattern_id: "",
-
+		lib_img: "",
 		/*new*/
 
 		device_name: "",
@@ -955,6 +958,7 @@ function remove_setting() {
 	$("#header-menu-item-1").addClass("header-menu-active");
 	$("#header-menu-item-1").addClass("header-menu-selected");
 	
+	desctop.lib_img = "";
 	desctop.image_size_width ="";
 	desctop.image_size_height ="";
 	desctop.material_id="";
@@ -1282,6 +1286,9 @@ function set_device(device_id) {
 
 	desctop.device_id_case = config.devices[device_id].id;
 	desctop.device_name = config.devices[device_id].name;
+
+	desctop.lib_img = config.devices[device_id].lib_img;
+
 	svg_device.selectAll("image").remove();
 	
 	
@@ -1502,6 +1509,7 @@ var getImageBase64 = function (url, callback) {
 
 
 function save_image() {
+
 	
 	var svg = document.querySelector("svg");
 	var svgData = new XMLSerializer().serializeToString( svg );
@@ -1515,9 +1523,9 @@ function save_image() {
 
 	var img = document.createElement("img");
 	
-	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+	
 
-
+	
 /*
 	setTimeout(function() { 
 
@@ -1595,11 +1603,7 @@ function save_image() {
 			}
 		});
 	}, 10000);
-
-
-
 */
-
 
 
 
@@ -1619,7 +1623,6 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
-
 
 				desctop.preview_url = data;
 
@@ -1676,14 +1679,9 @@ function save_image() {
 				sweetAlert("Ошибка", data, "error");
 			}
 		});
-		
-	
-	
-
-
 
 	};
-
+	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 	
 }
 

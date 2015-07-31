@@ -6,7 +6,7 @@
 	<?php include "templates/left_block.php";?>
 	<div id="center">
 		<div id="center_in" >
-				<svg  xmlns="http://www.w3.org/2000/svg"  id="device" class="center_device_svg">
+				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="center_device_svg">
 					<defs>
 						<style type="text/css">
 							<?php styles_setup($config);?>
@@ -14,7 +14,7 @@
 						</style>
 					</defs>
 				</svg>
-				<svg xmlns="http://www.w3.org/2000/svg"  class="controls_device_svg">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="controls_device_svg">
 					<defs>
 						<pattern id="move" x="0" y="0" patternUnits="objectBoundingBox" height="25" width="25">
 						  <image x="0" y="0" xlink:href="img/buttons/move.png" height="25" width="25"></image>
