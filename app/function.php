@@ -715,12 +715,13 @@ function get_client_mail($config) {
          $result.='<table style="width: 100%; margin-top: 20px;">
                                                 <tr>
                                                     <td style="
-                                                    background-image: url(http://'.$_SERVER['HTTP_HOST'].'/'.$_SESSION['items'][$i]["preview_url"].');
+                                                   
                                                     background-repeat: no-repeat;
                                                     background-size: contain;
                                                     background-position: top right;
                                                     width: 34%;
                                                     ">
+                                                    <img src = "http://'.$_SERVER['HTTP_HOST'].'/'.$_SESSION['items'][$i]["preview_url"].'">
                                                         
                                                     </td>
                                                     <td style="width: 2%;"></td>
