@@ -578,14 +578,7 @@ function get_mail($config, $mail_controls){
                                             text-align: left;">Адрес: <span style="color:  #405e88;
                                             font-size: 16px;" >'.$adress.'</span></span>', $body);
     }else{
-        $body = str_replace('$adress_mail','<span  style="display: block;
-                                            color:  #000000;
-                                            font-size: 14px;
-                                            padding-top: 3px;
-                                            padding-bottom: 3px;
-                                            font-weight: 400;
-                                            text-align: left;">Адрес: <span style="color:  #405e88;
-                                            font-size: 16px;" >—</span></span>', $body);
+        $body = str_replace('$adress_mail','', $body);
     }
 
     if (isset($comments)) {
@@ -598,14 +591,7 @@ function get_mail($config, $mail_controls){
                                             text-align: left;">Комментарии: <span style="color:  #405e88;
                                             font-size: 16px;" >'.$comments.'</span></span>', $body);
     }else{
-         $body = str_replace('$comments_mail','<span  style="display: block;
-                                            color:  #000000;
-                                            font-size: 14px;
-                                            padding-top: 3px;
-                                            padding-bottom: 3px;
-                                            font-weight: 400;
-                                            text-align: left;">Комментарии: <span style="color:  #405e88;
-                                            font-size: 16px;" >—</span></span>', $body);
+         $body = str_replace('$comments_mail','', $body);
     }
 
     $body = str_replace('$deliver', $deliver_type, $body);
@@ -720,6 +706,7 @@ function get_client_mail($config) {
                                                     background-size: contain;
                                                     background-position: top right;
                                                     width: 34%;
+                                                    text-align: right;
                                                     ">
                                                     <img src = "http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'" height="240px" width="auto" style="height: 250px; width: auto">
                                                         
