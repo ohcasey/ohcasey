@@ -13,14 +13,14 @@ var opts = {
   corners: 1, // Corner roundness (0..1)
   rotate: 0, // The rotation offset
   direction: 1, // 1: clockwise, -1: counterclockwise
-  color: '#EA281F', // #rgb or #rrggbb or array of colors
+  color: '#2F6EA3', // #rgb or #rrggbb or array of colors
   speed: 1, // Rounds per second
   trail: 60, // Afterglow percentage
   shadow: false, // Whether to render a shadow
   hwaccel: false, // Whether to use hardware acceleration
   className: 'spinner', // The CSS class to assign to the spinner
   zIndex: 2e9, // The z-index (defaults to 2000000000)
-  top: '45%', // Top position relative to parent
+  top: '43%', // Top position relative to parent
   left: '50%' // Left position relative to parent
 };
 
@@ -267,7 +267,7 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 		$(".cart_item_block").remove();
 		reset_cost_total();
 
-		$("body").after('<div id = "foo"></div>');
+		$(".main_container").after('<div id = "foo"></div>');
 
 		var target = document.getElementById('foo');
 		var spinner = new Spinner(opts).spin(target);
@@ -275,30 +275,6 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 		document.order_form.submit();
 
 
-		/*
-		$.ajax({
-		  type: "POST",
-		  dataType: "json",
-		  url: "cart/confirm_order",
-		  data: {
-		  	fio : $(".fio").val(),
-		  	email : $(".email").val(),
-		  	phone : $(".phone").val(),
-		  	city : $(".city").val(),
-		  	adress : $(".adress").val(),
-		  	comments : $(".comments").val(),
-		  	deliver: $('input[name="deliver"]:checked').attr("id"),
-		  	payment : $('input[name="payment"]:checked').attr("id")
-		  },
-		  success: function(data){
-		  	sweetAlert("Успешно", data, "success");
-		  },
-		  fail: function(data){
-		  	sweetAlert("Ошибка", data, "error");
-		  }
-	  	});
-
-	*/
 	}
 	
 });
