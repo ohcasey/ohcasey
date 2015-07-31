@@ -1523,10 +1523,10 @@ function save_image() {
 	var img = document.createElement("img");
 	
 
-
+	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 	img.onload = function() {
 
-		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+		
 		ctx.drawImage( img, 0, 0 );
 	
 		
