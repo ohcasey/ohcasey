@@ -1529,8 +1529,7 @@ function save_image() {
 		
 		ctx.drawImage( img, 0, 0 );
 	
-		
-		// Now is done
+	
 			
 		$.ajax({ 
 			type: "POST", 
