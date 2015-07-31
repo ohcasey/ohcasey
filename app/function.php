@@ -542,7 +542,7 @@ function get_mail($config, $mail_controls){
 
     $body =  str_replace('$logo', 'http://'.$src.'/img/logo_white.png' , $body);
 
-    $body = str_replace('$bottomemail', 'http://'.$src.'/img/mail_background.png' , $body);
+    $body = str_replace('$bottomemail', 'http://'.$src.'/img/mail_background2.png' , $body);
 
 
    
@@ -721,7 +721,7 @@ function get_client_mail($config) {
                                                     background-position: top right;
                                                     width: 34%;
                                                     ">
-                                                    <img src = "http://'.$_SERVER['HTTP_HOST'].'/uploaded_images/'.$_SESSION['items'][$i]["preview_url"].' height="240px" width="auto" style="height: 250px; width: auto">
+                                                    <img src = "http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'" height="240px" width="auto" style="height: 250px; width: auto">
                                                         
                                                     </td>
                                                     <td style="width: 2%;"></td>
