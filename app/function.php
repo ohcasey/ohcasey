@@ -349,7 +349,7 @@ function get_mail($config, $mail_controls){
 
 
 
-/* if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {*/
+ if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
     $zakaz_number=time();
     $_SESSION['zakaz_number'] = $zakaz_number;
@@ -691,19 +691,15 @@ function get_mail($config, $mail_controls){
      header("Location: /success"); 
 
 
-/*
+
 }else{
     header("Location: /cart"); 
 }
-*/
+
 
 
 }    
 
-/*
-
-
-*/
 
 function get_client_mail($config) {
     $cost_cur =0;
