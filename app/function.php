@@ -721,7 +721,7 @@ function get_client_mail($config) {
                                                     background-position: top right;
                                                     width: 34%;
                                                     ">
-                                                    <img src = "http://'.$_SERVER['HTTP_HOST'].'/'.$_SESSION['items'][$i]["preview_url"].'">
+                                                    <img src = "http://'.$_SERVER['HTTP_HOST'].'/'.$_SESSION['items'][$i]["preview_url"].' height="240px" width="auto">
                                                         
                                                     </td>
                                                     <td style="width: 2%;"></td>
@@ -738,7 +738,7 @@ function get_client_mail($config) {
                                                                 font-weight: 300;
                                                                 text-align: center;
                                                                 ">
-                                                                <span style ="display: block; padding: 5px 0px; pa">'.$_SESSION['items'][$i]["device_name"].'</span>
+                                                                <span style ="display: block; padding: 5px 0px; width:100%;">'.$_SESSION['items'][$i]["device_name"].'</span>
                                                                 <img alt="" src = "http://'.$_SERVER['HTTP_HOST'].'/'.$config["devices_library_path"].$_SESSION['items'][$i]["lib_img"].'">
 
                                                                 </td>
