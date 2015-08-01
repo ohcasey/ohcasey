@@ -45,6 +45,11 @@
 		if ($action_name=="add_to_cart" ) {
 			add_to_cart();
 		}		
+
+		if ($action_name == "save_png") {
+			save_svg_to_png();
+		}
+
 	}
 
 	if ($controller_name == "success") {	
