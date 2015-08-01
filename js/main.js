@@ -1626,7 +1626,8 @@ function response_to_server(url) {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						document.location = "/cart";
+						alert(data);
+						//document.location = "/cart";
 					},
 					fail: function(data){
 						sweetAlert("Ошибка", data, "error");
