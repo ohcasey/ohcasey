@@ -1520,9 +1520,8 @@ function save_image() {
 	
 	var ctx = canvas.getContext( "2d" );
 
-	var img = document.createElement("img");
+	var img = new Image();
 	
-
 	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 	img.onload = function() {
 
