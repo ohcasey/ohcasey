@@ -159,7 +159,6 @@ function save_svg_to_png() {
         $im = new Imagick();
 
 
-        print_r($svgString);
       
 
         $im->readImageBlob($svgString);
@@ -168,7 +167,7 @@ function save_svg_to_png() {
         $im->setImageFormat("png24");
        
         
-        save_to_file($svgString, true, $im);
+        save_to_file($svgString,  $im);
 
         $im->clear();
         $im->destroy();     
