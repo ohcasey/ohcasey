@@ -1507,9 +1507,46 @@ var getImageBase64 = function (url, callback) {
 
 
 
-function save_image() {
 
-	
+function save_image() {
+	$(".main_container").after('<div id = "foo"></div>');
+
+	var target = document.getElementById('foo');
+	var spinner = new Spinner(opts).spin(target);
+
+	var ua = navigator.userAgent.toLowerCase(); 
+
+	  if (ua.indexOf('safari') != -1) { 
+	    if (ua.indexOf('chrome') > -1) {
+	      
+	    } else {
+	      
+	       var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
+	       markup = markup.replace(/NS\d+:href/g, 'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href');
+		   markup = markup.replace(/a\d+:href/g, 'xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href');
+
+		   $.ajax({ 
+				type: "POST", 
+				url: "main/save_png",
+				dataType: 'text',
+				data: {
+					image : markup
+				},
+				success: function(data){
+					response_to_server(data);
+				},
+				fail: function(data){
+					sweetAlert("Ошибка", data, "error");
+				}
+			});
+
+
+	      return;
+	    }
+	  }
+
+
+
 	var svg = document.querySelector("svg");
 	var svgData = new XMLSerializer().serializeToString( svg );
 
@@ -1524,11 +1561,8 @@ function save_image() {
 	
 	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 	img.onload = function() {
-
-		
-		ctx.drawImage( img, 0, 0 );
 	
-	
+		ctx.drawImage( img, 0, 0, $("#device").width(), $("#device").height());
 			
 		$.ajax({ 
 			type: "POST", 
@@ -1538,11 +1572,21 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
+				response_to_server(data);
+			},
+			fail: function(data){
+				sweetAlert("Ошибка", data, "error");
+			}
+		});
 
-				desctop.preview_url = data;
+	};
+}
 
-				desctop.image_size_width = img.width;
-				desctop.image_size_height = img.height;
+function response_to_server(url) {
+				desctop.preview_url = url;
+
+				desctop.image_size_width = $("#device").width();
+				desctop.image_size_height = $("#device").height();
 
 				var text_width = $(".svg_text text").width();
 				var text_height = $(".svg_text text").height();
@@ -1582,22 +1626,13 @@ function save_image() {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						document.location = "/cart";
+						//document.location = "/cart";
+						alert(data);
 					},
 					fail: function(data){
 						sweetAlert("Ошибка", data, "error");
 					}
 				});
-				
-			},
-			fail: function(data){
-				sweetAlert("Ошибка", data, "error");
-			}
-		});
-
-	};
-	
-	
 }
 
 

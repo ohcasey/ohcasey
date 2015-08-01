@@ -124,10 +124,28 @@ function remove_item() {
 }
 
 
-function save_img(){
-    $dir = "uploaded_images";
-    if(isset($_POST['image'])) {
-        $image = $_POST['image'];
+function save_svg_to_png() {
+     if(isset($_POST['image'])) {
+        $usmap= $_POST['image'];
+        $im = new Imagick();
+        $svg = file_get_contents($usmap);   
+
+        $im->readImageBlob($svg);
+
+        /*png settings*/
+        $im->setImageFormat("png24");
+       
+        
+        save_to_file($usmap, true, $im);
+
+        $im->clear();
+        $im->destroy();     
+     }
+}
+
+
+function save_to_file($image, $im){
+        $dir = "uploaded_images";
         $image = str_replace('data:image/png;base64,', '', $image);
 
         $year = date('Y');
@@ -170,9 +188,26 @@ function save_img(){
 
         $id = generatePassword();
 
-        file_put_contents($dir.'/'.$id.'.png', base64_decode($image));
+        if ($im != false) {
+            $im->writeImage($dir.'/'.$id.'.png');/*(or .jpg)*/
+        }else{
+            file_put_contents($dir.'/'.$id.'.png', base64_decode($image));
+        }
+
+        
 
         echo $dir.'/'.$id.'.png';
+   
+}
+
+
+
+function save_img(){
+    
+    if(isset($_POST['image'])) {
+        $image = $_POST['image'];
+        
+        save_to_file($image, false);
 
         
     }else{
