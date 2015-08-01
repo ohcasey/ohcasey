@@ -128,9 +128,9 @@ function save_svg_to_png() {
      if(isset($_POST['image'])) {
         $usmap= $_POST['image'];
         $im = new Imagick();
-        $svg = file_get_contents($usmap);   
+      
 
-        $im->readImageBlob($svg);
+        $im->readImageBlob($usmap);
 
         /*png settings*/
         $im->setImageFormat("png24");
