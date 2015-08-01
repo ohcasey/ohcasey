@@ -125,21 +125,41 @@ function remove_item() {
 
 
 function save_svg_to_png() {
+
      if(isset($_POST['image'])) {
-        $usmap= $_POST['image'];
+
+
+        $svgString =  $_POST['image'];
+
+         // $svgString is a string containing exported SVG XML
+        $svgHeader = '<?xml version="1.0" standalone="no"?>'; // XML node needed by imagick
+        $svgTag = 'svg'; // tag to search for
+        preg_match_all("/\<svg(.*?)\>/", $svgString, $matches); // Get initial SVG node that may contain missing :xlink
+
+        if ( !preg_match("/xmlns:xlink/", $matches[1][0]) )
+            {
+                $tempString = str_replace_nth( 'xmlns=', 'xmlns:xlink=', $matches[1][0], 1 ); // Replace second occurance of xmlns
+                $svgString = str_replace($matches[1][0], $tempString, $svgString);
+            }
+
+        $svgString = preg_replace('/NS([1-9]|[1-9][0-9]):/', 'xlink:', $svgString); // Remove offending NS<number>: in front of href tags, will only remove NS0 - NS99
+
+        $svgString = $svgHeader . $svgString; // Prefix SVG string with required XML node
+
         $im = new Imagick();
       
 
-        $im->readImageBlob($usmap);
+        $im->readImageBlob($svgString);
 
         /*png settings*/
         $im->setImageFormat("png24");
        
         
-        save_to_file($usmap, true, $im);
+        save_to_file($svgString, true, $im);
 
         $im->clear();
         $im->destroy();     
+
      }
 }
 
