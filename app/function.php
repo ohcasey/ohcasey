@@ -194,8 +194,6 @@ function save_to_file($image, $im){
             file_put_contents($dir.'/'.$id.'.png', base64_decode($image));
         }
 
-        
-
         echo $dir.'/'.$id.'.png';
    
 }
