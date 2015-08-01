@@ -157,6 +157,9 @@ function save_svg_to_png() {
         $svgString = $svgHeader . $svgString; // Prefix SVG string with required XML node
 
         $im = new Imagick();
+
+
+        print_r($svgString);
       
 
         $im->readImageBlob($svgString);
