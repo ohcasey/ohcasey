@@ -1916,7 +1916,7 @@ iphone4_black_crystal_case.png
 			),
 			array(
 				"link"=>"2/",
-				"name"=>"иконки",
+				"name"=>"Объекты",
 				"images"=>array(
 					
 					array(
@@ -1956,7 +1956,7 @@ iphone4_black_crystal_case.png
 			),
 			array(
 				"link"=>"3/",
-				"name"=>"пиктограммы",
+				"name"=>"Люди",
 				"images"=>array(
 					array(
 						"big"=>"smile1.png",
@@ -1966,6 +1966,12 @@ iphone4_black_crystal_case.png
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
 					),
+				)
+			),
+			array(
+				"link"=>"3/",
+				"name"=>"Места",
+				"images"=>array(
 					array(
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
@@ -1974,6 +1980,12 @@ iphone4_black_crystal_case.png
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
 					),
+				)
+			),
+			array(
+				"link"=>"3/",
+				"name"=>"Символы",
+				"images"=>array(
 					array(
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
@@ -1982,34 +1994,6 @@ iphone4_black_crystal_case.png
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
 					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					)
 				)
 			),
 		)
