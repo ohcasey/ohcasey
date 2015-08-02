@@ -18,15 +18,166 @@
 ]>
 <typemap>
 
-  <type
-     format="ttf"
-     name="Lobster"
-     fullname="Lobster"
-     family="Lobster"
-     glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/Lobster/Lobster.ttf"
-     style="normal"
-     stretch="normal"
-     weight="400"
+     <type
+          format="ttf"
+          name="Angilla Tattoo"
+          fullname="Angilla Tattoo"
+          family="Angilla Tattoo"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/AngillaTattoo.ttf"
+          style="normal"
+          stretch="normal"
+          weight="400"
      />
+
+     <type
+          format="ttf"
+          name="Bira"
+          fullname="Bira"
+          family="Bira"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/Bira.ttf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="ttf"
+          name="Jellyka Love and Passion"
+          fullname="Jellyka Love and Passion"
+          family="Jellyka Love and Passion"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/Jellyka_Love_and_Passion.ttf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="ttf"
+          name="Mari and David"
+          fullname="Mari and David"
+          family="Mari and David"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/mari_and_david.ttf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="otf"
+          name="Mustang"
+          fullname="Mustang"
+          family="Mustang"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/Mustang.otf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="ttf"
+          name="Simply Glamorous"
+          fullname="Simply Glamorous"
+          family="Simply Glamorous"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/SimplyGlamorous.ttf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="ttf"
+          name="Snappy Dna"
+          fullname="Snappy Dna"
+          family="Snappy Dna"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/snappy_dna.ttf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="ttf"
+          name="Waltograph"
+          fullname="Waltograph"
+          family="Waltograph"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/Waltograph.ttf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="otf"
+          name="Helvetica NeueCyr Medium"
+          fullname="Helvetica NeueCyr Medium"
+          family="Helvetica NeueCyr Medium"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/HelveticaNeueCyr_Medium.otf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="otf"
+          name="Helvetica NeueCyr Roman"
+          fullname="Helvetica NeueCyr Roman"
+          family="Helvetica NeueCyr Roman"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/HelveticaNeueCyr-Roman.otf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="otf"
+          name="League Gothic Condensed Italic"
+          fullname="League Gothic Condensed Italic"
+          family="League Gothic Condensed Italic"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/LeagueGothic-CondensedItalic.otf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="otf"
+          name="League Gothic Condensed Regular"
+          fullname="League Gothic Condensed Regular"
+          family="League Gothic Condensed Regular"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/LeagueGothic-CondensedRegular.otf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="otf"
+          name="League Gothic Italic"
+          fullname="League Gothic Italic"
+          family="League Gothic Italic"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/LeagueGothic-Italic.otf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+     <type
+          format="otf"
+          name="League Gothic Regular"
+          fullname="League Gothic Regular"
+          family="League Gothic Regular"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/LeagueGothic-Regular.otf"
+          style="normal"
+          stretch="normal"
+          weight="400"
+     />
+
+
+
+     
+
+     
+
+     
 
 </typemap>
