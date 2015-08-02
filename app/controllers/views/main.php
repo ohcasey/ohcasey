@@ -9,9 +9,9 @@
 				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="center_device_svg">
 					<defs>
 						<style type="text/css">
-							
+							<![CDATA[
 								<?php styles_setup($config);?>
-						
+							]]>
 						</style>
 					</defs>
 				</svg>

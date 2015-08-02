@@ -138,7 +138,6 @@ function save_svg_to_png() {
 
      if(isset($_POST['image'])) {
 
-
         $svgString =  $_POST['image'];
 
          // $svgString is a string containing exported SVG XML
@@ -158,15 +157,11 @@ function save_svg_to_png() {
 
         $im = new Imagick();
 
-
-      
-
         $im->readImageBlob($svgString);
 
         /*png settings*/
         $im->setImageFormat("png24");
-       
-        
+               
         save_to_file($svgString,  $im);
 
         $im->clear();
