@@ -1560,12 +1560,12 @@ function save_image() {
 
 		var ctx = canvas.getContext( "2d" );
 
-		var img = document.createElement("img");
+		var img = new Image();
 
-		var img0 = document.createElement("img");
+		var img0 = new Image();
 		img0.setAttribute( "src", links[0]["image"] );
 
-		var img1 = document.createElement("img");
+		var img1 = new Image();
 		img1.setAttribute( "src", links[1]["image1"] );
 
 
@@ -1595,7 +1595,7 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
-				$(".main_container").append(img);
+				$(".main_container").append(img1);
 				response_to_server(data);
 				$(".main_container").append(ctx);
 				
