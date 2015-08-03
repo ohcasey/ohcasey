@@ -1535,7 +1535,7 @@ function save_image() {
 	markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 	markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 
-	var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
+	var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("svg_second_svg")[0]);
 	markup1 = markup1.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 	markup1 = markup1.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 
@@ -1549,7 +1549,105 @@ function save_image() {
 		},
 
 	success: function(data){
-		console.log(data);
+		var links = data;
+
+
+		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
+
+		var canvas = document.createElement( "canvas" );
+
+		canvas.width = $("#device").width();
+		canvas.height = $("#device").height();
+
+		var ctx = canvas.getContext( "2d" );
+
+		var img = document.createElement("img");
+
+		var img0 = document.createElement("img");
+		img0.setAttribute( "src", links[0] );
+
+		var img1 = document.createElement("img");
+		img1.setAttribute( "src", links[1] );
+
+
+
+		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+
+		img.onload = function() {
+
+			
+			ctx.drawImage( img0, 0, 0 );
+			ctx.drawImage( img, 0, 0 );
+			ctx.drawImage( img1, 0, 0 );
+		
+		
+				
+			$.ajax({ 
+			type: "POST", 
+			url: "main/save_img",
+			dataType: 'text',
+			data: {
+				image : canvas.toDataURL("image/png" )
+			},
+			success: function(data){
+
+				desctop.preview_url = data;
+
+				desctop.image_size_width = img.width;
+				desctop.image_size_height = img.height;
+
+				var text_width = $(".svg_text text").width();
+				var text_height = $(".svg_text text").height();
+				var text_x = parseFloat($(".svg_text text").attr("x"));
+				var text_y = parseFloat($(".svg_text text").attr("y"));
+
+				desctop.font_x = text_x-text_width/2;
+				desctop.font_y = text_y-text_height/2;
+				desctop.font_width = text_width;
+				desctop.font_height = text_height;
+				desctop.font_rotate = parseInt($(".control_text.rotate_button").data("rotate"));
+
+				$(".svg_smiles image").each(function(){
+					var id = $(this).attr("id");
+
+					var element = {
+						smile_width: d3.select(this).attr("width"),
+						smile_height: d3.select(this).attr("height"),
+						smile_x: $(this).attr("x"),
+						smile_y: $(this).attr("y"),
+						smile_rotate: parseInt($(".control_smile.rotate_button."+id).attr("data-rotate")),
+						smile_url: $(this).data("url")
+					}
+
+					desctop.smiles[id]= element;
+
+					console.log(desctop.smiles)
+
+				});
+
+				
+				$.ajax({ 
+					type: "POST", 
+					url: "main/add_to_cart",
+					dataType: 'text',
+					data: {
+						desctop : JSON.stringify(desctop)
+					},
+					success: function(data){
+						document.location = "/cart";
+					},
+					fail: function(data){
+						sweetAlert("Ошибка", data, "error");
+					}
+				});
+				
+			},
+			fail: function(data){
+				sweetAlert("Ошибка", data, "error");
+			}
+		});
+
+	};
 
 	},
 	fail: function(data){
