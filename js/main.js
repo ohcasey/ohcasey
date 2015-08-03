@@ -325,8 +325,14 @@ function preparing_data(){
 			.classed("svg_device", true);
 	svg_material_body = svg.append("g")
 			.classed("svg_material_body", true);
+
 	svg_background = svg.append("g")
 			.classed("svg_background", true);
+
+	svg_background = svg_text_svg.append("g")
+			.classed("svg_background", true);
+	svg_background = d3.selectAll(".svg_background");
+
 	svg_text = svg_text_svg.append("g")
 			.classed("svg_text", true);
 	svg_smiles = svg_second_svg.append("g")
@@ -1529,8 +1535,6 @@ function save_image() {
 	var target = document.getElementById('foo');
 	var spinner = new Spinner(opts).spin(target);
 
-
-
 	var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
 	markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 	markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
@@ -1552,13 +1556,15 @@ function save_image() {
 		var links = JSON.parse(data);
 
 		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
+
 		console.log(svgData);
-		var canvas = document.createElement( "canvas" );
+
+		var canvas = document.createElement("canvas");
 
 		canvas.width = $("#device").width();
 		canvas.height = $("#device").height();
 
-		var ctx = canvas.getContext( "2d" );
+		var ctx = canvas.getContext("2d");
 
 		var img = new Image();
 		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
@@ -1582,14 +1588,13 @@ function save_image() {
 		img0.onload = function() {
 
 			
-			ctx.drawImage(img0, 0, 0 );
+			//ctx.drawImage(img0, 0, 0 );
 
 			ctx.drawImage(img, 0, 0 );
 
-			ctx.drawImage(img1, 0, 0 );
+			//ctx.drawImage(img1, 0, 0 );
 		
 			
-				
 			$.ajax({ 
 			type: "POST", 
 			url: "main/save_img",
