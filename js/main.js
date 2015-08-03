@@ -1568,6 +1568,8 @@ function save_image() {
 		var img1 = document.createElement("img");
 		img1.setAttribute( "src", links[1] );
 
+
+		console.log(links);
 		console.log(img0);
 		console.log(img1);
 
