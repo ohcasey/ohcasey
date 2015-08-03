@@ -1548,7 +1548,63 @@ function save_image() {
 	 }
 	*/
 
+	var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
+	markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+	markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 
+	$.ajax({ 
+		type: "POST", 
+		url: "main/save_svg",
+		dataType: 'text',
+		data: {
+			image : markup
+		},
+	success: function(data){
+		var canvas = document.createElement("canvas");
+
+		canvas.width = $("#device").width();
+		canvas.height = $("#device").height();
+
+		var ctx = canvas.getContext("2d");
+
+		var img = new Image();
+
+		img.setAttribute( "src", "http://ohcasey.dragon-web.vps-private.net/"+data);
+		console.log("localhost/"+data);
+
+		$('.main_container').append("<img src='"+"http://ohcasey.dragon-web.vps-private.net/"+data+"'>");
+		
+
+		img.onload = function() {
+	
+		ctx.drawImage( img, 0, 0, $("#device").width(), $("#device").height());
+			
+		
+			$.ajax({ 
+					type: "POST", 
+					url: "main/save_img",
+					dataType: 'text',
+					data: {
+						image : canvas.toDataURL('image/png')
+					},
+					success: function(data){						
+						response_to_server(data);
+						
+					},
+					fail: function(data){
+						sweetAlert("Ошибка", data, "error");
+					}
+			});
+
+		};
+
+					//response_to_server(data);
+	},
+	fail: function(data){
+		sweetAlert("Ошибка", data, "error");
+		}
+	});
+	/*
 	var svg = document.querySelector("svg");
 	var svgData = new XMLSerializer().serializeToString( svg );
 
@@ -1567,7 +1623,6 @@ function save_image() {
 	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 
 	
-     
 	
 	img.onload = function() {
 	
@@ -1593,7 +1648,7 @@ function save_image() {
 		});
 
 	};
-	
+	*/
 }
 
 function response_to_server(url) {
@@ -1627,7 +1682,7 @@ function response_to_server(url) {
 
 					desctop.smiles[id]= element;
 
-					console.log(desctop.smiles)
+				
 
 				});
 
@@ -1641,7 +1696,7 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						
-						//document.location = "/cart";
+						document.location = "/cart";
 
 					},
 					fail: function(data){
@@ -1678,7 +1733,7 @@ var rotate_smile = d3.behavior.drag()
 						smile_width =  parseFloat($(".image_smile."+current_smile).attr("width"));
 						smile_height =  parseFloat($(".image_smile."+current_smile).attr("height"));
 
-						console.log(smile_width);
+				
 
 						rotate = d3.select(this).attr("data-rotate");
 						
@@ -2032,10 +2087,7 @@ var drag_smile_rect = d3.behavior.drag()
 							
 						var deltay = dy - newy;
 
-						console.log(current_smile);
-
-						console.log(deltax);
-
+					
 
 						d3.selectAll(".svg_smiles image.image_smile."+current_smile).each(function (d) {
 							d3.select(this)
@@ -2228,7 +2280,7 @@ function check_coords(){
 	coords.sw.y-=coord_screen.top;
 	
 
-	console.log(coords);
+
 	//nw
 	if (((coords.nw.x-0)<0) || ((coords.nw.y-0)<0) || ((coords.nw.x+0)>config.devices[desctop.device_id].width)  || ((coords.nw.y+0)>config.devices[desctop.device_id].height)) {  return false;}
 	//ne
@@ -2400,7 +2452,7 @@ function restart_depend_smile() {
 		y:  parseFloat(d3.select(".image_smile."+current_smile).attr("y"))-10
 	};
 
-	console.log(text_width +" " +text_height);
+
 
 	svg_controls.select("rect.control_smile_main."+current_smile)
 		.attr("x", center.x)
