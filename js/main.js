@@ -1593,56 +1593,8 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
-
-				desctop.preview_url = data;
-
-				desctop.image_size_width = img.width;
-				desctop.image_size_height = img.height;
-
-				var text_width = $(".svg_text text").width();
-				var text_height = $(".svg_text text").height();
-				var text_x = parseFloat($(".svg_text text").attr("x"));
-				var text_y = parseFloat($(".svg_text text").attr("y"));
-
-				desctop.font_x = text_x-text_width/2;
-				desctop.font_y = text_y-text_height/2;
-				desctop.font_width = text_width;
-				desctop.font_height = text_height;
-				desctop.font_rotate = parseInt($(".control_text.rotate_button").data("rotate"));
-
-				$(".svg_smiles image").each(function(){
-					var id = $(this).attr("id");
-
-					var element = {
-						smile_width: d3.select(this).attr("width"),
-						smile_height: d3.select(this).attr("height"),
-						smile_x: $(this).attr("x"),
-						smile_y: $(this).attr("y"),
-						smile_rotate: parseInt($(".control_smile.rotate_button."+id).attr("data-rotate")),
-						smile_url: $(this).data("url")
-					}
-
-					desctop.smiles[id]= element;
-
-					console.log(desctop.smiles)
-
-				});
-
+				 response_to_server(data);
 				
-				$.ajax({ 
-					type: "POST", 
-					url: "main/add_to_cart",
-					dataType: 'text',
-					data: {
-						desctop : JSON.stringify(desctop)
-					},
-					success: function(data){
-						//document.location = "/cart";
-					},
-					fail: function(data){
-						sweetAlert("Ошибка", data, "error");
-					}
-				});
 				
 			},
 			fail: function(data){
