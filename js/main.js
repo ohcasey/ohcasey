@@ -1552,37 +1552,48 @@ function save_image() {
 	var svg = document.querySelector("svg");
 	var svgData = new XMLSerializer().serializeToString( svg );
 
-	var canvas = document.createElement( "canvas" );
+	var canvas = document.createElement("canvas");
 
 	canvas.width = $("#device").width();
 	canvas.height = $("#device").height();
+
+
 	canvg(canvas, svg.parentNode.innerHTML.trim());
 	
-	var ctx = canvas.getContext( "2d" );
+	var ctx = canvas.getContext("2d");
 
 	var img = new Image();
 	
 	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+
+	
+     
+	
 	img.onload = function() {
 	
 		ctx.drawImage( img, 0, 0, $("#device").width(), $("#device").height());
 			
+		
 		$.ajax({ 
-			type: "POST", 
-			url: "main/save_img",
-			dataType: 'text',
-			data: {
-				image : canvas.toDataURL("image/png" )
-			},
-			success: function(data){
-				response_to_server(data);
-			},
-			fail: function(data){
-				sweetAlert("Ошибка", data, "error");
-			}
+				type: "POST", 
+				url: "main/save_img",
+				dataType: 'text',
+				data: {
+					image : canvas.toDataURL('image/png')
+				},
+				success: function(data){
+
+					$("body").append("<img src='http://ohcasey.dragon-web.vps-private.net/"+data+"'>");
+					//response_to_server(data);
+					
+				},
+				fail: function(data){
+					sweetAlert("Ошибка", data, "error");
+				}
 		});
 
 	};
+	
 }
 
 function response_to_server(url) {
@@ -1630,7 +1641,8 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						
-						document.location = "/cart";
+						//document.location = "/cart";
+
 					},
 					fail: function(data){
 						sweetAlert("Ошибка", data, "error");
