@@ -329,10 +329,6 @@ function preparing_data(){
 	svg_background = svg.append("g")
 			.classed("svg_background", true);
 
-	svg_background = svg_text_svg.append("g")
-			.classed("svg_background", true);
-	svg_background = d3.selectAll(".svg_background");
-
 	svg_text = svg_text_svg.append("g")
 			.classed("svg_text", true);
 	svg_smiles = svg_second_svg.append("g")
@@ -1556,7 +1552,7 @@ function save_image() {
 		var links = JSON.parse(data);
 
 
-		svg_text_svg.style("margin-top",false);
+		svg_text_svg.style("margin-top", "0px");
 
 		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
@@ -1591,11 +1587,11 @@ function save_image() {
 		img0.onload = function() {
 
 			
-			//ctx.drawImage(img0, 0, 0 );
+			ctx.drawImage(img0, 0, 0 );
 
 			ctx.drawImage(img, 0, 0 );
 
-			//ctx.drawImage(img1, 0, 0 );
+			ctx.drawImage(img1, 0, 0 );
 		
 			
 			$.ajax({ 
@@ -1672,7 +1668,7 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						
-						//document.location = "/cart";
+						document.location = "/cart";
 
 					},
 					fail: function(data){
