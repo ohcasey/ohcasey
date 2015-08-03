@@ -1329,7 +1329,7 @@ function set_device(device_id) {
 			.classed("device_image", true);
 	
 
-	svg_text_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
+	//svg_text_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
 	svg_second_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px" )
 	svg_controls_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
 
