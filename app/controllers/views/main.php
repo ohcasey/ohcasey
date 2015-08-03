@@ -7,7 +7,7 @@
 	<div id="center">
 		<div id="center_in" >
 				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="center_device_svg">
-					<defs>
+					<defs class ="font_block">
 						<style type="text/css">
 							<![CDATA[
 								<?php styles_setup($config);?>
@@ -318,7 +318,9 @@
 <script type="text/javascript" src="js/perfect-scrollbar.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/knob.js"></script> 
-
+<script type="text/javascript" src="http://gabelerner.github.io/canvg/rgbcolor.js"></script> 
+<script type="text/javascript" src="http://gabelerner.github.io/canvg/StackBlur.js"></script>
+<script type="text/javascript" src="http://gabelerner.github.io/canvg/canvg.js"></script> 
 <script type="text/javascript" src="js/sweet-alert.min.js"></script>	
 
 	
