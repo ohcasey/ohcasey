@@ -1582,7 +1582,9 @@ function save_image() {
 
 			
 			ctx.drawImage(img0, 0, 0 );
+
 			ctx.drawImage(img, 0, 0 );
+
 			ctx.drawImage(img1, 0, 0 );
 		
 			
@@ -1595,9 +1597,9 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
-				$(".main_container").append(img1);
+				$(".main_container").append(img);
 				response_to_server(data);
-				$(".main_container").append(ctx);
+				
 				
 			},
 			fail: function(data){
@@ -1661,7 +1663,7 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						
-						document.location = "/cart";
+						//document.location = "/cart";
 
 					},
 					fail: function(data){
