@@ -134,9 +134,93 @@ function str_replace_nth($search, $replace, $subject, $nth)
 
 
 
+function svg_string($svgString) {
+
+            // $svgString is a string containing exported SVG XML
+            $svgHeader = '<?xml version="1.0" standalone="no"?>'; // XML node needed by imagick
+            $svgTag = 'svg'; // tag to search for
+            preg_match_all("/\<svg(.*?)\>/", $svgString, $matches); // Get initial SVG node that may contain missing :xlink
+
+            if ( !preg_match("/xmlns:xlink/", $matches[1][0]) )
+                {
+                    $tempString = str_replace_nth( 'xmlns=', 'xmlns:xlink=', $matches[1][0], 1 ); // Replace second occurance of xmlns
+                    $svgString = str_replace($matches[1][0], $tempString, $svgString);
+                }
+
+            $svgString = preg_replace('/NS([1-9]|[1-9][0-9]):/', 'xlink:', $svgString); // Remove offending NS<number>: in front of href tags, will only remove NS0 - NS99
+
+            $svgString = $svgHeader . $svgString; // Prefix SVG string with required XML node
+            return $svgString;
+}
+
+
+function save_png2() {
+      if(isset($_POST['image']) && isset($_POST['image1'])) {
+
+            $array = array();
+
+            $svgString =  svg_string($_POST['image']);
+
+            $im = new Imagick();
+
+            $im->setBackgroundColor(new ImagickPixel('transparent'));
+
+            $im->readImageBlob($svgString);
+
+            /*png settings*/
+            $im->setImageFormat("png24");
+                   
+            array_push($array, save_to_file($svgString,  $im));
+
+            $im->clear();
+            $im->destroy(); 
+
+
+            $svgString =  svg_string($_POST['image1']);
+
+            $im = new Imagick();
+
+            $im->setBackgroundColor(new ImagickPixel('transparent'));
+
+            $im->readImageBlob($svgString);
+
+            /*png settings*/
+            $im->setImageFormat("png24");
+                   
+            array_push($array, save_to_file($svgString,  $im));
+
+            $im->clear();
+            $im->destroy();  
+
+
+
+            $result = json_encode( $array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+    $result = preg_replace_callback(
+                '/\\\\u([0-9a-f]{4})/i',
+                function ($matches) {
+                    $sym = mb_convert_encoding(
+                        pack('H*', $matches[1]),
+                        'UTF-8',
+                        'UTF-16'
+                    );
+                    return $sym;
+                },
+                $result 
+            );
+    echo $result;   
+
+
+
+      }
+}
+
+
 function save_svg_to_png() {
 
      if(isset($_POST['image'])) {
+
+
+
 
         $svgString =  $_POST['image'];
 
@@ -287,11 +371,13 @@ function save_to_file($image, $im){
 
         if ($im != false) {
             $im->writeImage($dir.'/'.$id.'.png');/*(or .jpg)*/
+            return $dir.'/'.$id.'.png';
         }else{
             file_put_contents($dir.'/'.$id.'.png', base64_decode($image));
+            echo $dir.'/'.$id.'.png';
         }
 
-        echo $dir.'/'.$id.'.png';
+       
    
 }
 
@@ -356,7 +442,7 @@ function get_city_input($string,$bd_controls) {
         array_push($array, $value);
     }
     $result = json_encode( $array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
-      $result = preg_replace_callback(
+    $result = preg_replace_callback(
                 '/\\\\u([0-9a-f]{4})/i',
                 function ($matches) {
                     $sym = mb_convert_encoding(

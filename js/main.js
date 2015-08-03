@@ -49,7 +49,7 @@ var newy, prevy;
 current_smile = "";
 
 //d3 global
-var g_texts , g_smiles, svg, svg_mask_container, svg_device, svg_material_body, svg_background, svg_text, svg_smiles ,svg_mask_body,  svg_camera;
+var g_texts , g_smiles, svg, svg_mask_container, svg_device, svg_material_body, svg_background, svg_text, svg_smiles ,svg_mask_body,  svg_camera, svg_text_svg, svg_second_svg;
 
 
 /*FROM DIMA*/
@@ -117,8 +117,6 @@ $(document).on('click','#gallery_but', function(event){
 		$("#pict"+i).prop("src",path+config["inspire"]["pict"+i] );
 		
 	};
-
-
 
 	}
 });
@@ -304,10 +302,23 @@ function preparing_data(){
 	svg = d3.select(".center_device_svg");
 
 	svg_controls_svg = d3.select(".controls_device_svg");
-	svg_mask_container = svg.append("defs")
+
+
+	svg_text_svg = d3.select(".svg_text_svg");
+
+
+	svg_second_svg = d3.select(".svg_second_svg");
+
+
+
+
+	svg_mask_container = svg_second_svg.append("defs")
 							.classed("svg_mask_container", true);
-	svg_fonts_container = svg.append("defs")
+
+
+	svg_fonts_container = svg_text_svg.append("defs")
 							.classed("svg_fonts_container", true);
+
 	
 	
 	svg_device = svg.append("g")
@@ -316,13 +327,13 @@ function preparing_data(){
 			.classed("svg_material_body", true);
 	svg_background = svg.append("g")
 			.classed("svg_background", true);
-	svg_text = svg.append("g")
+	svg_text = svg_text_svg.append("g")
 			.classed("svg_text", true);
-	svg_smiles = svg.append("g")
+	svg_smiles = svg_second_svg.append("g")
 			.classed("svg_smiles", true);
-	svg_mask_body = svg.append("g")
+	svg_mask_body = svg_second_svg.append("g")
 			.classed("svg_mask_body", true);
-	svg_camera = svg.append("g")
+	svg_camera = svg_second_svg.append("g")
 			.classed("svg_camera", true);
 
 
@@ -334,7 +345,8 @@ function preparing_data(){
 				.append("g")
 					.classed("g_texts", true);
 
-	g_smiles = svg_controls.append("g")
+	g_smiles = svg_controls
+				.append("g")
 					.classed("g_smiles", true);
 
 	
@@ -342,7 +354,6 @@ function preparing_data(){
 	steps.push(cur_step);
 	object_id = randomHash(10);
 	
-
 }
 
 function setup_patterns() {
@@ -1311,7 +1322,11 @@ function set_device(device_id) {
 			.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
 			.classed("device_image", true);
 	
-	svg_controls_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px" )
+
+	svg_text_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
+	svg_second_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px" )
+	svg_controls_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
+
 
 	//Магия в base64
 	getImageBase64(path + config.devices[desctop.device_id].desctop_img, function (data) {
@@ -1431,7 +1446,7 @@ function set_font_pattern(font_pattern_id) {
 	desctop.font_pattern = url;
 	desctop.font_color = "";
 	
-	svg_mask_container.selectAll("pattern").remove();
+	svg_fonts_container.selectAll("pattern").remove();
 
 	rotate = parseFloat(d3.select(".control_text.rotate_button").attr("data-rotate"));
 	console.log(rotate);
@@ -1441,7 +1456,7 @@ function set_font_pattern(font_pattern_id) {
 							y: parseFloat(d3.select(".svg_text text").attr("y"))
 	};
 
-	svg_mask_container.append("pattern")
+	svg_fonts_container.append("pattern")
 			.attr("id", "wood")
 			.attr("patternUnits", "userSpaceOnUse")
 			.attr("width", config.devices[desctop.device_id].width)
@@ -1514,141 +1529,34 @@ function save_image() {
 	var target = document.getElementById('foo');
 	var spinner = new Spinner(opts).spin(target);
 
-	var ua = navigator.userAgent.toLowerCase(); 
 
-	/*
-	if (ua.indexOf('safari') != -1) { 
-	    if (ua.indexOf('chrome') > -1) {
-	      
-	    } else {
-
-
-	       var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
-	       markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-		   markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-
-		   $.ajax({ 
-				type: "POST", 
-				url: "main/save_png",
-				dataType: 'text',
-				data: {
-					image : markup
-				},
-				success: function(data){
-					response_to_server(data);
-				},
-				fail: function(data){
-					sweetAlert("Ошибка", data, "error");
-				}
-			});
-
-
-	      return;
-	    }
-	 }
-	*/
 
 	var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
 	markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 	markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 
+	var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
+	markup1 = markup1.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+	markup1 = markup1.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+
 	$.ajax({ 
 		type: "POST", 
-		url: "main/save_svg",
+		url: "main/save_png2",
 		dataType: 'text',
 		data: {
-			image : markup
+			image : markup,
+			image1 : markup1
 		},
+
 	success: function(data){
-		var canvas = document.createElement("canvas");
+		console.log(data);
 
-		canvas.width = $("#device").width();
-		canvas.height = $("#device").height();
-
-		var ctx = canvas.getContext("2d");
-
-		var img = new Image();
-
-		img.setAttribute( "src", "http://ohcasey.dragon-web.vps-private.net/"+data);
-		console.log("localhost/"+data);
-
-		$('.main_container').append("<img src='"+"http://ohcasey.dragon-web.vps-private.net/"+data+"'>");
-		
-
-		img.onload = function() {
-	
-		ctx.drawImage( img, 0, 0, $("#device").width(), $("#device").height());
-			
-		
-			$.ajax({ 
-					type: "POST", 
-					url: "main/save_img",
-					dataType: 'text',
-					data: {
-						image : canvas.toDataURL('image/png')
-					},
-					success: function(data){						
-						response_to_server(data);
-						
-					},
-					fail: function(data){
-						sweetAlert("Ошибка", data, "error");
-					}
-			});
-
-		};
-
-					//response_to_server(data);
 	},
 	fail: function(data){
 		sweetAlert("Ошибка", data, "error");
 		}
 	});
-	/*
-	var svg = document.querySelector("svg");
-	var svgData = new XMLSerializer().serializeToString( svg );
-
-	var canvas = document.createElement("canvas");
-
-	canvas.width = $("#device").width();
-	canvas.height = $("#device").height();
-
-
-	canvg(canvas, svg.parentNode.innerHTML.trim());
 	
-	var ctx = canvas.getContext("2d");
-
-	var img = new Image();
-	
-	img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
-
-	
-	
-	img.onload = function() {
-	
-		ctx.drawImage( img, 0, 0, $("#device").width(), $("#device").height());
-			
-		
-		$.ajax({ 
-				type: "POST", 
-				url: "main/save_img",
-				dataType: 'text',
-				data: {
-					image : canvas.toDataURL('image/png')
-				},
-				success: function(data){
-
-					$("body").append("<img src='http://ohcasey.dragon-web.vps-private.net/"+data+"'>");
-					//response_to_server(data);
-					
-				},
-				fail: function(data){
-					sweetAlert("Ошибка", data, "error");
-				}
-		});
-
-	};
-	*/
 }
 
 function response_to_server(url) {
