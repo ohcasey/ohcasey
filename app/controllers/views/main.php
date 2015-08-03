@@ -6,14 +6,8 @@
 	<?php include "templates/left_block.php";?>
 	<div id="center">
 		<div id="center_in" >
-				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="center_device_svg">
-					<defs class ="font_block">
-						<style type="text/css">
-							<![CDATA[
-								<?php styles_setup($config);?>
-							]]>
-						</style>
-					</defs>
+				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  class="center_device_svg">
+				
 				</svg>
 
 				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="svg_text_svg">
@@ -25,7 +19,7 @@
 						</style>
 					</defs>
 				</svg>
-				<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="svg_second_svg">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1"   class="svg_second_svg">
 
 				</svg>
 
