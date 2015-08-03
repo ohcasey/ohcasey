@@ -23,7 +23,7 @@ global $pages;
 $pages= array("main","cart","success");
 global $subfunctions;
 $subfunctions= array(
-	"main" =>array("get_data", "save_img", "add_to_cart", "save_png"),
+	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg"),
 	"success"=>array() , 
 	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result")
  );
