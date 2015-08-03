@@ -1561,6 +1561,7 @@ function save_image() {
 		var ctx = canvas.getContext( "2d" );
 
 		var img = new Image();
+		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 
 		var img0 = new Image();
 		img0.setAttribute( "src", links[0]["image"] );
@@ -1575,7 +1576,7 @@ function save_image() {
 
 		
 
-		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+		
 	
 
 		img.onload = function() {
