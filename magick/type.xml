@@ -23,10 +23,12 @@
           name="Angilla Tattoo"
           fullname="Angilla Tattoo"
           family="Angilla Tattoo"
-          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/AngillaTattoo.ttf"
           style="normal"
           stretch="normal"
           weight="400"
+          style="normal"
+          metrics="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/AngillaTattoo.afm"
+          glyphs="/home/u11014/domains/ohcasey.dragon-web.vps-private.net/fonts/AngillaTattoo.pfb"
      />
 
      <type
