@@ -1556,6 +1556,10 @@ function save_image() {
 
 		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
+
+
+		svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+
 		console.log(svgData);
 
 		var canvas = document.createElement("canvas");
