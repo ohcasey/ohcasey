@@ -15,6 +15,20 @@
 						</style>
 					</defs>
 				</svg>
+
+				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="svg_text_svg">
+					<defs class ="font_block">
+						<style type="text/css">
+							<![CDATA[
+								<?php styles_setup($config);?>
+							]]>
+						</style>
+					</defs>
+				</svg>
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="svg_second_svg">
+
+				</svg>
+
 				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="controls_device_svg">
 					<defs>
 						<pattern id="move" x="0" y="0" patternUnits="objectBoundingBox" height="25" width="25">

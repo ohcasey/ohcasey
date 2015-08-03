@@ -54,6 +54,12 @@
 			save_svg();
 		}
 
+		if ($action_name == "save_png2") {
+			save_png2();
+		}
+
+
+		
 	}
 
 	if ($controller_name == "success") {	
