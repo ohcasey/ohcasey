@@ -1569,7 +1569,10 @@ function save_image() {
 		var img1 = document.createElement("img");
 		img1.setAttribute( "src", links[1] );
 
+		console.log(img0);
+		console.log(img1);
 
+		$(".main_container").append(img);
 
 		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 
@@ -1580,7 +1583,7 @@ function save_image() {
 			ctx.drawImage( img, 0, 0 );
 			ctx.drawImage( img1, 0, 0 );
 		
-		
+			
 				
 			$.ajax({ 
 			type: "POST", 
@@ -1634,7 +1637,7 @@ function save_image() {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						document.location = "/cart";
+						//document.location = "/cart";
 					},
 					fail: function(data){
 						sweetAlert("Ошибка", data, "error");
