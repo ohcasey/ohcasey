@@ -1563,10 +1563,10 @@ function save_image() {
 		var img = document.createElement("img");
 
 		var img0 = document.createElement("img");
-		img0.setAttribute( "src", links["image"] );
+		img0.setAttribute( "src", links[0]["image"] );
 
 		var img1 = document.createElement("img");
-		img1.setAttribute( "src", links["image1"] );
+		img1.setAttribute( "src", links[1]["image1"] );
 
 
 		console.log(links);
@@ -1576,14 +1576,14 @@ function save_image() {
 		
 
 		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
-		$(".main_container").append(img);
+	
 
 		img.onload = function() {
 
 			
-			ctx.drawImage( img0, 0, 0 );
-			ctx.drawImage( img, 0, 0 );
-			ctx.drawImage( img1, 0, 0 );
+			ctx.drawImage(img0, 0, 0 );
+			ctx.drawImage(img, 0, 0 );
+			ctx.drawImage(img1, 0, 0 );
 		
 			
 				
@@ -1595,14 +1595,16 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
+				$(".main_container").append(img);
 				response_to_server(data);
-				$("body").append(ctx);
+				$(".main_container").append(ctx);
 				
 			},
 			fail: function(data){
 				sweetAlert("Ошибка", data, "error");
 			}
 		});
+
 
 	};
 
