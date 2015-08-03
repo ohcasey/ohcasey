@@ -1551,7 +1551,6 @@ function save_image() {
 	success: function(data){
 		var links = data;
 
-
 		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
 		var canvas = document.createElement( "canvas" );
