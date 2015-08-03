@@ -1595,7 +1595,7 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
-				 response_to_server(data);
+				response_to_server(data);
 				$("body").append(ctx);
 				
 			},
@@ -1659,7 +1659,7 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						
-						//document.location = "/cart";
+						document.location = "/cart";
 
 					},
 					fail: function(data){
