@@ -1516,7 +1516,8 @@ function save_image() {
 
 	var ua = navigator.userAgent.toLowerCase(); 
 
-	  if (ua.indexOf('safari') != -1) { 
+	/*
+	if (ua.indexOf('safari') != -1) { 
 	    if (ua.indexOf('chrome') > -1) {
 	      
 	    } else {
@@ -1544,8 +1545,8 @@ function save_image() {
 
 	      return;
 	    }
-	  }
-
+	 }
+	*/
 
 
 	var svg = document.querySelector("svg");
@@ -1555,6 +1556,7 @@ function save_image() {
 
 	canvas.width = $("#device").width();
 	canvas.height = $("#device").height();
+	canvg(canvas, svg.parentNode.innerHTML.trim());
 	
 	var ctx = canvas.getContext( "2d" );
 
