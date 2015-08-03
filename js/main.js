@@ -1549,10 +1549,10 @@ function save_image() {
 		},
 
 	success: function(data){
-		var links = data;
+		var links = JSON.parse(data);
 
 		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
-
+		console.log(svgData);
 		var canvas = document.createElement( "canvas" );
 
 		canvas.width = $("#device").width();
@@ -1563,19 +1563,20 @@ function save_image() {
 		var img = document.createElement("img");
 
 		var img0 = document.createElement("img");
-		img0.setAttribute( "src", links[0] );
+		img0.setAttribute( "src", links["image"] );
 
 		var img1 = document.createElement("img");
-		img1.setAttribute( "src", links[1] );
+		img1.setAttribute( "src", links["image1"] );
 
 
 		console.log(links);
 		console.log(img0);
 		console.log(img1);
 
-		$(".main_container").append(img);
+		
 
 		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+		$(".main_container").append(img);
 
 		img.onload = function() {
 

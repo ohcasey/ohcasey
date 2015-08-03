@@ -170,7 +170,7 @@ function save_png2() {
             /*png settings*/
             $im->setImageFormat("png24");
                    
-            array_push($array, array("0" => save_to_file($svgString,  $im)));
+            array_push($array, array("image" => save_to_file($svgString,  $im)));
 
             $im->clear();
             $im->destroy(); 
@@ -187,7 +187,7 @@ function save_png2() {
             /*png settings*/
             $im->setImageFormat("png24");
                    
-            array_push($array, array("1" => save_to_file($svgString,  $im)));
+            array_push($array, array("image1" => save_to_file($svgString,  $im)));
 
             $im->clear();
             $im->destroy();  
