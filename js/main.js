@@ -1596,7 +1596,7 @@ function save_image() {
 			},
 			success: function(data){
 				 response_to_server(data);
-				
+				$("body").append(ctx);
 				
 			},
 			fail: function(data){
