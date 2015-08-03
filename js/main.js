@@ -1696,7 +1696,7 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						
-						document.location = "/cart";
+						//document.location = "/cart";
 
 					},
 					fail: function(data){
