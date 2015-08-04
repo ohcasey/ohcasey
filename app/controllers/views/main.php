@@ -287,6 +287,10 @@
 </div>
 <div class="overlay-inspire">
 	<div class="overlay-inspire__overlay"></div>
+	<div class="back_block lefted">
+			вернуться
+			<div></div>
+	</div>
 	<div class="line_block top"></div>
 	<div class="line_block"></div>
 	<div class="inspire__container">
