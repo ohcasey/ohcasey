@@ -1556,10 +1556,11 @@ text-align: center;
 	height: 100%;
 }
 
-.inspire__container .back_block {
+.back_block {
 	position: absolute;
 	width: 186px;
 	height: 30px;
+	display: none;
 	line-height: 25px;
 	text-align: center;
 	text-transform: uppercase;
@@ -1568,6 +1569,11 @@ text-align: center;
 	background: #669AC4 ;
 	cursor: pointer;
 	z-index: 100;
+}
+
+.back_block.lefted {
+	display: block;
+	left: 140px;
 }
 
 .inspire_item_block {
@@ -2029,6 +2035,9 @@ input.cart_item.error,  textarea.cart_item.error{
 
 @media screen and (max-width:  1199px)  {
 
+	.back_block {display: block;}
+	.back_block.lefted {display: none;}
+
 	.cart_item_block {
 		background-position:  left center ;
 		background-repeat: no-repeat;
@@ -2184,6 +2193,13 @@ input.cart_item.error,  textarea.cart_item.error{
 
 @media screen and (min-width:  1979px)  {
 
+.back_block.lefted {
+	left: 265px;
+	width: 286px;
+}
+
+
+
 .library_6, .library_5, .library_2, .library { 
 
 	    bottom: 80px;
@@ -2199,7 +2215,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	width: 366px;
 }
 
-.inspire__container .back_block {
+.back_block {
 	position: absolute;
 	width: 186px;
 	height: 30px;
@@ -2231,9 +2247,11 @@ input.cart_item.error,  textarea.cart_item.error{
   -ms-transform:  rotate(180deg);
   -o-transform: rotate(180deg);
   transform:  rotate(180deg);
-  height: 20px;
+ 
   width: 100%;
   top: 22px;
+  height: 32px;
+        background-size: contain;
 }
 
 
