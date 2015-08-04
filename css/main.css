@@ -596,7 +596,7 @@ body {
 	float: left;
 	cursor: pointer;
 	background-size: 90% auto;	
-	background-color: #fff;
+	
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -2818,7 +2818,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	  float: left;
 	  cursor: pointer;
 	  background-size: 90% auto;
-	  background-color: #fff;
+	  
 	  background-repeat: no-repeat;
 	  background-position: center;
 	}

@@ -868,8 +868,7 @@ function click_text(){
 	$(".input_write").val(svg_text.select("text").text());
 	setTimeout(function() { 
 		$(".input_write").select();
-	 }, 50);
-	
+	 }, 100);
 }
 
 function change_step(obj) {
