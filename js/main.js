@@ -1803,7 +1803,6 @@ var rotate_text =  d3.behavior.drag()
 					
 					})
 					.on('drag', function() {	
-						
 						svg_width = config.devices[desctop.device_id].width;
 						svg_height = config.devices[desctop.device_id].width;
 
@@ -1836,6 +1835,7 @@ var rotate_text =  d3.behavior.drag()
 						d3.select("#wood")
 							   .attr("patternTransform", "rotate("+(-rotate)+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
 					
+
 					})
 					.on('dragend', function() {
 						click_text_control();
