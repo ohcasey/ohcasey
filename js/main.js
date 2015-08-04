@@ -1,6 +1,6 @@
 //some css checkers 
 var scale_coof = 7;
-
+var baseurl = window.location.host+window.location.pathname;
 
 
 
@@ -697,6 +697,7 @@ function set_default_text(){
 		.classed("control_text", true)
 		.classed("stretch_button",true)
 		.call(drag_stretch)
+		.style("fill", "url(#stretch)")
 		.classed("work",true)
 		.attr("r", 12.5)
 		.attr("cx", config.devices[desctop.device_id].width/2-text_width/2)
@@ -705,6 +706,7 @@ function set_default_text(){
 	g_texts.append("circle")
 		.classed("control_text", true)
 		.classed("rotate_button",true)
+		.style("fill", "url(#rotate)")
 		.attr("data-rotate", 0)
 		.classed("work",true)
 		.attr("r", 12.5)
@@ -715,6 +717,7 @@ function set_default_text(){
 	g_texts.append("circle")
 		.classed("control_text", true)
 		.classed("move_button",true)
+		.style("fill", "url(#move)")
 		.classed("work",true)
 		.attr("r", 12.5)
 		.call(drag_text)
@@ -798,6 +801,7 @@ function set_smiles_image(url) {
 		.classed("control_smile", true)
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
+		.style("fill", "url(#rotate)")
 		.classed("rotate_button",true)
 		.attr("data-rotate", 0)
 		.classed("work",true)
@@ -809,6 +813,7 @@ function set_smiles_image(url) {
 	g_smiles.append("circle")
 		.classed("control_smile", true)
 		.classed("stretch_button",true)
+		.style("fill", "url(#stretch)")
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
 		.call(drag_stretch_smile)
@@ -820,6 +825,7 @@ function set_smiles_image(url) {
 	
 	g_smiles.append("circle")
 		.classed("control_smile", true)
+		.style("fill", "url(#move)")
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
 		.classed("move_button",true)
@@ -833,6 +839,7 @@ function set_smiles_image(url) {
 	g_smiles.append("circle")
 		.classed("control_smile", true)
 		.classed("delete_button",true)
+		.style("fill", "url(#delete)")
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
 		.on("click", delete_smile)
