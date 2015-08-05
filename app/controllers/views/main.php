@@ -287,6 +287,10 @@
 </div>
 <div class="overlay-inspire">
 	<div class="overlay-inspire__overlay"></div>
+	<div class="back_block lefted">
+			вернуться
+			<div></div>
+	</div>
 	<div class="line_block top"></div>
 	<div class="line_block"></div>
 	<div class="inspire__container">
@@ -326,9 +330,6 @@
 <script type="text/javascript" src="js/perfect-scrollbar.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/knob.js"></script> 
-<script type="text/javascript" src="http://gabelerner.github.io/canvg/rgbcolor.js"></script> 
-<script type="text/javascript" src="http://gabelerner.github.io/canvg/StackBlur.js"></script>
-<script type="text/javascript" src="http://gabelerner.github.io/canvg/canvg.js"></script> 
 <script type="text/javascript" src="js/sweet-alert.min.js"></script>	
 
 	

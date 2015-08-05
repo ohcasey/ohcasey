@@ -1,7 +1,9 @@
 //some css checkers 
 var scale_coof = 7;
-
-
+var baseurl = window.location.host+window.location.pathname;
+var device_width_svg;
+var device_height_svg;
+var text_error =0;
 
 
 function preparing_html() {
@@ -662,8 +664,28 @@ function set_default_text(){
 
 	desctop.font_size = config.desctop_font_size;
 		
-	var text_width = $(".svg_text text").width()+text_width_constant;
-	var text_height = $(".svg_text text").height()+text_height_constant;
+
+	var el = document.getElementsByTagName('text')[0];
+
+    bbox = el.getBBox();
+
+
+
+
+	var text_width = bbox.width+text_width_constant;
+	var text_height = bbox.height+text_height_constant;
+
+
+	var svg_width_point = scale_coof * config.devices[desctop.device_id].width/2;
+	var svg_height_point = scale_coof * config.devices[desctop.device_id].height/2;
+
+
+	
+	if ($(window).height()<1980) {
+		text_error = (($("#center_in").width()-config.devices[desctop.device_id].width)/2);
+	}
+
+	
 	
 	g_texts.append("rect")
 		.classed("control_text", true)
@@ -671,8 +693,9 @@ function set_default_text(){
 		.attr("id", "control_text_rect")
 		.attr("width", text_width)
 		.attr("height", text_height)
-		.attr("x", config.devices[desctop.device_id].width/2-text_width/2)
-		.attr("y", config.devices[desctop.device_id].height/2-text_height/2-5)
+		
+		.attr("x", svg_width_point-text_width/2 + text_error)
+		.attr("y", svg_height_point-text_height/2-5)
 		.call(drag_rect)
 		.on('click', click_text_control)
 		.on("dblclick", click_text);
@@ -684,8 +707,8 @@ function set_default_text(){
 		.attr("id", "control_text_rect_appered")
 		.attr("width", text_width-6)
 		.attr("height", text_height-6)
-		.attr("x", config.devices[desctop.device_id].width/2-text_width/2+3)
-		.attr("y", config.devices[desctop.device_id].height/2-text_height/2-5+3)
+		.attr("x", svg_width_point-text_width/2+3 + text_error)
+		.attr("y", svg_height_point-text_height/2-5+3)
 		.call(drag_rect)
 		.on('click', click_text_control)
 		.on("dblclick", click_text);
@@ -697,29 +720,32 @@ function set_default_text(){
 		.classed("control_text", true)
 		.classed("stretch_button",true)
 		.call(drag_stretch)
+		.style("fill", "url(#stretch)")
 		.classed("work",true)
 		.attr("r", 12.5)
-		.attr("cx", config.devices[desctop.device_id].width/2-text_width/2)
-		.attr("cy",  config.devices[desctop.device_id].height/2-text_height/2-5);
+		.attr("cx", svg_width_point-text_width/2+text_error)
+		.attr("cy",  svg_height_point-text_height/2-5);
 	
 	g_texts.append("circle")
 		.classed("control_text", true)
 		.classed("rotate_button",true)
+		.style("fill", "url(#rotate)")
 		.attr("data-rotate", 0)
 		.classed("work",true)
 		.attr("r", 12.5)
 		.call(rotate_text)
-		.attr("cx", config.devices[desctop.device_id].width/2+text_width/2)
-		.attr("cy",  config.devices[desctop.device_id].height/2-text_height/2-5);
+		.attr("cx", svg_width_point+text_width/2+text_error)
+		.attr("cy",  svg_height_point-text_height/2-5);
 	
 	g_texts.append("circle")
 		.classed("control_text", true)
 		.classed("move_button",true)
+		.style("fill", "url(#move)")
 		.classed("work",true)
 		.attr("r", 12.5)
 		.call(drag_text)
-		.attr("cx", config.devices[desctop.device_id].width/2)
-		.attr("cy",  config.devices[desctop.device_id].height/2-text_height/2-5);
+		.attr("cx", svg_width_point+text_error)
+		.attr("cy",  svg_height_point-text_height/2-5);
 	
 	
 	
@@ -756,9 +782,20 @@ function set_smiles_image(url) {
 	});
 	
 	d3.selectAll('.control_smile').classed("work",false);
+
+
+
+	var svg_width_point = scale_coof * config.devices[desctop.device_id].width/2;
+	var svg_height_point = scale_coof * config.devices[desctop.device_id].height/2;
+
+
 	
-	var text_width = parseFloat($(".image_smile."+object_id).attr("width"))+text_width_constant;
-	var text_height = parseFloat($(".image_smile."+object_id).attr("height"))+text_height_constant;
+	if ($(window).height()<1980) {
+		text_error = (($("#center_in").width()-config.devices[desctop.device_id].width)/2);
+	}
+	
+	var text_width = parseFloat($(".image_smile."+object_id).attr("width"));
+	var text_height = parseFloat($(".image_smile."+object_id).attr("height"));
 	
 	g_smiles.append("rect")
 		.classed("control_smile", true)
@@ -769,8 +806,8 @@ function set_smiles_image(url) {
 		.attr("id", "control_smile_rect")
 		.attr("width", text_width)
 		.attr("height", text_height)
-		.attr("x", config.devices[desctop.device_id].width/2-text_width/2)
-		.attr("y", config.devices[desctop.device_id].height/2-text_height/2)
+		.attr("x", svg_width_point-text_width/2+text_error)
+		.attr("y", svg_height_point-text_height/2)
 		.on("click", control_smile_click)
 		.call(drag_smile_rect);
 
@@ -783,8 +820,8 @@ function set_smiles_image(url) {
 		.attr("id", "control_smile_rect")
 		.attr("width", text_width-6)
 		.attr("height", text_height-6)
-		.attr("x", config.devices[desctop.device_id].width/2-text_width/2+3)
-		.attr("y", config.devices[desctop.device_id].height/2-text_height/2+3)
+		.attr("x", svg_width_point-text_width/2+3+text_error)
+		.attr("y", svg_height_point-text_height/2+3)
 		.on("click", control_smile_click)
 		.call(drag_smile_rect);
 	//	.on("dblclick", click_text);
@@ -798,48 +835,52 @@ function set_smiles_image(url) {
 		.classed("control_smile", true)
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
+		.style("fill", "url(#rotate)")
 		.classed("rotate_button",true)
 		.attr("data-rotate", 0)
 		.classed("work",true)
 		.attr("r", 12.5)
 		.call(rotate_smile)
-		.attr("cx", config.devices[desctop.device_id].width/2+text_width/2)
-		.attr("cy",  config.devices[desctop.device_id].height/2-text_height/2);
+		.attr("cx", svg_width_point+text_width/2+text_error)
+		.attr("cy",  svg_height_point-text_height/2);
 	
 	g_smiles.append("circle")
 		.classed("control_smile", true)
 		.classed("stretch_button",true)
+		.style("fill", "url(#stretch)")
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
 		.call(drag_stretch_smile)
 		.classed("work",true)
 		.attr("r", 12.5)
-		.attr("cx", config.devices[desctop.device_id].width/2+text_width/2)
-		.attr("cy",  config.devices[desctop.device_id].height/2+text_height/2);
+		.attr("cx", svg_width_point+text_width/2+text_error)
+		.attr("cy",  svg_height_point+text_height/2);
 	
 	
 	g_smiles.append("circle")
 		.classed("control_smile", true)
+		.style("fill", "url(#move)")
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
 		.classed("move_button",true)
 		.classed("work",true)
 		.attr("r", 12.5)
 		.call(drag_smile)
-		.attr("cx", config.devices[desctop.device_id].width/2-text_width/2)
-		.attr("cy",  config.devices[desctop.device_id].height/2-text_height/2);
+		.attr("cx", svg_width_point-text_width/2+text_error)
+		.attr("cy",  svg_height_point-text_height/2);
 	
 	//REMOVE BUTTON
 	g_smiles.append("circle")
 		.classed("control_smile", true)
 		.classed("delete_button",true)
+		.style("fill", "url(#delete)")
 		.attr("data-object_id", object_id)
 		.classed(object_id, true)
 		.on("click", delete_smile)
 		.classed("work",true)
 		.attr("r", 12.5)
-		.attr("cx", config.devices[desctop.device_id].width/2-text_width/2)
-		.attr("cy",  config.devices[desctop.device_id].height/2+text_height/2);
+		.attr("cx", svg_width_point-text_width/2+text_error)
+		.attr("cy",  svg_height_point+text_height/2);
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
 }
@@ -861,8 +902,7 @@ function click_text(){
 	$(".input_write").val(svg_text.select("text").text());
 	setTimeout(function() { 
 		$(".input_write").select();
-	 }, 50);
-	
+	 }, 100);
 }
 
 function change_step(obj) {
@@ -1326,8 +1366,28 @@ function set_device(device_id) {
 	
 
 	svg_text_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
-	svg_second_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px" )
-	svg_controls_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
+	svg_second_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px" );
+
+
+
+
+	svg_controls_svg.style({
+		"margin-top": "-"+ ((scale_coof-1)/2+1)*config.devices[desctop.device_id].height+"px",
+		"margin-left": "-"+ ((scale_coof-1)/2)*config.devices[desctop.device_id].width+"px"})
+	.attr({
+		"width": scale_coof * config.devices[desctop.device_id].width +"px",
+		"height": scale_coof *config.devices[desctop.device_id].height +"px"
+
+	});
+
+	svg_controls_svg.selectAll("g").attr({
+		"width": scale_coof * config.devices[desctop.device_id].width +"px",
+		"height": scale_coof *config.devices[desctop.device_id].height +"px"
+	});
+
+	device_width_svg = config.devices[desctop.device_id].width;
+	device_height_svg = config.devices[desctop.device_id].height;
+
 
 
 	//Магия в base64
@@ -1336,11 +1396,6 @@ function set_device(device_id) {
       		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
 	});
 
-
-
-
-
-		
 	$('.library-device_row').removeClass('library-device_row-selected');
 	$('#library-device_row-' + device_id).addClass('library-device_row-selected');
 
@@ -1703,8 +1758,8 @@ var rotate_smile = d3.behavior.drag()
 
 						d3.selectAll(".control_smile."+current_smile).classed("work", true);	
 
-						newx = parseFloat(d3.select(this).attr("cx"));
-						newy = parseFloat(d3.select(this).attr("cy"));
+						newx = parseFloat(d3.select(this).attr("cx") -((scale_coof-1)/2)*device_width_svg-text_error);
+						newy = parseFloat(d3.select(this).attr("cy")-((scale_coof-1)/2)*device_height_svg);
 
 						smile_width =  parseFloat($(".image_smile."+current_smile).attr("width"));
 						smile_height =  parseFloat($(".image_smile."+current_smile).attr("height"));
@@ -1716,8 +1771,9 @@ var rotate_smile = d3.behavior.drag()
 						icon_scale = 1;
 
 						var M = d3.mouse(svg_smiles.node());
-								prevx = M[0];
-								prevy = M[1];
+
+						prevx = M[0]- ((scale_coof-1)/2)*device_width_svg-text_error;
+						prevy = M[1]-((scale_coof-1)/2)*device_height_svg;
 
 						var point = {
 							x: newx,
@@ -1733,7 +1789,8 @@ var rotate_smile = d3.behavior.drag()
 
 
 					})
-					.on('drag', function() {	
+					.on('drag', function() {
+
 						svg_width = config.devices[desctop.device_id].width;
 						svg_height = config.devices[desctop.device_id].width;
 
@@ -1743,8 +1800,8 @@ var rotate_smile = d3.behavior.drag()
 						newy = parseFloat(d3.select(this).attr("cy"));
 						
 						var point = {
-							x: M[0],
-							y: M[1]
+							x: M[0]-((scale_coof-1)/2)*device_width_svg-text_error,
+							y: M[1]-((scale_coof-1)/2)*device_height_svg
 						};
 						
 
@@ -1754,8 +1811,15 @@ var rotate_smile = d3.behavior.drag()
 							
 						d3.select(this).attr("data-rotate", rotate);
 									
-						d3.selectAll("image.image_smile."+current_smile+", .svg_controls .control_smile."+current_smile)
-                                         .attr("transform", "rotate("+rotate+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
+						d3.selectAll("image.image_smile."+current_smile)
+							.attr("transform", "rotate("+rotate+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
+
+
+						 var cpx=center.x+((scale_coof-1)/2)*device_width_svg+text_error;
+                        var cpy=center.y+((scale_coof-1)/2)*device_height_svg;
+
+						d3.selectAll(".svg_controls .control_smile."+current_smile)
+                                         .attr("transform", "rotate("+rotate+","+cpx+","+cpy+")translate("+(-cpx*(icon_scale-1))+", "+(-cpy*(icon_scale-1))+")scale("+icon_scale+")"); 
 
 					})
 					.on('dragend', function() {
@@ -1769,21 +1833,26 @@ var rotate_text =  d3.behavior.drag()
 					.on('dragstart', function() {	
 						d3.event.sourceEvent.stopPropagation();
 						
-						newx = parseFloat(d3.select(this).attr("cx"));
-						newy = parseFloat(d3.select(this).attr("cy"));
+						newx = parseFloat(d3.select(this).attr("cx") -((scale_coof-1)/2)*device_width_svg-text_error);
+						newy = parseFloat(d3.select(this).attr("cy")-((scale_coof-1)/2)*device_height_svg);
 						
 						rotate = d3.select(this).attr("data-rotate");
 						
 						icon_scale = 1;
 						
+						
+
 						var M = d3.mouse(svg_text.node());
-								prevx = M[0];
-								prevy = M[1];
+								prevx = M[0]- ((scale_coof-1)/2)*device_width_svg-text_error;
+								prevy = M[1]-((scale_coof-1)/2)*device_height_svg;
 						
 						var point = {
 							x: newx,
 							y: newy
 						};
+
+						//var dx = (newx+((d3.event.x-((scale_coof-1)/2)*device_width_svg-text_error)-prevx));
+						//var dy = (newy+((d3.event.y -((scale_coof-1)/2)*device_height_svg)-prevy));
 						
 						center = {
 							x: parseFloat(d3.select(".svg_text text").attr("x")),
@@ -1797,7 +1866,8 @@ var rotate_text =  d3.behavior.drag()
 					
 					})
 					.on('drag', function() {	
-						
+
+
 						svg_width = config.devices[desctop.device_id].width;
 						svg_height = config.devices[desctop.device_id].width;
 
@@ -1807,8 +1877,8 @@ var rotate_text =  d3.behavior.drag()
 						newy = parseFloat(d3.select(this).attr("cy"));
 						
 						var point = {
-							x: M[0],
-							y: M[1]
+							x: M[0]-((scale_coof-1)/2)*device_width_svg-text_error,
+							y: M[1]-((scale_coof-1)/2)*device_height_svg
 						};
 						
 
@@ -1822,14 +1892,29 @@ var rotate_text =  d3.behavior.drag()
 						check_alert();
 
 						
-						d3.selectAll(".svg_text text, .svg_controls .control_text")
+						
+
+						d3.selectAll(".svg_text text")
                                          .attr("transform", "rotate("+rotate+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
+
+
+                        var cpx=center.x+((scale_coof-1)/2)*device_width_svg+text_error;
+                        var cpy=center.y+((scale_coof-1)/2)*device_height_svg;
+
+                        /*new coords*/
+						d3.selectAll(".svg_controls .control_text")
+                                         .attr("transform", "rotate("+rotate+","+cpx+","+cpy+")translate("+(-cpx*(icon_scale-1))+", "+(-cpy*(icon_scale-1))+")scale("+icon_scale+")"); 
+
+
+
+                        /**/
 
 						d3.select(this).attr("data-rotate", rotate);
 					
 						d3.select("#wood")
 							   .attr("patternTransform", "rotate("+(-rotate)+","+center.x+","+center.y+")translate("+(-center.x*(icon_scale-1))+", "+(-center.y*(icon_scale-1))+")scale("+icon_scale+")"); 
 					
+
 					})
 					.on('dragend', function() {
 						click_text_control();
@@ -1874,8 +1959,8 @@ var drag_smile =  d3.behavior.drag()
 					.on('drag', function() {
 						var coord_x, coord_y;
 
-						var dx = (newx+(d3.event.x-prevx));
-						var dy = (newy+(d3.event.y-prevy));
+						var dx = (newx+((d3.event.x-((scale_coof-1)/2)*device_width_svg-text_error)-prevx));
+						var dy = (newy+((d3.event.y -((scale_coof-1)/2)*device_height_svg)-prevy));
 						
 						var deltax = dx - newx;
 							
@@ -1907,6 +1992,8 @@ var drag_smile =  d3.behavior.drag()
 						 	 .attr("data-prevy_check", coord_y)
 							 .attr("transform", "rotate("+rotate+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); ;
 
+						rotate_x=rotate_x+((scale_coof-1)/2)*device_width_svg+text_error;
+						rotate_y=rotate_y+((scale_coof-1)/2)*device_height_svg;
 						
 						d3.selectAll(".svg_controls rect.control_smile."+current_smile).each(function (d) {
    							 d3.select(this)
@@ -1962,8 +2049,8 @@ var drag_text =  d3.behavior.drag()
 					})
 					.on('drag', function() {
 											
-						var dx = (newx+(d3.event.x-prevx));
-						var dy = (newy+(d3.event.y-prevy));
+						var dx = (newx+((d3.event.x-((scale_coof-1)/2)*device_width_svg-text_error)-prevx));
+						var dy = (newy+((d3.event.y -((scale_coof-1)/2)*device_height_svg)-prevy));
 						
 						var deltax = dx - newx;
 							
@@ -1982,15 +2069,26 @@ var drag_text =  d3.behavior.drag()
 								.attr("transform", "rotate("+rotate+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); 
  						});
 
+						d3.select("#wood")
+							   .attr("patternTransform", "rotate("+(-rotate)+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); 
 
-					
 						check_alert();
-					
-						
+
+
 						d3.selectAll(".svg_text text")
 							 .attr("data-prevx_check", rotate_x)
 						 	 .attr("data-prevy_check", rotate_y)
 							 .attr("transform", "rotate("+rotate+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); ;
+
+						
+
+						
+					
+						
+						rotate_x=rotate_x+((scale_coof-1)/2)*device_width_svg+text_error;
+						rotate_y=rotate_y+((scale_coof-1)/2)*device_height_svg;
+						
+						console.log(rotate_x);
 
 						
 						d3.selectAll(".svg_controls rect.control_text").each(function (d) {
@@ -2008,8 +2106,7 @@ var drag_text =  d3.behavior.drag()
 							 	 .attr("cy", parseFloat(d3.select(this).attr("data-prevy"))+deltay);	
 						});
 						
-					d3.select("#wood")
-							   .attr("patternTransform", "rotate("+(-rotate)+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); 
+					
 					
 					})
 					.on('dragend', function() {
@@ -2090,6 +2187,10 @@ var drag_smile_rect = d3.behavior.drag()
 							 .attr("transform", "rotate("+rotate+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); ;
 
 						
+						rotate_x=rotate_x+((scale_coof-1)/2)*device_width_svg+text_error;
+						rotate_y=rotate_y+((scale_coof-1)/2)*device_height_svg;
+
+
 						d3.selectAll(".svg_controls rect.control_smile."+current_smile).each(function (d) {
    							 d3.select(this)
 							 	 .attr("transform", "rotate("+rotate+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")")
@@ -2113,14 +2214,14 @@ var drag_smile_rect = d3.behavior.drag()
 var drag_rect =  d3.behavior.drag() 					
 					.on('dragstart', function() {	
 
-
 						d3.selectAll(".control_smile").classed("work", false);
+
 						d3.event.sourceEvent.stopPropagation();
-							click_text_control();
+
+						click_text_control();
 				
-							newx = parseFloat(d3.select(this).attr("x"));
-							newy = parseFloat(d3.select(this).attr("y"));
-						
+						newx = parseFloat(d3.select(this).attr("x"));
+						newy = parseFloat(d3.select(this).attr("y"));	
 
 						d3.event.sourceEvent.stopPropagation();
 						rotate = d3.select(".control_text.rotate_button").attr("data-rotate");
@@ -2136,20 +2237,32 @@ var drag_rect =  d3.behavior.drag()
 								 .attr("data-prevx", parseFloat(d3.select(this).attr("cx")))
 							 	 .attr("data-prevy", parseFloat(d3.select(this).attr("cy")));	
 						});
-						var M = d3.mouse(svg_text.node());
+
+
+						var M = d3.mouse(svg.node());
+
 						prevx = M[0];
 						prevy = M[1];
 	
 					})
 					.on('drag', function() {
 											
-						var dx = (newx+(d3.event.x-prevx));
-						var dy = (newy+(d3.event.y-prevy));
+						var dx = (newx+((d3.event.x-((scale_coof-1)/2)*device_width_svg-text_error)-prevx));
+						var dy = (newy+((d3.event.y -((scale_coof-1)/2)*device_height_svg)-prevy));
+
+
 						
+						
+						console.log(newx+"  "+d3.event.x+" "+prevy);
+						console.log(dx);
+
+
+
 						var deltax = dx - newx;
 							
 						var deltay = dy - newy;
 						
+
 						
 						d3.selectAll(".svg_text text").each(function (d) {
 							d3.select(this)
@@ -2167,10 +2280,18 @@ var drag_rect =  d3.behavior.drag()
 					
 						check_alert();
 
+
 						d3.selectAll(".svg_text text")
 							 .attr("data-prevx_check", rotate_x)
 						 	 .attr("data-prevy_check", rotate_y)
 							 .attr("transform", "rotate("+rotate+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); ;
+
+
+						d3.select("#wood")
+							   .attr("patternTransform", "rotate("+(-rotate)+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); 
+
+						rotate_x=rotate_x+((scale_coof-1)/2)*device_width_svg+text_error;
+						rotate_y=rotate_y+((scale_coof-1)/2)*device_height_svg;
 
 						
 						d3.selectAll(".svg_controls rect.control_text").each(function (d) {
@@ -2188,8 +2309,7 @@ var drag_rect =  d3.behavior.drag()
 							 	 .attr("cy", parseFloat(d3.select(this).attr("data-prevy"))+deltay);	
 						});
 						
-						d3.select("#wood")
-							   .attr("patternTransform", "rotate("+(-rotate)+","+rotate_x+","+rotate_y+")translate("+(-rotate_x*(icon_scale-1))+", "+(-rotate_y*(icon_scale-1))+")scale("+icon_scale+")"); 
+						
 					})
 					.on('dragend', function() {
 						
@@ -2321,8 +2441,8 @@ var drag_stretch =  d3.behavior.drag()
 					})
 					.on('drag', function() {
 						
-						var dx = (newx+(d3.event.x-prevx));
-						var dy = (newy+(d3.event.y-prevy));
+						var dx = (newx+((d3.event.x-((scale_coof-1)/2)*device_width_svg-text_error)-prevx));
+						var dy = (newy+((d3.event.y -((scale_coof-1)/2)*device_height_svg)-prevy));
 						
 						var rotate = parseInt(d3.select(".control_text.rotate_button").attr("data-rotate"));
 						var deltax = dx - newx;
@@ -2373,8 +2493,9 @@ var drag_stretch_smile =  d3.behavior.drag()
 					})
 					.on('drag', function() {
 						
-						var dx = (newx+(d3.event.x-prevx));
-						var dy = (newy+(d3.event.y-prevy));
+						var dx = (newx+((d3.event.x-((scale_coof-1)/2)*device_width_svg-text_error)-prevx));
+						var dy = (newy+((d3.event.y -((scale_coof-1)/2)*device_height_svg)-prevy));
+						
 						
 
 						var width_smile = parseFloat(d3.select(".image_smile."+current_smile).attr("width"));
@@ -2419,15 +2540,14 @@ var drag_stretch_smile =  d3.behavior.drag()
 
 
 function restart_depend_smile() {
-	var text_width = parseFloat(d3.select(".image_smile."+current_smile).attr("width"))+text_width_constant;
-	var text_height =  parseFloat(d3.select(".image_smile."+current_smile).attr("height"))+text_height_constant;
+	var text_width = parseFloat(d3.select(".image_smile."+current_smile).attr("width"));
+	var text_height =  parseFloat(d3.select(".image_smile."+current_smile).attr("height"));
 
 
 	var center = {
-		x: parseFloat(d3.select(".image_smile."+current_smile).attr("x"))-10,
-		y:  parseFloat(d3.select(".image_smile."+current_smile).attr("y"))-10
+		x: parseFloat(d3.select(".image_smile."+current_smile).attr("x"))+((scale_coof-1)/2)*device_width_svg+text_error,
+		y:  parseFloat(d3.select(".image_smile."+current_smile).attr("y"))+((scale_coof-1)/2)*device_height_svg
 	};
-
 
 
 	svg_controls.select("rect.control_smile_main."+current_smile)
@@ -2464,12 +2584,15 @@ function restart_depend_smile() {
 
 function restart_depend() {
 	
-	var text_width = $(".svg_text text").width()+text_width_constant;
-	var text_height = $(".svg_text text").height()+text_height_constant;
+	var el = document.getElementsByTagName('text')[0];
+    bbox = el.getBBox();
+
+	var text_width = bbox.width+text_width_constant;
+	var text_height = bbox.height+text_height_constant;
 	
-	var text_x = parseFloat(d3.select(".svg_text text").attr("x"));
-	var text_y =parseFloat(d3.select(".svg_text text").attr("y"));
-	
+	var text_x = parseFloat(d3.select(".svg_text text").attr("x"))+((scale_coof-1)/2)*device_width_svg+text_error;
+	var text_y =parseFloat(d3.select(".svg_text text").attr("y"))+((scale_coof-1)/2)*device_height_svg;
+
 	svg_controls.select("rect#control_text_rect")
 		.attr("width", text_width)
 		.attr("height", text_height)
