@@ -373,6 +373,8 @@ function save_to_file($image, $im){
             $im->writeImage($dir.'/'.$id.'.png');/*(or .jpg)*/
             return $dir.'/'.$id.'.png';
         }else{
+            if(!file_exists($directory."/".$filename)) return $s = TRUE; 
+
             file_put_contents($dir.'/'.$id.'.png', base64_decode($image));
             echo $dir.'/'.$id.'.png';
         }
@@ -389,8 +391,17 @@ function save_img(){
         $image = $_POST['image'];
         
         save_to_file($image, false);
+        if (isset($_POST['img1'])) {
+            if (file_exists($_POST['img1'])) {
+                unlink($_POST['img1']); 
+            }
+        }
+        if (isset($_POST['img2'])) {
+            if (file_exists($_POST['img2'])) {
+                unlink($_POST['img2']); 
+            }
+        }
 
-        
     }else{
         echo $data['errors'] = "Произошла ошибка, попробуйте еще раз";
     }

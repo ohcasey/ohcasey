@@ -19,11 +19,7 @@
   z-index: 10000;
 }
 
-
-
 /*Остальное*/
-
-
 
 @font-face {
 	font-family: HelveticaNeueCyr;
@@ -88,7 +84,7 @@ body {
 	background-color: #669AC4;
 }
 .main_container {
-	margin: 0px;
+	margin: 0px;#
 	top:0px;
 	background-color: #E8E8E8;
 }
@@ -287,13 +283,15 @@ body {
 #left {
 	width: 130px;
 	height: 100%;
-	position: absolute;
+	position:relative;
+	float: left;
 	bottom: 0;
 	top: 0;
 	z-index: 100;
 }
 
 #center {
+
 	height: 100%;
 	left: 140px;
 	right: 385px;
@@ -2924,4 +2922,3 @@ input.cart_item.error,  textarea.cart_item.error{
 			margin-top: 4px;
 	}
 }
-
