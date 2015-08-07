@@ -1,5 +1,5 @@
 //some css checkers 
-var scale_coof = 3;
+var scale_coof = 7;
 var baseurl = window.location.host+window.location.pathname;
 var device_width_svg;
 var device_height_svg;
@@ -42,6 +42,7 @@ function set_size_inspire(item) {
 $(window).resize(function(){
 	preparing_html();
 	to_down_of_page();
+	 set_size_inspire(true);
 });
 $(window).scroll(function(){
 	to_down_of_page();
@@ -141,8 +142,6 @@ $(document).on('click','.back_block', function(event){
 	set_size_inspire(true);
 });
 
-
-
 $(document).on("click", "#steps_controller-checkout_but" , function(){
 
 	if ($(this).hasClass("active")) {
@@ -153,7 +152,6 @@ $(document).on("click", "#steps_controller-checkout_but" , function(){
 $(document).on("click", ".no_write" , function(){
 		$(".alert_write").removeClass("active");
 });
-
 
 
 $(document).on("keydown", ".input_write" , function(event){
@@ -266,6 +264,9 @@ $(document).on("click", ".icon-close" , function(){
 	$(".icon-close").css("display","none");
 });
 
+$('#header-menu li.header_menu__item').on("click", function() {
+		change_step($(this));
+});
 
 
 $(document).ready(function() {
@@ -276,9 +277,7 @@ $(document).ready(function() {
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
-	$('#header-menu li.header_menu__item').on("click", function() {
-		change_step($(this));
-	});
+	
 
 	$('.icon-question').on("click", function() {
 
@@ -297,8 +296,6 @@ $(document).ready(function() {
 
 var object_id;
 function preparing_data(){
-
-	
 
 	$.ajax({
 	  type: "POST",
@@ -940,8 +937,7 @@ function change_step(obj) {
 
 		$(".alert_device").addClass("active");
 		preparing_html();
-
-		
+	
 	} else {
 				
 		set_step(obj, id);
@@ -1188,22 +1184,11 @@ function set_material_color(material_id, material_color, cost) {
 			.classed("material_body", true);
 
 	var path = config.chech_material_path;
-		
-	
-	
+			
 	getImageBase64( path+color_object.desctop_img, function (data) {
 		d3.select(".material_body")
       		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
 	});
-
-
-
-	
-	
-	
-
-
-
 	
 	svg_mask_container
 			.append("mask")
@@ -1237,8 +1222,6 @@ function set_material_color(material_id, material_color, cost) {
 			.classed("mask_body", true)
 			.style("fill","#E8E8E8")
 			.style("mask","url(#mask1)");
-
-
 
 	if ((config.materials[id_device][material_id]["desctop_mask_2"]!= undefined) && (config.materials[id_device][material_id]["desctop_mask_2"]!= 'undefined')) {
 		
