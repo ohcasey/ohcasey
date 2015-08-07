@@ -31,7 +31,6 @@
 <body>
 
 <div class="main_container">
-
 	<div id="header">
 		<ul id="header-menu">
 			<li id="header-logo">
