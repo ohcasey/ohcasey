@@ -1654,7 +1654,9 @@ function save_image() {
 			url: "main/save_img",
 			dataType: 'text',
 			data: {
-				image : canvas.toDataURL("image/png" )
+				img1: links[0]["image"],
+				image : canvas.toDataURL("image/png" ),
+				img2: links[1]["image1"]
 			},
 			success: function(data){
 				$(".main_container").append(img);
