@@ -65,6 +65,7 @@
 	position:absolute;
 	height: 100%;
 	width: 100%;
+	
 }
 
 
@@ -155,11 +156,24 @@ body {
 	height: 100%;
 }
 
-#header-menu > li:hover > span {
-	color: #295E93;
-}
 
 #header-menu > li:not(#header-logo):not(.header-menu__delimeter) > a {
+	color: #fff;
+	text-decoration: none;
+	transition: 400ms all easy-in;
+	font-size: 12px;
+	line-height: 32px;
+
+	height: 30px;
+	display: block;
+	margin-top: 16px;
+	margin-left: 15px;
+	margin-right: 40px;
+	transition: 200ms background-color, color linear;
+	user-select: none;
+}
+
+#header-menu > li:not(#header-logo):not(.header-menu__delimeter) > span {
 	color: #fff;
 	text-decoration: none;
 	transition: 400ms all easy-in;
@@ -204,21 +218,28 @@ body {
 	color: #fff;
 }
 
-
-
-
-
-#header-menu > li.header-menu-active:not(.header-menu-selected) > a { 
-
+#header-menu > li.header-menu-selected:not(#header-logo) > span,  #header-menu > li.header-menu-active:not(#header-logo) > span{
+	margin-left: 15px;
+	color: #fff;
 }
+
+
 
 
 #header-menu > li:hover:not(.header-menu-selected):not(.header-menu-active) a{
 	color: #2F6EA3!important;
 }
 
+#header-menu > li:hover:not(.header-menu-selected):not(.header-menu-active) span{
+	color: #2F6EA3!important;
+}
+
 
 #header-menu > li:hover:nth-child(2) a {
+	background: url('../img/icon-menu-1.png') right -69px no-repeat;	
+}
+
+#header-menu > li:hover:nth-child(2) span {
 	background: url('../img/icon-menu-1.png') right -69px no-repeat;
 	
 }
@@ -253,6 +274,10 @@ body {
 	background: url('../img/icon-menu-1.png') right -1px no-repeat;
 }
 
+#header-menu > li:nth-child(2) span, #header-menu > li.header-menu-selected:nth-child(2) > span, #header-menu > li.header-menu-active:nth-child(2) > span   {
+	background: url('../img/icon-menu-1.png') right -1px no-repeat;
+}
+
 #header-menu > li:nth-child(4) a, #header-menu > li.header-menu-selected:nth-child(4) > a, #header-menu > li.header-menu-active:nth-child(4) > a {
 	background: url('../img/icon-menu-2.png') right -1px no-repeat;
 }
@@ -282,6 +307,7 @@ body {
 	width: 100%;
 	min-width: 980px;
 	
+	
 }
 
 #left {
@@ -296,10 +322,11 @@ body {
 #center {
 	height: 100%;
 	left: 140px;
+	overflow: hidden;
 	right: 385px;
 	position: absolute;
 	z-index: 10;
-	overflow: hidden;
+	
 }
 
 #right {
@@ -2130,6 +2157,7 @@ input.cart_item.error,  textarea.cart_item.error{
  	}
 
  	#center_in {
+ 		
  		width: 100%;
  		left: 0px;
  		margin-left: 0px;
@@ -2388,6 +2416,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	#center {
 		left: 270px;
 		right: 730px;
+		
 	}
 
 	.cache_name_block .library-case_row-block-1 {

@@ -156,8 +156,7 @@
 						<div class="info_block-point"></div>
 						В правом меню выберите смайлы или иконки, перетащив их на чехол.
 						<br><br>
-						Растягивайте/уменьшайте их, потянув за уголок. Перемещайте их по чехлу
-на свое усмотрение.
+						Растягивайте/уменьшайте их, потянув за уголок. Перемещайте их по чехлу на свое усмотрение.
 						<br><br>
 					
 						<span class="font-blue">Если Вы не хотите использовать смайлы, пропустите этот шаг, нажав “заказать”.</span>
@@ -269,36 +268,7 @@
 		
 		</div>
 	</div>
-	<div class="alert_block alert_save">
-		<div class="alert_block_item">
-				<div class="alert_block_item-overlay"></div>
-				<h2>Отправить чехол в корзину?</h2>
-				<div class="left_button buttons_block">
-					<button class="btn no_device no_button">Нет</button>
-				</div>
-				<div class="right_button buttons_block">
-					<button class="btn yes_save yes_button">Да</button>
-				</div>
-				<span>Поместив чехол в корзину,<br>
-			Вы не сможете более отредактировать его.</span>
-		
-		</div>
-	</div>
-	<div class="alert_block alert_device">
-		<div class="alert_block_item">
-				<div class="alert_block_item-overlay"></div>
-				<h2>Вы хотите выбрать новый девайс?</h2>
-				<div class="left_button buttons_block">
-					<button class="btn no_device no_button">Нет</button>
-				</div>
-				<div class="right_button buttons_block">
-					<button class="btn yes_device yes_button">Да</button>
-				</div>
-				<span>Выбирая новый девайс,<br>
-			Вам придется начать все оформление сначала.</span>
-		
-		</div>
-	</div>
+	
 	<div class="alert_block alert_save">
 		<div class="alert_block_item">
 				<div class="alert_block_item-overlay"></div>

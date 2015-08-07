@@ -37,9 +37,15 @@
 				<a href="/"></a>
 			</li>
 			<li data-menu-id="1" id="header-menu-item-1" class="header_menu__item">
-				<a title="Девайс" href="/#device">
-					ДЕВАЙС
-				</a>
+				
+				
+						<a title="Девайс" href="/#case" class="header_device_li">
+							ДЕВАЙС
+						</a>
+				
+
+				
+				
 			</li>
 			<li class="header-menu__delimeter"><span></span></li>
 			<li data-menu-id="2" id="header-menu-item-2" class="header_menu__item">
