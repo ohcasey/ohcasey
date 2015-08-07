@@ -1,10 +1,10 @@
 //some css checkers 
-var scale_coof = 7;
+var scale_coof = 3;
 var baseurl = window.location.host+window.location.pathname;
 var device_width_svg;
 var device_height_svg;
 var text_error =0;
-
+var bb = -240;
 
 function preparing_html() {
 	var html_width = $("body").width();
@@ -14,10 +14,11 @@ function preparing_html() {
 	$(".main_container").css("width", html_width+"px");
 	to_down_of_page();
 	
-	if ($(window).height()<650) {
+	if ($(window).height()<768) {
 		$("#center_in").css({
 			"top": "0px",
 			"margin-top": "45px"
+			
 		});
 	}else{
 		$("#center_in").css({
@@ -25,6 +26,17 @@ function preparing_html() {
 			"margin-top": "-240px"
 		});
 	}
+
+}
+
+function set_size_inspire(item) {
+	if (item==false) {
+		$("body").css("min-height", "768px");
+	}else{
+		$("body").css("min-height", "auto");
+		$(".main_container").css("height","auto");
+	}
+	preparing_html();
 }
 
 $(window).resize(function(){
@@ -111,6 +123,7 @@ var config = {}; //Return config
 
 $(document).on('click','#gallery_but', function(event){
 	var path = config["inspire_path"];
+	set_size_inspire(false);
 	$(".overlay-inspire").addClass("active");
 	if (($("#pict1").prop("src") != "") || ($("#pict1").prop("src") !=(path+config["inspire"]["pict1"])) || ($("#pict1").prop("src") == null) || ($("#pict1").prop("src") == undefined) || ($("#pict1").prop("src") == window.location.href)) {
 		
@@ -125,6 +138,7 @@ $(document).on('click','#gallery_but', function(event){
 
 $(document).on('click','.back_block', function(event){
 	$(".overlay-inspire").removeClass("active");
+	set_size_inspire(true);
 });
 
 
@@ -257,6 +271,7 @@ $(document).on("click", ".icon-close" , function(){
 $(document).ready(function() {
 	preparing_html();
 	preparing_data();
+	set_size_inspire(true);
 
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
@@ -924,6 +939,7 @@ function change_step(obj) {
 	if (id =="1") {
 
 		$(".alert_device").addClass("active");
+		preparing_html();
 
 		
 	} else {
@@ -1364,12 +1380,8 @@ function set_device(device_id) {
 			.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
 			.classed("device_image", true);
 	
-
 	svg_text_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
 	svg_second_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px" );
-
-
-
 
 	svg_controls_svg.style({
 		"margin-top": "-"+ ((scale_coof-1)/2+1)*config.devices[desctop.device_id].height+"px",
@@ -1377,8 +1389,9 @@ function set_device(device_id) {
 	.attr({
 		"width": scale_coof * config.devices[desctop.device_id].width +"px",
 		"height": scale_coof *config.devices[desctop.device_id].height +"px"
-
 	});
+
+	$(".device_colors.chech_colors").css("margin-top","-"+ ((scale_coof-1)/2)*config.devices[desctop.device_id].height+"px");
 
 	svg_controls_svg.selectAll("g").attr({
 		"width": scale_coof * config.devices[desctop.device_id].width +"px",
@@ -2684,4 +2697,3 @@ function to_down_of_page() {
 	$("#gallery_but").css({"top": (browser_height - 2- $("#gallery_but").height() + $(window).scrollTop()), "visibility":"visible" });
 	$("#steps_controller").css({"top":  (browser_height- 2- $("#steps_controller").height() + $(window).scrollTop()), "visibility": "visible" });
 }
-
