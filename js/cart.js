@@ -4,7 +4,7 @@ function preparing_html() {
 	var html_width = $("body").width();
 	var html_height = $(document).height();
 	$(".main_container").css("height", html_height+"px");
-	$(".main_container").css("width", html_width+"px");
+	$(".main_container, #header").css("width", html_width+"px");
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 	
 	to_down_of_page();

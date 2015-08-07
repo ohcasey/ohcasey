@@ -59,22 +59,21 @@
 
 
 .main_container {
+	top: 0px;
+	margin-top: 0px;
 	overflow: hidden;
-	position: absolute;
+	position:absolute;
 	height: 100%;
 	width: 100%;
-	float: left;
 }
 
 
 html {
-	min-height: 768px;
+	min-height: auto;
 	height: 100%;
 }
 
 html, body {
-	
-	
 	margin: 0;
 	padding: 0;
 	color: #666;
@@ -89,6 +88,8 @@ body {
 	background-color: #669AC4;
 }
 .main_container {
+	margin: 0px;
+	top:0px;
 	background-color: #E8E8E8;
 }
 
@@ -321,8 +322,7 @@ body {
 #center_in {
 	height: 525px;
 	position: absolute;
-	top: 50%;
-	margin-top: -240px;
+	top: 70px;
 	left: 50%;
 	width: 300px;
 	margin-left: -100px;	
@@ -806,6 +806,8 @@ body {
 	width: 100%;
 	text-align: center;
 	margin-top: 15px;
+	position: relative;
+
 }
 
 .device_colors > div {
@@ -1008,13 +1010,16 @@ body {
 svg {
 	
 	position:relative;
+	top: 0px;
+	left: 0px;
 	margin: 0 auto;
+	
 	display: block;
 }
 
 .controls_device_svg {
 	overflow: visible;
-	margin-top: -100%;
+	
 }
 
 
@@ -1238,7 +1243,7 @@ svg {
 	transition: 300ms all  ease-out;
 	visibility: hidden;
 	opacity: 0;
-	z-index: 0;
+	z-index: 1;
 }
 
 .alert_write {
@@ -1250,7 +1255,7 @@ svg {
 	transition: 300ms all  ease-out;
 	visibility: hidden;
 	opacity: 0;
-	z-index: 0;
+	z-index: 1;
 	
 }
 
@@ -1399,19 +1404,16 @@ text-align: center;
     background-repeat: no-repeat;
     display: block;
 }
-
 .sprite-active-_1_ {
     width: 113px;
     height: 56px;
     background-position: -5px -5px;
 }
-
 .sprite-hover-_1_ {
     width: 114px;
     height: 56px;
     background-position: -5px -71px;
 }
-
 .sprite-ok-_1_ {
     width: 113px;
     height: 56px;
@@ -2123,7 +2125,7 @@ input.cart_item.error,  textarea.cart_item.error{
 
  	body, html {
  		min-width: 980px;
- 		min-height: 768px;
+ 		/*min-height: 768px;*/
  
  	}
 
@@ -2910,8 +2912,8 @@ input.cart_item.error,  textarea.cart_item.error{
 		
 		svg {
 			/*transform: scale(1.5);*/
-			  top: -130px;
-			  left: 0px;
+			
+			
 		}
 
 		#phone_model {
@@ -2921,4 +2923,3 @@ input.cart_item.error,  textarea.cart_item.error{
 			margin-top: 4px;
 	}
 }
-
