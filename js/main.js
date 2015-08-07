@@ -1,41 +1,32 @@
 //some css checkers 
-var scale_coof = 7;
+var scale_coof = 3;
 var baseurl = window.location.host+window.location.pathname;
 var device_width_svg;
 var device_height_svg;
 var text_error =0;
-bb = -240;
+var bb = -240;
 
 function preparing_html() {
 	var html_width = $("body").width();
 	var html_height = $(document).height();
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 	$(".main_container").css("height", html_height+"px");
-	$(".main_container, #header").css("width", html_width+"px");
+	$(".main_container").css("width", html_width+"px");
 	to_down_of_page();
 	
-
 	if ($(window).height()<768) {
 		$("#center_in").css({
 			"top": "0px",
 			"margin-top": "45px"
 			
 		});
-
 	}else{
-
-		var off = $("#center_in").offset();
-		barr = off.top;
-		console.log(barr);
-
-		if (barr<100) bb+=100;
-
-
 		$("#center_in").css({
 			"top": "50%",
-			"margin-top": bb+"px"
+			"margin-top": "-240px"
 		});
 	}
+
 }
 
 function set_size_inspire(item) {
@@ -946,10 +937,10 @@ function change_step(obj) {
 	d3.selectAll(".control_smile").classed("work", false);
 	
 	if (id =="1") {
+
 		$(".alert_device").addClass("active");
-		setTimeout(function() { 
-							preparing_html();	
-		}, 50);
+		preparing_html();
+
 		
 	} else {
 				
@@ -1424,7 +1415,6 @@ function set_device(device_id) {
 	$("#phone_model").text($(".library-device_row-selected").text());
 	$("#price_total").text("");
 	
-
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
 	//$('#device').css('background-image', 'url(' + config.devices_desctop_path + config.devices[device_id].desctop_img + ')');
@@ -1662,6 +1652,10 @@ function save_image() {
 		console.log(img1);
 
 		
+
+		
+	
+
 		img0.onload = function() {
 
 			
@@ -1677,13 +1671,13 @@ function save_image() {
 			url: "main/save_img",
 			dataType: 'text',
 			data: {
-				image : canvas.toDataURL("image/png" ),
-				img1: links[0]["image"],
-				img2: links[1]["image1"]
+				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
 				$(".main_container").append(img);
 				response_to_server(data);
+				
+				
 			},
 			fail: function(data){
 				sweetAlert("Ошибка", data, "error");
@@ -2703,4 +2697,3 @@ function to_down_of_page() {
 	$("#gallery_but").css({"top": (browser_height - 2- $("#gallery_but").height() + $(window).scrollTop()), "visibility":"visible" });
 	$("#steps_controller").css({"top":  (browser_height- 2- $("#steps_controller").height() + $(window).scrollTop()), "visibility": "visible" });
 }
-
