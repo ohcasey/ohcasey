@@ -382,8 +382,7 @@ function save_to_file($image, $im){
 
 
 
-function save_img(){
-    
+function save_img(){  
     if(isset($_POST['image'])) {
         $image = $_POST['image'];
         

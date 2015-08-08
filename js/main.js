@@ -1660,6 +1660,7 @@ function save_image() {
 				img2: links[1]["image1"]
 			},
 			success: function(data){
+				console.log(data);
 				$(".main_container").append(img);
 				response_to_server(data);
 				
@@ -1724,7 +1725,7 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						console.log(data);
-						document.location = "/cart";
+						//document.location = "/cart";
 
 					},
 					fail: function(data){
