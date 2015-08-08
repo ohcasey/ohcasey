@@ -798,7 +798,7 @@ function get_mail($config, $mail_controls){
                                             text-align: left;">Адрес: <span style="color:  #405e88;
                                             font-size: 16px;" >'.$adress.'</span></span>', $body);
     }else{
-        $body = str_replace('$adress_mail','', $body);
+        $body = str_replace('$adress_mail','-', $body);
     }
 
     if (isset($comments)) {
@@ -811,7 +811,7 @@ function get_mail($config, $mail_controls){
                                             text-align: left;">Комментарии: <span style="color:  #405e88;
                                             font-size: 16px;" >'.$comments.'</span></span>', $body);
     }else{
-         $body = str_replace('$comments_mail','', $body);
+         $body = str_replace('$comments_mail','-', $body);
     }
 
     $body = str_replace('$deliver', $deliver_type, $body);
