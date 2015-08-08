@@ -156,7 +156,6 @@ body {
 	height: 100%;
 }
 
-
 #header-menu > li:not(#header-logo):not(.header-menu__delimeter) > a {
 	color: #fff;
 	text-decoration: none;

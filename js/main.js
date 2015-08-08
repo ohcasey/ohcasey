@@ -1604,6 +1604,7 @@ function save_image() {
 
 
 		svg_text_svg.style("margin-top", "0px");
+		$("#foo").css("background-color","#E8E8E8");
 
 		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
@@ -1654,9 +1655,12 @@ function save_image() {
 			url: "main/save_img",
 			dataType: 'text',
 			data: {
-				image : canvas.toDataURL("image/png" )
+				img1: links[0]["image"],
+				image : canvas.toDataURL("image/png" ),
+				img2: links[1]["image1"]
 			},
 			success: function(data){
+				console.log(data);
 				$(".main_container").append(img);
 				response_to_server(data);
 				
@@ -1709,8 +1713,6 @@ function response_to_server(url) {
 
 					desctop.smiles[id]= element;
 
-				
-
 				});
 
 				
@@ -1722,7 +1724,7 @@ function response_to_server(url) {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						
+						console.log(data);
 						document.location = "/cart";
 
 					},

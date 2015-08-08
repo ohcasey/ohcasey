@@ -373,8 +373,6 @@ function save_to_file($image, $im){
             $im->writeImage($dir.'/'.$id.'.png');/*(or .jpg)*/
             return $dir.'/'.$id.'.png';
         }else{
-            if(!file_exists($directory."/".$filename)) return $s = TRUE; 
-
             file_put_contents($dir.'/'.$id.'.png', base64_decode($image));
             echo $dir.'/'.$id.'.png';
         }   
@@ -382,8 +380,7 @@ function save_to_file($image, $im){
 
 
 
-function save_img(){
-    
+function save_img(){  
     if(isset($_POST['image'])) {
         $image = $_POST['image'];
         
@@ -398,7 +395,6 @@ function save_img(){
                 unlink($_POST['img2']); 
             }
         }
-
     }else{
         echo $data['errors'] = "Произошла ошибка, попробуйте еще раз";
     }
@@ -802,7 +798,7 @@ function get_mail($config, $mail_controls){
                                             text-align: left;">Адрес: <span style="color:  #405e88;
                                             font-size: 16px;" >'.$adress.'</span></span>', $body);
     }else{
-        $body = str_replace('$adress_mail','', $body);
+        $body = str_replace('$adress_mail','-', $body);
     }
 
     if (isset($comments)) {
@@ -815,7 +811,7 @@ function get_mail($config, $mail_controls){
                                             text-align: left;">Комментарии: <span style="color:  #405e88;
                                             font-size: 16px;" >'.$comments.'</span></span>', $body);
     }else{
-         $body = str_replace('$comments_mail','', $body);
+         $body = str_replace('$comments_mail','-', $body);
     }
 
     $body = str_replace('$deliver', $deliver_type, $body);
