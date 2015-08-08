@@ -135,6 +135,7 @@
 <script type="text/javascript" src="js/cart.js"></script>
 <script type="text/javascript" src="js/perfect-scrollbar.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-<script type="text/javascript" src="js/sweet-alert.min.js"></script>	
+<script type="text/javascript" src="js/sweet-alert.min.js"></script>
+<script type="text/javascript" src="js/knob.js"></script> 	
 
 </html>
