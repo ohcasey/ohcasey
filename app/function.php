@@ -398,7 +398,7 @@ function save_img(){
                 unlink($_POST['img2']); 
             }
         }
-
+        save_to_file($image, false);
     }else{
         echo $data['errors'] = "Произошла ошибка, попробуйте еще раз";
     }
