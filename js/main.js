@@ -1604,6 +1604,7 @@ function save_image() {
 
 
 		svg_text_svg.style("margin-top", "0px");
+		$("#foo").css("background-color","#E8E8E8");
 
 		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
@@ -1711,8 +1712,6 @@ function response_to_server(url) {
 
 					desctop.smiles[id]= element;
 
-				
-
 				});
 
 				
@@ -1725,7 +1724,7 @@ function response_to_server(url) {
 					},
 					success: function(data){
 						console.log(data);
-						//document.location = "/cart";
+						document.location = "/cart";
 
 					},
 					fail: function(data){
