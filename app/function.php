@@ -373,8 +373,7 @@ function save_to_file($image, $im){
             $im->writeImage($dir.'/'.$id.'.png');/*(or .jpg)*/
             return $dir.'/'.$id.'.png';
         }else{
-            if(!file_exists($directory."/".$filename)) return $s = TRUE; 
-
+        
             file_put_contents($dir.'/'.$id.'.png', base64_decode($image));
             echo $dir.'/'.$id.'.png';
         }   
