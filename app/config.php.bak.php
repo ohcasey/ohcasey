@@ -151,7 +151,7 @@ $config = array(
 											"desctop_img" => "iphone6_gold_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1000,
 											"default"=>true
 									),
 									array(	
@@ -161,7 +161,7 @@ $config = array(
 											"desctop_img" => "iphone6_silver_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1100
 									),
 									array(	
 										//серый прозрачный прозрачный
@@ -170,7 +170,7 @@ $config = array(
 											"desctop_img" => "iphone6_gray_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_gray_camera.png",
-											"cost"=>1500
+											"cost"=>1200
 									),
 										
 								)
@@ -190,7 +190,7 @@ $config = array(
 											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1300,
 											"default"=>true
 									),
 									array(	
@@ -200,7 +200,7 @@ $config = array(
 											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1400
 									),
 									array(	
 										//серый прозрачный прозрачный
@@ -228,7 +228,7 @@ $config = array(
 											"desctop_img" => "iphone6_white_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1600
 										)
 									
 									)
@@ -247,7 +247,7 @@ $config = array(
 											"desctop_img" => "iphone6_black_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gray_camera.png",
-											"cost"=>1500
+											"cost"=>1700
 										)
 									
 									)
@@ -260,7 +260,7 @@ $config = array(
 					"descr_1" => "Прозрачный",
 					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"descr_2" => "Полностью прозрачный",
-					"lib_img" => "iphone6_crystal_icon.png",
+					"lib_img" => "material-1.png",
 					"default"=>true,
 					"colors"=> array(
 									array(		
@@ -270,7 +270,7 @@ $config = array(
 											"desctop_img" => "iphone6_gold_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1000,
 											"default"=>true
 									),
 									array(	
@@ -280,7 +280,7 @@ $config = array(
 											"desctop_img" => "iphone6_silver_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1100
 									),
 									array(	
 										//серый прозрачный прозрачный
@@ -289,7 +289,7 @@ $config = array(
 											"desctop_img" => "iphone6_gray_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_gray_camera.png",
-											"cost"=>1500
+											"cost"=>1200
 									),
 										
 								)
@@ -309,7 +309,7 @@ $config = array(
 											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1300,
 											"default"=>true
 									),
 									array(	
@@ -319,7 +319,7 @@ $config = array(
 											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1400
 									),
 									array(	
 										//серый прозрачный прозрачный
@@ -347,7 +347,7 @@ $config = array(
 											"desctop_img" => "iphone6_white_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1600
 										)
 									
 									)
@@ -366,7 +366,7 @@ $config = array(
 											"desctop_img" => "iphone6_black_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gray_camera.png",
-											"cost"=>1500
+											"cost"=>1700
 										)
 									
 									)
@@ -375,7 +375,6 @@ $config = array(
 			
 		
 		"iphone5s"=>array(
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Прозрачный",
@@ -390,7 +389,7 @@ $config = array(
 											"desctop_img" => "iphone5s_gold_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5s_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -399,7 +398,7 @@ $config = array(
 											"desctop_img" => "iphone5s_silver_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 										 array(
 										 	"id"=>10,
@@ -407,7 +406,7 @@ $config = array(
 											"desctop_img" => "iphone5s_gray_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_gray_camera.png",
-											"cost"=>1500
+											"cost"=>2000
 										),
 									array(		
 											"id"=>8,
@@ -415,7 +414,7 @@ $config = array(
 											"desctop_img" => "iphone5_white_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5_white_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -424,12 +423,11 @@ $config = array(
 											"desctop_img" => "iphone5_black_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5_black_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 									
 								)
 				),
-				*/
 				/* матовый полупрозрачный*/
 				array(
 					"name" => "Soft Touch",
@@ -445,7 +443,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5s_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -454,7 +452,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_light_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 										 array(
 										 	"id"=>10,
@@ -462,7 +460,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_dark_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_gray_camera.png",
-											"cost"=>1500
+											"cost"=>2000
 										),
 									
 									
@@ -481,7 +479,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5_white_camera.png",
-											"cost"=>1500
+											"cost"=>1450
 										)
 									)
 				),
@@ -498,14 +496,13 @@ $config = array(
 											"desctop_img" => "iphone5-5s_black_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5_black_camera.png",
-											"cost"=>1500
+											"cost"=>1450
 										)
 									)
 				),
 			
 			),
 		"iphone5"=>array(
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Прозрачный",
@@ -520,7 +517,7 @@ $config = array(
 											"desctop_img" => "iphone5s_gold_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5s_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -529,7 +526,7 @@ $config = array(
 											"desctop_img" => "iphone5s_silver_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 										 array(
 										 	"id"=>10,
@@ -537,7 +534,7 @@ $config = array(
 											"desctop_img" => "iphone5s_gray_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_gray_camera.png",
-											"cost"=>1500
+											"cost"=>2000
 										),
 									array(		
 											"id"=>8,
@@ -545,7 +542,7 @@ $config = array(
 											"desctop_img" => "iphone5_white_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5_white_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -554,12 +551,11 @@ $config = array(
 											"desctop_img" => "iphone5_black_crystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5_black_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 									
 								)
 				),
-				*/
 				/* матовый полупрозрачный*/
 				array(
 					"name" => "Soft Touch",
@@ -575,7 +571,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5s_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -584,7 +580,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_light_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_silver_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 										 array(
 										 	"id"=>10,
@@ -592,7 +588,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_dark_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
 											"desctop_camera" => "iphone5s_gray_camera.png",
-											"cost"=>1500
+											"cost"=>2000
 										),
 									
 									
@@ -611,7 +607,7 @@ $config = array(
 											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5_white_camera.png",
-											"cost"=>1500
+											"cost"=>1450
 										)
 									)
 				),
@@ -628,14 +624,13 @@ $config = array(
 											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5_black_camera.png",
-											"cost"=>1500
+											"cost"=>1450
 										)
 									)
 				),
 			
 			),
 		"iphone5c"=>array(
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Прозрачный",
@@ -650,7 +645,7 @@ $config = array(
 											"desctop_img" => "iphone5c_blue_crystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_blue_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -659,7 +654,7 @@ $config = array(
 											"desctop_img" => "iphone5c_green_crystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_green_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 										),
 										 array(
@@ -668,7 +663,7 @@ $config = array(
 											"desctop_img" => "iphone5c_red_crystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_red_camera.png",
-											"cost"=>1500
+											"cost"=>2000
 										),
 									array(		
 											"id"=>8,
@@ -676,7 +671,7 @@ $config = array(
 											"desctop_img" => "iphone5c_yellow_crystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_yellow_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -685,13 +680,12 @@ $config = array(
 											"desctop_img" => "iphone5c_white_crystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_white_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 									
 								)
 				),
 				/* матовый полупрозрачный*/
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Полупрозрачный",
@@ -706,7 +700,7 @@ $config = array(
 											"desctop_img" => "iphone5c_blue_whitecrystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_blue_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -715,7 +709,7 @@ $config = array(
 											"desctop_img" => "iphone5c_green_whitecrystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_green_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 										),
 										 array(
@@ -724,7 +718,7 @@ $config = array(
 											"desctop_img" => "iphone5c_red_whitecrystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_red_camera.png",
-											"cost"=>1500
+											"cost"=>2000
 										),
 									array(		
 											"id"=>8,
@@ -732,7 +726,7 @@ $config = array(
 											"desctop_img" => "iphone5c_yellow_whitecrystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_yellow_camera.png",
-											"cost"=>1500,
+											"cost"=>1800,
 											"default"=>true
 									),
 										array(	
@@ -741,7 +735,7 @@ $config = array(
 											"desctop_img" => "iphone5c_white_crystal_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_white_camera.png",
-											"cost"=>1500
+											"cost"=>1900
 										),
 									
 									
@@ -760,63 +754,26 @@ $config = array(
 											"desctop_img" => "iphone5c_white_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_white_camera.png",
-											"cost"=>1500
+											"cost"=>1450
 										)
 									)
 				),
-				*/
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол..",
 					"lib_img" => "iphone5c_black_icon.png",
 					"colors"=> array(
-									array(		
-											"id"=>8,
-											"color"=>"#0000FF",   
-											"desctop_img" => "iphone5c_black_softtouch_case.png",
-											"desctop_mask" => "iphone5c.png", //обрезка
-											"desctop_camera" => "iphone5c_blue_camera.png",
-											"cost"=>1500,
-											"default"=>true
-									),
+									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>9,
-											"color"=>"#00FF00",   
-											"desctop_img" => "iphone5c_black_softtouch_case.png",
-											"desctop_mask" => "iphone5c.png", //обрезка
-											"desctop_camera" => "iphone5c_green_camera.png",
-											"cost"=>1500,
-											"default"=>true
-										),
-										 array(
-										 	"id"=>10,
-											"color"=>"#FF0011",
-											"desctop_img" => "iphone5c_black_softtouch_case.png",
-											"desctop_mask" => "iphone5c.png", //обрезка
-											"desctop_camera" => "iphone5c_red_camera.png",
-											"cost"=>1500
-										),
-									array(		
-											"id"=>8,
-											"color"=>"yellow",   
-											"desctop_img" => "iphone5c_black_softtouch_case.png",
-											"desctop_mask" => "iphone5c.png", //обрезка
-											"desctop_camera" => "iphone5c_yellow_camera.png",
-											"cost"=>1500,
-											"default"=>true
-									),
-										array(	
-											"id"=>9,
-											"color"=>"#FFFFFF",
+											"id"=>11,	
+											"color"=>"transparent",
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
 											"desctop_camera" => "iphone5c_white_camera.png",
-											"cost"=>1500
-										),
-									
-									
-								)
+											"cost"=>1450
+										)
+									)
 				),
 			),
 /*
@@ -831,7 +788,6 @@ iphone4_black_crystal_case.png
 */
 		"iphone4s"=>array(
 				/* прозрачный */
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Прозрачный",
@@ -846,7 +802,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4s_white_crystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_white_camera.png",
-								"cost"=>1500,
+								"cost"=>1800,
 								"default"=>true
 							),
 							array(	
@@ -855,13 +811,11 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4s_black_crystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1900
 							)
 						)
 					),
-				*/	
 				/* матовый полупрозрачный*/
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Полупрозрачный",
@@ -876,7 +830,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_white_whitecrystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_white_camera.png",
-								"cost"=>1500,
+								"cost"=>1800,
 								"default"=>true
 							),
 							array(	
@@ -885,17 +839,15 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_black_whitecrystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1900
 							)
 						)
 					),
-				*/
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Матовый белый",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
 					"lib_img" => "iphone4_4s_white_icon.png",
-					"default"=>true,
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
@@ -904,8 +856,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_white_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_white_camera.png",
-								"cost"=>1500,
-								"default"=>true
+								"cost"=>1450
 							)
 						)
 				),
@@ -922,14 +873,13 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1450
 							)
 						)
 				),
 			),
 		"iphone4"=>array(
 				/* прозрачный */
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Прозрачный",
@@ -944,7 +894,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4_white_crystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_white_camera.png",
-								"cost"=>1500,
+								"cost"=>1800,
 								"default"=>true
 							),
 							array(	
@@ -953,13 +903,11 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4_black_crystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1900
 							)
 						)
 					),
-				*/
 				/* матовый полупрозрачный*/
-				/*
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Полупрозрачный",
@@ -974,7 +922,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_white_whitecrystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_white_camera.png",
-								"cost"=>1500,
+								"cost"=>1800,
 								"default"=>true
 							),
 							array(	
@@ -983,17 +931,15 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_black_whitecrystal_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1900
 							)
 						)
 					),
-				*/	
 				array(
 					"name" => "Soft Touch",
 					"descr_1" => "Матовый белый",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
 					"lib_img" => "iphone4_4s_white_icon.png",
-					"default"=>true,
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
@@ -1002,7 +948,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_white_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_white_camera.png",
-								"cost"=>1500
+								"cost"=>1450
 							)
 						)
 				),
@@ -1019,7 +965,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1450
 							)
 						)
 				),
@@ -1120,7 +1066,6 @@ iphone4_black_crystal_case.png
 						"name" => "Waltograph",
 						"filename" => "Waltograph.ttf"
 					),
-				/*
 				array(
 						"name" => "Helvetica NeueCyr Medium",
 						"filename" => "HelveticaNeueCyr_Medium.otf"
@@ -1129,13 +1074,10 @@ iphone4_black_crystal_case.png
 						"name" => "Helvetica NeueCyr Roman",
 						"filename" => "HelveticaNeueCyr-Roman.otf"
 					),
-				*/	
-				/*
 				array(
 						"name" => "League Gothic Condensed Italic",
 						"filename" =>"LeagueGothic-CondensedItalic.otf"
 					),
-				*/	
 				array(
 						"name" => "League Gothic Condensed Regular",
 						"filename" => "LeagueGothic-CondensedRegular.otf"
@@ -1148,31 +1090,6 @@ iphone4_black_crystal_case.png
 						"name" => "League Gothic Regular",
 						"filename" => "LeagueGothic-Regular.otf"
 					),
-				array(
-						"name" => "Feathergraphy Decoration",
-						"filename" => "2UJOKon2.ttf"
-					),
-				array(
-						"name" => "AGLettericaExtraCompressed",
-						"filename" => "aglettericaextracompressed-roman.otf"
-					),
-				array(
-						"name" => "MA Sexy",
-						"filename" => "gG6vljsL.ttf"
-					),
-				array(
-						"name" => "Remachine Script",
-						"filename" => "hFMl9DJx.ttf"
-					),
-				array(
-						"name" => "Nautilus Pompilius",
-						"filename" => "kBifv4lp.otf"
-					),
-				array(
-						"name" => "Odessa Script",
-						"filename" => "kDv32tul.otf"
-					),
-
 		),
 		
 		"backgrounds" => array(
@@ -1253,8 +1170,8 @@ iphone4_black_crystal_case.png
 				"name"=>"категория 2",
 				array( 
 					array(
-						"big"=>"1.png",
-						"small"=>"1_r82.png"
+						"big"=>"bg1.jpg",
+						"small"=>"bg1.jpg"
 					),
 					array(
 						"big"=>"bg1.jpg",
@@ -1537,36 +1454,7 @@ iphone4_black_crystal_case.png
 		),
 		"smiles"=>array(
 /*
-*/			array(
-				"link"=>"3/",
-				"name"=>"Люди",
-				"images"=>array(
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-				)
-			),
+*/
 			array(
 				"link"=>"nature/",
 				"name"=>"Природа",
@@ -2066,10 +1954,9 @@ iphone4_black_crystal_case.png
 					
 				)
 			),
-			
 			array(
 				"link"=>"3/",
-				"name"=>"Места",
+				"name"=>"Люди",
 				"images"=>array(
 					array(
 						"big"=>"smile1.png",
@@ -2079,14 +1966,12 @@ iphone4_black_crystal_case.png
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
 					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
+				)
+			),
+			array(
+				"link"=>"3/",
+				"name"=>"Места",
+				"images"=>array(
 					array(
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
@@ -2101,52 +1986,6 @@ iphone4_black_crystal_case.png
 				"link"=>"3/",
 				"name"=>"Символы",
 				"images"=>array(
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-				)
-			),
-			array(
-				"link"=>"3/",
-				"name"=>"Другое",
-				"images"=>array(
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
-					array(
-						"big"=>"smile1.png",
-						"small"=>"smile1.png"
-					),
 					array(
 						"big"=>"smile1.png",
 						"small"=>"smile1.png"
