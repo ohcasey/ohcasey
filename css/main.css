@@ -23,7 +23,9 @@
 
 /*Остальное*/
 
-
+.library_font {
+	width: 100%;
+}
 
 @font-face {
 	font-family: HelveticaNeueCyr;
