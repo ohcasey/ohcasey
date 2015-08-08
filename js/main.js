@@ -1724,7 +1724,7 @@ function response_to_server(url) {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						
+						console.log(data);
 						//document.location = "/cart";
 
 					},
