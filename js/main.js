@@ -1722,11 +1722,11 @@ function save_image() {
 					image : canvas.toDataURL("image/png" )
 				},
 				success: function(data){
-					$(".main_container").append(img0);
-					$(".main_container").append(img);
-					$(".main_container").append(img1);
-					$(".main_container").append(canvas);
-					//response_to_server(data);
+					//$(".main_container").append(img0);
+					//$(".main_container").append(img);
+					//$(".main_container").append(img1);
+					//$(".main_container").append(canvas);
+					response_to_server(data);
 						
 				},
 				fail: function(data){
