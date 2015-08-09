@@ -1663,21 +1663,18 @@ function save_image() {
 			img.onload = function() {
 
 				
-				ctx.drawImage(img0, 0, 0 );
+				ctx.drawImage(img0, 0, 0,$(".center_device_svg").width(), $(".center_device_svg").height());
 
-				ctx.drawImage(img, 0, 0 );
-
-				ctx.drawImage(img1, 0, 0 );
+				ctx.drawImage(img, 0, 0, $(".center_device_svg").width(), $(".center_device_svg").height());
+				ctx.drawImage(img1, 0, 0, $(".center_device_svg").width(), $(".center_device_svg").height());
 			
 				
 				$.ajax({ 
 				type: "POST", 
 				url: "main/save_img",
 				dataType: 'text',
-				data: {
-					img1: links[0]["image"],
-					image : canvas.toDataURL("image/png" ),
-					img2: links[1]["image1"]
+				data: {	
+					image : canvas.toDataURL("image/png" )
 				},
 				success: function(data){
 					console.log(data);
