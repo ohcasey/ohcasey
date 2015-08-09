@@ -13,7 +13,7 @@ if (ua.indexOf('safari') != -1) {
 	if (ua.indexOf('chrome') > -1) {
 	      
 	} else {
-	   	safari="safari";
+	   	safari_brow="safari";
 	}
 }
 
@@ -326,7 +326,7 @@ function preparing_data(){
 
 	svg_controls_svg = d3.select(".controls_device_svg");
 
-	if (safari=="safari") {
+	if (safari_brow=="safari") {
 		svg_text_svg = d3.select(".svg_text_svg");
 		svg_second_svg = d3.select(".svg_second_svg");
 	}else{
@@ -353,7 +353,7 @@ function preparing_data(){
 	svg_background = svg.append("g")
 			.classed("svg_background", true);
 
-	if (safari=="safari") {
+	if (safari_brow=="safari") {
 		svg_text = svg_text_svg.append("g")
 				.classed("svg_text", true);
 		svg_smiles = svg_second_svg.append("g")
@@ -1392,7 +1392,7 @@ function set_device(device_id) {
 			.attr("preserveAspectRatio", "xMidYMid slice")
 			.attr("xlink:href", path + config.devices[desctop.device_id].desctop_img)
 			.classed("device_image", true);
-	if (safari=="safari") {
+	if (safari_brow=="safari") {
 		svg_text_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px");
 		svg_second_svg.style("margin-top", "-"+config.devices[desctop.device_id].height+"px" );
 	}
@@ -1611,7 +1611,7 @@ function save_image() {
 	var spinner = new Spinner(opts).spin(target);
 
 
-	if (safari=="safari") {
+	if (safari_brow=="safari") {
 		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
 		markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 		markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
