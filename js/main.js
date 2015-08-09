@@ -1691,6 +1691,9 @@ function save_image() {
 			},
 			success: function(data){
 				$(".main_container").append(img0);
+				$(".main_container").append(img);
+				$(".main_container").append(img1);
+				$(".main_container").append(canvas);
 				//response_to_server(data);
 				
 				
