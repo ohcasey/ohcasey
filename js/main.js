@@ -1632,8 +1632,9 @@ function save_image() {
 			svg_text_svg.style("margin-top", "0px");
 			//$("#foo").css("background-color","#E8E8E8");
 
-			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
-
+			var markup = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
+			markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+			markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 			
 			console.log(svgData);
 
@@ -1645,7 +1646,7 @@ function save_image() {
 			var ctx = canvas.getContext("2d");
 
 			var img = new Image();
-			img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+			img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(markup))));
 
 			var img0 = new Image();
 			img0.setAttribute( "src", links[0]["image"] );
@@ -1662,9 +1663,7 @@ function save_image() {
 
 			img.onload = function() {
 
-				
 				ctx.drawImage(img0, 0, 0,$(".center_device_svg").width(), $(".center_device_svg").height());
-
 				ctx.drawImage(img, 0, 0, $(".center_device_svg").width(), $(".center_device_svg").height());
 				ctx.drawImage(img1, 0, 0, $(".center_device_svg").width(), $(".center_device_svg").height());
 			
