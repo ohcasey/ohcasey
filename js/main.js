@@ -1629,7 +1629,7 @@ function save_image() {
 
 		success: function(data){
 			var links = JSON.parse(data);
-			//svg_text_svg.style("margin-top", "0px");
+			svg_text_svg.style("margin-top", "0px");
 			//$("#foo").css("background-color","#E8E8E8");
 
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
