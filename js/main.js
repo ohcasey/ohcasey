@@ -1661,7 +1661,7 @@ function save_image() {
 			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
 
 
-			img0.onload = function() {
+			img.onload = function() {
 
 				
 				ctx.drawImage(img0, 0, 0 );
