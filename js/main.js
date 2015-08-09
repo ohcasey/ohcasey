@@ -1634,7 +1634,7 @@ var getImageBase64 = function (url, callback) {
 };
 
 
-
+var img, img0, img1;
 
 function save_image() {
 	$(".main_container").after('<div id = "foo"></div>');
@@ -1684,13 +1684,13 @@ function save_image() {
 
 		var ctx = canvas.getContext("2d");
 
-		var img = new Image();
+		img = new Image();
 		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
 
-		var img0 = new Image();
+		img0 = new Image();
 		img0.setAttribute( "src", links[0]["image"] );
 
-		var img1 = new Image();
+		img1 = new Image();
 		img1.setAttribute( "src", links[1]["image1"] );
 
 
@@ -1699,40 +1699,27 @@ function save_image() {
 		console.log(img1);
 
 		
+		var i = setInterval (function(){
 
+
+		if (!img.complete) return false;
+		if (!img0.complete) return false;
+		if (!img1.complete) return false;
+
+		unsetInterval (i);
+
+
+			alert("ij");
+		}
+
+
+
+
+		}, 10);
 		
 	
 
-		img.onload = function() {
-
-			
-			ctx.drawImage(img0, 0, 0 );
-
-			ctx.drawImage(img, 0, 0 );
-
-			ctx.drawImage(img1, 0, 0 );
 		
-			
-			$.ajax({ 
-			type: "POST", 
-			url: "main/save_img",
-			dataType: 'text',
-			data: {
-				image : canvas.toDataURL("image/png" )
-			},
-			success: function(data){
-				$(".main_container").append(img0);
-				$(".main_container").append(img);
-				$(".main_container").append(img1);
-				$(".main_container").append(canvas);
-				//response_to_server(data);
-				
-				
-			},
-			fail: function(data){
-				sweetAlert("Ошибка", data, "error");
-			}
-		});
 
 
 	};
@@ -1782,9 +1769,47 @@ function save_image() {
 		};
 
 	}
-
-	
 }
+
+
+
+
+
+/*
+img.onload = function() {
+
+			
+			ctx.drawImage(img0, 0, 0 );
+
+			ctx.drawImage(img, 0, 0 );
+
+			ctx.drawImage(img1, 0, 0 );
+		
+			
+			$.ajax({ 
+			type: "POST", 
+			url: "main/save_img",
+			dataType: 'text',
+			data: {
+				image : canvas.toDataURL("image/png" )
+			},
+			success: function(data){
+				$(".main_container").append(img0);
+				$(".main_container").append(img);
+				$(".main_container").append(img1);
+				$(".main_container").append(canvas);
+				//response_to_server(data);
+				
+				
+			},
+			fail: function(data){
+				sweetAlert("Ошибка", data, "error");
+			}
+		});
+
+
+*/
+
 
 function response_to_server(url) {
 				desctop.preview_url = url;
