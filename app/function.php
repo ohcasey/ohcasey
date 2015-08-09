@@ -387,7 +387,7 @@ function save_img(){
         $image = $_POST['image'];  
         
         save_to_file($image, false);
-
+/*
         if (isset($_POST['img1'])) {
             if (file_exists($_POST['img1'])) {
                 unlink($_POST['img1']); 
@@ -398,6 +398,7 @@ function save_img(){
                 unlink($_POST['img2']); 
             }
         }
+        */
     }else{
         echo $data['errors'] = "Произошла ошибка, попробуйте еще раз";
     }
