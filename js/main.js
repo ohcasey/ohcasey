@@ -1630,7 +1630,7 @@ function save_image() {
 		success: function(data){
 			var links = JSON.parse(data);
 			svg_text_svg.style("margin-top", "0px");
-			$("#foo").css("background-color","#E8E8E8");
+			//$("#foo").css("background-color","#E8E8E8");
 
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
@@ -1639,8 +1639,8 @@ function save_image() {
 
 			var canvas = document.createElement("canvas");
 
-			canvas.width = $("#device").width();
-			canvas.height = $("#device").height();
+			canvas.width = $(".center_device_svg").width();
+			canvas.height = $(".center_device_svg").height();
 
 			var ctx = canvas.getContext("2d");
 
@@ -1658,7 +1658,7 @@ function save_image() {
 			console.log(img0);
 			console.log(img1);
 
-			//svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
 
 
 			img0.onload = function() {
