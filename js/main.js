@@ -1732,17 +1732,17 @@ function save_image() {
 			},
 			fail: function(data){
 				sweetAlert("Ошибка", data, "error");
-			}
+			});
 
 				
 		}, 10);
 		
 
-	},
-	fail: function(data){
-		sweetAlert("Ошибка", data, "error");
-		}
-	});
+		},
+		fail: function(data){
+			sweetAlert("Ошибка", data, "error");
+			}
+		});
 	}else{
 
 		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
