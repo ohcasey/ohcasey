@@ -66,8 +66,6 @@ var canvas, devices_desctop_img_obj, desctop_text, devices_desctop_bg_obj;
 
 var default_devices_id="";
 
-//var this_object = randomHash(10);
-
 
 var newx, prevx;
 var newy, prevy;
@@ -96,7 +94,6 @@ var desctop = {
 		text: "",
 		font_pattern_id: "",
 		lib_img: "",
-		/*new*/
 
 		device_name: "",
 		device_color: "",
@@ -1612,6 +1609,7 @@ function save_image() {
 
 
 	if (safari_brow=="safari") {
+
 		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
 		markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 		markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
@@ -1633,14 +1631,14 @@ function save_image() {
 			var links = JSON.parse(data);
 
 
-			//svg_text_svg.style("margin-top", "0px");
+			svg_text_svg.style("margin-top", "none");
 			$("#foo").css("background-color","#E8E8E8");
 
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
 
 
-			//svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
 
 			console.log(svgData);
 
