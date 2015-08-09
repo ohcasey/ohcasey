@@ -241,7 +241,6 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 	if ((breakpoint==true) && ($(".cart_item_block").length>0)) {
 		$("input,textarea").removeClass("error");
 
-		$(".cart_item_block").remove();
 		reset_cost_total();
 
 		$(".main_container").after('<div id = "foo"></div>');
