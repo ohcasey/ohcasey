@@ -1664,7 +1664,7 @@ function save_image() {
 				
 				ctx.drawImage(img0, 0, 0 );
 
-				ctx.drawImage(img, 0, 0 );
+				ctx.drawImage(img, -476, 0 );
 
 				ctx.drawImage(img1, 0, 0 );
 			
@@ -1681,7 +1681,7 @@ function save_image() {
 				success: function(data){
 					console.log(data);
 					$(".main_container").append(img);
-					response_to_server(data);
+					//response_to_server(data);
 					
 					
 				},
