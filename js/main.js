@@ -1634,8 +1634,7 @@ function save_image() {
 
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
-			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
-
+			
 			console.log(svgData);
 
 			var canvas = document.createElement("canvas");
@@ -1659,12 +1658,15 @@ function save_image() {
 			console.log(img0);
 			console.log(img1);
 
+			//svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+
+
 			img0.onload = function() {
 
 				
 				ctx.drawImage(img0, 0, 0 );
 
-				ctx.drawImage(img, -476, 0 );
+				ctx.drawImage(img, 0, 0 );
 
 				ctx.drawImage(img1, 0, 0 );
 			
