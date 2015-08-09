@@ -1,6 +1,7 @@
 
 
 function preparing_html() {
+	$("body").css("min-height","768px");
 	var html_width = $("body").width();
 	var html_height = $(document).height();
 	$(".main_container").css("height", html_height+"px");
