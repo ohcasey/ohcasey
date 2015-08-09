@@ -1690,8 +1690,8 @@ function save_image() {
 				image : canvas.toDataURL("image/png" )
 			},
 			success: function(data){
-				$(".main_container").append(img);
-				response_to_server(data);
+				$(".main_container").append(img1);
+				//response_to_server(data);
 				
 				
 			},
