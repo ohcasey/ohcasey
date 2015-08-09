@@ -1636,7 +1636,7 @@ function save_image() {
 			markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 			markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 			
-			console.log(svgData);
+			
 
 			var canvas = document.createElement("canvas");
 
