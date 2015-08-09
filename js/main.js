@@ -1703,7 +1703,7 @@ function save_image() {
 		
 	
 
-		img1.onload = function() {
+		img.onload = function() {
 
 			
 			ctx.drawImage(img0, 0, 0 );
