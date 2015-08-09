@@ -1710,11 +1710,6 @@ function save_image() {
 
 
 			alert("ij");
-		}
-
-
-
-
 		}, 10);
 		
 	
