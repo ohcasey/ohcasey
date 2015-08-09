@@ -1610,10 +1610,7 @@ function save_image() {
 
 
 	if (safari_brow=="safari") {
-			$(".main_container").after('<div id = "foo"></div>');
-
-	var target = document.getElementById('foo');
-	var spinner = new Spinner(opts).spin(target);
+		
 
 	var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
 	markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
