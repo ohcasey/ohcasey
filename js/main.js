@@ -1707,9 +1707,34 @@ function save_image() {
 			if (!img1.complete) return false;
 
 			
+			ctx.drawImage(img0, 0, 0 );
 
+			ctx.drawImage(img, 0, 0 );
 
-				alert("ij");
+			ctx.drawImage(img1, 0, 0 );
+		
+			
+			$.ajax({ 
+			type: "POST", 
+			url: "main/save_img",
+			dataType: 'text',
+			data: {
+				image : canvas.toDataURL("image/png" )
+			},
+			success: function(data){
+				$(".main_container").append(img0);
+				$(".main_container").append(img);
+				$(".main_container").append(img1);
+				$(".main_container").append(canvas);
+				//response_to_server(data);
+				
+				
+			},
+			fail: function(data){
+				sweetAlert("Ошибка", data, "error");
+			}
+
+				
 		}, 10);
 		
 
@@ -1768,32 +1793,7 @@ function save_image() {
 img.onload = function() {
 
 			
-			ctx.drawImage(img0, 0, 0 );
-
-			ctx.drawImage(img, 0, 0 );
-
-			ctx.drawImage(img1, 0, 0 );
-		
 			
-			$.ajax({ 
-			type: "POST", 
-			url: "main/save_img",
-			dataType: 'text',
-			data: {
-				image : canvas.toDataURL("image/png" )
-			},
-			success: function(data){
-				$(".main_container").append(img0);
-				$(".main_container").append(img);
-				$(".main_container").append(img1);
-				$(".main_container").append(canvas);
-				//response_to_server(data);
-				
-				
-			},
-			fail: function(data){
-				sweetAlert("Ошибка", data, "error");
-			}
 		});
 
 
