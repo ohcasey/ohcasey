@@ -326,7 +326,9 @@ function save_svg() {
 }
 
 function save_to_file($image, $im){
+
         $dir = "uploaded_images";
+
         $image = str_replace('data:image/png;base64,', '', $image);
 
         $year = date('Y');
@@ -362,7 +364,7 @@ function save_to_file($image, $im){
         $dir.="/".$day;
     
         if (is_dir($dir)) {
-        
+       
         }else{
             mkdir($dir);
         }
@@ -379,12 +381,13 @@ function save_to_file($image, $im){
 }
 
 
-
 function save_img(){  
     if(isset($_POST['image'])) {
-        $image = $_POST['image'];
+
+        $image = $_POST['image'];  
         
         save_to_file($image, false);
+
         if (isset($_POST['img1'])) {
             if (file_exists($_POST['img1'])) {
                 unlink($_POST['img1']); 
