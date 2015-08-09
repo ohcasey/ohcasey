@@ -1706,7 +1706,7 @@ function save_image() {
 			if (!img0.complete) return false;
 			if (!img1.complete) return false;
 
-			unsetInterval (i);
+			
 
 
 				alert("ij");
