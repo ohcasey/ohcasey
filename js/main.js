@@ -1631,14 +1631,14 @@ function save_image() {
 			var links = JSON.parse(data);
 
 
-			svg_text_svg.style("margin-top", "none");
+			//	svg_text_svg.style("margin-top", "none");
 			$("#foo").css("background-color","#E8E8E8");
 
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
 
 
-			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+			//svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
 
 			console.log(svgData);
 
