@@ -1702,22 +1702,16 @@ function save_image() {
 		var i = setInterval (function(){
 
 
-		if (!img.complete) return false;
-		if (!img0.complete) return false;
-		if (!img1.complete) return false;
+			if (!img.complete) return false;
+			if (!img0.complete) return false;
+			if (!img1.complete) return false;
 
-		unsetInterval (i);
+			unsetInterval (i);
 
 
-			alert("ij");
+				alert("ij");
 		}, 10);
 		
-	
-
-		
-
-
-	};
 
 	},
 	fail: function(data){
