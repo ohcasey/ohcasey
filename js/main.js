@@ -1617,7 +1617,8 @@ function save_image() {
 		var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("svg_second_svg")[0]);
 		markup1 = markup1.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 		markup1 = markup1.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-
+		svg_text_svg.style("margin-top", "0px");
+		$("#foo").css("background-color","#E8E8E8");
 		$.ajax({ 
 			type: "POST", 
 			url: "main/save_png2",
@@ -1629,8 +1630,7 @@ function save_image() {
 
 		success: function(data){
 			var links = JSON.parse(data);
-			svg_text_svg.style("margin-top", "0px");
-			$("#foo").css("background-color","#E8E8E8");
+			
 
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
 
@@ -1681,7 +1681,7 @@ function save_image() {
 				success: function(data){
 					console.log(data);
 					$(".main_container").append(img);
-					//response_to_server(data);
+					response_to_server(data);
 					
 					
 				},
