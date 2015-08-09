@@ -1715,23 +1715,23 @@ function save_image() {
 		
 			
 			$.ajax({ 
-			type: "POST", 
-			url: "main/save_img",
-			dataType: 'text',
-			data: {
-				image : canvas.toDataURL("image/png" )
-			},
-			success: function(data){
-				$(".main_container").append(img0);
-				$(".main_container").append(img);
-				$(".main_container").append(img1);
-				$(".main_container").append(canvas);
-				//response_to_server(data);
-				
-				
-			},
-			fail: function(data){
-				sweetAlert("Ошибка", data, "error");
+				type: "POST", 
+				url: "main/save_img",
+				dataType: 'text',
+				data: {
+					image : canvas.toDataURL("image/png" )
+				},
+				success: function(data){
+					$(".main_container").append(img0);
+					$(".main_container").append(img);
+					$(".main_container").append(img1);
+					$(".main_container").append(canvas);
+					//response_to_server(data);
+						
+				},
+				fail: function(data){
+					sweetAlert("Ошибка", data, "error");
+				}
 			});
 
 				
