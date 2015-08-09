@@ -7,7 +7,7 @@
 	<div id="center">
 		<div id="center_in" >
 
-				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  class="center_device_svg">
+				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device"  class="center_device_svg">
 					<defs class ="font_block">
 						<style type="text/css">
 							<![CDATA[
@@ -17,7 +17,7 @@
 					</defs>
 				</svg>
 
-				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  id="device" class="svg_text_svg">
+				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  class="svg_text_svg">
 					<defs class ="font_block">
 						<style type="text/css">
 							<![CDATA[
