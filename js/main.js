@@ -326,6 +326,7 @@ function preparing_data(){
 	if (safari_brow=="safari") {
 		svg_text_svg = d3.select(".svg_text_svg");
 		svg_second_svg = d3.select(".svg_second_svg");
+		svg.selectAll(".font_block").remove();
 	}else{
 		 d3.select(".svg_text_svg").remove();
 		 d3.select(".svg_second_svg").remove();
@@ -1609,92 +1610,104 @@ function save_image() {
 
 
 	if (safari_brow=="safari") {
+			$(".main_container").after('<div id = "foo"></div>');
 
-		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
-		markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-		markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+	var target = document.getElementById('foo');
+	var spinner = new Spinner(opts).spin(target);
 
-		var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("svg_second_svg")[0]);
-		markup1 = markup1.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-		markup1 = markup1.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+	var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
+	markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+	markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+
+	var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("svg_second_svg")[0]);
+	markup1 = markup1.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+	markup1 = markup1.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+
+	$.ajax({ 
+		type: "POST", 
+		url: "main/save_png2",
+		dataType: 'text',
+		data: {
+			image : markup,
+			image1 : markup1
+		},
+
+	success: function(data){
+		var links = JSON.parse(data);
+
+
+		svg_text_svg.style("margin-top", "0px");
+
+		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
+
+
+
+		svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+
+		console.log(svgData);
+
+		var canvas = document.createElement("canvas");
+
+		canvas.width = $("#device").width();
+		canvas.height = $("#device").height();
+
+		var ctx = canvas.getContext("2d");
+
+		var img = new Image();
+		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+
+		var img0 = new Image();
+		img0.setAttribute( "src", links[0]["image"] );
+
+		var img1 = new Image();
+		img1.setAttribute( "src", links[1]["image1"] );
+
+
+		console.log(links);
+		console.log(img0);
+		console.log(img1);
+
 		
-		$.ajax({ 
+
+		
+	
+
+		img0.onload = function() {
+
+			
+			ctx.drawImage(img0, 0, 0 );
+
+			ctx.drawImage(img, 0, 0 );
+
+			ctx.drawImage(img1, 0, 0 );
+		
+			
+			$.ajax({ 
 			type: "POST", 
-			url: "main/save_png2",
+			url: "main/save_img",
 			dataType: 'text',
 			data: {
-				image : markup,
-				image1 : markup1
+				image : canvas.toDataURL("image/png" )
 			},
-
-		success: function(data){
-			var links = JSON.parse(data);
-			svg_text_svg.style("margin-top", "0px");
-			//$("#foo").css("background-color","#E8E8E8");
-
-			var markup = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
-			markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-			markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-			
-			
-
-			var canvas = document.createElement("canvas");
-
-			canvas.width = $(".center_device_svg").width();
-			canvas.height = $(".center_device_svg").height();
-
-			var ctx = canvas.getContext("2d");
-
-			var img = new Image();
-			img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(markup))));
-
-			var img0 = new Image();
-			img0.setAttribute( "src", links[0]["image"] );
-
-			var img1 = new Image();
-			img1.setAttribute( "src", links[1]["image1"] );
-
-
-			console.log(links);
-			console.log(img0);
-			console.log(img1);
-
-			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
-
-			img.onload = function() {
-
-				ctx.drawImage(img0, 0, 0,$(".center_device_svg").width(), $(".center_device_svg").height());
-				ctx.drawImage(img, 0, 0, $(".center_device_svg").width(), $(".center_device_svg").height());
-				ctx.drawImage(img1, 0, 0, $(".center_device_svg").width(), $(".center_device_svg").height());
-			
+			success: function(data){
+				$(".main_container").append(img);
+				response_to_server(data);
 				
-				$.ajax({ 
-				type: "POST", 
-				url: "main/save_img",
-				dataType: 'text',
-				data: {	
-					image : canvas.toDataURL("image/png" )
-				},
-				success: function(data){
-					console.log(data);
-					$(".main_container").append(canvas);
-					//response_to_server(data);
-					
-					
-				},
-				fail: function(data){
-					sweetAlert("Ошибка", data, "error");
-				}
-			});
-
-
-		};
-
-		},
-		fail: function(data){
-			sweetAlert("Ошибка", data, "error");
+				
+			},
+			fail: function(data){
+				sweetAlert("Ошибка", data, "error");
 			}
 		});
+
+
+	};
+
+	},
+	fail: function(data){
+		sweetAlert("Ошибка", data, "error");
+		}
+	});
 	}else{
 
 		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
