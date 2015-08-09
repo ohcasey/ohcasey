@@ -1669,7 +1669,7 @@ function save_image() {
 		
 	
 
-		img0.onload = function() {
+		img1.onload = function() {
 
 			
 			ctx.drawImage(img0, 0, 0 );
