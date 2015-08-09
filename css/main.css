@@ -1812,6 +1812,7 @@ input.cart_item.error,  textarea.cart_item.error{
 .checkbox_item input{
 	position: relative;
 	float: left;
+	visibility: hidden;
 	left: 1999px;
 }
 
@@ -1846,6 +1847,7 @@ input.cart_item.error,  textarea.cart_item.error{
 .checkbox_item input:before, .checkbox_item input::before {
 	 content: "";
 	 left: -2004px;
+	 visibility: visible;
 	 margin-top: 5px;
 	position: relative;
 	float: left;
@@ -1860,6 +1862,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	content: "";
 	left: -1996px;
 	position: relative;
+	visibility: visible;
 	z-index: 20;
 	margin-top: -23px;
 	float: left;
