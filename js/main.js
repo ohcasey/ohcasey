@@ -1683,7 +1683,7 @@ function save_image() {
 				success: function(data){
 					console.log(data);
 					$(".main_container").append(img);
-					response_to_server(data);
+					//response_to_server(data);
 					
 					
 				},
