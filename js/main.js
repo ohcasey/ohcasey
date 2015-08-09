@@ -1712,22 +1712,19 @@ function save_image() {
 		
 		var canvas = document.createElement( "canvas" );
 		
-		canvas.width = $("#device").width();
-		canvas.height = $("#device").height();
+		canvas.width = $(".center_device_svg").width();
+		canvas.height = $(".center_device_svg").height();
 		
 		var ctx = canvas.getContext( "2d" );
 
 		var img = new Image();
 
-		img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent( markup))));
+		img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(markup))));
 
 		img.onload = function() {
 			ctx.drawImage(img, 0, 0);
-
 			var svg_data = canvas.toDataURL("image/png" );
-			console.log(svg_data);
-
-
+			
 			$.ajax({ 
 				type: "POST", 
 				url: "main/save_img",
@@ -1736,8 +1733,7 @@ function save_image() {
 					image : svg_data
 				},
 				success: function(data){
-					$(".main_container").append(img);
-					console.log(data);
+					
 					response_to_server(data);
 				},
 				fail: function(data){
@@ -1794,8 +1790,8 @@ function response_to_server(url) {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						console.log(data);
-						//document.location = "/cart";
+						
+						document.location = "/cart";
 
 					},
 					fail: function(data){
