@@ -6,7 +6,7 @@ var device_height_svg;
 var text_error =0;
 var bb = -240;
 
-var safari = "";
+var safari_brow = "";
 
 var ua = navigator.userAgent.toLowerCase(); 
 if (ua.indexOf('safari') != -1) { 
