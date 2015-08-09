@@ -1678,7 +1678,7 @@ function save_image() {
 				},
 				success: function(data){
 					console.log(data);
-					$(".main_container").append(img);
+					$(".main_container").append("<img src='"+data+"'>");
 					//response_to_server(data);
 					
 					
