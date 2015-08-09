@@ -1660,7 +1660,6 @@ function save_image() {
 
 			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
 
-
 			img.onload = function() {
 
 				
