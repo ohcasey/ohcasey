@@ -219,9 +219,6 @@ function save_svg_to_png() {
 
      if(isset($_POST['image'])) {
 
-
-
-
         $svgString =  $_POST['image'];
 
          // $svgString is a string containing exported SVG XML
@@ -241,6 +238,8 @@ function save_svg_to_png() {
 
         $im = new Imagick();
 
+        $im->setBackgroundColor(new ImagickPixel('transparent')); 
+
         $im->readImageBlob($svgString);
 
         /*png settings*/
@@ -258,12 +257,12 @@ function save_svg() {
 
      if(isset($_POST['image'])) {
 
-        $dir = "uploaded_images";
-        $svgString = $_POST['image'];
+            $dir = "uploaded_images";
+            $svgString = $_POST['image'];
 
              // $svgString is a string containing exported SVG XML
-        $svgHeader = '<?xml version="1.0" standalone="no"?>'; // XML node needed by imagick
-        $svgTag = 'svg'; // tag to search for
+            $svgHeader = '<?xml version="1.0" standalone="no"?>'; // XML node needed by imagick
+            $svgTag = 'svg'; // tag to search for
             preg_match_all("/\<svg(.*?)\>/", $svgString, $matches); // Get initial SVG node that may contain missing :xlink
 
             if ( !preg_match("/xmlns:xlink/", $matches[1][0]) )
