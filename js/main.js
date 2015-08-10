@@ -1646,117 +1646,117 @@ function save_image() {
 	if (safari_brow=="safari") {
 		
 
-	var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
-	markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-	markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-
-	var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("svg_second_svg")[0]);
-	markup1 = markup1.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-	markup1 = markup1.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
-
-	$.ajax({ 
-		type: "POST", 
-		url: "main/save_png2",
-		dataType: 'text',
-		data: {
-			image : markup,
-			image1 : markup1
-		},
-
-	success: function(data){
-		var links = JSON.parse(data);
-
-
-		svg_text_svg.style("margin-top", "0px");
-
-		var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
-
-
-
-		svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
-
-		console.log(svgData);
-
-		var canvas = document.createElement("canvas");
-
-		canvas.width = $("#device").width();
-		canvas.height = $("#device").height();
-
-		var ctx = canvas.getContext("2d");
-
-		img = new Image();
-		img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
-
-		img0 = new Image();
-		img0.setAttribute( "src", links[0]["image"] );
-
-		img1 = new Image();
-		img1.setAttribute( "src", links[1]["image1"] );
-
-
-		console.log(links);
-		console.log(img0);
-		console.log(img1);
-
-		
-		var i = setInterval (function(){
-
-
-			if (!img.complete) return false;
-			if (!img0.complete) return false;
-			if (!img1.complete) return false;
-
-			
-			ctx.drawImage(img0, 0, 0 );
-
-			ctx.drawImage(img, 0, 0 );
-
-			ctx.drawImage(img1, 0, 0 );
-		
-			
-			$.ajax({ 
-				type: "POST", 
-				url: "main/save_img",
-				dataType: 'text',
-				data: {
-					image : canvas.toDataURL("image/png" )
-				},
-				success: function(data){
-					//$(".main_container").append(img0);
-					//$(".main_container").append(img);
-					//$(".main_container").append(img1);
-					//$(".main_container").append(canvas);
-					response_to_server(data);
-						
-				},
-				fail: function(data){
-					sweetAlert("Ошибка", data, "error");
-				}
-			});
-
-				
-		}, 10);
-		
-
-		},
-		fail: function(data){
-			sweetAlert("Ошибка", data, "error");
-			}
-		});
-	}else{
-
 		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
 		markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 		markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+
+		var markup1 = (new XMLSerializer()).serializeToString(document.getElementsByClassName("svg_second_svg")[0]);
+		markup1 = markup1.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+		markup1 = markup1.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+
+		$.ajax({ 
+			type: "POST", 
+			url: "main/save_png2",
+			dataType: 'text',
+			data: {
+				image : markup,
+				image1 : markup1
+			},
+
+		success: function(data){
+			var links = JSON.parse(data);
+
+
+			svg_text_svg.style("margin-top", "0px");
+
+			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
+
+			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+
+			console.log(svgData);
+
+			var canvas = document.createElement("canvas");
+
+			canvas.width = $("#device").width();
+			canvas.height = $("#device").height();
+
+			var ctx = canvas.getContext("2d");
+
+			img = new Image();
+			img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+
+			img0 = new Image();
+			img0.setAttribute( "src", links[0]["image"] );
+
+			img1 = new Image();
+			img1.setAttribute( "src", links[1]["image1"] );
+
+
+			console.log(links);
+			console.log(img0);
+			console.log(img1);
+
+			
+			var i = setInterval (function(){
+
+
+				if (!img.complete) return false;
+				if (!img0.complete) return false;
+				if (!img1.complete) return false;
+
+				
+				ctx.drawImage(img0, 0, 0 );
+
+				ctx.drawImage(img, 0, 0 );
+
+				ctx.drawImage(img1, 0, 0 );
+			
+				
+				$.ajax({ 
+					type: "POST", 
+					url: "main/save_img",
+					dataType: 'text',
+					data: {
+						image : canvas.toDataURL("image/png" )
+					},
+					success: function(data){
+						//$(".main_container").append(img0);
+						//$(".main_container").append(img);
+						//$(".main_container").append(img1);
+						//$(".main_container").append(canvas);
+						response_to_server(data);
+							
+					},
+					fail: function(data){
+						sweetAlert("Ошибка", data, "error");
+					}
+				});
+
+					
+			}, 10);
+			
+
+			},
+			fail: function(data){
+				sweetAlert("Ошибка", data, "error");
+				}
+			});
+		return;
+	}else{
+
+		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
+
+		markup = markup.replace(/NS\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
+		markup = markup.replace(/a\d+:href/g, "xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href");
 		
-		var canvas = document.createElement( "canvas" );
+		var canvas = document.createElement("canvas");
 		
-		canvas.width = $(".center_device_svg").width();
-		canvas.height = $(".center_device_svg").height();
+		canvas.width = $("#device").width();
+		canvas.height = $("#device").height();
 		
 		var ctx = canvas.getContext( "2d" );
 
-		var img = new Image();
+		img = new Image();
 
 		img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(markup))));
 
@@ -1769,10 +1769,11 @@ function save_image() {
 				url: "main/save_img",
 				dataType: 'text',
 				data: {
-					image : svg_data
+					image: svg_data
 				},
-				success: function(data){
-					
+				success: function(data){	
+					$(".main_container").append(img);
+					console.log(data);
 					response_to_server(data);
 				},
 				fail: function(data){
