@@ -32,7 +32,7 @@ global $config;
 $config = array(
 		"deliver_cost" => array(
 			"self" =>  0, //самовывоз
-			"kur_mos" =>  250,
+			"kur_mos" =>  350,
 			"kur_rus" =>  650,
 			"mail_ru" => 200,  //самовывоз
 		),

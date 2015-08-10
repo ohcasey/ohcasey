@@ -207,11 +207,11 @@
 				<div class="library_in library_color">
 				</div>
 			</div>
-			<div class="right_menu_title_2">или<br>Выберите паттерн</div>
+			<!--div class="right_menu_title_2">или<br>Выберите паттерн</div>
 			<div class="library_4">
 				<div class="library_in library_pattern">
 				</div>
-			</div>
+			</div-->
 		</div>
 		<div id="right-5" class="right_content_block" style="display: none;">
 			<div class="right_menu_title">Выберите фон</div>
