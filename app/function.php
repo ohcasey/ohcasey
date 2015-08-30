@@ -440,7 +440,6 @@ function mysqlconnect($bd_controls){
 
 function get_city_input($string,$bd_controls) {
 
-
     $db =  mysqlconnect($bd_controls);
     $query = mysql_query("SELECT name FROM city WHERE country_id = 3159 AND name Like '$string%' LIMIT 20") or die(mysql_error());
     mysql_close($db);
@@ -524,7 +523,7 @@ function generatePassword($length = 24){
 
 
 
-function get_mail($config, $mail_controls){
+function get_mail($config, $mail_controls, $bd_controls){
   
 
     if (isset($_POST['fio'])) {
@@ -575,6 +574,20 @@ function get_mail($config, $mail_controls){
  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
     $zakaz_number=time();
+    $db =  mysqlconnect($bd_controls);
+
+    $query = mysql_query("SELECT count FROM settings LIMIT 1") or die(mysql_error());
+   
+  
+
+    $
+    while ($value = mysql_fetch_array($query)) {
+       $zakaz_number = $value +1;
+    }
+
+    $query = mysql_query("UPDATE settings SET count = '$zakaz_number' LIMIT 1") or die(mysql_error());
+    
+    mysql_close($db);
     $_SESSION['zakaz_number'] = $zakaz_number;
     $time_order = date("d.m.y H:i:s");
     $_SESSION['time_order'] =  $time_order;
