@@ -239,6 +239,7 @@ $config = array(
 					"descr_2" => "Бархатистый, приятный на ощупь чехол.",
 					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"lib_img" => "iphone6_black_icon.png",
+					"default_color"=>"white",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
@@ -358,6 +359,7 @@ $config = array(
 					"descr_2" => "Бархатистый, приятный на ощупь чехол.",
 					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"lib_img" => "iphone6_black_icon.png",
+					"default_color"=>"white",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
@@ -490,6 +492,7 @@ $config = array(
 					"descr_1" => "Матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол..",
 					"lib_img" => "iphone5_5s_black_icon.png",
+					"default_color"=>"white",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
@@ -620,6 +623,7 @@ $config = array(
 					"descr_1" => "Матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол..",
 					"lib_img" => "iphone5_5s_black_icon.png",
+					"default_color"=>"white",
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
@@ -770,6 +774,7 @@ $config = array(
 					"descr_1" => "Матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол..",
 					"lib_img" => "iphone5c_black_icon.png",
+					"default_color"=>"white",
 					"colors"=> array(
 									array(		
 											"id"=>8,
@@ -914,6 +919,7 @@ iphone4_black_crystal_case.png
 					"descr_1" => "Матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол..",
 					"lib_img" => "iphone4_4s_black_icon.png",
+					"default_color"=>"white",
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
@@ -1011,6 +1017,7 @@ iphone4_black_crystal_case.png
 					"descr_1" => "Матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол..",
 					"lib_img" => "iphone4_4s_black_icon.png",
+					"default_color"=>"white",
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	

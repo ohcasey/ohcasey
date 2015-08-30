@@ -86,6 +86,8 @@ var text_height_constant=10;
 
 var desctop = {
 
+		material_font_color: "",
+
 		image_size_width: "",
 		image_size_height: "",
 
@@ -237,6 +239,13 @@ $(document).on("click", ".library-pattern_row" , function(){
 
 $(document).on("click", ".library-case_row" , function(){
 	set_material($(this).data('materialId'));
+
+	if ($(this).data('material_color-font')!="") {
+		desctop.material_font_color = $(this).data('material_color-font');
+		set_font_color("random", desctop.material_font_color);
+	}else{
+		set_font_color("random", desctop.default_font_color);
+	}
 });
 
 $(document).on("click", "#right-6 .library_tab_but" , function(){
@@ -374,14 +383,6 @@ function preparing_data(){
 		g_smiles = svg_controls
 					.append("g")
 						.classed("g_smiles", true);
-
-
-
-
-
-
-
-
 
 	}else{
 		svg = d3.select(".center_device_svg");
@@ -683,7 +684,6 @@ var fonts="";
 
 function prepare_devices(){
 
-
 	for(value in config.devices) {	
 		var html_text = "";
 		if (config.devices[value].default == true) {
@@ -723,7 +723,16 @@ function prepare_devices(){
 
 function set_default_text(){
 	desctop.text= config.default_text;
-	desctop.font_color = config.default_font_color;
+
+	if (desctop.material_font_color!="") {
+
+		desctop.font_color = desctop.material_font_color;
+
+		
+	}else{
+		desctop.font_color = config.default_font_color;
+	}
+	
 	svg_text.append("text")
 								.text(desctop.text)
 								.style("text-anchor", "middle")
@@ -1085,6 +1094,7 @@ function remove_setting() {
 	$("#header-menu-item-1").addClass("header-menu-active");
 	$("#header-menu-item-1").addClass("header-menu-selected");
 	
+	desctop.material_font_color = "";
 	desctop.lib_img = "";
 	desctop.image_size_width ="";
 	desctop.image_size_height ="";
@@ -1150,6 +1160,7 @@ function set_material(material_id) {
 
 	desctop.name_case_1 = $("#library-case_row-"+material_id).find(".library-case_row-block-1").text();
 	desctop.name_case_2 = $("#library-case_row-"+material_id).find(".library-case_row-block-2").text();
+
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 }
@@ -1182,13 +1193,14 @@ function set_material_color_default(material_id) {
 	console.log("Cтавлю дефолтный цвет");
 	$(".device_colors").find("div").remove();
 	var id_device = config.devices[desctop.device_id].id;
+
 	
 	if (config.materials[id_device][material_id].colors.length>1) {
 			var breakpoint = true;
 			for (value in config.materials[id_device][material_id].colors) {
 				var color = config.materials[id_device][material_id].colors[value].color;
 				var cost = config.materials[id_device][material_id].colors[value].cost;
-				var html_text = '<div data-material_id="'+material_id+'" data-cost="'+cost+'" data-material_color="'+value+'" id ="button_material_color-'+value+'" style="background:'+color+'" data-color="'+color+'"></div>';
+				var html_text = '<div data-material_id="'+material_id+'" data-cost="'+cost+'"  data-material_color="'+value+'" id ="button_material_color-'+value+'" style="background:'+color+'" data-color="'+color+'"></div>';
 				$(".device_colors").append(html_text);
 				
 				if (config.materials[id_device][material_id].colors[value].default==true) {
@@ -1371,12 +1383,18 @@ function set_material_color(material_id, material_color, cost) {
 function set_check() {
 	var id_device = config.devices[desctop.device_id].id;
 	var lib_path =  config.desctop_material_path;
+	
 
 	for (value in config.materials[id_device]) {	
-		
+
+		var material_font_color = ""
+		if (config.materials[id_device][value].default_color !=undefined) {
+			material_font_color = config.materials[id_device][value].default_color;
+		}
+	
 		var html_text = "";
 		
-		html_text+='<div class="library-case_row"  id="library-case_row-'+value+'" data-material-id="'+value+'" style="background-image: url('+lib_path+config.materials[id_device][value].lib_img+');">';
+		html_text+='<div class="library-case_row"  id="library-case_row-'+value+'" data-material_color-font="'+material_font_color+'" data-material-id="'+value+'" style="background-image: url('+lib_path+config.materials[id_device][value].lib_img+');">';
 		html_text+='<div class="library-case_row-block-1">'+config.materials[id_device][value].name+'</div>';	
 		html_text+='<div class="library-case_row-block-2">'+config.materials[id_device][value].descr_1+'</div>';	
 		html_text+='<div class="library-case_row-block-3">'+config.materials[id_device][value].descr_2+'</div>';	
