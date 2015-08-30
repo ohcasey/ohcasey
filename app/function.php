@@ -415,6 +415,9 @@ function mysqlconnect($bd_controls){
             // Имя базы данных, на хостинге или локальной машине 
         $dbname = "cities"; 
     }else{
+
+        print_r($bd_controls);
+
         $dbhost = $bd_controls["mysql.server"]; 
         // Имя пользователя базы данных 
         $dbuser = $bd_controls["u11014_ohcasey"]; 
@@ -567,14 +570,12 @@ function get_mail($config, $mail_controls, $bd_controls){
     }  
 
 
-    echo $_SESSION['fio'];
-
 
 
  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
 
-        print_r($bd_controls);
+    print_r($bd_controls);
 
     $db =  mysqlconnect($bd_controls);
     
@@ -587,6 +588,8 @@ function get_mail($config, $mail_controls, $bd_controls){
     $query = mysql_query("UPDATE settings SET count = '$zakaz_number' LIMIT 1") or die(mysql_error());
 
     mysql_close($db);
+
+
     $_SESSION['zakaz_number'] = $zakaz_number;
     $time_order = date("d.m.y H:i:s");
     $_SESSION['time_order'] =  $time_order;
