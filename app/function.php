@@ -573,12 +573,10 @@ function get_mail($config, $mail_controls, $bd_controls){
 
  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
-    $zakaz_number=time();
     $db =  mysqlconnect($bd_controls);
-
+    
     $query = mysql_query("SELECT count FROM settings LIMIT 1") or die(mysql_error());
    
-
     while ($value = mysql_fetch_array($query)) {
        $zakaz_number = $value +1;
     }
