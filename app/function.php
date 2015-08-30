@@ -578,15 +578,13 @@ function get_mail($config, $mail_controls, $bd_controls){
 
     $query = mysql_query("SELECT count FROM settings LIMIT 1") or die(mysql_error());
    
-  
 
-    $
     while ($value = mysql_fetch_array($query)) {
        $zakaz_number = $value +1;
     }
 
     $query = mysql_query("UPDATE settings SET count = '$zakaz_number' LIMIT 1") or die(mysql_error());
-    
+
     mysql_close($db);
     $_SESSION['zakaz_number'] = $zakaz_number;
     $time_order = date("d.m.y H:i:s");
