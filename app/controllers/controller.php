@@ -159,7 +159,7 @@
 		}
 
 		if ($action_name=="confirm_order" ) {
-			print_r($bd_controls);
+		
 			get_mail($config, $mail_controls, $bd_controls);
 			exit;
 		}
