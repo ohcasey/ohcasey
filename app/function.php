@@ -587,9 +587,8 @@ function get_mail($config, $mail_controls, $bd_controls){
        $zakaz_number = mysql_fetch_row($value);
     }
 
-    $zakaz_number++;
 
-    $query = mysql_query("UPDATE settings SET count = '$zakaz_number' LIMIT 1") or die(mysql_error());
+    $query = mysql_query("UPDATE settings SET count = '$zakaz_number'+1") or die(mysql_error());
 
     mysql_close($db);
 
