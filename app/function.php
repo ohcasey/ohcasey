@@ -406,6 +406,9 @@ function save_img(){
 
 function mysqlconnect($bd_controls){
 
+
+    print_r($bd_controls);
+
     if (gethostname() === "dmitry-HP-Pavilion-dv7-Notebook-PC") {
         $dbhost = "localhost"; 
         // Имя пользователя базы данных 
@@ -575,7 +578,6 @@ function get_mail($config, $mail_controls, $bd_controls){
  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
 
-    print_r($bd_controls);
 
     $db =  mysqlconnect($bd_controls);
     
