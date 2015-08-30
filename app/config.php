@@ -9,6 +9,7 @@ $mail_controls = array(
   	
 );
 global $bd_controls; 
+
 $bd_controls = array(
 	"dbhost" => "mysql.server",
         // Имя пользователя базы данных 
