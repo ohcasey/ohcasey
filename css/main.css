@@ -541,6 +541,7 @@ body {
 .library_in {
 	height: 100%;
 	display: inline-block;
+	width: 100%;
 }
 
 .library-font_row {
@@ -675,8 +676,6 @@ body {
 .library_tab_but-selected, .library_tab_but-selected:hover {
 	background: #295E90;
 }
-
-
 
 .library-case_row {
 	background: rgba(255,255,255,0.3);
