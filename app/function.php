@@ -421,13 +421,13 @@ function mysqlconnect($bd_controls){
 
         print_r($bd_controls);
 
-        $dbhost = $bd_controls["mysql.server"]; 
+        $dbhost = $bd_controls["dbhost"]; 
         // Имя пользователя базы данных 
-        $dbuser = $bd_controls["u11014_ohcasey"]; 
+        $dbuser = $bd_controls["dbuser"]; 
             // и его пароль 
-        $dbpass = $bd_controls["ohcasey"]; 
+        $dbpass = $bd_controls["dbpass"]; 
             // Имя базы данных, на хостинге или локальной машине 
-        $dbname = $bd_controls["u11014_ohcasey"]; 
+        $dbname = $bd_controls["dbname"]; 
     }
 
   
