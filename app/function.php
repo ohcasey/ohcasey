@@ -573,6 +573,9 @@ function get_mail($config, $mail_controls, $bd_controls){
 
  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
+
+        print_r($bd_controls);
+
     $db =  mysqlconnect($bd_controls);
     
     $query = mysql_query("SELECT count FROM settings LIMIT 1") or die(mysql_error());
