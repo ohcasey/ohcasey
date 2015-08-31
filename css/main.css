@@ -1479,8 +1479,8 @@ text-align: center;
 
 
 .alert_block_item-overlay {
-	background: #ddd;
-	opacity: 0.9;
+	background: #cdcdcd;
+	opacity: 0.96;
 	position: absolute;
 	top:0px;
 	left: 0px;
