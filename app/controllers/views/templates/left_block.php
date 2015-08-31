@@ -12,7 +12,9 @@
 				<div id="price_total" class="<?php  if ($controller_name=="cart") {		echo 'cart_name_price';	}?>"></div>
 				<div id="price-point"></div>
 			</div>
+			<!--
 			<a id="left_menu-shipping" title="О доставке">О ДОСТАВКЕ</a>
 			<a id="left_menu-help"  title="Нужна помощь">НУЖНА ПОМОЩЬ</a>
+			-->
 		</div>
 </div>
