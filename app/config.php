@@ -1462,6 +1462,7 @@ iphone4_black_crystal_case.png
 				"big"=>"1.png",
 				"small"=>"r63_1.png"
 				),
+			/*
 			array(
 				"big"=>"2.png",
 				"small"=>"r63_2.png"
@@ -1541,7 +1542,8 @@ iphone4_black_crystal_case.png
 			array(
 				"big"=>"21.png",
 				"small"=>"r63_21.png"
-				),	
+				),
+				*/	
 		),
 		"smiles"=>array(
 /*
