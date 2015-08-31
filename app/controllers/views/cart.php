@@ -56,14 +56,14 @@
 				<input type="email" name="email" placeholder = "* E-mail" class="cart_item half_item item_important email" value="<?php  if (isset($_SESSION['email'])) { echo $_SESSION['email'];}?>">
 				<input type="text" name="phone" placeholder = "* Телефон" class="cart_item item_right half_item item_important phone" value="<?php  if (isset($_SESSION['phone'])) { echo $_SESSION['phone'];}?>">
 				<div class="city_block">
-					<input type="text" name="city" placeholder = "* Почтовый индекс и адрес доставки" class="cart_item item_important city" value="<?php echo $city; ?>" autocomplete="off">
+					<input type="text" name="city" placeholder = "* Город" class="cart_item item_important city" value="<?php echo $city; ?>" autocomplete="off">
 				
 					<div class = "result_city">
 					</div>
 				
 				</div>
 			
-				<textarea placeholder="Адрес" name="adress" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
+				<textarea placeholder="Почтовый индекс и адрес доставки" name="adress" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
 				<textarea placeholder="Комментарии к заказу" name="comments" class="cart_item comments"></textarea>
 			</div>
 			
