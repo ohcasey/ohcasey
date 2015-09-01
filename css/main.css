@@ -7,6 +7,7 @@
 
 
 
+
 #foo {
   background-color: #000;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
@@ -18,7 +19,6 @@
   bottom: 0;
   z-index: 10000;
 }
-
 
 
 /*Остальное*/
@@ -312,7 +312,7 @@ body {
 }
 
 #left {
-	width: 130px;
+	width: 140px;
 	height: 100%;
 	position: absolute;
 	bottom: 0;
@@ -343,6 +343,7 @@ body {
 
 #left_menu {
 	height: 290px;
+	width: 100%;
 	position: absolute;
 	margin-top: 20px;
 }
@@ -1840,12 +1841,32 @@ input.cart_item.error,  textarea.cart_item.error{
 }
 
 
+.checkbox_prev_input {
+	position: relative;
+	float: left;
+	width: 27px;
+	height: 27px;
+	background: white;
+	margin-top: 9px;
+	cursor: pointer;
+	margin-left: -15px;
+}
+
+.checkbox_prev_input div {
+	position: absolute;
+	box-shadow: inset 0px 0px 4px #295e8c;
+	width: 15px;
+	height: 15px;
+	left: 6px;
+	top: 6px;
+}
 
 	
 
-.checkbox_item input:before, .checkbox_item input::before {
+/*.checkbox_item input:before, .checkbox_item input::before {
 	 content: "";
 	 left: -2004px;
+	 top: 0px;
 	 visibility: visible;
 	 margin-top: 5px;
 	position: relative;
@@ -1873,11 +1894,9 @@ input.cart_item.error,  textarea.cart_item.error{
 	cursor: pointer;	
 }
 
-.checkbox_item input.error:after {
+:after {
 	 box-shadow: inset 0px 0px 4px #da4437;
 }
-
-
 
 .checkbox_item input:checked:after {
 	background:#295e8c;
@@ -1887,11 +1906,29 @@ input.cart_item.error,  textarea.cart_item.error{
 	 box-shadow: inset 0px 0px 4px #656565!important;
 	 background: transparent;
 }
+*/
+.checkbox_item input:checked +.checkbox_prev_input div {
+	background:#295e8c;
+}
 
-.checkbox_item input.disabled + span {
+.checkbox_item input.error +.checkbox_prev_input div {
+	box-shadow: inset 0px 0px 4px #da4437;
+}
+
+.checkbox_item input.disabled +.checkbox_prev_input div {
+	 box-shadow: inset 0px 0px 4px #656565!important;
+}
+
+
+
+
+.checkbox_item input.disabled +.checkbox_prev_input + span {
 	color: #656565;
 	opacity: 0.6;
 }
+
+
+
 
 .center_bottom {
 		border-top: 1px solid #656565;
