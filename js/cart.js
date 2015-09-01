@@ -1,4 +1,6 @@
-
+$(document).on("click",".checkbox_prev_input",function(){
+	$(this).parent().find("input").click();
+});
 
 function preparing_html() {
 	$("body").css("min-height","768px");

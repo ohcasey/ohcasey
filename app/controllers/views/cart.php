@@ -71,19 +71,31 @@
 				<div class="right_menu_title_2">Выберите способ доставки</div>
 				<div class="checkbox_item person">
 					<input type="radio" name="deliver" value="self" id ="self" data-delivery="<?php echo $config['deliver_cost']['self'] ?>">
+					<div class="checkbox_prev_input">
+						<div class="checkbox_selector"></div>
+					</div>
 					<span>Самовывоз - <?php echo $config['deliver_cost']['self'] ?> р.</span>
 				</div>
 				<div class="checkbox_item deliver">
 					<input type="radio" name="deliver" value="kur_mos" id ="kur_mos" data-delivery="<?php echo $config['deliver_cost']['kur_mos'] ?>">
+					<div class="checkbox_prev_input">
+						<div class="checkbox_selector"></div>
+					</div>
 					<span for ="kur_mos">Курьером по Москве — <?php echo $config['deliver_cost']['kur_mos'] ?> р.</span>
 				</div>
 				<div class="checkbox_item deliver">
 					<input type="radio" name="deliver" value="kur_rus" id ="kur_rus" data-delivery="<?php echo $config['deliver_cost']['kur_rus'] ?>">
+					<div class="checkbox_prev_input">
+						<div class="checkbox_selector"></div>
+					</div>
 					<span for ="kur_rus">Курьером по России — от <?php echo $config['deliver_cost']['kur_rus'] ?> р.</span>
 					
 				</div>
 				<div class="checkbox_item mail">
 					<input type="radio" name="deliver" value="mail_ru" id ="mail_ru" data-delivery="<?php echo $config['deliver_cost']['mail_ru'] ?>">
+					<div class="checkbox_prev_input">
+						<div class="checkbox_selector"></div>
+					</div>
 					<span for ="mail_ru">Почта России — <?php echo $config['deliver_cost']['mail_ru'] ?> р.</span>
 				</div>
 			</div>
@@ -92,14 +104,23 @@
 				<div class="right_menu_title_2">Выберите способ оплаты</div>
 				<div class="checkbox_item cash">
 					<input type="radio" name="payment" value="cash" id = "cash"  class="disabled" >
+					<div class="checkbox_prev_input">
+						<div class="checkbox_selector"></div>
+					</div>
 					<span >Наличными</span>
 				</div>
 				<div class="checkbox_item sber">
 					<input type="radio" name="payment" value="sber" id = "sber"  class="disabled">
+					<div class="checkbox_prev_input">
+						<div class="checkbox_selector"></div>
+					</div>
 					<span >Картой сбербанка</span>
 				</div>
 				<div class="checkbox_item robocassa">
 					<input type="radio" name="payment" value="robocassa" id = "robocassa" class="disabled">
+					<div class="checkbox_prev_input">
+						<div class="checkbox_selector"></div>
+					</div>
 					<span >Робокасса</span>
 				</div>
 			</div>
