@@ -1701,7 +1701,7 @@ textarea.cart_item{
 	font-family: HelveticaNeueCyr;
 	
 }
-.cart_item:-moz-placeholder {
+.cart_item::-moz-placeholder {
 	font-family: HelveticaNeueCyr;
 
 }
@@ -2399,7 +2399,7 @@ input.cart_item.error,  textarea.cart_item.error{
 
 
 
-
+/*
 	.checkbox_item input:before {
 		 content: "";
 		 left: -2004px;
@@ -2412,10 +2412,13 @@ input.cart_item.error,  textarea.cart_item.error{
 		background: white;
 		cursor: pointer;
 	}
-
+*/
 	.checkbox_item {
 		margin-top: 5px;
 	}
+
+
+	/*
 	.checkbox_item input:after {
 		content: "";
 		left: -1995px;
@@ -2439,7 +2442,7 @@ input.cart_item.error,  textarea.cart_item.error{
 		  box-shadow: inset 0px 0px 6px #656565!important;
 		  background: transparent;
 }
-
+	*/
 	.checkbox_item {
 		height: 50px;
 		width: 95%;
