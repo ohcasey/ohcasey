@@ -1151,7 +1151,7 @@ svg {
  .sweet-alert {
   	/*background: #ddd;
  	opacity: 0.9;*/
- 	font-family: HelveticaNeueCyr;
+ 	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
  }
 
  .sweet-alert button {
@@ -1247,7 +1247,7 @@ svg {
 .alert_out_svg-text {
 	position: relative;
 	margin: 0 auto;
-	font-family: HelveticaNeueCyr;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	color:  #da4437;
 	font-size: 20px; 
 	top: 50%;
@@ -1334,12 +1334,12 @@ svg {
 	  width: 81.7%;
 	  border: none;
 	  text-align: center;
-	 font-family: Arial;
-color:  #000000;
-font-size: 40px;
-line-height: 50px;
-font-weight: 400;
-text-align: center;
+	 font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
+	color:  #000000;
+	font-size: 40px;
+	line-height: 50px;
+	font-weight: 400;
+	text-align: center;
 
 }
 
@@ -1498,7 +1498,7 @@ text-align: center;
 
 .alert_block_item h2 {
 	margin-top: 90px;
-	font-family: HelveticaNeueCyr;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	color:  #295e8c;
 	font-size: 26px;/* Приближение из-за подстановки шрифтов */
 	font-weight: 300;
@@ -1514,7 +1514,7 @@ text-align: center;
 	line-height: 24px;
 	text-align: center;
 	display: block;
-	font-family: HelveticaNeueCyr;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	color:  #da4437;
 	font-size: 18px;/* Приближение из-за подстановки шрифтов */
 	font-weight: 300;
@@ -1529,7 +1529,7 @@ text-align: center;
 	height: 76px;
 	border: none;
  	background: #669AC4;
- 	font-family: Arial;
+ 	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	color:  #ffffff;
 	font-size: 30px;
 	line-height: 76px;
@@ -1670,6 +1670,7 @@ text-align: center;
 
 
 input.cart_item,  textarea.cart_item{
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	height: 28px;
 	line-height: 30px;
 	margin-top: 5px;
@@ -1698,22 +1699,22 @@ textarea.cart_item{
 
 
 .cart_item::-webkit-input-placeholder {
-	font-family: HelveticaNeueCyr;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	
 }
 .cart_item::-moz-placeholder {
-	font-family: HelveticaNeueCyr;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 
 }
 
 
 
 .cart_item.item_important::-webkit-input-placeholder {
-	font-family: HelveticaNeueCyr;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	color:  #6693bd;
 }
 .cart_item.item_important:-moz-placeholder {
-	font-family: HelveticaNeueCyr;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
 	color:  #6693bd;
 }
 
@@ -1738,17 +1739,17 @@ textarea.cart_item{
 }
 
 .result_city span {
-	font-family: HelveticaNeueCyr;
-color:  #656565;
-font-size: 12px;/* Приближение из-за подстановки шрифтов */
-font-weight: 300;
-text-align: center;
-width: 100%;
-height: 30px;
-display: block;
-background-color: rgba(255,255,255,0.6);
-line-height: 30px;
-cursor: pointer;
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
+	color:  #656565;
+	font-size: 12px;/* Приближение из-за подстановки шрифтов */
+	font-weight: 300;
+	text-align: center;
+	width: 100%;
+	height: 30px;
+	display: block;
+	background-color: rgba(255,255,255,0.6);
+	line-height: 30px;
+	cursor: pointer;
 }
 
 
