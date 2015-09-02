@@ -96,14 +96,14 @@
 
 				$kassa = new Robokassa('ohcasey.ru', 'hnb128gbz2', 'hnb128gbz3');
 				/* назначение параметров */
-				$kassa->OutSum  = $_POST['OutSum'];
-				$kassa->InvId   = $_POST['InvId'];
+				$kassa->OutSum  = $_GET['OutSum'];
+				$kassa->InvId   = $_GET['InvId'];
 				/* добавление кастомных полей из запроса */
 				$kassa->addCustomValues(array(
-				    'shp_user' => $_POST['shp_user']
+				    'shp_user' => $_GET['shp_user']
 				));
 				/* проверка цифровой подписи запроса */
-				if($kassa->checkHash($_POST['SignatureValue']))
+				if($kassa->checkHash($_GET['SignatureValue']))
 				    echo 'Оплата проведена успешно!';
 				else
 				    echo 'Валидация не пройдена';
