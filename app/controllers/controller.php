@@ -71,10 +71,8 @@
 				}
 		}else{
 			header("Location: /main"); 
-		}
-		
+		}	
 	}
-
 
 	if ($controller_name == "cart") {	
 		
@@ -94,27 +92,17 @@
 
 			if ($action_name=="robo_result") {
 
-				$mrh_pass2 = "qw210100";
-
-				$tm=getdate(time()+9*3600);
-				$date="$tm[year]-$tm[mon]-$tm[mday] $tm[hours]:$tm[minutes]:$tm[seconds]";
-
-				$out_summ = $_REQUEST["OutSum"];
-				$inv_id = $_REQUEST["InvId"];
-				$shp_item = $_REQUEST["Shp_item"];
-				$crc = $_REQUEST["SignatureValue"];
-
-				$crc = strtoupper($crc);
-
-				$my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_item=$shp_item"));
-
-				if ($my_crc !=$crc)
-				{
-				  echo "bad sign\n";
-				  exit();
-				}
-
-				echo "OK$inv_id\n";
+				/* простой пример проверки оплаты у себя на сервере */
+				$kassa = new Robokassa('merchant_login', 'pass1', 'pass2');
+				/* назначение параметров */
+				$kassa->OutSum  = $_GET['OutSum'];
+				$kassa->InvId   = $_GET['InvId'];
+				/* добавление кастомных полей из запроса */
+				/* проверка цифровой подписи запроса */
+				if($kassa->checkHash($_POST['SignatureValue']))
+				    echo 'Оплата проведена успешно!';
+				else
+				    echo 'Валидация не пройдена';
 				exit;
 			}
 
