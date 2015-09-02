@@ -897,48 +897,22 @@ function get_mail($config, $mail_controls, $bd_controls){
 
     if ($payment=="robocassa"){
 
-        $mrh_login = "ohcasey.ru";
-        $mrh_pass1 = "as210100";
 
-        // номер заказа
-        // number of order
-        $inv_id = $zakaz_number;
 
-        // описание заказа
-        // order description
-        $inv_desc = "Чехол на ohcasey.ru";
 
-        // сумма заказа
-        // sum of order
-        $out_summ = $cost;
+        $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
+        /* назначение параметров */
+        $kassa->OutSum       = $cost;
+        $kassa->InvId = $zakaz_number;
+        $kassa->IncCurrLabel = 'WMRM';
+        $kassa->Email=$email;
+        $kassa->Desc         = 'Чехол на ohcasey.ru, заказ номер №'.$zakaz_number;
+        $kassa->addCustomValues(array(
+            'shp_user' => $userId, // все ключи массива должны быть с префиксом shp_
+            'shp_someData' => 'someValue'
+        ));
 
-        // тип товара
-        // code of goods
-        $shp_item = 1;
-
-        // предлагаемая валюта платежа
-        // default payment e-currency
-        $in_curr = "";
-
-        // язык
-        // language
-        $culture = "ru";
-
-        // кодировка
-        // encoding
-        $encoding = "utf-8";
-
-        // формирование подписи
-        // generate signature
-        $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_item");
-
-        // HTML-страница с кассой
-        // ROBOKASSA HTML-page
-        print "<html><script language=JavaScript ".
-              "src='https://auth.robokassa.ru/Merchant/PaymentForm/FormM.js?".
-              "MrchLogin=$mrh_login&OutSum=$out_summ&InvId=$inv_id&IncCurrLabel=$in_curr".
-              "&Desc=$inv_desc&SignatureValue=$crc&Shp_item=$shp_item".
-              "&Culture=$culture&Encoding=$encoding'></script></html>";
+        header('Location: ' . $kassa->getRedirectURL());
 
        exit;
     }
