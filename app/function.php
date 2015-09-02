@@ -419,7 +419,6 @@ function mysqlconnect($bd_controls){
         $dbname = "cities"; 
     }else{
 
-        print_r($bd_controls);
 
         $dbhost = $bd_controls["dbhost"]; 
         // Имя пользователя базы данных 
@@ -936,7 +935,7 @@ function get_mail($config, $mail_controls, $bd_controls){
         // HTML-страница с кассой
         // ROBOKASSA HTML-page
         print "<html><script language=JavaScript ".
-              "src='https://auth.robokassa.ru/Merchant/PaymentForm/FormFLS.js?".
+              "src='https://auth.robokassa.ru/Merchant/PaymentForm/FormM.js?".
               "MrchLogin=$mrh_login&OutSum=$out_summ&InvId=$inv_id&IncCurrLabel=$in_curr".
               "&Desc=$inv_desc&SignatureValue=$crc&Shp_item=$shp_item".
               "&Culture=$culture&Encoding=$encoding'></script></html>";
