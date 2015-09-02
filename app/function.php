@@ -407,7 +407,7 @@ function save_img(){
 function mysqlconnect($bd_controls){
 
 
-    print_r($bd_controls);
+    
 
     if (gethostname() === "dmitry-HP-Pavilion-dv7-Notebook-PC") {
         $dbhost = "localhost"; 
@@ -899,7 +899,7 @@ function get_mail($config, $mail_controls, $bd_controls){
     if ($payment=="robocassa"){
 
         $mrh_login = "ohcasey.ru";
-        $mrh_pass1 = "hnb128gbz2";
+        $mrh_pass1 = "as210100";
 
         // номер заказа
         // number of order

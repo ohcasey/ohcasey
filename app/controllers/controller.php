@@ -94,7 +94,7 @@
 
 			if ($action_name=="robo_result") {
 
-				$mrh_pass2 = "hnb128gbz3";
+				$mrh_pass2 = "qw210100";
 
 				$tm=getdate(time()+9*3600);
 				$date="$tm[year]-$tm[mon]-$tm[mday] $tm[hours]:$tm[minutes]:$tm[seconds]";
@@ -120,7 +120,7 @@
 
 
 			if ($action_name=="robo_success") {
-				$mrh_pass1 = "hnb128gbz2";
+				$mrh_pass1 = "as210100";
 
 				$out_summ = $_REQUEST["OutSum"];
 				$inv_id = $_REQUEST["InvId"];
