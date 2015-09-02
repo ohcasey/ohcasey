@@ -869,7 +869,7 @@ function get_mail($config, $mail_controls, $bd_controls){
    
 
 
-    echo $body;
+  
 
 
 
@@ -891,7 +891,7 @@ function get_mail($config, $mail_controls, $bd_controls){
         echo 'Oшибка письма: ' . $mail->ErrorInfo;
     } else {
 
-        echo 'Письмо админу отправлено';
+       // echo 'Письмо админу отправлено';
        
     }
 
@@ -963,7 +963,6 @@ function get_client_mail($config) {
     $cost_cur =0;
     $cost = 0;
     $count = count($_SESSION['items']); 
-    print_r($_SESSION['items']);
 
     $result ="";
     for ($i=0; $i<$count; $i++) {
