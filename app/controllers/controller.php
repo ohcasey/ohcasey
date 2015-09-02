@@ -96,13 +96,9 @@
 
 				$mrh_pass2 = "hnb128gbz3";
 
-				//установка текущего времени
-				//current date
 				$tm=getdate(time()+9*3600);
 				$date="$tm[year]-$tm[mon]-$tm[mday] $tm[hours]:$tm[minutes]:$tm[seconds]";
 
-				// чтение параметров
-				// read parameters
 				$out_summ = $_REQUEST["OutSum"];
 				$inv_id = $_REQUEST["InvId"];
 				$shp_item = $_REQUEST["Shp_item"];
@@ -112,16 +108,12 @@
 
 				$my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass2:Shp_item=$shp_item"));
 
-				// проверка корректности подписи
-				// check signature
 				if ($my_crc !=$crc)
 				{
 				  echo "bad sign\n";
 				  exit();
 				}
 
-				// признак успешно проведенной операции
-				// success
 				echo "OK$inv_id\n";
 				exit;
 			}
@@ -130,8 +122,6 @@
 			if ($action_name=="robo_success") {
 				$mrh_pass1 = "hnb128gbz2";
 
-				// чтение параметров
-				// read parameters
 				$out_summ = $_REQUEST["OutSum"];
 				$inv_id = $_REQUEST["InvId"];
 				$shp_item = $_REQUEST["Shp_item"];
@@ -141,16 +131,12 @@
 
 				$my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_item"));
 
-				// проверка корректности подписи
-				// check signature
+
 				if ($my_crc != $crc)
 				{
 				  echo "bad sign\n";
 				  exit();
 				}
-
-
-
 
 
 				if (isset( $_SESSION['zakaz_number'] )) {
