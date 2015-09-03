@@ -627,7 +627,7 @@ function get_mail($config, $mail_controls, $bd_controls){
     
     $body = str_replace('$time_order', $time_order, $body);
     $body = str_replace('$fio', $fio, $body);
-    $body = str_replace(' $zakaz_number',  $zakaz_number, $body);
+    $body = str_replace('$zakaz_number',  $zakaz_number, $body);
     $body = str_replace('$email', $email, $body);
     $body = str_replace('$phone', $phone, $body);
     $body = str_replace('$city', $city, $body);
@@ -904,7 +904,6 @@ function get_mail($config, $mail_controls, $bd_controls){
         /* назначение параметров */
         $kassa->OutSum       = $cost;
         $kassa->InvId = $zakaz_number;
-        $kassa->IncCurrLabel = 'WMRM';
         $kassa->Email=$email;
         $kassa->Desc         = 'Чехол на ohcasey.ru, заказ номер №'.$zakaz_number;
         $kassa->addCustomValues(array(

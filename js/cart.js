@@ -40,8 +40,6 @@ $(window).scroll(function(){
 })
 
 
-
-
 $(document).on('click','.checkbox_item input.disabled', function(event){
 	event.preventDefault();
 });
