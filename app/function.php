@@ -407,7 +407,7 @@ function save_img(){
 function mysqlconnect($bd_controls){
 
 
-    print_r($bd_controls);
+    
 
     if (gethostname() === "dmitry-HP-Pavilion-dv7-Notebook-PC") {
         $dbhost = "localhost"; 
@@ -419,7 +419,6 @@ function mysqlconnect($bd_controls){
         $dbname = "cities"; 
     }else{
 
-        print_r($bd_controls);
 
         $dbhost = $bd_controls["dbhost"]; 
         // Имя пользователя базы данных 
@@ -628,7 +627,7 @@ function get_mail($config, $mail_controls, $bd_controls){
     
     $body = str_replace('$time_order', $time_order, $body);
     $body = str_replace('$fio', $fio, $body);
-    $body = str_replace(' $zakaz_number',  $zakaz_number, $body);
+    $body = str_replace('$zakaz_number',  $zakaz_number, $body);
     $body = str_replace('$email', $email, $body);
     $body = str_replace('$phone', $phone, $body);
     $body = str_replace('$city', $city, $body);
@@ -869,7 +868,7 @@ function get_mail($config, $mail_controls, $bd_controls){
    
 
 
-    echo $body;
+  
 
 
 
@@ -891,25 +890,29 @@ function get_mail($config, $mail_controls, $bd_controls){
         echo 'Oшибка письма: ' . $mail->ErrorInfo;
     } else {
 
-        echo 'Письмо админу отправлено';
+       // echo 'Письмо админу отправлено';
        
     }
 
 
     if ($payment=="robocassa"){
 
-        $kassa = new Robokassa('ohcasey.ru', 'hnb128gbz2', 'hnb128gbz3');
+
+
+
+        $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
         /* назначение параметров */
         $kassa->OutSum       = $cost;
-        $kassa->IncCurrLabel = 'WMRM';
-        $kassa->Email = $email;
-
-        $kassa->Desc         = 'Оплата заказа '.$zakaz_number;
+        $kassa->InvId = $zakaz_number;
+        $kassa->Email=$email;
+        $kassa->Desc         = 'Чехол на ohcasey.ru, заказ номер №'.$zakaz_number;
         $kassa->addCustomValues(array(
-            'shp_user' => $fio// все ключи массива должны быть с префиксом shp_    
+            'shp_user' => $userId, // все ключи массива должны быть с префиксом shp_
+            'shp_someData' => 'someValue'
         ));
-        /* редирект на сайт робокассы */
+
         header('Location: ' . $kassa->getRedirectURL());
+
        exit;
     }
 
@@ -932,7 +935,6 @@ function get_client_mail($config) {
     $cost_cur =0;
     $cost = 0;
     $count = count($_SESSION['items']); 
-    print_r($_SESSION['items']);
 
     $result ="";
     for ($i=0; $i<$count; $i++) {

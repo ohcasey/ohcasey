@@ -55,17 +55,17 @@ $config = array(
 			"inspire_path"=>"img/inspire/",
 		//Картинки inspire
 		"inspire" => array(
-			"pict1" => "bg1.jpg",
-			"pict2" => "bg1.jpg",
-			"pict3" => "bg1.jpg",
-			"pict4" => "bg1.jpg",
-			"pict5" => "bg1.jpg",
-			"pict6" => "bg1.jpg",
-			"pict7" => "bg1.jpg",
-			"pict8" => "bg1.jpg",
-			"pict9" => "bg1.jpg",
-			"pict10" => "bg1.jpg",
-			"pict11" => "bg1.jpg",
+			"pict1" => "1.png",
+			"pict2" => "3.png",
+			"pict3" => "10.png",
+			"pict4" => "11.png",
+			"pict5" => "7.png",
+			"pict6" => "8.png",
+			"pict7" => "2.png",
+			"pict8" => "5.png",
+			"pict9" => "6.png",
+			"pict10" => "4.png",
+			"pict11" => "9.png",
 		),
 		//Девайсы (номер => девайс)
 		"devices"=>array(
@@ -630,7 +630,7 @@ $config = array(
 										array(	
 											"id"=>11,	
 											"color"=>"transparent",
-											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
+											"desctop_img" => "iphone5-5s_black_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
 											"desctop_camera" => "iphone5_black_camera.png",
 											"cost"=>1500
@@ -1462,6 +1462,7 @@ iphone4_black_crystal_case.png
 				"big"=>"1.png",
 				"small"=>"r63_1.png"
 				),
+			/*
 			array(
 				"big"=>"2.png",
 				"small"=>"r63_2.png"
@@ -1541,7 +1542,8 @@ iphone4_black_crystal_case.png
 			array(
 				"big"=>"21.png",
 				"small"=>"r63_21.png"
-				),	
+				),
+				*/	
 		),
 		"smiles"=>array(
 /*

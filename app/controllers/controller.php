@@ -9,7 +9,6 @@
 	 //количество товаров
 	}
 
-	
 	if ($count_tov==0) {
 		$count_text = "Товаров";
 	}
@@ -71,10 +70,8 @@
 				}
 		}else{
 			header("Location: /main"); 
-		}
-		
+		}	
 	}
-
 
 	if ($controller_name == "cart") {	
 		
@@ -94,14 +91,12 @@
 
 			if ($action_name=="robo_result") {
 
-				$kassa = new Robokassa('ohcasey.ru', 'hnb128gbz2', 'hnb128gbz3');
+				/* простой пример проверки оплаты у себя на сервере */
+				$kassa = new Robokassa('merchant_login', 'pass1', 'pass2');
 				/* назначение параметров */
-				$kassa->OutSum  = $_POST['OutSum'];
-				$kassa->InvId   = $_POST['InvId'];
+				$kassa->OutSum  = $_GET['OutSum'];
+				$kassa->InvId   = $_GET['InvId'];
 				/* добавление кастомных полей из запроса */
-				$kassa->addCustomValues(array(
-				    'shp_user' => $_POST['shp_user']
-				));
 				/* проверка цифровой подписи запроса */
 				if($kassa->checkHash($_POST['SignatureValue']))
 				    echo 'Оплата проведена успешно!';
@@ -112,6 +107,25 @@
 
 
 			if ($action_name=="robo_success") {
+				$mrh_pass1 = "as210100";
+
+				$out_summ = $_REQUEST["OutSum"];
+				$inv_id = $_REQUEST["InvId"];
+				$shp_item = $_REQUEST["Shp_item"];
+				$crc = $_REQUEST["SignatureValue"];
+
+				$crc = strtoupper($crc);
+
+				$my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_item"));
+
+
+				if ($my_crc != $crc)
+				{
+				  echo "bad sign\n";
+				  exit();
+				}
+
+
 				if (isset( $_SESSION['zakaz_number'] )) {
 					if ($_SESSION['zakaz_number']!="") {
 						header("Location: /success");
@@ -121,6 +135,7 @@
 				
 			}
 			if ($action_name=="robo_fail") {
+				$inv_id = $_REQUEST["InvId"];
 				$_SESSION['payment_result']='Оплата прошла неуспешно :(';
 			}
 
