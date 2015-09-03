@@ -8,8 +8,6 @@ var bb = -240;
 
 var safari_brow = "";
 
-alert("df");
-
 var ua = navigator.userAgent.toLowerCase(); 
 if (ua.indexOf('safari') != -1) { 
 	if (ua.indexOf('chrome') > -1) {
@@ -343,9 +341,6 @@ function preparing_data(){
 
 
 		svg_second_svg = d3.select(".svg_second_svg");
-
-
-
 
 		svg_mask_container = svg_second_svg.append("defs")
 								.classed("svg_mask_container", true);
@@ -1663,7 +1658,7 @@ function save_image() {
 	var spinner = new Spinner(opts).spin(target);
 
 
-	if (safari_brow=="safari") {
+	/*if (safari_brow=="safari") {
 		
 
 		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
@@ -1740,10 +1735,7 @@ function save_image() {
 						image : canvas.toDataURL("image/png" )
 					},
 					success: function(data){
-						//$(".main_container").append(img0);
-						//$(".main_container").append(img);
-						//$(".main_container").append(img1);
-						//$(".main_container").append(canvas);
+						
 						response_to_server(data);
 							
 					},
@@ -1762,7 +1754,7 @@ function save_image() {
 				}
 			});
 		return;
-	}else{
+	}else{*/
 
 		var markup = (new XMLSerializer()).serializeToString(document.getElementsByClassName("center_device_svg")[0]);
 
@@ -1804,21 +1796,8 @@ function save_image() {
 		};
 
 	}
-}
+//}
 
-
-
-
-
-/*
-img.onload = function() {
-
-			
-			
-		});
-
-
-*/
 
 
 function response_to_server(url) {
