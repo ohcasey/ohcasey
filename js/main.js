@@ -8,6 +8,8 @@ var bb = -240;
 
 var safari_brow = "";
 
+alert("df");
+
 var ua = navigator.userAgent.toLowerCase(); 
 if (ua.indexOf('safari') != -1) { 
 	if (ua.indexOf('chrome') > -1) {
