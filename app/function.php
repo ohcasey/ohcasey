@@ -925,15 +925,16 @@ function get_mail($config, $mail_controls, $bd_controls){
     }
 
 
-        printf($_SESSION["items"]);
-    // header("Location: /success"); 
-    }
+    print_r($_SESSION["items"]);
+     //header("Location: /success"); 
 
 
 
 }else{
     header("Location: /cart"); 
 }
+
+
 
 }    
 
