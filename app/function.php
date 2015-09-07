@@ -677,11 +677,17 @@ function get_mail($config, $mail_controls, $bd_controls){
   
     $body = str_replace('$elements', $elements[0], $body);
 
-
-
-
     $cost+=$elements[1];
+
+    $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
+    $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
+    $body = str_replace('$version', $_SESSION['items'][0]["version"], $body);
+
+    
+
     $body = str_replace('$deliver', $deliver_type, $body);
+
+
 
     $body = str_replace('$payment', $payment_type, $body);
 
@@ -864,6 +870,8 @@ function get_mail($config, $mail_controls, $bd_controls){
     $body = str_replace('$finaf', $cost." рублей", $body);
     
     $elem = get_client_mail($config);
+
+
     $body = str_replace('$plant', $elem[0]   , $body);
    
 
@@ -904,7 +912,7 @@ function get_mail($config, $mail_controls, $bd_controls){
         /* назначение параметров */
         $kassa->OutSum       = $cost;
         $kassa->InvId = $zakaz_number;
-        $kassa->Email=$email;
+        $kassa->Email = $email;
         $kassa->Desc         = 'Чехол на ohcasey.ru, заказ номер №'.$zakaz_number;
         $kassa->addCustomValues(array(
             'shp_user' => $userId, // все ключи массива должны быть с префиксом shp_
