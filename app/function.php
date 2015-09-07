@@ -925,7 +925,7 @@ function get_mail($config, $mail_controls, $bd_controls){
     }
 
 
-        print_r($_SESSION["items"]);
+        printf($_SESSION["items"]);
     // header("Location: /success"); 
     }
 
@@ -934,8 +934,6 @@ function get_mail($config, $mail_controls, $bd_controls){
 }else{
     header("Location: /cart"); 
 }
-
-
 
 }    
 
