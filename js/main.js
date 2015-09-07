@@ -6,6 +6,9 @@ var device_height_svg;
 var text_error =0;
 var bb = -240;
 
+
+var breakpoint_image = false;
+
 var safari_brow = "";
 
 var ua = navigator.userAgent.toLowerCase(); 
@@ -1654,7 +1657,11 @@ var getImageBase64 = function (url, callback) {
 
 var img, img0, img1;
 
+
 function save_image() {
+
+	if (breakpoint_image==true) return false;
+	breakpoint_image = true;
 	$(".main_container").after('<div id = "foo"></div>');
 
 	var target = document.getElementById('foo');
@@ -1790,7 +1797,6 @@ function save_image() {
 					image: svg_data
 				},
 				success: function(data){	
-					$(".main_container").append(img);
 					console.log(data);
 					response_to_server(data);
 				},
@@ -1804,19 +1810,6 @@ function save_image() {
 	}
 }
 
-
-
-
-
-/*
-img.onload = function() {
-
-			
-			
-		});
-
-
-*/
 
 
 function response_to_server(url) {
@@ -1867,9 +1860,11 @@ function response_to_server(url) {
 					success: function(data){
 						
 						document.location = "/cart";
+						breakpoint_image = false;
 
 					},
 					fail: function(data){
+						breakpoint_image = false;
 						sweetAlert("Ошибка", data, "error");
 					}
 				});
