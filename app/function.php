@@ -736,7 +736,7 @@ function get_mail($config, $mail_controls, $bd_controls){
        echo 'Oшибка письма: ' . $mail->ErrorInfo;
     } else {
 
-       // echo 'Письмо админу отправлено';
+        echo 'Письмо админу отправлено';
          
     } 
 
@@ -898,7 +898,7 @@ function get_mail($config, $mail_controls, $bd_controls){
         echo 'Oшибка письма: ' . $mail->ErrorInfo;
     } else {
 
-       // echo 'Письмо админу отправлено';
+         echo 'Письмо админу отправлено';
        
     }
 
@@ -925,8 +925,8 @@ function get_mail($config, $mail_controls, $bd_controls){
     }
 
 
-    print_r($_SESSION["items"]);
-     //header("Location: /success"); 
+    //print_r($_SESSION["items"]);
+    header("Location: /success"); 
 
 
 
