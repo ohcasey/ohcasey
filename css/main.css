@@ -21,6 +21,9 @@
 }
 
 
+
+
+
 /*Остальное*/
 
 .library_font {
@@ -382,7 +385,7 @@ body {
 }
 
 .right_menu_title_2 {
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 #cart, #left_menu-shipping, #left_menu-help {
@@ -1763,7 +1766,7 @@ textarea.cart_item{
 }
 
 .right_item + .right_item {
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 
@@ -1787,9 +1790,9 @@ input.cart_item.error,  textarea.cart_item.error{
 .checkbox_item {
 	position: relative;
 	float: left;
-	width: 90%;
-	height: 37px;
-	overflow: hidden;
+	width: 100%;
+	min-height: 32px;
+
 }
 
 .checkbox_item+.checkbox_item {
@@ -1805,8 +1808,21 @@ input.cart_item.error,  textarea.cart_item.error{
 	position: relative;
 	margin-left: 20px;
 	display: block;
-	line-height: 35px;
+	line-height: 30px;
 	cursor: pointer;
+}
+
+.checkbox_item span.two_line {
+	line-height: 30px;
+}
+
+.checkbox_item span.two_line+span {
+	line-height: 20px;
+	top: -5px;
+	font-family: HelveticaNeueCyr;
+	color: #295e8c;
+	margin-top: 0px;
+
 }
 
 
@@ -1818,28 +1834,34 @@ input.cart_item.error,  textarea.cart_item.error{
 }
 
 .checkbox_item.person {
-	background: url('../img/person.png') right 13px no-repeat;
+	background: url('../img/person.png') 350px 10px no-repeat;
 }
 
+.checkbox_item.sdec {
+	background: url('../img/980-07.png') 344px 5px no-repeat;
+} 
+
+
 .checkbox_item.mail {
-	background: url('../img/mail.png') right 13px no-repeat;
+	background: url('../img/mail.png') 350px 13px no-repeat;
 }
 
 .checkbox_item.deliver {
-	background: url('../img/deliver.png') right 13px no-repeat;
+	background: url('../img/deliver.png') 350px 13px no-repeat;
 }
 
 .checkbox_item.sber {
-	background: url('../img/sber.png') right 13px no-repeat;
+	background: url('../img/sber.png') 350px 13px no-repeat;
 }
 
 .checkbox_item.cash {
-	background: url('../img/cash.png') right 13px no-repeat;
+	background: url('../img/cash.png') 350px 13px no-repeat;
 }
 
 .checkbox_item.robocassa {
-	background: url('../img/robocassa.png') right 13px no-repeat;
+	background: url('../img/robocassa.png') 350px 13px no-repeat;
 }
+
 
 
 .checkbox_prev_input {
@@ -1939,7 +1961,7 @@ input.cart_item.error,  textarea.cart_item.error{
 		width: 96%;
 		margin-left: 2%;
 		margin-right: 2%;
-		height: 100px;
+		height: 60px;
 		bottom: 0px;
 	}
 
@@ -1972,7 +1994,7 @@ input.cart_item.error,  textarea.cart_item.error{
 
 	.center_bottom  .half span.result {
 		margin-top: 7px;
-		margin-left: -10%;
+	
 		float: left;
 		position: relative;
 		display: block;
@@ -2001,7 +2023,7 @@ input.cart_item.error,  textarea.cart_item.error{
 		left: 1%;
 		width: 98%;
 		overflow: hidden;
-		bottom: 110px;
+		bottom: 60px;
 		top: 60px;
 	
 	}
@@ -2101,6 +2123,32 @@ input.cart_item.error,  textarea.cart_item.error{
 	color: #123a6e;
 	line-height: 30px;
 	font-size: 22px; /* Приближение из-за подстановки шрифтов */
+}
+
+
+/*new cart*/
+
+.center-cart_block {
+	position: relative;
+	float: left;
+	width: 400px;
+	height: 100%;
+}
+
+.right_cart {
+	position: relative;
+	float: right;
+	height: 100%;
+}
+
+.cart_help_button {
+	position: relative;
+	float: right;
+	width: 16px;
+	margin-top: 12px;
+	cursor: pointer;
+	height: 16px;
+	background: center center url("../img/980-08.png");
 }
 
 @media screen and (max-width:  1199px)  {
@@ -2446,7 +2494,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	*/
 	.checkbox_item {
 		height: 50px;
-		width: 95%;
+		
 		clear: both;
 	}
 

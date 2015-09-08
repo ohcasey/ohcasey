@@ -1100,7 +1100,6 @@ function change_step(obj) {
 	}
 }
 
-
 function set_step(obj, id) {
 
 	//if ($(".alert_out_svg").hasClass("active")) return;

@@ -10,6 +10,8 @@ function preparing_html() {
 	$(".main_container, #header").css("width", html_width+"px");
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 	
+	$(".center-cart_block").css("margin-left", ($("#left").width() + 50)+"px");
+	$(".right_cart").css("width",  (html_width - $("#left").width() - $(".center-cart_block").width() - 70) +"px" );
 	to_down_of_page();
 
 
