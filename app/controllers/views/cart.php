@@ -2,22 +2,21 @@
 <div id="main" class="cart_page">
 	<?php include "templates/left_block.php";?>
 
-	<div class = "center-cart_block">
+	<div id = "center">
 		<form id = "order_form" name="order_form"  action="/cart/confirm_order" method="post">
-			<div id="right-1" class="right_content_block">
-				<div class="right_menu_title">Заполните форму заказа</div>
+			<div class="overflow_form">
+				<div id="right-1" class="right_content_block">
+				<div class="right_menu_title_3">Заполните форму заказа</div>
 				<div class="right_item"> 
 					<input type="text" name="fio" placeholder = "* Имя, Фамилия" class="cart_item item_important fio" value="<?php  if (isset($_SESSION['fio'])) { echo $_SESSION['fio'];}?>">
 					<input type="email" name="email" placeholder = "* E-mail" class="cart_item half_item item_important email" value="<?php  if (isset($_SESSION['email'])) { echo $_SESSION['email'];}?>">
 					<input type="text" name="phone" placeholder = "* Телефон" class="cart_item item_right half_item item_important phone" value="<?php  if (isset($_SESSION['phone'])) { echo $_SESSION['phone'];}?>">
 					<div class="city_block">
 						<input type="text" name="city" placeholder = "* Город" class="cart_item item_important city" value="<?php echo $city; ?>" autocomplete="off">
-					
 						<div class = "result_city">
 						</div>
-					
 					</div>
-				
+					<input type="text" name="index" placeholder = "* Индекс" class="cart_item item_right half_item item_important index" value="<?php  if (isset($_SESSION['index'])) { echo $_SESSION['index'];}?>">
 					<textarea placeholder="Почтовый индекс и адрес доставки" name="adress" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
 					<textarea placeholder="Комментарии к заказу" name="comments" class="cart_item comments"></textarea>
 				</div>
@@ -30,7 +29,6 @@
 							<div class="checkbox_selector"></div>
 						</div>
 						<span>Самовывоз - <?php echo $config['deliver_cost']['self'] ?> р.</span>
-
 						<div class="cart_help_button">
 						</div>
 					</div>
@@ -101,6 +99,10 @@
 					</div>
 				</div>
 			</div>
+
+
+			</div>
+			
 		</form>
 		<div class="center_bottom"> 
 			<div class="half">
@@ -121,7 +123,7 @@
 
 
 
-	<div class="right_cart">
+	<div id="right" class="cart">
 		 <div class="cart_items_block" >
 		 <div class="empty_cart">
 		 	В корзине пока ничего нет :(

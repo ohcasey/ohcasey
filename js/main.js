@@ -1852,7 +1852,7 @@ function response_to_server(url) {
 				desctop.OS = BrowserDetect.OS;
 				desctop.version = BrowserDetect.version;
 				desctop.browser = BrowserDetect.browser;
-
+				desctop.useragent = ua;
 				desctop.font_x = text_x-text_width/2;
 				desctop.font_y = text_y-text_height/2;
 				desctop.font_width = text_width;

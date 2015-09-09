@@ -682,6 +682,7 @@ function get_mail($config, $mail_controls, $bd_controls){
     $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
     $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
     $body = str_replace('$version', $_SESSION['items'][0]["version"], $body);
+    $body = str_replace('$useragent', $_SESSION['items'][0]["useragent"], $body);
 
     
 

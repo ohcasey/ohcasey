@@ -3,7 +3,7 @@ $(document).on("click",".checkbox_prev_input",function(){
 });
 
 function preparing_html() {
-	$("body").css("min-height","768px");
+	//$("body").css("min-height","768px");
 	var html_width = $("body").width();
 	var html_height = $(document).height();
 	$(".main_container").css("height", html_height+"px");
@@ -11,13 +11,15 @@ function preparing_html() {
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 	
 	$(".center-cart_block").css("margin-left", ($("#left").width() + 50)+"px");
-	$(".right_cart").css("width",  (html_width - $("#left").width() - $(".center-cart_block").width() - 70) +"px" );
+	//$(".right_cart").css("width",  (html_width - $("#left").width() - $(".center-cart_block").width() - 70) +"px" );
 	to_down_of_page();
-
+	$("#order_form").css("height",(html_height-70-70-60)+"px");
 
 	var count = $(".cart_item_block").length;
+	
+	$('.overflow_form').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
 
-	if (((count>2) && (html_width<1200))||((count>1) && (html_width>=1200))) {
+	if (((count>1) && (html_width<1200))||((count>1) && (html_width>=1200))) {
 		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
 	}else{
 		$(".ps-scrollbar-y-rail").remove();
