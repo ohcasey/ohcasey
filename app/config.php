@@ -267,7 +267,7 @@ $config = array(
 					"colors"=> array(
 									array(		
 										//золотой прозрачный
-											"id"=>0,
+											"id"=>8,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -277,7 +277,7 @@ $config = array(
 									),
 									array(	
 										//серебристый прозрачный
-											"id"=>1,
+											"id"=>9,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -286,7 +286,7 @@ $config = array(
 									),
 									array(	
 										//серый прозрачный прозрачный
-											"id"=>2,
+											"id"=>10,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -306,7 +306,7 @@ $config = array(
 					"colors"=> array(
 									array(		
 										//золотой прозрачный
-											"id"=>3,
+											"id"=>11,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -316,7 +316,7 @@ $config = array(
 									),
 									array(	
 										//серебристый прозрачный
-											"id"=>4,
+											"id"=>12,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -325,7 +325,7 @@ $config = array(
 									),
 									array(	
 										//серый прозрачный прозрачный
-											"id"=>5,
+											"id"=>13,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -344,7 +344,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
-											"id"=>6,
+											"id"=>14,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_white_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -364,7 +364,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
-											"id"=>7,
+											"id"=>15,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_black_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -443,7 +443,7 @@ $config = array(
 					"default"=>true,
 					"colors"=> array(
 									array(		
-											"id"=>8,
+											"id"=>16,
 											"color"=>"#CF9657",   
 											"desctop_img" => "iphone5-5s_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -452,7 +452,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>17,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone5-5s_light_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -460,7 +460,7 @@ $config = array(
 											"cost"=>1500
 										),
 										 array(
-										 	"id"=>10,
+										 	"id"=>18,
 											"color"=>"#888888",
 											"desctop_img" => "iphone5-5s_dark_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -479,7 +479,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>19,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -497,7 +497,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>20,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_black_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -574,7 +574,7 @@ $config = array(
 					"default"=>true,
 					"colors"=> array(
 									array(		
-											"id"=>8,
+											"id"=>21,
 											"color"=>"#CF9657",   
 											"desctop_img" => "iphone5-5s_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -583,7 +583,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>22,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone5-5s_light_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -591,7 +591,7 @@ $config = array(
 											"cost"=>1500
 										),
 										 array(
-										 	"id"=>10,
+										 	"id"=>23,
 											"color"=>"#888888",
 											"desctop_img" => "iphone5-5s_dark_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -610,7 +610,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>24,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -628,7 +628,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>25,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_black_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -778,7 +778,7 @@ $config = array(
 					"default_color"=>"white",
 					"colors"=> array(
 									array(		
-											"id"=>8,
+											"id"=>26,
 											"color"=>"#0000FF",   
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -787,7 +787,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>27,
 											"color"=>"#00FF00",   
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -796,7 +796,7 @@ $config = array(
 											"default"=>true
 										),
 										 array(
-										 	"id"=>10,
+										 	"id"=>28,
 											"color"=>"#FF0011",
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -804,7 +804,7 @@ $config = array(
 											"cost"=>1500
 										),
 									array(		
-											"id"=>8,
+											"id"=>29,
 											"color"=>"yellow",   
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -813,7 +813,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>30,
 											"color"=>"#FFFFFF",
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -905,7 +905,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>31,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_white_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -924,7 +924,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>32,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -1004,7 +1004,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>33,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_white_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -1022,7 +1022,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>34,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -1194,6 +1194,27 @@ iphone4_black_crystal_case.png
 						"chechs"=>array(0,2,3,6)
 					),
 					array(
+						"big"=>"paris_iphone_unversal_case.png",
+						"small"=>"paris_iphone_unversal_case_r82.png",
+						"chechs"=>array(/*iphone 6 прозрачный 3 цвета*/8,9,10, /*iphone 5s полупрозрачный 3 цвета*/16,17,18, /*iphone4s матовый белый*/31)
+					),
+					array(
+						"big"=>"paris_iphone4-4s_black.png",
+						"small"=>"paris_iphone4-4s_black_r82.png",
+						"chechs"=>array(31)
+					),
+					array(
+						"big"=>"paris_iphone5_black.png",
+						"small"=>"paris_iphone5_black_r82.png",
+						"chechs"=>array(16,17,18)
+					),
+					array(
+						"big"=>"paris_iphone6_black.png",
+						"small"=>"paris_iphone6_black_r82.png",
+						"chechs"=>array(8,9,10)
+					),
+					/*
+					array(
 						"big"=>"3.png",
 						"small"=>"3_r82.png"
 					),
@@ -1255,12 +1276,14 @@ iphone4_black_crystal_case.png
 						"big"=>"17.png",
 						"small"=>"17_r82.png"
 					)
+					*/
 				)
 			),
 			array(
 				"link"=>"2/",
 				"name"=>"категория 2",
 				array( 
+					/*
 					array(
 						"big"=>"1.png",
 						"small"=>"1_r82.png"
@@ -1305,12 +1328,14 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			),
 			array(
 				"link"=>"3/",
 				"name"=>"категория 3",
 				array( 
+					/*
 					array(
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
@@ -1355,12 +1380,14 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			),
 			array(
 				"link"=>"4/",
 				"name"=>"категория 4",
 				array( 
+					/*
 					array(
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
@@ -1405,12 +1432,14 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			),
 			array(
 				"link"=>"5/",
 				"name"=>"категория 5",
 				array( 
+					/*
 					array(
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
@@ -1455,6 +1484,7 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			)
 		),
