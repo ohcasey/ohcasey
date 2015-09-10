@@ -1027,6 +1027,8 @@ body {
 	border-left: 2px solid white;
 } 
 
+
+
 #steps_controller > div > div {
 	padding: 0 20px;
 	margin-top: 7px;
@@ -1034,6 +1036,10 @@ body {
 	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: normal;
+}
+
+#steps_controller.cart > div > div {
+	text-align: center;
 }
 
 #steps_controller-checkout_but *, #steps_controller-next_but * {
@@ -1502,7 +1508,7 @@ svg {
 
 
 .alert_block.active {
-	z-index: 400;
+	z-index: 500;
 	opacity: 1;
 	visibility: visible;
 }
@@ -2167,6 +2173,46 @@ input.cart_item.error,  textarea.cart_item.error{
 
 
 /*new cart*/
+
+.help_block {
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	width: 170px;
+	right: 17px;
+	top: -14px;
+	border-radius: 2px;
+	padding-left: 50px;
+	background: white;
+	border: 1px solid #669AC4;
+	transition: 400ms all easy-in;
+	color:  #656565;
+	font-size: 12px;/* Приближение из-за подстановки шрифтов */
+	line-height: 18px;
+	font-weight: 300;
+	text-align: left;
+	padding-top: 5px;
+	z-index: 400;
+	padding-bottom: 25px;
+	padding-right: 10px;
+}
+
+.help_block.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.help_block::before, .help_block::after {
+    content: ''; 
+    position: absolute;
+    right: -20px; top: 10px;
+    border: 10px solid transparent;
+    border-left: 10px solid #669AC4;
+   }
+.help_block::after {
+    border-left: 10px solid white;
+    right: -19px; 
+ }
 
 #order_form {
 	width: 360px;

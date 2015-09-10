@@ -30,6 +30,11 @@
 						</div>
 						<span>Самовывоз - <?php echo $config['deliver_cost']['self'] ?> р.</span>
 						<div class="cart_help_button">
+							<div class="help_block">
+								Самовывоз по Москве осуществляется по адресу м. Таганская
+									ул. Гончарная д. 5 Время работы: с 10 до 19
+								<div class="separator"></div>
+							</div>
 						</div>
 					</div>
 

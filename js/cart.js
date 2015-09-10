@@ -70,6 +70,16 @@ $(document).on("focus", ".item_important", function(){
 	$(this).removeClass("error");
 });
 
+$(document).on("click", ".cart_help_button", function(){
+
+	if (!($(this).find(".help_block").hasClass("active"))) {
+		$(".help_block").removeClass("active");
+		$(this).find(".help_block").addClass("active");
+	}
+});
+
+
+
 
 $(document).on('click',".result_city span", function(){
 	$(".city").val($(this).text());
