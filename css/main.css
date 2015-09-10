@@ -346,9 +346,6 @@ body {
 	z-index: 500;
 }
 
-#right.cart {
-	width: 460px;
-}
 
 #left_menu {
 	height: 290px;
@@ -1892,11 +1889,11 @@ input.cart_item.error,  textarea.cart_item.error{
 	}
 
 	.checkbox_item.mail .help_block {
-		background: white url('../img/1980-05.png') 8px 14px no-repeat;
+		background: white url('../img/1980-05.png') 6px 14px no-repeat;
 	}
 
 	.checkbox_item.deliver .help_block {
-		background: white url('../img/1980-06.png') 8px 14px no-repeat;
+		background: white url('../img/1980-06.png') 6px 14px no-repeat;
 	}
 
 	.checkbox_item.sber .help_block {
@@ -2281,6 +2278,87 @@ input.cart_item.error,  textarea.cart_item.error{
 	background: center center url("../img/980-08.png");
 }
 
+
+.cart_item_block {
+		background-position:  left center ;
+		background-repeat: no-repeat;
+		background-size:  contain;
+		position: relative;
+		margin: 0 auto;
+		height: 250px;
+		width: 200px;
+		padding-left: 140px;
+	}
+
+	.cart_items_block {
+		position: absolute;
+		float: left;
+		
+		width: 100%;
+		overflow: hidden;
+		bottom: 60px;
+		top: 60px;
+	
+	}
+
+	.cart_item_block + .cart_item_block {
+		margin-top: 20px;
+	}
+
+		.cache_name_block {
+		position: relative;
+		float: left;
+		height: 120px;
+		width: 165px;
+		background: rgba(255,255, 255, 0.3);
+	}
+
+	.cache_name_block span {
+		width: 100%;
+		display: block;
+			text-align: center;
+	}
+
+	.cache_name_block .library-case_row-block-1 {
+	
+		margin-top: 25px;
+	}
+
+	.cache_name_block .library-case_row-block-2 {
+	
+		margin-top: 5px;
+	}
+
+	.cart_item_block__close {
+		cursor: pointer;
+		position: absolute;
+		top:0px;
+		right: 0px;
+		height: 25px;
+		width: 25px;
+		background: rgba(255,255, 255, 0.3) url('../img/icon-close_without.png') -8.5px -49px no-repeat;
+	    overflow: hidden;
+	}
+
+	.cart_item_block__close:hover {
+		cursor: pointer;
+		position: absolute;
+		top:0px;
+		right: 0px;
+		height: 25px;
+		width: 25px;
+		background: rgba(255,255, 255, 0.3) url('../img/icon-close_without.png') -8.5px -49px no-repeat;
+		overflow: hidden;
+	}
+
+	.cache_name_block+.cache_name_block {
+		margin-top: 10px;
+		line-height: 110px;
+		color:  #656565;
+		font-size: 18px;/* Приближение из-за подстановки шрифтов */
+		font-weight: 300;
+		text-align: center;
+	}
 @media screen and (max-width:  1199px)  {
 
 	#right.cart {
