@@ -33,7 +33,6 @@
 							<div class="help_block">
 								Самовывоз по Москве осуществляется по адресу м. Таганская
 									ул. Гончарная д. 5 Время работы: с 10 до 19
-								<div class="separator"></div>
 							</div>
 						</div>
 					</div>
@@ -44,6 +43,10 @@
 							<div class="checkbox_selector"></div>
 						</div>
 						<div class="cart_help_button">
+							<div class="help_block">
+								Самовывоз по Москве осуществляется по адресу м. Таганская
+									ул. Гончарная д. 5 Время работы: с 10 до 19
+							</div>
 						</div>
 						<span class="two_line">Самовывоз их пункта выдачи СДЭК</span>
 						<span>Москва, Нелидовская улица д.10</span>
@@ -59,6 +62,10 @@
 						</div>
 						<span for ="kur_mos">Курьером по Москве — <?php echo $config['deliver_cost']['kur_mos'] ?> р.</span>
 						<div class="cart_help_button">
+							<div class="help_block">
+								Самовывоз по Москве осуществляется по адресу м. Таганская
+									ул. Гончарная д. 5 Время работы: с 10 до 19
+							</div>
 						</div>
 					</div>
 
@@ -68,7 +75,12 @@
 							<div class="checkbox_selector"></div>
 						</div>
 						<span for ="kur_rus">Курьером по России — от <?php echo $config['deliver_cost']['kur_rus'] ?> р.</span>
-						
+						<div class="cart_help_button">
+							<div class="help_block">
+								Самовывоз по Москве осуществляется по адресу м. Таганская
+									ул. Гончарная д. 5 Время работы: с 10 до 19
+							</div>
+						</div>
 					</div>
 					<div class="checkbox_item mail">
 						<input type="radio" name="deliver" value="mail_ru" id ="mail_ru" data-delivery="<?php echo $config['deliver_cost']['mail_ru'] ?>">
@@ -76,6 +88,12 @@
 							<div class="checkbox_selector"></div>
 						</div>
 						<span for ="mail_ru">Почта России — <?php echo $config['deliver_cost']['mail_ru'] ?> р.</span>
+						<div class="cart_help_button">
+							<div class="help_block">
+								Самовывоз по Москве осуществляется по адресу м. Таганская
+									ул. Гончарная д. 5 Время работы: с 10 до 19
+							</div>
+						</div>
 					</div>
 				</div>
 			

@@ -1878,9 +1878,44 @@ input.cart_item.error,  textarea.cart_item.error{
 	left: 1999px;
 }
 
+
+	.checkbox_item.person .help_block {
+		background: white url('../img/1980-08.png') 8px 14px no-repeat;
+	}
+
+	.checkbox_item.sdec .help_block {
+		background: white url('../img/1980-07.png') 4px 14px no-repeat;
+	}
+
+	.checkbox_item.mail .help_block {
+		background: white url('../img/1980-05.png') 8px 14px no-repeat;
+	}
+
+	.checkbox_item.mail .help_block {
+		background: white url('../img/1980-05.png') 8px 14px no-repeat;
+	}
+
+	.checkbox_item.deliver .help_block {
+		background: white url('../img/1980-06.png') 8px 14px no-repeat;
+	}
+
+	.checkbox_item.sber .help_block {
+		background: white url('../img/1980-02.png') 8px 14px no-repeat;
+	}
+
+	.checkbox_item.cash .help_block {
+		background: white url('../img/1980-01.png') 8px 14px no-repeat;
+	}
+
+	.checkbox_item.robocassa .help_block {
+		background: white url('../img/1980-03.png') 8px 14px no-repeat;
+	}
+
 .checkbox_item.person {
 	background: url('../img/person.png') 315px 10px no-repeat;
+
 }
+
 
 .checkbox_item.sdec {
 	background: url('../img/980-07.png') 310px 5px no-repeat;
@@ -2191,10 +2226,10 @@ input.cart_item.error,  textarea.cart_item.error{
 	line-height: 18px;
 	font-weight: 300;
 	text-align: left;
-	padding-top: 5px;
+	padding-top: 8px;
 	z-index: 400;
 	padding-bottom: 25px;
-	padding-right: 10px;
+	padding-right: 8px;
 }
 
 .help_block.active {
@@ -2406,6 +2441,9 @@ input.cart_item.error,  textarea.cart_item.error{
 
 @media screen and (min-width:  1979px)  {
 
+
+
+	/*88888888888888888888888(/*/
 	.cart_help_button {
 		width: 21px; height: 21px;
 		    margin-top: 9px;
@@ -2415,6 +2453,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	.checkbox_item.person {
 		background: url('../img/1980-08.png') 635px 0px no-repeat;
 	}
+
 
 	.checkbox_item.sdec {
 		background: url('../img/1980-07.png') 635px 0px no-repeat;
