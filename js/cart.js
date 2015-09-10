@@ -13,7 +13,13 @@ function preparing_html() {
 	$(".center-cart_block").css("margin-left", ($("#left").width() + 50)+"px");
 	//$(".right_cart").css("width",  (html_width - $("#left").width() - $(".center-cart_block").width() - 70) +"px" );
 	to_down_of_page();
-	$("#order_form").css("height",(html_height-70-70-60)+"px");
+
+	if (html_width>1979) {
+		$("#order_form").css("height",(html_height-70-130-60)+"px");
+	}else{
+		$("#order_form").css("height",(html_height-70-70-60)+"px");
+	}
+	
 
 	var count = $(".cart_item_block").length;
 	
@@ -29,7 +35,6 @@ function preparing_html() {
 	if (count==0){
 		$(".empty_cart").addClass("active");
 	}
-
 
 	$(".ps-container .ps-scrollbar-x-rail").remove();
 }

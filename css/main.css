@@ -943,7 +943,11 @@ body {
 	width: 365px;
 	border-top: 2px dotted #669AC4;
 	position: absolute;
-	
+}
+
+#steps_controller.cart {
+	border-top: none;
+	background: #669AC4;
 }
 
 #steps_controller > div {
@@ -958,7 +962,6 @@ body {
 #steps_controller-checkout_but.active:not(.make_more):hover > div {
 	background: url('../img/icon-checkout.png') 130px -30px no-repeat;
 }
-
 
 #steps_controller-checkout_but:not(.make_more) > div {
 	background: url('../img/icon-checkout.png') 130px -82px no-repeat;
@@ -1020,6 +1023,10 @@ body {
 	border-left: 2px solid #669AC4;
 }
 
+#steps_controller.cart #steps_controller-next_but > div {
+	border-left: 2px solid white;
+} 
+
 #steps_controller > div > div {
 	padding: 0 20px;
 	margin-top: 7px;
@@ -1035,13 +1042,23 @@ body {
 	cursor: pointer;
 }
 
-
-#steps_controller-checkout_but.active *, #steps_controller-next_but.active *{
-	color: #669AC4;
-	
+#steps_controller.cart #steps_controller-checkout_but *, #steps_controller.cart #steps_controller-next_but * {
+	background: transparent;
 }
 
-#steps_controller-checkout_but.active:hover *, #steps_controller-next_but.active:hover * {
+
+#steps_controller-checkout_but.active *, #steps_controller-next_but.active *{
+	color: #669AC4;	
+}
+
+#steps_controller.cart #steps_controller-checkout_but.active *, #steps_controller.cart #steps_controller-next_but.active *{
+	color: white;	
+}
+
+
+
+#steps_controller-checkout_but.active:hover *, #steps_controller-next_but.active:hover *, 
+#steps_controller.cart #steps_controller-checkout_but.active:hover *, #steps_controller.cart  #steps_controller-next_but.active:hover * {
 	color: #295E93;
 }
 
@@ -2341,13 +2358,66 @@ input.cart_item.error,  textarea.cart_item.error{
 }
 
 
-
-
-
-
-
 @media screen and (min-width:  1979px)  {
 
+	.cart_help_button {
+		width: 21px; height: 21px;
+		    margin-top: 9px;
+		background: center center url("../img/1980-04.png") no-repeat;
+	}
+
+	.checkbox_item.person {
+		background: url('../img/1980-08.png') 635px 0px no-repeat;
+	}
+
+	.checkbox_item.sdec {
+		background: url('../img/1980-07.png') 635px 0px no-repeat;
+	} 
+
+
+	.checkbox_item.mail {
+		background: url('../img/1980-05.png') 635px 0px no-repeat;
+	}
+
+	.checkbox_item.deliver {
+		background: url('../img/1980-06.png') 635px 0px no-repeat;
+	}
+
+	.checkbox_item.sber {
+		background: url('../img/1980-02.png') 635px 0px no-repeat;
+	}
+
+	.checkbox_item.cash {
+		background: url('../img/1980-01.png') 635px 0px no-repeat;	}
+
+	.checkbox_item.robocassa {
+		background: url('../img/1980-03.png') 635px 0px no-repeat;
+	}
+
+
+
+	.overflow_form {
+		padding-right: 30px;
+	}
+
+	.checkbox_item span.two_line+span {
+		min-width: 400px;
+	}
+
+	#order_form {
+		width: 700px;
+	}
+	#right.cart {
+		width: 550px;
+	}
+
+	.cache_name_block {
+		width: 290px;
+	}
+
+	.cart_item_block {
+		width: 330px;
+	}
 
 	#right.cart {
 		background: transparent;
@@ -2625,7 +2695,7 @@ input.cart_item.error,  textarea.cart_item.error{
 		border: 2px solid #da4437;
 	}
 
-	
+
 
 	.center_bottom .half span.result {
 		font-size: 24px;
@@ -2641,8 +2711,6 @@ input.cart_item.error,  textarea.cart_item.error{
 
  	body, html {
  		min-width: 1980px;
- 		min-height: 1024px;
- 		
  	}
 
  	#header, #header-menu > li {
