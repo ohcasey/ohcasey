@@ -199,7 +199,19 @@
 ?>
 </div>
 
-<div class=""></div>
+<div class="alert_block alert_cart active">
+	<div class="container_yandex">
+		<div class="rubrics">
+			Выберите пункт выдачи СДЭК
+			<span class="container_yandex_close">&times;</span>
+		</div>
+		<div class="central_block">
+			<div class="select_city_block">
+				
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>

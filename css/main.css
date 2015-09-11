@@ -1510,6 +1510,64 @@ svg {
 	visibility: visible;
 }
 
+
+
+.alert_block.alert_cart.active {
+	background: rgba(203, 203, 203,0.8);
+}
+
+.container_yandex {
+	position: relative;
+	margin: 0 auto;
+	width: 900px;
+	height: 600px;
+	background: white;
+	top: 50%;
+	margin-top: -300px;
+
+}
+
+.rubrics {
+	position: relative;
+	background: #669AC4;
+	width: 100%;
+	float: left;
+	height:30px;
+	line-height: 32px;
+	font-family: HelveticaNeueCyr;
+	color:  #ffffff;
+	font-size: 18px;/* Приближение из-за подстановки шрифтов */
+	font-weight: 300;
+	text-align: center;
+}
+
+
+.container_yandex_close {
+	float: right;
+	font-size: 26px;
+	margin-right: 5px;
+	cursor: pointer;
+	transition: 300ms all linear;
+}
+
+.container_yandex_close:hover {
+	opacity: 0.6;
+}
+
+.select_city_block {
+	float: right;
+	position: relative;
+	width: 255px;
+	height: 550px;
+}
+.central_block {
+	position: relative;
+	float: left;
+	width: 880px;
+	height: 550px;
+	padding: 10px;
+}
+
 .alert_block_item {
 	position: absolute;
 	width: 730px;
@@ -2277,11 +2335,6 @@ input.cart_item.error,  textarea.cart_item.error{
 	height: 16px;
 	background: center center url("../img/980-08.png");
 }
-
-
-
-
-
 
 
 .cart_item_block {
