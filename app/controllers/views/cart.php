@@ -104,7 +104,7 @@
 						<div class="checkbox_prev_input">
 							<div class="checkbox_selector"></div>
 						</div>
-						<span >Наличными</span>
+						<span>Наличными</span>
 					</div>
 					<div class="checkbox_item sber">
 						<input type="radio" name="payment" value="sber" id = "sber"  class="disabled">
@@ -207,7 +207,40 @@
 		</div>
 		<div class="central_block">
 			<div class="select_city_block">
-				
+				<div class="select-city__main-input">
+					<input type="text" class="select-city__main-input__sdec" placeholder="Выберите город">
+					<span>Выбрать другой город</span>
+				</div>
+				<div class = "city_list-sdec">
+					<span>Москва</span>
+					<span>Еще раз москва dsfdfsgf sgdffgdg fgsdgfd fdsggfds dfgfd sgfgsd gdfs gfd gdfs</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+					<span>Москва</span>
+					<span>Еще раз москва</span>
+				</div>
 			</div>
 		</div>
 	</div>

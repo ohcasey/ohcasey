@@ -1559,7 +1559,86 @@ svg {
 	position: relative;
 	width: 255px;
 	height: 550px;
+	background: rgb(41, 94, 140) ;
 }
+
+.select_city_block .select-city__main-input {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 84px;
+	border-bottom: 1px solid gray;
+}
+
+.select-city__main-input__sdec {
+	border: none;
+	border-bottom: 1px solid white;
+	position: relative;
+	margin: 0 auto;
+	background: transparent url(../img/select_city.png) left center no-repeat;
+	outline: none;
+	font-family: HelveticaNeueCyr;
+	color:  #ffffff;
+	font-size: 18px;/* Приближение из-за подстановки шрифтов */
+	text-align: center;
+	width: 150px;
+	padding-left: 20px;
+	padding-right: 20px;
+	display: block;
+	height: 50px;
+	line-height: 70px;
+	font-weight: normal;
+	margin-top: 5px;
+}
+
+.city_list-sdec {
+	margin-top: 5px;
+	position: relative;
+	float: left;
+	height: 452px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.city_list-sdec span {
+	width: 80%;
+	padding: 0px 10%;
+	display: block;
+	position: relative;
+	font-family: HelveticaNeueCyr;
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 7px;
+	color:  #ffffff;
+	font-size: 14px;/* Приближение из-за подстановки шрифтов */
+	text-align: center;
+	min-height: 10px;
+	cursor: pointer;
+}
+
+.select-city__main-input span {
+	position: absolute;
+	font-family: HelveticaNeueCyr;
+	color:  #ffffff;
+	width: 100%;
+	display: block;
+	font-size: 11px;/* Приближение из-за подстановки шрифтов */
+	font-weight: 300;
+	text-align: center;
+
+}
+
+
+
+.select-city__main-input__sdec::-webkit-input-placeholder {
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
+	color: white;
+}
+.select-city__main-input__sdec:-moz-placeholder {
+	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;
+	color:  white;
+}
+
 .central_block {
 	position: relative;
 	float: left;
@@ -3376,3 +3455,4 @@ input.cart_item.error,  textarea.cart_item.error{
 			margin-top: 4px;
 	}
 }
+

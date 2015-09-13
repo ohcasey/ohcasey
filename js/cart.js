@@ -20,10 +20,9 @@ function preparing_html() {
 		$("#order_form").css("height",(html_height-70-70-60)+"px");
 	}
 	
-
 	var count = $(".cart_item_block").length;
 	
-	$('.overflow_form').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
+	$('.overflow_form, .city_list-sdec').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
 
 	if (((count>1) && (html_width<1200))||((count>1) && (html_width>=1200))) {
 		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
@@ -293,6 +292,9 @@ $(document).ready(function(){
 	 $('input,textarea').blur(function(){
 	   $(this).attr('placeholder',$(this).data('placeholder'));
 	 });
+
+
+	
 });
 
 function reset_cost_total() {
