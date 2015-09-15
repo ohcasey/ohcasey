@@ -1510,7 +1510,7 @@ svg {
 
 
 .alert_block.active {
-	z-index: 500;
+	z-index: 1000;
 	opacity: 1;
 	visibility: visible;
 }
