@@ -206,6 +206,7 @@
 			<span class="container_yandex_close">&times;</span>
 		</div>
 		<div class="central_block">
+			<div id="map"></div>
 			<div class="select_city_block">
 				<div class="select-city__main-input">
 					<input type="text" class="select-city__main-input__sdec" placeholder="Выберите город">
@@ -247,6 +248,7 @@
 </div>
 
 </body>
+<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="js/phone_input.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
@@ -255,5 +257,6 @@
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/sweet-alert.min.js"></script>
 <script type="text/javascript" src="js/knob.js"></script> 	
+
 
 </html>

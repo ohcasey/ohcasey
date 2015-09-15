@@ -2,6 +2,8 @@ $(document).on("click",".checkbox_prev_input",function(){
 	$(this).parent().find("input").click();
 });
 
+
+
 function preparing_html() {
 	//$("body").css("min-height","768px");
 	var html_width = $("body").width();
@@ -23,19 +25,18 @@ function preparing_html() {
 	var count = $(".cart_item_block").length;
 	
 	$('.overflow_form, .city_list-sdec').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
-
 	if (((count>1) && (html_width<1200))||((count>1) && (html_width>=1200))) {
 		$('.cart_items_block').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
 	}else{
-		$(".ps-scrollbar-y-rail").remove();
-		$(".ps-container").removeClass("ps-container");
+		$(".cart_items_block .ps-scrollbar-y-rail").remove();
+		$(".cart_items_block .ps-container").removeClass("ps-container");
 	}
 
 	if (count==0){
 		$(".empty_cart").addClass("active");
 	}
 
-	$(".ps-container .ps-scrollbar-x-rail").remove();
+	$(".cart_items_block .ps-container .ps-scrollbar-x-rail").remove();
 }
 
 $(window).resize(function(){
@@ -88,9 +89,21 @@ $(document).on('click',".result_city span", function(){
 });
 
 
+$(document).on('input','.select-city__main-input__sdec', function(){
+	$(".city").val($(this).val());
+
+});
+
+$(document).on("click", ".container_yandex_close", function(){
+	$(".alert_block.alert_cart").removeClass("active");
+});
 
 
 $(document).on('input','.city', function(){
+
+	$(".select-city__main-input__sdec").val($(this).val());
+
+
 	$(".result_city").find("span").remove();
 	$.ajax({ 
 		type: "POST", 
@@ -415,4 +428,31 @@ jQuery(function($){
 		}
 	});
 });
+
+
+/*map*/
+
+var myMap;
+
+// Дождёмся загрузки API и готовности DOM.
+ymaps.ready(init);
+
+function init () {
+    // Создание экземпляра карты и его привязка к контейнеру с
+    // заданным id ("map").
+    myMap = new ymaps.Map('map', {
+        // При инициализации карты обязательно нужно указать
+        // её центр и коэффициент масштабирования.
+        center: [55.76, 37.64], // Москва
+        zoom: 10
+    }, {
+        searchControlProvider: 'yandex#search'
+    });
+
+    document.getElementById('destroyButton').onclick = function () {
+        // Для уничтожения используется метод destroy.
+        myMap.destroy();
+    };
+
+}
 

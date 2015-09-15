@@ -92,7 +92,7 @@
 			if ($action_name=="robo_result") {
 
 				/* простой пример проверки оплаты у себя на сервере */
-				$kassa = new Robokassa('merchant_login', 'pass1', 'pass2');
+				$kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
 				/* назначение параметров */
 				$kassa->OutSum  = $_GET['OutSum'];
 				$kassa->InvId   = $_GET['InvId'];
@@ -107,25 +107,6 @@
 
 
 			if ($action_name=="robo_success") {
-				$mrh_pass1 = "as210100";
-
-				$out_summ = $_REQUEST["OutSum"];
-				$inv_id = $_REQUEST["InvId"];
-				$shp_item = $_REQUEST["Shp_item"];
-				$crc = $_REQUEST["SignatureValue"];
-
-				$crc = strtoupper($crc);
-
-				$my_crc = strtoupper(md5("$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_item"));
-
-
-				if ($my_crc != $crc)
-				{
-				  echo "bad sign\n";
-				  exit();
-				}
-
-
 				if (isset( $_SESSION['zakaz_number'] )) {
 					if ($_SESSION['zakaz_number']!="") {
 						header("Location: /success");
@@ -135,7 +116,6 @@
 				
 			}
 			if ($action_name=="robo_fail") {
-				$inv_id = $_REQUEST["InvId"];
 				$_SESSION['payment_result']='Оплата прошла неуспешно :(';
 			}
 
