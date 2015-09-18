@@ -1,4 +1,6 @@
 <?php
+
+
 global $config;
 function styles_setup($config){
 
@@ -59,7 +61,6 @@ function get_city() {
     $ipinfo = get_ip_info($_SERVER['REMOTE_ADDR']);
     return $ipinfo->city; // город
 }
-
 
 function get_ip_info($ip)
 {

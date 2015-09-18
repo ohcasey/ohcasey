@@ -76,7 +76,7 @@
 					document.getElementById('testArea').innerHTML = 'Отправляемые данные: <br />' + JSON.stringify(formData, null, '\t');
 
 					$.ajax({
-						url : 'http://api.edostavka.ru/calculator/calculate_price_by_jsonp.php',
+						url : 'http://gw.edostavka.ru:11443/pvzlist.php',
 						jsonp : 'callback',
 						data : {
 							"json" : formDataJson
@@ -84,6 +84,8 @@
 						type : 'GET',
 						dataType : "jsonp",
 						success : function(data) {
+
+							/*
 						    console.log(data);
 						    if(data.hasOwnProperty("result")) {
 								document.getElementById('resArea').innerHTML = 'Цена доставки: ' + data.result.price + '<br />Срок доставки: ' + data.result.deliveryPeriodMin + ' - ' + data.result.deliveryPeriodMax + 'дн. ' + '<br />Планируемая дата доставки: c ' + data.result.deliveryDateMin + ' по ' + data.result.deliveryDateMax + '<br />id тарифа, по которому произведён расчёт: ' + data.result.tariffId + '<br />';
@@ -94,6 +96,7 @@
 									document.getElementById('resArea').innerHTML = document.getElementById('resArea').innerHTML+'Код ошибки: ' + data["error"][key].code + '<br />Текст ошибки: ' + data["error"][key].text + '<br /><br />';
 								}
 							}
+							*/
 						}
 					});
 					return false;
