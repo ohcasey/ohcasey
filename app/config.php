@@ -267,7 +267,7 @@ $config = array(
 					"colors"=> array(
 									array(		
 										//золотой прозрачный
-											"id"=>0,
+											"id"=>8,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -277,7 +277,7 @@ $config = array(
 									),
 									array(	
 										//серебристый прозрачный
-											"id"=>1,
+											"id"=>9,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -286,7 +286,7 @@ $config = array(
 									),
 									array(	
 										//серый прозрачный прозрачный
-											"id"=>2,
+											"id"=>10,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -306,7 +306,7 @@ $config = array(
 					"colors"=> array(
 									array(		
 										//золотой прозрачный
-											"id"=>3,
+											"id"=>11,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -316,7 +316,7 @@ $config = array(
 									),
 									array(	
 										//серебристый прозрачный
-											"id"=>4,
+											"id"=>12,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -325,7 +325,7 @@ $config = array(
 									),
 									array(	
 										//серый прозрачный прозрачный
-											"id"=>5,
+											"id"=>13,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_whitecrystal_case.png",
 											"desctop_mask" => "iphone6-6+.png",
@@ -344,7 +344,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
-											"id"=>6,
+											"id"=>14,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_white_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -364,7 +364,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(		
-											"id"=>7,
+											"id"=>15,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_black_softtouch_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
@@ -443,7 +443,7 @@ $config = array(
 					"default"=>true,
 					"colors"=> array(
 									array(		
-											"id"=>8,
+											"id"=>16,
 											"color"=>"#CF9657",   
 											"desctop_img" => "iphone5-5s_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -452,7 +452,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>17,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone5-5s_light_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -460,7 +460,7 @@ $config = array(
 											"cost"=>1500
 										),
 										 array(
-										 	"id"=>10,
+										 	"id"=>18,
 											"color"=>"#888888",
 											"desctop_img" => "iphone5-5s_dark_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -479,7 +479,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>19,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -497,7 +497,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>20,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_black_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -574,7 +574,7 @@ $config = array(
 					"default"=>true,
 					"colors"=> array(
 									array(		
-											"id"=>8,
+											"id"=>21,
 											"color"=>"#CF9657",   
 											"desctop_img" => "iphone5-5s_gold_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -583,7 +583,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>22,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone5-5s_light_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -591,7 +591,7 @@ $config = array(
 											"cost"=>1500
 										),
 										 array(
-										 	"id"=>10,
+										 	"id"=>23,
 											"color"=>"#888888",
 											"desctop_img" => "iphone5-5s_dark_whitecrystal_case.png",
 											"desctop_mask" => "iphone5-5s.png",
@@ -610,7 +610,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>24,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_white_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -628,7 +628,7 @@ $config = array(
 					"colors"=> array(
 									//цвет - вид (hex, rgb, transparent или название цвета)
 										array(	
-											"id"=>11,	
+											"id"=>25,	
 											"color"=>"transparent",
 											"desctop_img" => "iphone5-5s_black_softtouch_case.png",
 											"desctop_mask" => "iphone5-5s.png", //обрезка
@@ -778,7 +778,7 @@ $config = array(
 					"default_color"=>"white",
 					"colors"=> array(
 									array(		
-											"id"=>8,
+											"id"=>26,
 											"color"=>"#0000FF",   
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -787,7 +787,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>27,
 											"color"=>"#00FF00",   
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -796,7 +796,7 @@ $config = array(
 											"default"=>true
 										),
 										 array(
-										 	"id"=>10,
+										 	"id"=>28,
 											"color"=>"#FF0011",
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -804,7 +804,7 @@ $config = array(
 											"cost"=>1500
 										),
 									array(		
-											"id"=>8,
+											"id"=>29,
 											"color"=>"yellow",   
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -813,7 +813,7 @@ $config = array(
 											"default"=>true
 									),
 										array(	
-											"id"=>9,
+											"id"=>30,
 											"color"=>"#FFFFFF",
 											"desctop_img" => "iphone5c_black_softtouch_case.png",
 											"desctop_mask" => "iphone5c.png", //обрезка
@@ -905,7 +905,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>31,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_white_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -924,7 +924,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>32,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -1004,7 +1004,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>33,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_white_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -1022,7 +1022,7 @@ iphone4_black_crystal_case.png
 					"colors"=> array(
 						//цвет - вид (hex, rgb, transparent или название цвета)
 							array(	
-								"id"=>11,	
+								"id"=>34,	
 								"color"=>"transparent",
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
@@ -1188,79 +1188,162 @@ iphone4_black_crystal_case.png
 				"link"=>"1/",
 				"name"=>"категория 1",
 				array( 
-					array(
-						"big"=>"2.png",
-						"small"=>"2_r82.png",
-						"chechs"=>array(0,2,3,6)
-					),
-					array(
-						"big"=>"3.png",
-						"small"=>"3_r82.png"
-					),
-					array(
-						"big"=>"4.png",
-						"small"=>"4_r82.png"
-					),
-					
-					array(
-						"big"=>"5.png",
-						"small"=>"5_r82.png"
-					),
-					array(
-						"big"=>"6.png",
-						"small"=>"6_r82.png"
-					),
-					array(
-						"big"=>"7.png",
-						"small"=>"7_r82.png"
-					),
-					array(
-						"big"=>"8.png",
-						"small"=>"8_r82.png"
-					),
-					array(
-						"big"=>"9.png",
-						"small"=>"9_r82.png"
-					),
-					array(
-						"big"=>"10.png",
-						"small"=>"10_r82.png"
-					),
-					array(
-						"big"=>"11.png",
-						"small"=>"11_r82.png"
-					),
-					array(
-						"big"=>"12.png",
-						"small"=>"12_r82.png"
-					),
-					
-					array(
-						"big"=>"13.png",
-						"small"=>"13_r82.png"
-					),
-					array(
-						"big"=>"14.png",
-						"small"=>"14_r82.png"
-					),
-					array(
-						"big"=>"15.png",
-						"small"=>"15_r82.png"
-					),
-					array(
-						"big"=>"16.png",
-						"small"=>"16_r82.png"
-					),
-					array(
-						"big"=>"17.png",
-						"small"=>"17_r82.png"
-					)
+					//iphone 4
+					array("big"=>"4-4s/bembi_i4-4s.png",
+					"small"=>"bembi_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/devochka_i4-4s.png",
+					"small"=>"devochka_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/dior_kedy_i4-4s.png",
+					"small"=>"dior_kedy_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/duhi_v_ruke_i4-4s.png",
+					"small"=>"duhi_v_ruke_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/edinorog_i4-4s.png",
+					"small"=>"edinorog_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/edinorog2_i4-4s.png",
+					"small"=>"edinorog2_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/fashion_i4-4s.png",
+					"small"=>"fashion_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/fendi_i4-4s.png",
+					"small"=>"fendi_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/karl_i4-4s.png",
+					"small"=>"karl_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/katava_i4-4s.png",
+					"small"=>"katava_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/koko_madm_i4-4s.png",
+					"small"=>"koko_madm_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/Lubuteny_i4-4s.png",
+					"small"=>"Lubuteny_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/makaruny_i4-4s.png",
+					"small"=>"makaruny_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/manolo_i4-4s.png",
+					"small"=>"manolo_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/miss_dior_i4-4s.png",
+					"small"=>"miss_dior_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/nike_i4-4s.png",
+					"small"=>"nike_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/palmy_i4-4s.png",
+					"small"=>"palmy_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/paris_i4-4s.png",
+					"small"=>"paris_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/pomada_mac_i4-4s.png",
+					"small"=>"pomada_mac_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/pomada2_i4-4s.png",
+					"small"=>"pomada2_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/rozy_i4-4s.png",
+					"small"=>"rozy_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ryukzak_i4-4s.png",
+					"small"=>"ryukzak_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/sakura_i4-4s.png",
+					"small"=>"sakura_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/tufli_valentino_i4-4s.png",
+					"small"=>"tufli_valentino_r82.png","chechs"=>array(31,32,33,34)),
+
+					//iphone5
+					array("big"=>"5-5s-5c/bembi_i5-5s-5c.png",
+					"small"=>"bembi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/devochka_i5-5s-5c.png",
+					"small"=>"devochka_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/dior_kedy_i5-5s-5c.png",
+					"small"=>"dior_kedy_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/duhi_v_ruke_i5-5s-5c.png",
+					"small"=>"duhi_v_ruke_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/edinorog_i5-5s-5c.png",
+					"small"=>"edinorog_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/edinorog2_i5-5s-5c.png",
+					"small"=>"edinorog2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/fashion_i5-5s-5c.png",
+					"small"=>"fashion_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/fendi_i5-5s-5c.png",
+					"small"=>"fendi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/karl_i5-5s-5c.png",
+					"small"=>"karl_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/katava_i5-5s-5c.png",
+					"small"=>"katava_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/koko_madm_i5-5s-5c.png",
+					"small"=>"koko_madm_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/Lubuteny_i5-5s-5c.png",
+					"small"=>"Lubuteny_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/makaruny_i5-5s-5c.png",
+					"small"=>"makaruny_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/manolo_i5-5s-5c.png",
+					"small"=>"manolo_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/miss_dior_i5-5s-5c.png",
+					"small"=>"miss_dior_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/nike_i5-5s-5c.png",
+					"small"=>"nike_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/palmy_i5-5s-5c.png",
+					"small"=>"palmy_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/paris_i5-5s-5c.png",
+					"small"=>"paris_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/pomada_mac_i5-5s-5c.png",
+					"small"=>"pomada_mac_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/pomada2_i5-5s-5c.png",
+					"small"=>"pomada2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/rozy_i5-5s-5c.png",
+					"small"=>"rozy_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/ryukzak_i5-5s-5c.png",
+					"small"=>"ryukzak_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/sakura_i5-5s-5c.png",
+					"small"=>"sakura_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
+					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
+
+					//iphone6
+					array("big"=>"6-6+/bembi_i6-6+.png",
+					"small"=>"bembi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/devochka_i6-6+.png",
+					"small"=>"devochka_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/dior_kedy_i6-6+.png",
+					"small"=>"dior_kedy_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/duhi_v_ruke_i6-6+.png",
+					"small"=>"duhi_v_ruke_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/edinorog_i6-6+.png",
+					"small"=>"edinorog_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/edinorog2_i6-6+.png",
+					"small"=>"edinorog2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/fashion_i6-6+.png",
+					"small"=>"fashion_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/fendi_i6-6+.png",
+					"small"=>"fendi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/karl_i6-6+.png",
+					"small"=>"karl_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/katava_i6-6+.png",
+					"small"=>"katava_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/koko_madm_i6-6+.png",
+					"small"=>"koko_madm_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/Lubuteny_i6-6+.png",
+					"small"=>"Lubuteny_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/makaruny_i6-6+.png",
+					"small"=>"makaruny_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/manolo_i6-6+.png",
+					"small"=>"manolo_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/miss_dior_i6-6+.png",
+					"small"=>"miss_dior_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/nike_i6-6+.png",
+					"small"=>"nike_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/palmy_i6-6+.png",
+					"small"=>"palmy_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/paris_i6-6+.png",
+					"small"=>"paris_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/pomada_mac_i6-6+.png",
+					"small"=>"pomada_mac_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/pomada2_i6-6+.png",
+					"small"=>"pomada2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/rozy_i6-6+.png",
+					"small"=>"rozy_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/ryukzak_i6-6+.png",
+					"small"=>"ryukzak_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/sakura_i6-6+.png",
+					"small"=>"sakura_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
+					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 				)
 			),
 			array(
 				"link"=>"2/",
 				"name"=>"категория 2",
 				array( 
+					/*
 					array(
 						"big"=>"1.png",
 						"small"=>"1_r82.png"
@@ -1305,12 +1388,14 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			),
 			array(
 				"link"=>"3/",
 				"name"=>"категория 3",
 				array( 
+					/*
 					array(
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
@@ -1355,12 +1440,14 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			),
 			array(
 				"link"=>"4/",
 				"name"=>"категория 4",
 				array( 
+					/*
 					array(
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
@@ -1405,12 +1492,14 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			),
 			array(
 				"link"=>"5/",
 				"name"=>"категория 5",
 				array( 
+					/*
 					array(
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
@@ -1455,6 +1544,7 @@ iphone4_black_crystal_case.png
 						"big"=>"bg1.jpg",
 						"small"=>"bg1.jpg"
 					)
+					*/
 				)
 			)
 		),
