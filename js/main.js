@@ -607,18 +607,29 @@ function setup_backgrounds() {
 		
 		
 			for(value1 in category) {
+
+				var array_allowed = category[value1].chechs;
+				
+				if (array_allowed == undefined) {
+					array_allowed = "all";
+				}else{
+					array_allowed = array_allowed.join(",")
+				}
+
+				console.log(array_allowed);
+				
 				
 				var hash = randomHash(4);
 				if (value1 == 0) {
-					html_text+='<div class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
+					html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
 				}else{
 					if((value1 % 4) == 0) {
-						html_text+='<div class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
+						html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
 					}else{
 						if((value1 % 4) == 3) {
-							html_text+='<div class="library-background_row library-background_row-last" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
+							html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-last" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
 						}else{
-							html_text+='<div class="library-background_row " style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
+							html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row " style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
 						}
 					}
 				}
@@ -1056,8 +1067,24 @@ function change_step(obj) {
 			if (!($(".library-backgrouds div").length>0)) {
 				setup_backgrounds();
 			}
+
 			$(".g_texts").css("display", "block");
 			if ($(".svg_camera").find('image').length==0) set_check();
+
+
+			$(".library-background_row").each(function(){
+				var array_allowed = $(this).attr("data-check_allowed");
+				if (array_allowed!="all") {
+					array_allowed = array_allowed.split(",");
+					console.log(array_allowed);
+					if (array_allowed.indexOf(desctop.case_id.toString())==-1) {
+						console.log("hide");
+						$(this).css("display","none");
+					}else{
+						$(this).css("display", "block");
+					}
+				}
+			});
 				
 		}
 		if (id=="6"){
