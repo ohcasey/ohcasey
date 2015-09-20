@@ -57,8 +57,6 @@
 			save_png2();
 		}
 
-
-		
 	}
 
 	if ($controller_name == "success") {	
@@ -79,6 +77,18 @@
 			
 			$city = get_city();
 			include("views/cart.php");
+			exit;
+		}
+
+		if ($action_name=="get_cost_sdec" ) {
+			get_cost_sdec();
+			exit;
+		}
+
+			
+
+		if ($action_name=="get_city_sdec" ) {
+			get_city_sdec();
 			exit;
 		}
 
@@ -133,7 +143,7 @@
 				
 				get_city_input($string, $bd_controls);
 			}else{
-
+				
 				$array = array();
 				$result = json_encode($array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
 				$result = preg_replace_callback(

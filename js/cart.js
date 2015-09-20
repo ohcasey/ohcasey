@@ -287,6 +287,8 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 });
 
 
+
+
 $(document).ready(function(){
 	reset_cost_total();
 	reset_city_depend();
@@ -430,6 +432,139 @@ jQuery(function($){
 });
 
 
+
+function get_city_list_sdec() {
+
+}
+
+
+
+function get_city_sdec() {
+	$.ajax({
+	  type: "POST",
+	  dataType: "json",
+	  url: "cart/get_city_sdec",
+	  success: function(data){
+	  	sdec_points=data;
+	  	myGeoObjects = [];
+	  	myMap.geoObjects.removeAll();
+		for (var i = 0; i < sdec_points.length; i++) {
+			console.log(sdec_points[i]);
+
+			var table = '<table><tbody>';
+
+			table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+			table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+
+			if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+				table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>';	
+			}
+
+
+			if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+				table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';	
+			}
+			   table += '</tbody></table>';
+
+			
+			table += "<button ";
+
+			if ((sdec_points[i]["@attributes"]["Address"]!=undefined) && (sdec_points[i]["@attributes"]["Address"]!="")) {
+					table += "data-Address='"+sdec_points[i]["@attributes"]["Address"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["City"]!=undefined) && (sdec_points[i]["@attributes"]["City"]!="")) {
+				table += "data-City='"+sdec_points[i]["@attributes"]["City"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["CityCode"]!=undefined) && (sdec_points[i]["@attributes"]["CityCode"]!="")) {
+				table += "data-CityCode='"+sdec_points[i]["@attributes"]["CityCode"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["Code"]!=undefined) && (sdec_points[i]["@attributes"]["Code"]!="")) {
+				table += "data-Code='"+sdec_points[i]["@attributes"]["Code"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["Name"]!=undefined) && (sdec_points[i]["@attributes"]["Name"]!="")) {
+				table += "data-Name='"+sdec_points[i]["@attributes"]["Name"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+				table += "data-Note='"+sdec_points[i]["@attributes"]["Note"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+				table += "data-Phone='"+sdec_points[i]["@attributes"]["Phone"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+				table += "data-WorkTime='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["coordX"]!=undefined) && (sdec_points[i]["@attributes"]["coordX"]!="")) {
+				table += "data-coordX='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+			}
+
+			if ((sdec_points[i]["@attributes"]["coordY"]!=undefined) && (sdec_points[i]["@attributes"]["coordY"]!="")) {
+				table += "data-coordY='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+			}
+
+
+			table += " >Выбрать</button>";
+
+
+         
+			var object =  new ymaps.Placemark(
+					[sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
+						 balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
+               			 balloonContent: table
+
+					}
+				);
+
+			myGeoObjects.push(object);
+			
+		};
+
+
+		clusterer = new ymaps.Clusterer();
+		clusterer.add(myGeoObjects);
+		myMap.geoObjects.add(clusterer);
+		myMap.setBounds(clusterer.getBounds());
+	  }
+  	});
+}
+
+var sdec_data = {
+	Address: "",
+	City: "",
+	CityCode: "",
+	Code: "",
+	Name: "",
+	Note: "",
+	Phone: "",
+	WorkTime: "",
+	coordX: "",
+	coordY: ""
+}
+
+
+$(document).on("click", "ymaps button" ,function(){
+	sdec_data.Address = $(this).data("address");
+	sdec_data.City = $(this).data("city");
+	sdec_data.CityCode = $(this).data("citycode");
+	sdec_data.Code = $(this).data("code");
+	sdec_data.Name = $(this).data("name");
+	sdec_data.Note = $(this).data("note");
+	sdec_data.Phone = $(this).data("phone");
+	sdec_data.WorkTime = $(this).data("worktime");
+	sdec_data.coordX = $(this).data("coordx");
+	sdec_data.coordY = $(this).data("coordy");
+
+	$(".alert_block.alert_cart").removeClass("active");
+});
+
+
 /*map*/
 
 var myMap;
@@ -444,15 +579,22 @@ function init () {
         // При инициализации карты обязательно нужно указать
         // её центр и коэффициент масштабирования.
         center: [55.76, 37.64], // Москва
-        zoom: 10
+        zoom: 10,
     }, {
-        searchControlProvider: 'yandex#search'
+        
     });
 
-    document.getElementById('destroyButton').onclick = function () {
-        // Для уничтожения используется метод destroy.
-        myMap.destroy();
-    };
-
+    myMap.controls.add(
+   		new ymaps.control.ZoomControl()
+	);
 }
 
+function ucfirst(str) 
+{
+    var first = str.charAt(0).toUpperCase();
+    return first + str.substr(1);
+}
+
+$(window).load(function(){
+	get_city_sdec();
+});

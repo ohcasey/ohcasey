@@ -19,6 +19,119 @@ function styles_setup($config){
     }
 }
 
+function get_cost_sdec() {
+
+    $json_string = array(
+        "version"=>"1.0",
+        "dateExecute"=>date("Y-m-d"),
+        "senderCityId"=>44,
+        "receiverCityId"=>270,
+        "tariffId"=>136,
+     
+        "goods" => array(
+           
+            "width" => "25",
+            "length" => "25",
+            "height" => "10",
+             "weight" => "1"
+
+        )
+
+        /* 
+            
+    "dateExecute":"2012-07-27", 
+    "authLogin":"098f6bcd4621d373cade4e832627b4f6", 
+    "secure":"396fe8e7dfd37c7c9f361bba60db0874", 
+    "senderCityId":"270", 
+    "receiverCityId":"44", 
+    "tariffId":"137", 
+    */
+    );
+    echo "<pre>";
+    print_r($json_string);
+
+    if( $ch = curl_init() ) {
+        curl_setopt($ch, CURLOPT_URL, "http://api.edostavka.ru/calculator/calculate_price_by_json.php");  
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($json_string));
+      
+        
+        $output = curl_exec($ch); 
+
+
+        print_r(json_decode($output));
+
+        curl_close($ch);  
+/*
+        $xml = simplexml_load_string($output, "SimpleXMLElement", LIBXML_NOCDATA);
+        $json = json_encode($xml);
+        $array = json_decode($json,TRUE);
+
+       
+        $normalarray = $array["Pvz"];
+    
+        $result =  json_encode($normalarray, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+        $result = preg_replace_callback(
+                '/\\\\u([0-9a-f]{4})/i',
+                function ($matches) {
+                    $sym = mb_convert_encoding(
+                        pack('H*', $matches[1]),
+                        'UTF-8',
+                        'UTF-16'
+                    );
+                    return $sym;
+                },
+                $result 
+            );
+        echo $result;
+*/
+      }else {
+        echo "curl не доступен";
+      }
+}
+
+function get_city_sdec() {
+    if( $ch = curl_init() ) {
+        curl_setopt($ch, CURLOPT_URL, "http://gw.edostavka.ru:11443/pvzlist.php?cityid=44");  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
+        curl_setopt($ch, CURLOPT_HEADER, 0);  
+        $output = curl_exec($ch); 
+
+        //echo $output;
+
+        curl_close($ch);  
+
+        $xml = simplexml_load_string($output, "SimpleXMLElement", LIBXML_NOCDATA);
+        $json = json_encode($xml);
+        $array = json_decode($json,TRUE);
+
+       
+        $normalarray = $array["Pvz"];
+    
+        $result =  json_encode($normalarray, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+        $result = preg_replace_callback(
+                '/\\\\u([0-9a-f]{4})/i',
+                function ($matches) {
+                    $sym = mb_convert_encoding(
+                        pack('H*', $matches[1]),
+                        'UTF-8',
+                        'UTF-16'
+                    );
+                    return $sym;
+                },
+                $result 
+            );
+        echo $result;
+
+      }else {
+        echo "curl не доступен";
+      }
+
+
+
+}
 
 function get_cost_case($id_case, $config, $id_phone) {
     $cost = 0;
@@ -407,10 +520,8 @@ function save_img(){
 
 function mysqlconnect($bd_controls){
 
+    if (gethostname() == "dmitry-HP-Pavilion-dv7-Notebook-PC") {
 
-    
-
-    if (gethostname() === "dmitry-HP-Pavilion-dv7-Notebook-PC") {
         $dbhost = "localhost"; 
         // Имя пользователя базы данных 
         $dbuser = "root"; 
@@ -420,7 +531,6 @@ function mysqlconnect($bd_controls){
         $dbname = "cities"; 
     }else{
 
-
         $dbhost = $bd_controls["dbhost"]; 
         // Имя пользователя базы данных 
         $dbuser = $bd_controls["dbuser"]; 
@@ -429,8 +539,6 @@ function mysqlconnect($bd_controls){
             // Имя базы данных, на хостинге или локальной машине 
         $dbname = $bd_controls["dbname"]; 
     }
-
-  
 
     $db = @mysql_connect($dbhost, $dbuser, $dbpass) or die(mysql_error()); 
     if (!$db) { 
@@ -445,7 +553,6 @@ function mysqlconnect($bd_controls){
    
 
 function get_city_input($string,$bd_controls) {
-
     $db =  mysqlconnect($bd_controls);
     $query = mysql_query("SELECT name FROM city WHERE country_id = 3159 AND name Like '$string%' LIMIT 20") or die(mysql_error());
     mysql_close($db);

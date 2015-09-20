@@ -48,10 +48,9 @@
 									ул. Гончарная д. 5 Время работы: с 10 до 19
 							</div>
 						</div>
-						<span class="two_line">Самовывоз их пункта выдачи СДЭК</span>
-						<span>Москва, Нелидовская улица д.10</span>
-
-						
+						<span >Самовывоз их пункта выдачи СДЭК</span>
+						<!--<span>Москва, Нелидовская улица д.10<br>Стоимость: 214 р</span>-->
+						<!--class="two_line"-->
 					</div>
 
 
@@ -213,34 +212,6 @@
 					<span>Выбрать другой город</span>
 				</div>
 				<div class = "city_list-sdec">
-					<span>Москва</span>
-					<span>Еще раз москва dsfdfsgf sgdffgdg fgsdgfd fdsggfds dfgfd sgfgsd gdfs gfd gdfs</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
-					<span>Москва</span>
-					<span>Еще раз москва</span>
 				</div>
 			</div>
 		</div>

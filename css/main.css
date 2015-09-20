@@ -2361,6 +2361,41 @@ input.cart_item.error,  textarea.cart_item.error{
 
 /*new cart*/
 
+ymaps table td {
+	vertical-align: top;
+	font-weight: bold;
+}
+
+ymaps table td+td {
+	vertical-align: top;
+	font-weight: normal;
+}
+
+ymaps button {
+	background: #669AC4;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    padding: 8px 40px;
+    color: white;
+    border-radius: 3px;
+    margin-top: 7px;
+    cursor: pointer;
+    transition: 200ms all linear;
+}
+
+ymaps button:hover {
+	color: #2F6EA3;
+}
+
+
+
+
+
+  
 .help_block {
 	opacity: 0;
 	visibility: hidden;

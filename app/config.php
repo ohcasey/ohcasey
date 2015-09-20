@@ -13,11 +13,11 @@ global $bd_controls;
 $bd_controls = array(
 	"dbhost" => "mysql.server",
         // Имя пользователя базы данных 
-     "dbuser" => "u11014_ohcasey", 
+    "dbuser" => "u11014_ohcasey", 
             // и его пароль 
-     "dbpass" => "ohcasey",
+    "dbpass" => "ohcasey",
             // Имя базы данных, на хостинге или локальной машине 
-     "dbname" => "u11014_ohcasey" 
+    "dbname" => "u11014_ohcasey" 
 );
 //страницы
 global $pages; 
@@ -26,7 +26,7 @@ global $subfunctions;
 $subfunctions= array(
 	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2"),
 	"success"=>array() , 
-	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result")
+	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result", "get_city_sdec","get_cost_sdec")
  );
 //конфиги девайсов
 global $config;
