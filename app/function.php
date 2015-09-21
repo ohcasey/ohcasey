@@ -24,6 +24,8 @@ function get_cost_sdec() {
     $json_string = array(
         "version"=>"1.0",
         "dateExecute"=>date("Y-m-d"),
+        "authLogin"=>"70706c7a6fdf9cdb2b4208348cbee331", 
+        "secure"=>"47d9f60e3b8827fbe28b1babc54ecdce", 
         "senderCityId"=>44,
         "receiverCityId"=>270,
         "tariffId"=>136,
@@ -33,7 +35,7 @@ function get_cost_sdec() {
             "width" => "25",
             "length" => "25",
             "height" => "10",
-             "weight" => "1"
+            "weight" => "1"
 
         )
 
