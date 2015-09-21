@@ -26,10 +26,52 @@
 	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
-
+	<script src="js/device.min.js"></script>
+		<!--[if lt IE 7]>
+		<script>
+			$(document).load(function(){
+				$(".alert_block.alert_old").addClass("active");
+			});
+		</script>
+	<![endif]-->
 </head>
 <body>
 <?php include_once("analyticstracking.php") ?>
+
+
+
+
+<div class="alert_block alert_mobile">
+	<div class="container_mobile">
+		<h2>В данный момент наш сайт 
+оптимизирован для работы 
+только с компьютеров.</h2>
+		<span>Для использования всех возможностей в создании чехла, а также правильной работы системы мы очень ПРОСИМ Вас зайти к нам на сайт с компьютера. Огромное спасибо!</span>
+		<button>все равно продолжить</button>
+	</div>
+</div>
+
+<div class="alert_block alert_tablet">
+	<div class="container_tablet">
+		<h2>В данный момент наш сайт 
+оптимизирован для работы 
+только с компьютеров.</h2>
+		<span>Для использования всех возможностей в создании чехла, а также правильной работы системы мы очень ПРОСИМ Вас зайти к нам на сайт с компьютера. Огромное спасибо!</span>
+		<button>все равно продолжить</button>
+	</div>
+</div>
+
+<div class="alert_block alert_old">
+	<div class="container_old">
+			<h2>В данный момент наш сайт 
+оптимизирован для работы 
+только с новейших браузеров</h2>
+		<span>Для использования всех возможностей в создании чехла, а также правильной работы системы мы очень ПРОСИМ Вас зайти к нам на сайт с более современного браузера. Огромное спасибо!</span>
+		<button>все равно продолжить</button>
+	</div>
+</div>
+
+
 <!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter32242774 = new Ya.Metrika({ id:32242774, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/32242774" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
 <div class="main_container">
 	<div id="header">

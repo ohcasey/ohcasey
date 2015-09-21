@@ -198,7 +198,7 @@
 ?>
 </div>
 
-<div class="alert_block alert_cart active">
+<div class="alert_block alert_cart">
 	<div class="container_yandex">
 		<div class="rubrics">
 			Выберите пункт выдачи СДЭК
@@ -217,6 +217,7 @@
 		</div>
 	</div>
 </div>
+
 
 </body>
 <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>

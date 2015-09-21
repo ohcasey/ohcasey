@@ -286,7 +286,21 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 	
 });
 
+$(document).on("click", ".container_mobile button, .container_tablet button, .container_old button", function(){
+	$(".alert_block.alert_mobile, .alert_block.alert_tablet, .alert_block.alert_old ").removeClass("active");
+});
 
+$(document).load(function(){
+	if (device.mobile() || device.tablet()) {
+		if (device.portrait()) {
+			$(".alert_block.alert_mobile").addClass("active");
+		}
+
+		if (device.landscape()) {
+			$(".alert_block.alert_tablet").addClass("active");
+		}
+	}
+});
 
 
 $(document).ready(function(){

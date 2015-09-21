@@ -105,6 +105,88 @@ body {
 }
 
 
+/*Заглушки*/
+
+.container_mobile, .container_tablet, .container_old {
+	position: relative;
+	margin: 0 auto;
+	background: transparent;
+	top: 50%;
+	margin-top: -500px;
+	background: url("../img/mouse.svg") bottom center no-repeat;
+	background-size:  150px auto;
+	padding-bottom: 200px;
+	width: 800px;
+}
+
+.container_tablet, .container_old { 
+	background-size:  80px auto;
+	padding-bottom: 80px;
+}
+
+
+.container_tablet, .container_old {
+	margin-top: -200px;
+
+}
+
+
+.container_mobile h2, .container_tablet h2, .container_old h2{
+	font-family: HelveticaNeueCyr;
+	color:  #295e8c;
+	font-weight: 300;
+	text-align: center;
+	font-size: 50px;/* Приближение из-за подстановки шрифтов */
+	line-height: 70px;
+}
+
+.container_tablet h2, .container_old h2 {
+	font-size: 30px;
+	line-height: 38px;
+}
+
+
+
+
+.container_mobile span, .container_tablet span, .container_old span{
+	font-family: HelveticaNeueCyr;
+	color:  #da4437;
+	font-size: 42px;/* Приближение из-за подстановки шрифтов */
+	font-weight: 300;
+	line-height: 60px;
+	text-align: center;
+	display: block;
+}
+
+.container_tablet span, .container_old span{ 
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.container_mobile button, .container_tablet button, .container_old button{
+	background: rgb(102, 147, 189);
+	border: none;
+	color: white;
+	position: relative;
+	margin: 40px auto;
+	font-size: 50px;
+	padding: 30px 20px;
+	text-transform: uppercase;
+	display: block;
+	cursor: pointer;
+	outline: none;
+	transition: color 200ms ease-out;
+}
+
+.container_mobile button:hover, .container_tablet button:hover, .container_old button:hover {
+	color: #295E93;
+}
+
+.container_tablet button, .container_old button{ 
+	font-size: 30px;
+	padding: 18px 12px;
+	margin: 30px auto;
+}
 
 
 #header {
@@ -1061,6 +1143,7 @@ body {
 
 #steps_controller.cart #steps_controller-checkout_but.active *, #steps_controller.cart #steps_controller-next_but.active *{
 	color: white;	
+	transition: color 200ms ease-out;
 }
 
 
@@ -1517,7 +1600,7 @@ svg {
 
 
 
-.alert_block.alert_cart.active {
+.alert_block.alert_cart.active, .alert_block.alert_mobile.active, .alert_block.alert_tablet.active, .alert_block.alert_old.active  {
 	background: rgba(203, 203, 203,0.8);
 }
 
