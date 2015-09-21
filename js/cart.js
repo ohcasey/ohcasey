@@ -291,7 +291,13 @@ $(document).on("click", ".container_mobile button, .container_tablet button, .co
 });
 
 $(document).load(function(){
+
+
+
+
+
 	if (device.mobile() || device.tablet()) {
+		alert("ok");
 		if (device.portrait()) {
 			$(".alert_block.alert_mobile").addClass("active");
 		}
