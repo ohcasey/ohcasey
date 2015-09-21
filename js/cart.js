@@ -290,14 +290,8 @@ $(document).on("click", ".container_mobile button, .container_tablet button, .co
 	$(".alert_block.alert_mobile, .alert_block.alert_tablet, .alert_block.alert_old ").removeClass("active");
 });
 
-$(document).load(function(){
-
-
-
-
-
+$(document).ready(function(){
 	if (device.mobile() || device.tablet()) {
-		alert("ok");
 		if (device.portrait()) {
 			$(".alert_block.alert_mobile").addClass("active");
 		}
