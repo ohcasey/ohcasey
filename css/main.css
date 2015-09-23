@@ -1,7 +1,4 @@
-/*Время ощибки тескт*/
 .alert_out_svg {
-
-	/*милисекунды     элементы   эффект - переменные отсюда(https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)*/
 	transition: 300ms all  ease-out;
 }
 
@@ -169,7 +166,7 @@ body {
 }
  .sweet-alert button.cancel {
  	background: #669AC4;
-
+}
 
 .container_mobile span, .container_tablet span, .container_old span{
 	font-family: HelveticaNeueCyr;
@@ -3686,7 +3683,6 @@ ymaps button:hover {
 	}
 }
 
-/*прелоадер*/
 
 .loader {
   font-size: 10px;
