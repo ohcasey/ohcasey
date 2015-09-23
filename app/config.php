@@ -1300,11 +1300,11 @@ iphone4_black_crystal_case.png
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 
 					//iphone6
-					array("big"=>"5-5s-5c/donuts_i6-6+.png",
+					array("big"=>"6-6+/donuts_i6-6+.png",
 					"small"=>"donuts_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"5-5s-5c/mickey_i6-6+.png",
+					array("big"=>"6-6+/mickey_i6-6+.png",
 					"small"=>"mickey_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"5-5s-5c/minnie_i6-6+.png",
+					array("big"=>"6-6+/minnie_i6-6+.png",
 					"small"=>"minnie_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 
 					array("big"=>"6-6+/bembi_i6-6+.png",
