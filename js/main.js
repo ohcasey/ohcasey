@@ -2841,7 +2841,7 @@ jQuery(function($){
 		if (!div.is(event.target) // если клик был не по нашему блоку
 		   && (div.has(event.target).length === 0)
 			) {
-			$(".alert_block").removeClass("active");
+			$(".alert_block.alert_device, .alert_block.alert_save").removeClass("active");
 			
 		}
 	});

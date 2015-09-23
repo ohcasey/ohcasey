@@ -119,6 +119,21 @@ body {
 	width: 800px;
 }
 
+
+.container_old div {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container_old div div {
+	float: left;
+	position: relative;
+	width: 50%;
+}
+
+
 .container_tablet, .container_old { 
 	background-size:  80px auto;
 	padding-bottom: 80px;
@@ -127,8 +142,11 @@ body {
 
 .container_tablet, .container_old {
 	margin-top: -200px;
-
 }
+
+ .container_old {
+ 	width: 850px;
+ }
 
 
 .container_mobile h2, .container_tablet h2, .container_old h2{
@@ -146,8 +164,6 @@ body {
 }
 
 
-
-
 .container_mobile span, .container_tablet span, .container_old span{
 	font-family: HelveticaNeueCyr;
 	color:  #da4437;
@@ -163,7 +179,7 @@ body {
 	line-height: 36px;
 }
 
-.container_mobile button, .container_tablet button, .container_old button{
+.container_mobile button, .container_tablet button, .container_old button, .container_old a{
 	background: rgb(102, 147, 189);
 	border: none;
 	color: white;
@@ -176,18 +192,45 @@ body {
 	cursor: pointer;
 	outline: none;
 	transition: color 200ms ease-out;
+		text-decoration: none;
 }
 
-.container_mobile button:hover, .container_tablet button:hover, .container_old button:hover {
+
+.container_mobile button:hover, .container_tablet button:hover, .container_old button:hover,  .container_old a:hover {
 	color: #295E93;
+	text-decoration: none;
 }
 
-.container_tablet button, .container_old button{ 
+.container_tablet button, .container_old button,  .container_old a{ 
 	font-size: 30px;
 	padding: 18px 12px;
 	margin: 30px auto;
 }
 
+.container_old button,  .container_old a{  
+	width: 250px;
+	font-size: 25px;
+	line-height: 40px;
+	text-align: center;
+	margin-left: 30px;
+	margin-right: auto;
+	float: left;
+	padding: 12px 28px;
+	
+}
+
+.container_old  {
+	background: url("../img/old_browser.svg") bottom center no-repeat;
+	background-size:  120px auto;
+	padding-bottom: 160px;
+	margin-top: -250px;
+}
+
+.container_old a {
+	width: 200px;
+	float: right;
+	margin-right: 30px;
+}
 
 #header {
 	background: #669AC4;	
@@ -1602,6 +1645,7 @@ svg {
 
 .alert_block.alert_cart.active, .alert_block.alert_mobile.active, .alert_block.alert_tablet.active, .alert_block.alert_old.active  {
 	background: rgba(203, 203, 203,0.8);
+	    z-index: 1100;
 }
 
 .container_yandex {
@@ -1961,7 +2005,7 @@ input.cart_item,  textarea.cart_item{
 }
 
 input.cart_item {
-	width: calc(100% - 4px);
+	width: calc(100% - 2px);
 }
 
 
@@ -2094,11 +2138,13 @@ input.cart_item.error,  textarea.cart_item.error{
 
 .checkbox_item span.two_line {
 	line-height: 30px;
+	min-width: 200px;
 }
 
 .checkbox_item span.two_line+span {
-	line-height: 20px;
-	top: -5px;
+	line-height: 14px;
+
+	top: -0px;
 	font-family: HelveticaNeueCyr;
 	color: #295e8c;
 	margin-top: 0px;

@@ -28,7 +28,11 @@
 						<div class="checkbox_prev_input">
 							<div class="checkbox_selector"></div>
 						</div>
-						<span>Самовывоз - <?php echo $config['deliver_cost']['self'] ?> р.</span>
+						<span class="two_line">Самовывоз - <?php echo $config['deliver_cost']['self'] ?> р.</span>
+						<span>Москва, м. Таганская
+						<br>ул. Таганская д. 5</span>
+
+
 						<div class="cart_help_button">
 							<div class="help_block">
 								Самовывоз по Москве осуществляется по адресу м. Таганская

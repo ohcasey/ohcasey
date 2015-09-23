@@ -21,14 +21,18 @@ function styles_setup($config){
 
 function get_cost_sdec() {
 
+    echo strtotime(date("Y-m-d H:i:s"). ' +1 day')."<br>";
+    $date = date("Y-m-d", strtotime(date("Y-m-d H:i:s"). ' +1 day'))/*."T".date("H:i:s", strtotime(date("Y-m-d H:i:s"). ' +1 day'))*/;
+    date_default_timezone_set("UTC");
+    echo($date);
     $json_string = array(
         "version"=>"1.0",
-        "dateExecute"=>date("Y-m-d"),
+        "dateExecute"=>$date,
         "authLogin"=>"70706c7a6fdf9cdb2b4208348cbee331", 
-        "secure"=>"47d9f60e3b8827fbe28b1babc54ecdce", 
+        "secure"=>md5($date.'&'."47d9f60e3b8827fbe28b1babc54ecdce"), 
         "senderCityId"=>44,
         "receiverCityId"=>270,
-        "tariffId"=>136,
+        "tariffId"=>137,
      
         "goods" => array(
            

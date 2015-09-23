@@ -27,8 +27,8 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
 	<script src="js/device.min.js"></script>
-		<!--[if lt IE 7]>
-		<script>
+	<!--[if lt IE 9]>
+		<script type="text/javascript">
 			$(document).load(function(){
 				$(".alert_block.alert_old").addClass("active");
 			});
@@ -63,11 +63,18 @@
 
 <div class="alert_block alert_old">
 	<div class="container_old">
-			<h2>В данный момент наш сайт 
-оптимизирован для работы 
-только с новейших браузеров</h2>
-		<span>Для использования всех возможностей в создании чехла, а также правильной работы системы мы очень ПРОСИМ Вас зайти к нам на сайт с более современного браузера. Огромное спасибо!</span>
-		<button>все равно продолжить</button>
+			<h2>Вы зашли на наш сайт со старой версии браузера.</h2>
+		<span>Некоторый функционал может работать некорректно, а созданный чехол — не сохранится. Рекомендуем Вам обновить браузер
+<br>до последней версии.</span>
+		<div>
+			<div>
+				<a href="https://www.google.com/chrome/browser/desktop/index.html" target="_blank">обновить браузер</a>
+			</div>
+			<div>
+				<button>все равно продолжить</button>
+			</div>
+		</div>
+		
 	</div>
 </div>
 
@@ -80,15 +87,10 @@
 				<a href="/"></a>
 			</li>
 			<li data-menu-id="1" id="header-menu-item-1" class="header_menu__item">
-				
-				
+
 						<a title="Девайс" href="/#case" class="header_device_li">
 							ДЕВАЙС
-						</a>
-				
-
-				
-				
+						</a>				
 			</li>
 			<li class="header-menu__delimeter"><span></span></li>
 			<li data-menu-id="2" id="header-menu-item-2" class="header_menu__item">
