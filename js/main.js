@@ -1700,10 +1700,7 @@ function save_image() {
 
 	if (breakpoint_image==true) return false;
 	breakpoint_image = true;
-	$(".main_container").after('<div id = "foo"></div>');
-
-	var target = document.getElementById('foo');
-	var spinner = new Spinner(opts).spin(target);
+	$('.alert_block.alert_safari').addClass("active");
 
 
 	if (safari_brow=="safari") {
