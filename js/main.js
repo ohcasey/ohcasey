@@ -584,18 +584,18 @@ function setup_backgrounds() {
 	var desctop_bg_path = config.desctop_bg_path;
 	
 	
+	
 	for (value in backgrounds) {	
 			
 		
+
 			var html_text="";
 
 			var path = desctop_bg_path + backgrounds[value].link;
 
 			category = backgrounds[value][0];
 		
-		
 			if (value==0) {
-				
 				html_text+='<div class="library_5  library-backgrouds" id="library_backgrouds-'+value+'">';
 				
 			}else{
@@ -604,9 +604,11 @@ function setup_backgrounds() {
 			}
 			
 			html_text+='<div class="library_in">';
-		
+			var ctr = -1;
 		
 			for(value1 in category) {
+
+				ctr++;
 
 				var array_allowed = category[value1].chechs;
 				
@@ -618,21 +620,9 @@ function setup_backgrounds() {
 
 				console.log(array_allowed);
 				
-				
 				var hash = randomHash(4);
-				if (value1 == 0) {
 					html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-				}else{
-					if((value1 % 4) == 0) {
-						html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-					}else{
-						if((value1 % 4) == 3) {
-							html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-last" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-						}else{
-							html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row " style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-						}
-					}
-				}
+			
 			}
 		
 	
