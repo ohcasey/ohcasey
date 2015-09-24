@@ -668,6 +668,13 @@ body {
 	width: 96px;
 	text-align: center;
 	cursor: pointer;
+
+}
+#right-5 .category_buttons {
+	display: none;
+}
+.library_5 {
+	top: 53px!important;
 }
 
 .library_tab_but:hover {
