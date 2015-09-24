@@ -668,6 +668,13 @@ body {
 	width: 96px;
 	text-align: center;
 	cursor: pointer;
+
+}
+#right-5 .category_buttons {
+	display: none;
+}
+.library_5 {
+	top: 53px!important;
 }
 
 .library_tab_but:hover {
@@ -1879,7 +1886,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	cursor: pointer;
 }
 
-.checkbox_item input:after {
+.checkbox_item input:after, .checkbox_item input::after {
 	content: "";
 	left: -1996px;
 	position: relative;
@@ -2400,9 +2407,15 @@ input.cart_item.error,  textarea.cart_item.error{
 
 
 
+<<<<<<< HEAD
 /*
 	.checkbox_item input:before {
 		 content: "";
+=======
+
+	.checkbox_item input:before, .checkbox_item input::before {
+		content: "";
+>>>>>>> developer
 		 left: -2004px;
 		 margin-top: 5px;
 		position: relative;
@@ -2417,10 +2430,14 @@ input.cart_item.error,  textarea.cart_item.error{
 	.checkbox_item {
 		margin-top: 5px;
 	}
+<<<<<<< HEAD
 
 
 	/*
 	.checkbox_item input:after {
+=======
+	.checkbox_item input:after, .checkbox_item input::before{
+>>>>>>> developer
 		content: "";
 		left: -1995px;
 		position: relative;
