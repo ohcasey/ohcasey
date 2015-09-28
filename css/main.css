@@ -7,6 +7,181 @@
 
 
 
+/*Заглушки*/
+
+.container_mobile, .container_tablet, .container_old, .container_safari {
+	position: relative;
+	margin: 0 auto;
+	background: transparent;
+	top: 50%;
+	margin-top: -500px;
+	background: url("../img/mouse.svg") bottom center no-repeat;
+	background-size:  150px auto;
+	padding-bottom: 200px;
+	width: 800px;
+}
+
+
+.container_old div {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container_old div div {
+	float: left;
+	position: relative;
+	width: 50%;
+}
+
+
+.container_tablet, .container_old { 
+	background-size:  80px auto;
+	padding-bottom: 80px;
+}
+
+
+.container_tablet, .container_old {
+	margin-top: -200px;
+}
+
+ .container_old {
+ 	width: 850px;
+ }
+
+ .container_safari {
+ 	background: none;
+ 	padding-bottom: none;
+ }
+
+
+.container_mobile h2, .container_tablet h2, .container_old h2{
+	font-family: HelveticaNeueCyr;
+	color:  #295e8c;
+	font-weight: 300;
+	text-align: center;
+	font-size: 50px;/* Приближение из-за подстановки шрифтов */
+	line-height: 70px;
+}
+
+.container_tablet h2, .container_old h2 {
+	font-size: 30px;
+	line-height: 38px;
+}
+ .sweet-alert button.cancel {
+ 	background: #669AC4;
+}
+
+.container_mobile span, .container_tablet span, .container_old span{
+	font-family: HelveticaNeueCyr;
+	color:  #da4437;
+	font-size: 42px;/* Приближение из-за подстановки шрифтов */
+	font-weight: 300;
+	line-height: 60px;
+	text-align: center;
+	display: block;
+}
+
+.container_tablet span, .container_old span{ 
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.container_mobile button, .container_tablet button, .container_old button, .container_old a{
+	background: rgb(102, 147, 189);
+	border: none;
+	color: white;
+	position: relative;
+	margin: 40px auto;
+	font-size: 50px;
+	padding: 30px 20px;
+	text-transform: uppercase;
+	display: block;
+	cursor: pointer;
+	outline: none;
+	transition: color 200ms ease-out;
+	text-decoration: none;
+}
+
+
+.container_mobile button:hover, .container_tablet button:hover, .container_old button:hover,  .container_old a:hover {
+	color: #295E93;
+	text-decoration: none;
+}
+
+.container_tablet button, .container_old button,  .container_old a{ 
+	font-size: 30px;
+	padding: 18px 12px;
+	margin: 30px auto;
+}
+
+.container_old button,  .container_old a{  
+	width: 250px;
+	font-size: 25px;
+	line-height: 40px;
+	text-align: center;
+	margin-left: 30px;
+	margin-right: auto;
+	float: left;
+	padding: 12px 28px;
+	
+}
+
+.container_old  {
+	background: url("../img/old_browser.svg") bottom center no-repeat;
+	background-size:  120px auto;
+	padding-bottom: 160px;
+	margin-top: -250px;
+}
+
+.container_old a {
+	width: 200px;
+	float: right;
+	margin-right: 30px;
+}
+
+.container_safari {
+	margin-top: -250px;
+}
+
+.container_safari img {
+	width: 386px;
+height: 298px;
+position: relative;
+margin: 0 auto;
+display: block;
+}
+
+.container_safari h2 {
+	margin-top: 10px;
+	font-family: HelveticaNeueCyr;
+	color:  #405e88;
+	font-size: 22px;/* Приближение из-за подстановки шрифтов */
+	font-style: italic;
+	text-align: center;
+	padding-top: 25px;
+	margin-bottom: 7px;
+}
+
+.container_safari span {
+	/* Встроенный стиль */
+	font-family: HelveticaNeueCyr;
+	color:  #272425;
+	font-size: 22px;/* Приближение из-за подстановки шрифтов */
+	font-style: italic;
+	line-height: 26px;
+	text-align: center;
+	width: 100%;
+	display: block;
+}
+
+
+.alert_block.alert_safari.active,.alert_block.alert_cart.active, .alert_block.alert_mobile.active, .alert_block.alert_tablet.active, .alert_block.alert_old.active  {
+	background: rgba(203, 203, 203,0.8);
+	    z-index: 1100;
+}
+
 
 #foo {
   background-color: #000;
