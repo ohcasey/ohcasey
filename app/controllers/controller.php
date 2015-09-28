@@ -57,8 +57,6 @@
 			save_png2();
 		}
 
-
-		
 	}
 
 	if ($controller_name == "success") {	
@@ -82,11 +80,24 @@
 			exit;
 		}
 
+		if ($action_name=="get_cost_sdec" ) {
+			get_cost_sdec();
+			exit;
+		}
+
+			
+
+		if ($action_name=="get_city_sdec" ) {
+			get_city_sdec();
+			exit;
+		}
+
 		if ($action_name=="remove_item" ) {
 			remove_item();
 			exit;
 		}
-	if (($action_name=="robo_success") || ($action_name=="robo_fail") || ($action_name=="robo_result")) {
+
+		if (($action_name=="robo_success") || ($action_name=="robo_fail") || ($action_name=="robo_result")) {
 
 			if ($action_name=="robo_result") {
 
@@ -106,12 +117,10 @@
 
 
 			if ($action_name=="robo_success") {
-				if (isset( $_SESSION['zakaz_number'] )) {
-					if ($_SESSION['zakaz_number']!="") {
-						header("Location: /success");
-						exit;
-					}
-				}
+				
+		
+					header("Location: /success");
+					exit;
 				
 			}
 			if ($action_name=="robo_fail") {
@@ -125,7 +134,6 @@
 
 
 
-
 		if ($action_name=="get_city") {
 			if (isset($_POST['string'])) {
 
@@ -133,7 +141,7 @@
 				
 				get_city_input($string, $bd_controls);
 			}else{
-
+				
 				$array = array();
 				$result = json_encode($array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
 				$result = preg_replace_callback(
