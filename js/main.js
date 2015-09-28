@@ -6,7 +6,6 @@ var device_height_svg;
 var text_error =0;
 var bb = -240;
 
-
 var breakpoint_image = false;
 
 var safari_brow = "";
@@ -60,7 +59,7 @@ $(window).resize(function(){
 });
 $(window).scroll(function(){
 	to_down_of_page();
-})
+});
 
 preparing_html();
 
@@ -809,8 +808,6 @@ function set_default_text(){
 		.call(drag_rect)
 		.on('click', click_text_control)
 		.on("dblclick", click_text);
-
-
 	
 	//Растяжение
 	g_texts.append("circle")
@@ -844,12 +841,8 @@ function set_default_text(){
 		.attr("cx", svg_width_point+text_error)
 		.attr("cy",  svg_height_point-text_height/2-5);
 	
-	
-	
 	$("#header-menu-item-3").addClass("header-menu-active");
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
-
-	//svg_controls.append("image").
 }
 
 
@@ -1813,25 +1806,30 @@ function save_image() {
 		img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(markup))));
 
 		img.onload = function() {
-			ctx.drawImage(img, 0, 0);
-			var svg_data = canvas.toDataURL("image/png" );
 			
-			$.ajax({ 
-				type: "POST", 
-				url: "main/save_img",
-				dataType: 'text',
-				data: {
-					image: svg_data
-				},
-				success: function(data){	
-					console.log(data);
-					response_to_server(data);
-				},
-				fail: function(data){
-					sweetAlert("Ошибка", data, "error");
-				}
-			});
+				ctx.drawImage(img, 0, 0);
+				var svg_data = canvas.toDataURL("image/png" );
 
+				$.ajax({ 
+					type: "POST", 
+					url: "main/save_img",
+					dataType: 'text',
+					data: {
+						image: svg_data
+					},
+					success: function(data){	
+
+						console.log(data);
+						response_to_server(data);
+					},
+					fail: function(data){
+						sweetAlert("Ошибка", data, "error");
+					}
+				});
+			
+			
+			
+		
 		};
 
 	}
@@ -1885,7 +1883,7 @@ function response_to_server(url) {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						
+						//$("body").append(canvas);
 						document.location = "/cart";
 						breakpoint_image = false;
 
