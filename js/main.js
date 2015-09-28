@@ -6,6 +6,7 @@ var device_height_svg;
 var text_error =0;
 var bb = -240;
 
+
 var breakpoint_image = false;
 
 var safari_brow = "";
@@ -59,7 +60,7 @@ $(window).resize(function(){
 });
 $(window).scroll(function(){
 	to_down_of_page();
-});
+})
 
 preparing_html();
 
@@ -289,6 +290,18 @@ $('#header-menu li.header_menu__item').on("click", function() {
 
 
 $(document).ready(function() {
+
+	if (device.mobile() || device.tablet()) {
+		if (device.portrait()) {
+			$(".alert_block.alert_mobile").addClass("active");
+		}
+
+		if (device.landscape()) {
+			$(".alert_block.alert_tablet").addClass("active");
+		}
+	}
+
+	
 	preparing_html();
 	preparing_data();
 	set_size_inspire(true);
@@ -808,6 +821,8 @@ function set_default_text(){
 		.call(drag_rect)
 		.on('click', click_text_control)
 		.on("dblclick", click_text);
+
+
 	
 	//Растяжение
 	g_texts.append("circle")
@@ -841,8 +856,12 @@ function set_default_text(){
 		.attr("cx", svg_width_point+text_error)
 		.attr("cy",  svg_height_point-text_height/2-5);
 	
+	
+	
 	$("#header-menu-item-3").addClass("header-menu-active");
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
+
+	//svg_controls.append("image").
 }
 
 
@@ -1092,7 +1111,6 @@ function change_step(obj) {
 		}
 	}
 }
-
 
 function set_step(obj, id) {
 
@@ -1682,10 +1700,7 @@ function save_image() {
 
 	if (breakpoint_image==true) return false;
 	breakpoint_image = true;
-	$(".main_container").after('<div id = "foo"></div>');
-
-	var target = document.getElementById('foo');
-	var spinner = new Spinner(opts).spin(target);
+	$('.alert_block.alert_safari').addClass("active");
 
 
 	if (safari_brow=="safari") {
@@ -1806,30 +1821,25 @@ function save_image() {
 		img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(markup))));
 
 		img.onload = function() {
+			ctx.drawImage(img, 0, 0);
+			var svg_data = canvas.toDataURL("image/png" );
 			
-				ctx.drawImage(img, 0, 0);
-				var svg_data = canvas.toDataURL("image/png" );
+			$.ajax({ 
+				type: "POST", 
+				url: "main/save_img",
+				dataType: 'text',
+				data: {
+					image: svg_data
+				},
+				success: function(data){	
+					console.log(data);
+					response_to_server(data);
+				},
+				fail: function(data){
+					sweetAlert("Ошибка", data, "error");
+				}
+			});
 
-				$.ajax({ 
-					type: "POST", 
-					url: "main/save_img",
-					dataType: 'text',
-					data: {
-						image: svg_data
-					},
-					success: function(data){	
-
-						console.log(data);
-						response_to_server(data);
-					},
-					fail: function(data){
-						sweetAlert("Ошибка", data, "error");
-					}
-				});
-			
-			
-			
-		
 		};
 
 	}
@@ -1851,7 +1861,7 @@ function response_to_server(url) {
 				desctop.OS = BrowserDetect.OS;
 				desctop.version = BrowserDetect.version;
 				desctop.browser = BrowserDetect.browser;
-
+				desctop.useragent = ua;
 				desctop.font_x = text_x-text_width/2;
 				desctop.font_y = text_y-text_height/2;
 				desctop.font_width = text_width;
@@ -1883,7 +1893,7 @@ function response_to_server(url) {
 						desctop : JSON.stringify(desctop)
 					},
 					success: function(data){
-						//$("body").append(canvas);
+						
 						document.location = "/cart";
 						breakpoint_image = false;
 
@@ -2828,7 +2838,7 @@ jQuery(function($){
 		if (!div.is(event.target) // если клик был не по нашему блоку
 		   && (div.has(event.target).length === 0)
 			) {
-			$(".alert_block").removeClass("active");
+			$(".alert_block.alert_device, .alert_block.alert_save").removeClass("active");
 			
 		}
 	});
@@ -2961,4 +2971,9 @@ var BrowserDetect = {
 
 };
 BrowserDetect.init();
+
+
+$(document).on("click", ".container_mobile button, .container_tablet button, .container_old button", function(){
+	$(".alert_block.alert_mobile, .alert_block.alert_tablet, .alert_block.alert_old ").removeClass("active");
+});
 
