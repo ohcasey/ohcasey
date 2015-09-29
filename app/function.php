@@ -639,55 +639,22 @@ function generatePassword($length = 24){
 
 
 
-function get_mail($config, $mail_controls, $bd_controls){
-  
 
-    if (isset($_POST['fio'])) {
-        $fio = $_POST['fio'];
-        $_SESSION['fio'] =  $_POST['fio'];
-    }
+function send_mail() {
 
-    if (isset($_POST['email'])) {
-        $email = $_POST['email'];
-        $_SESSION['email'] = $_POST['email'];
-    }
-
-    if (isset($_POST['phone'])) {
-       $phone = $_POST['phone'];
-       $_SESSION['phone'] = $_POST['phone'];
-    }
-
-    if (isset($_POST['city'])) {
-       $city = $_POST['city'];
-       $_SESSION['city'] = $_POST['city'];
-    }
-    if (isset($_POST['adress'])) {
-     $adress =$_POST['adress'];
-     $_SESSION['adress'] = $_POST['adress'];
-    }
-
-    if (isset($_POST['comments'])) {
-      $comments =$_POST['comments'];
-      $_SESSION['comments'] = $_POST['comments'];
-    }
-      
-    if (isset($_POST['deliver'])) {
-        $deliver = $_POST['deliver'];
-        $_SESSION['deliver'] = $_POST['deliver'];
-    }
-      
-    if (isset($_POST['payment'])) {
-        $payment  = $_POST['payment'];
-        $_SESSION['payment'] = $_POST['payment'];
-
-    }  
+    $fio =  $_SESSION['fio'];
+    $email  = $_SESSION['email'];
+    $phone =   $_SESSION['phone'];
+    $city = $_SESSION['city'];
+    $adress = $_SESSION['adress'];
+    $comments =$_SESSION['comments'];
+    $deliver = $_SESSION['deliver'];
+    $payment  =  $_SESSION['payment'];
 
 
 
 
- if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
-
-
+if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
     $db =  mysqlconnect($bd_controls);
     
@@ -857,7 +824,175 @@ function get_mail($config, $mail_controls, $bd_controls){
     /*mail client*/
 
     $mail = new PHPMailer;
+    $mail->SMTPDebug = 0;                  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
+
+    $db =  mysqlconnect($bd_controls);
+    
+    $query = mysql_query("SELECT count FROM settings") or die(mysql_error());
+   
+    while ($value = mysql_fetch_array($query)) {
+       $zakaz_number = $value["count"]+1;
+    }
+
+
+    $query = mysql_query("UPDATE settings SET count = '$zakaz_number'") or die(mysql_error());
+
+    mysql_close($db);
+
+
+    $_SESSION['zakaz_number'] = $zakaz_number;
+    $time_order = date("d.m.y H:i:s");
+    $_SESSION['time_order'] =  $time_order;
+
+    require 'mail_functions/PHPMailerAutoload.php';
+
+    $mail = new PHPMailer;
     $mail->SMTPDebug = 0;                               // Enable verbose debug output  
+    $mail->CharSet = 'UTF-8';
+    $mail->isSMTP();  
+
+
+
+    
+    $mail->SMTPAuth = true;   
+    $mail->Host = $mail_controls["Host"];
+    $mail->Port = $mail_controls["Port"];
+                                 // Set mailer to use SMTP                               // Enable SMTP authentication
+    $mail->Username = $mail_controls["Username"];                 // SMTP username
+    $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
+                                // TCP port to connect to
+
+    $mail->From = $mail_controls["Username"];
+    $mail->FromName = 'Сайт ohcasey';
+    $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
+
+    $mail->isHTML(true);                                  // Set email format to HTML
+
+
+    $body = file_get_contents('mail_templates/admin.html');
+
+
+    
+    $body = str_replace('$time_order', $time_order, $body);
+    $body = str_replace('$fio', $fio, $body);
+    $body = str_replace('$zakaz_number',  $zakaz_number, $body);
+    $body = str_replace('$email', $email, $body);
+    $body = str_replace('$phone', $phone, $body);
+    $body = str_replace('$city', $city, $body);
+
+    $cost = 0;
+    $cost += $config["deliver_cost"][$deliver];
+
+    /*
+        тут все остальное
+    */
+    $deliver_type ="";
+
+
+    if ($deliver=="self"){
+        $deliver_type = "Cамовывоз";
+
+    }
+    if ($deliver=="kur_mos"){
+          $deliver_type = "Курьер по Москве";
+
+    }
+    if ($deliver=="kur_rus"){
+        $deliver_type = "Курьер по России";
+
+    }
+    if ($deliver=="mail_ru"){
+        $deliver_type = "Почта России";
+    }
+
+
+    if ($payment=="cash"){
+        $payment_type = "Наличными";
+
+    }
+
+    if ($payment=="sber"){
+        $payment_type = "Карта сбербанка";
+    }
+
+    if ($payment=="robocassa"){
+        $payment_type = "Робокасса";
+    }
+
+
+    $elements = get_elements_to_admin_mail($config);
+
+  
+    $body = str_replace('$elements', $elements[0], $body);
+
+    $cost+=$elements[1];
+
+    $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
+    $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
+    $body = str_replace('$version', $_SESSION['items'][0]["version"], $body);
+    $body = str_replace('$useragent', $_SESSION['items'][0]["useragent"], $body);
+
+    
+
+    $body = str_replace('$deliver', $deliver_type, $body);
+
+
+
+    $body = str_replace('$payment', $payment_type, $body);
+
+    $body = str_replace('$cost', $cost, $body);
+
+    if (isset($adress) && ($adress!="")) {
+         $body = str_replace('$adress','<tr>
+                                                        <td style ="padding: 5px;" width="50%">Адрес</td>
+                                                        <td style ="padding: 5px;">'.$adress.'</td>
+                                                    </tr>', $body);
+    }else{
+        $body = str_replace('$adress', "", $body);
+    }
+
+    if (isset($comments) && ($comments!="")) {
+         $body = str_replace('$comments', '<tr>
+                                                        <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
+                                                        <td style ="padding: 5px;">'.$comments.'</td>
+                                                    </tr>', $body);
+    }else{
+        $body = str_replace('$comments', "", $body);
+    }
+
+
+
+
+    $body = str_replace('$time_order', $time_order, $body);
+    
+    // strip backslashes
+    $body = preg_replace('/\\\\/','', $body);
+
+
+
+    $mail->Subject = 'Новый заказ №'.$zakaz_number;
+    $mail->MsgHTML($body);
+    $mail->CharSet="utf-8";
+
+    
+    
+
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    if(!$mail->send()) {
+        
+       echo 'Письмо админу не отправлено.';
+       echo 'Oшибка письма: ' . $mail->ErrorInfo;
+    } else {
+
+        echo 'Письмо админу отправлено';
+         
+    } 
+
+
+
+    /*mail client*/
+              // Enable verbose debug output  
     $mail->CharSet = 'UTF-8';
     $mail->isSMTP();  
 
@@ -985,14 +1120,6 @@ function get_mail($config, $mail_controls, $bd_controls){
 
 
     $body = str_replace('$plant', $elem[0]   , $body);
-   
-
-
-  
-
-
-
-
     
     $mail->SMTPSecure = 'tls';
     $mail->Subject = 'Заказ на сайте ohcasey.ru №'.$zakaz_number;
@@ -1015,27 +1142,7 @@ function get_mail($config, $mail_controls, $bd_controls){
     }
 
 
-    if ($payment=="robocassa"){
-
-
-
-
-        $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
-        /* назначение параметров */
-        $kassa->OutSum       = $cost;
-        $kassa->InvId = $zakaz_number;
-        $kassa->Email = $email;
-        $kassa->Desc         = 'Чехол на ohcasey.ru, заказ номер №'.$zakaz_number;
-        $kassa->addCustomValues(array(
-            'shp_user' => $userId, // все ключи массива должны быть с префиксом shp_
-            'shp_someData' => 'someValue'
-        ));
-
-        header('Location: ' . $kassa->getRedirectURL());
-
-       exit;
-    }
-
+    
 
     //print_r($_SESSION["items"]);
     header("Location: /success"); 
@@ -1046,6 +1153,72 @@ function get_mail($config, $mail_controls, $bd_controls){
     header("Location: /cart"); 
 }
 
+}
+
+
+function get_mail($config, $mail_controls, $bd_controls){
+  
+
+    if (isset($_POST['fio'])) {
+        $fio = $_POST['fio'];
+        $_SESSION['fio'] =  $_POST['fio'];
+    }
+
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+        $_SESSION['email'] = $_POST['email'];
+    }
+
+    if (isset($_POST['phone'])) {
+       $phone = $_POST['phone'];
+       $_SESSION['phone'] = $_POST['phone'];
+    }
+
+    if (isset($_POST['city'])) {
+       $city = $_POST['city'];
+       $_SESSION['city'] = $_POST['city'];
+    }
+    if (isset($_POST['adress'])) {
+     $adress =$_POST['adress'];
+     $_SESSION['adress'] = $_POST['adress'];
+    }
+
+    if (isset($_POST['comments'])) {
+      $comments =$_POST['comments'];
+      $_SESSION['comments'] = $_POST['comments'];
+    }
+      
+    if (isset($_POST['deliver'])) {
+        $deliver = $_POST['deliver'];
+        $_SESSION['deliver'] = $_POST['deliver'];
+    }
+      
+    if (isset($_POST['payment'])) {
+        $payment  = $_POST['payment'];
+        $_SESSION['payment'] = $_POST['payment'];
+
+    }
+
+
+    if ($payment=="robocassa"){
+
+            $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
+            /* назначение параметров */
+            $kassa->OutSum       = $cost;
+            $kassa->InvId = $zakaz_number;
+            $kassa->Email = $email;
+            $kassa->Desc         = 'Чехол на ohcasey.ru, заказ номер №'.$zakaz_number;
+            $kassa->addCustomValues(array(
+                'shp_user' => $userId, // все ключи массива должны быть с префиксом shp_
+                'shp_someData' => 'someValue'
+            ));
+
+            header('Location: ' . $kassa->getRedirectURL());
+
+           exit;
+    }else{
+         send_mail();
+    }
 
 
 }    
