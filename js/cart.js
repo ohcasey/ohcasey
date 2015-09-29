@@ -108,7 +108,7 @@ $(document).on('click',".result_city span", function(){
 
 $(document).on('input','.select-city__main-input__sdec', function(){
 	$(".city").val($(this).val());
-
+	get_city_list_sdec();
 });
 
 $(document).on("click", ".container_yandex_close", function(){
@@ -242,14 +242,16 @@ $(document).on('change','input[name="deliver"]', function(){
 
 	if (radio_val=="sdec") { 
 		$(".checkbox_item.sdec").find(".checkbox_hided").addClass("active");
-		$(".alert_block.alert_cart").addClass("active");
+		show_sdec();
 	}
 
 	reset_cost_total();
 });
 
 function show_sdec() {
+
 	$(".alert_cart").addClass("active");
+	get_city_list_sdec();
 }
 
 $(document).on('keydown',".phone", function(){
@@ -557,30 +559,96 @@ jQuery(function($){
 });
 
 
+$(document).on("click", ".city_list-sdec span", function(){
+	var idcity = $(this).attr("data-CityCode");
+	get_city_sdec(idcity);
+});
 
 function get_city_list_sdec() {
+					$.ajax({
+							url : "http://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
+							dataType : "jsonp",
+							data : {
+								q : function() {
+									return $(".select-city__main-input__sdec").val()
+								},
+								name_startsWith : function() {
+									return $(".select-city__main-input__sdec").val()
+								}
+							},
+							success : function(data) {
+								console.log(data);
+								$(".city_list-sdec").find("span").remove();
+								for (var i = 0; i<data.geonames.length; i++) {
 
+
+									if (data.geonames[i].cityName.toLowerCase() === $(".select-city__main-input__sdec").val().toLowerCase()) {
+										get_city_sdec(data.geonames[i].id);
+										console.log("ok");
+										
+									}
+
+									console.log(data.geonames[i]);
+									var text = "<span";
+
+									text+= " data-CityCode='"+data.geonames[i].id+"'" ;
+
+									text+=">"+data.geonames[i].cityName+"</span>";
+
+									$(".city_list-sdec").append(text);
+								}
+
+								/*response($.map(data.geonames, function(item) {
+									return {
+										label : item.name,
+										value : item.name,
+										id : item.id
+									}
+								}));*/
+							}
+						});
+
+
+	/*
+	$("#city").autocomplete({
+					source : function(request, response) {
+
+					},
+					minLength : 1,
+					select : function(event, ui) {
+						//console.log("Yep!");
+						$('#receiverCityId').val(ui.item.id);
+					}
+				});
+
+
+	*/
 }
 
 
 
-function get_city_sdec() {
+function get_city_sdec(idcity) {
 	$.ajax({
 	  type: "POST",
-	  dataType: "json",
+	  data: {
+	  	"idcity": idcity
+	  },
 	  url: "cart/get_city_sdec",
 	  success: function(data){
-	  	sdec_points=data;
+	  	sdec_points=JSON.parse(data);
 	  	myGeoObjects = [];
 	  	myMap.geoObjects.removeAll();
-		for (var i = 0; i < sdec_points.length; i++) {
-			console.log(sdec_points[i]);
+	  	console.log(sdec_points);
+
+
+	  	if (sdec_points.length>1) {
+	  		for (var i = 0; i < sdec_points.length; i++) {
 
 			var table = '<table><tbody>';
-
 			table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
-			table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
-
+			if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+				table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+			}
 			if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
 				table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>';	
 			}
@@ -651,11 +719,86 @@ function get_city_sdec() {
 			
 		};
 
-
 		clusterer = new ymaps.Clusterer();
 		clusterer.add(myGeoObjects);
 		myMap.geoObjects.add(clusterer);
 		myMap.setBounds(clusterer.getBounds());
+	  	}else{
+	  		var table = '<table><tbody>';
+			table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+			if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+				table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+			}
+			if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+				table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';	
+			}
+
+
+			if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+				table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';	
+			}
+			   table += '</tbody></table>';
+
+			
+			table += "<button ";
+
+			if ((sdec_points["@attributes"]["Address"]!=undefined) && (sdec_points["@attributes"]["Address"]!="")) {
+					table += "data-Address='"+sdec_points["@attributes"]["Address"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["City"]!=undefined) && (sdec_points["@attributes"]["City"]!="")) {
+				table += "data-City='"+sdec_points["@attributes"]["City"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["CityCode"]!=undefined) && (sdec_points["@attributes"]["CityCode"]!="")) {
+				table += "data-CityCode='"+sdec_points["@attributes"]["CityCode"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["Code"]!=undefined) && (sdec_points["@attributes"]["Code"]!="")) {
+				table += "data-Code='"+sdec_points["@attributes"]["Code"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["Name"]!=undefined) && (sdec_points["@attributes"]["Name"]!="")) {
+				table += "data-Name='"+sdec_points["@attributes"]["Name"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+				table += "data-Note='"+sdec_points["@attributes"]["Note"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+				table += "data-Phone='"+sdec_points["@attributes"]["Phone"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+				table += "data-WorkTime='"+sdec_points["@attributes"]["WorkTime"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["coordX"]!=undefined) && (sdec_points["@attributes"]["coordX"]!="")) {
+				table += "data-coordX='"+sdec_points["@attributes"]["WorkTime"]+"' ";
+			}
+
+			if ((sdec_points["@attributes"]["coordY"]!=undefined) && (sdec_points["@attributes"]["coordY"]!="")) {
+				table += "data-coordY='"+sdec_points["@attributes"]["WorkTime"]+"' ";
+			}
+
+
+			table += " >Выбрать</button>";
+
+
+         
+			var object =  new ymaps.Placemark(
+					[sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
+						 balloonContentHeader: sdec_points["@attributes"]["Name"],
+               			 balloonContent: table
+					}
+				);
+			myMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
+			myMap.geoObjects.add(object);
+		
+	  	}
+
+		
 	  }
   	});
 }
@@ -709,8 +852,8 @@ function init () {
 
 
 
-    get_city_sdec();
-
+   // get_city_sdec();
+    get_city_list_sdec();
 }
 
 function ucfirst(str) 

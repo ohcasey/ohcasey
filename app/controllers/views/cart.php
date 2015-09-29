@@ -64,7 +64,7 @@
 							</div>
 							<div class="order_form-box_block"> 
 								<span class="new_line">Самовывоз через пункт СДЭК</span>
-								<span class="checkbox_hided sdec_address"></span>
+								<span class="checkbox_hided sdec_address">Выбрать пункт выдачи</span>
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >3-5 дней</p>

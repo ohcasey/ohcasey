@@ -34,15 +34,15 @@ function get_cost_sdec() {
         "tariffId"=>137,
      
         "goods" => array(   
-            "width" => "25",
-            "length" => "20",
+            "width" => "1",
+            "length" => "1",
             "height" => "1",
-            "weight" => "0.1"
+            "weight" => "1"
         )
     );
     echo "<pre>";
     print_r($json_string);
-
+    echo json_encode($json_string);
     if( $ch = curl_init() ) {
         curl_setopt($ch, CURLOPT_URL, "http://api.edostavka.ru/calculator/calculate_price_by_json.php");  
 
@@ -86,8 +86,17 @@ function get_cost_sdec() {
 }
 
 function get_city_sdec() {
+
+    
+
+    if (isset($_POST["idcity"])) {
+            $idcity = $_POST["idcity"];
+    }else {
+        $idcity = 44;
+    }
+
     if( $ch = curl_init() ) {
-        curl_setopt($ch, CURLOPT_URL, "http://gw.edostavka.ru:11443/pvzlist.php?cityid=44");  
+        curl_setopt($ch, CURLOPT_URL, "http://gw.edostavka.ru:11443/pvzlist.php?cityid=".$idcity);  
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
         curl_setopt($ch, CURLOPT_HEADER, 0);  
         $output = curl_exec($ch); 
