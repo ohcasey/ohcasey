@@ -119,7 +119,7 @@
 
 
 			if ($action_name=="robo_success") {
-					send_mail();		
+					send_mail($config, $mail_controls, $bd_controls);		
 		
 					header("Location: /success");
 					exit;

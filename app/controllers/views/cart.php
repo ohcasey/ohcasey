@@ -268,7 +268,7 @@
 			<div id="map"></div>
 			<div class="select_city_block">
 				<div class="select-city__main-input">
-					<input type="text" class="select-city__main-input__sdec" placeholder="Выберите город">
+					<input type="text" class="select-city__main-input__sdec" placeholder="Выберите город" value="<?php echo $city; ?>">
 					<span>Выбрать другой город</span>
 				</div>
 				<div class = "city_list-sdec">

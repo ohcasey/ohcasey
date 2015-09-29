@@ -640,7 +640,7 @@ function generatePassword($length = 24){
 
 
 
-function send_mail() {
+function send_mail($config, $mail_controls, $bd_controls) {
 
     $fio =  $_SESSION['fio'];
     $email  = $_SESSION['email'];
@@ -652,27 +652,9 @@ function send_mail() {
     $payment  =  $_SESSION['payment'];
 
 
-
-
     if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
-        $db =  mysqlconnect($bd_controls);
-        
-        $query = mysql_query("SELECT count FROM settings") or die(mysql_error());
-       
-        while ($value = mysql_fetch_array($query)) {
-           $zakaz_number = $value["count"]+1;
-        }
-
-
-        $query = mysql_query("UPDATE settings SET count = '$zakaz_number'") or die(mysql_error());
-
-        mysql_close($db);
-
-
-        $_SESSION['zakaz_number'] = $zakaz_number;
-        $time_order = date("d.m.y H:i:s");
-        $_SESSION['time_order'] =  $time_order;
+   
 
         require 'mail_functions/PHPMailerAutoload.php';
 
@@ -1141,9 +1123,6 @@ function send_mail() {
            
         }
 
-
-        
-
         //print_r($_SESSION["items"]);
         header("Location: /success"); 
 
@@ -1195,12 +1174,28 @@ function get_mail($config, $mail_controls, $bd_controls){
     if (isset($_POST['payment'])) {
         $payment  = $_POST['payment'];
         $_SESSION['payment'] = $_POST['payment'];
+    }
 
+    $db =  mysqlconnect($bd_controls);
+        
+    $query = mysql_query("SELECT count FROM settings") or die(mysql_error());
+       
+    while ($value = mysql_fetch_array($query)) {
+        $zakaz_number = $value["count"]+1;
     }
 
 
-    if ($payment=="robocassa"){
+    $query = mysql_query("UPDATE settings SET count = '$zakaz_number'") or die(mysql_error());
 
+    mysql_close($db);
+
+
+    $_SESSION['zakaz_number'] = $zakaz_number;
+    $time_order = date("d.m.y H:i:s");
+    $_SESSION['time_order'] =  $time_order;
+
+
+    if ($payment=="robocassa"){  
             $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
             /* назначение параметров */
             $kassa->OutSum       = $cost;
@@ -1216,7 +1211,7 @@ function get_mail($config, $mail_controls, $bd_controls){
 
            exit;
     }else{
-         send_mail();
+         send_mail($config, $mail_controls, $bd_controls);
     }
 
 }    

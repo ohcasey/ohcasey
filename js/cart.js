@@ -186,12 +186,7 @@ $(document).on('click',".cart_item_block__close", function(){
 						breakpoint_delete==true;
 					}
 				});
-
-
-
 });
-
-
 
 
 $(document).on('change','input[name="deliver"]', function(){
