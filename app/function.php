@@ -654,511 +654,510 @@ function send_mail() {
 
 
 
-if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
+    if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
-    $db =  mysqlconnect($bd_controls);
-    
-    $query = mysql_query("SELECT count FROM settings") or die(mysql_error());
-   
-    while ($value = mysql_fetch_array($query)) {
-       $zakaz_number = $value["count"]+1;
-    }
-
-
-    $query = mysql_query("UPDATE settings SET count = '$zakaz_number'") or die(mysql_error());
-
-    mysql_close($db);
-
-
-    $_SESSION['zakaz_number'] = $zakaz_number;
-    $time_order = date("d.m.y H:i:s");
-    $_SESSION['time_order'] =  $time_order;
-
-    require 'mail_functions/PHPMailerAutoload.php';
-
-    $mail = new PHPMailer;
-    $mail->SMTPDebug = 0;                               // Enable verbose debug output  
-    $mail->CharSet = 'UTF-8';
-    $mail->isSMTP();  
-
-
-
-    
-    $mail->SMTPAuth = true;   
-    $mail->Host = $mail_controls["Host"];
-    $mail->Port = $mail_controls["Port"];
-                                 // Set mailer to use SMTP                               // Enable SMTP authentication
-    $mail->Username = $mail_controls["Username"];                 // SMTP username
-    $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
-                                // TCP port to connect to
-
-    $mail->From = $mail_controls["Username"];
-    $mail->FromName = 'Сайт ohcasey';
-    $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
-
-    $mail->isHTML(true);                                  // Set email format to HTML
-
-
-    $body = file_get_contents('mail_templates/admin.html');
-
-
-    
-    $body = str_replace('$time_order', $time_order, $body);
-    $body = str_replace('$fio', $fio, $body);
-    $body = str_replace('$zakaz_number',  $zakaz_number, $body);
-    $body = str_replace('$email', $email, $body);
-    $body = str_replace('$phone', $phone, $body);
-    $body = str_replace('$city', $city, $body);
-
-    $cost = 0;
-    $cost += $config["deliver_cost"][$deliver];
-
-    /*
-        тут все остальное
-    */
-    $deliver_type ="";
-
-
-    if ($deliver=="self"){
-        $deliver_type = "Cамовывоз";
-
-    }
-    if ($deliver=="kur_mos"){
-          $deliver_type = "Курьер по Москве";
-
-    }
-    if ($deliver=="kur_rus"){
-        $deliver_type = "Курьер по России";
-
-    }
-    if ($deliver=="mail_ru"){
-        $deliver_type = "Почта России";
-    }
-
-
-    if ($payment=="cash"){
-        $payment_type = "Наличными";
-
-    }
-
-    if ($payment=="sber"){
-        $payment_type = "Карта сбербанка";
-    }
-
-    if ($payment=="robocassa"){
-        $payment_type = "Робокасса";
-    }
-
-
-    $elements = get_elements_to_admin_mail($config);
-
-  
-    $body = str_replace('$elements', $elements[0], $body);
-
-    $cost+=$elements[1];
-
-    $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
-    $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
-    $body = str_replace('$version', $_SESSION['items'][0]["version"], $body);
-    $body = str_replace('$useragent', $_SESSION['items'][0]["useragent"], $body);
-
-    
-
-    $body = str_replace('$deliver', $deliver_type, $body);
-
-
-
-    $body = str_replace('$payment', $payment_type, $body);
-
-    $body = str_replace('$cost', $cost, $body);
-
-    if (isset($adress) && ($adress!="")) {
-         $body = str_replace('$adress','<tr>
-                                                        <td style ="padding: 5px;" width="50%">Адрес</td>
-                                                        <td style ="padding: 5px;">'.$adress.'</td>
-                                                    </tr>', $body);
-    }else{
-        $body = str_replace('$adress', "", $body);
-    }
-
-    if (isset($comments) && ($comments!="")) {
-         $body = str_replace('$comments', '<tr>
-                                                        <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
-                                                        <td style ="padding: 5px;">'.$comments.'</td>
-                                                    </tr>', $body);
-    }else{
-        $body = str_replace('$comments', "", $body);
-    }
-
-
-
-
-    $body = str_replace('$time_order', $time_order, $body);
-    
-    // strip backslashes
-    $body = preg_replace('/\\\\/','', $body);
-
-
-
-    $mail->Subject = 'Новый заказ №'.$zakaz_number;
-    $mail->MsgHTML($body);
-    $mail->CharSet="utf-8";
-
-    
-    
-
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    if(!$mail->send()) {
+        $db =  mysqlconnect($bd_controls);
         
-       echo 'Письмо админу не отправлено.';
-       echo 'Oшибка письма: ' . $mail->ErrorInfo;
-    } else {
-
-        echo 'Письмо админу отправлено';
-         
-    } 
-
-
-
-    /*mail client*/
-
-    $mail = new PHPMailer;
-    $mail->SMTPDebug = 0;                  if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
-
-    $db =  mysqlconnect($bd_controls);
-    
-    $query = mysql_query("SELECT count FROM settings") or die(mysql_error());
-   
-    while ($value = mysql_fetch_array($query)) {
-       $zakaz_number = $value["count"]+1;
-    }
-
-
-    $query = mysql_query("UPDATE settings SET count = '$zakaz_number'") or die(mysql_error());
-
-    mysql_close($db);
-
-
-    $_SESSION['zakaz_number'] = $zakaz_number;
-    $time_order = date("d.m.y H:i:s");
-    $_SESSION['time_order'] =  $time_order;
-
-    require 'mail_functions/PHPMailerAutoload.php';
-
-    $mail = new PHPMailer;
-    $mail->SMTPDebug = 0;                               // Enable verbose debug output  
-    $mail->CharSet = 'UTF-8';
-    $mail->isSMTP();  
-
-
-
-    
-    $mail->SMTPAuth = true;   
-    $mail->Host = $mail_controls["Host"];
-    $mail->Port = $mail_controls["Port"];
-                                 // Set mailer to use SMTP                               // Enable SMTP authentication
-    $mail->Username = $mail_controls["Username"];                 // SMTP username
-    $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
-                                // TCP port to connect to
-
-    $mail->From = $mail_controls["Username"];
-    $mail->FromName = 'Сайт ohcasey';
-    $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
-
-    $mail->isHTML(true);                                  // Set email format to HTML
-
-
-    $body = file_get_contents('mail_templates/admin.html');
-
-
-    
-    $body = str_replace('$time_order', $time_order, $body);
-    $body = str_replace('$fio', $fio, $body);
-    $body = str_replace('$zakaz_number',  $zakaz_number, $body);
-    $body = str_replace('$email', $email, $body);
-    $body = str_replace('$phone', $phone, $body);
-    $body = str_replace('$city', $city, $body);
-
-    $cost = 0;
-    $cost += $config["deliver_cost"][$deliver];
-
-    /*
-        тут все остальное
-    */
-    $deliver_type ="";
-
-
-    if ($deliver=="self"){
-        $deliver_type = "Cамовывоз";
-
-    }
-    if ($deliver=="kur_mos"){
-          $deliver_type = "Курьер по Москве";
-
-    }
-    if ($deliver=="kur_rus"){
-        $deliver_type = "Курьер по России";
-
-    }
-    if ($deliver=="mail_ru"){
-        $deliver_type = "Почта России";
-    }
-
-
-    if ($payment=="cash"){
-        $payment_type = "Наличными";
-
-    }
-
-    if ($payment=="sber"){
-        $payment_type = "Карта сбербанка";
-    }
-
-    if ($payment=="robocassa"){
-        $payment_type = "Робокасса";
-    }
-
-
-    $elements = get_elements_to_admin_mail($config);
-
-  
-    $body = str_replace('$elements', $elements[0], $body);
-
-    $cost+=$elements[1];
-
-    $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
-    $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
-    $body = str_replace('$version', $_SESSION['items'][0]["version"], $body);
-    $body = str_replace('$useragent', $_SESSION['items'][0]["useragent"], $body);
-
-    
-
-    $body = str_replace('$deliver', $deliver_type, $body);
-
-
-
-    $body = str_replace('$payment', $payment_type, $body);
-
-    $body = str_replace('$cost', $cost, $body);
-
-    if (isset($adress) && ($adress!="")) {
-         $body = str_replace('$adress','<tr>
-                                                        <td style ="padding: 5px;" width="50%">Адрес</td>
-                                                        <td style ="padding: 5px;">'.$adress.'</td>
-                                                    </tr>', $body);
-    }else{
-        $body = str_replace('$adress', "", $body);
-    }
-
-    if (isset($comments) && ($comments!="")) {
-         $body = str_replace('$comments', '<tr>
-                                                        <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
-                                                        <td style ="padding: 5px;">'.$comments.'</td>
-                                                    </tr>', $body);
-    }else{
-        $body = str_replace('$comments', "", $body);
-    }
-
-
-
-
-    $body = str_replace('$time_order', $time_order, $body);
-    
-    // strip backslashes
-    $body = preg_replace('/\\\\/','', $body);
-
-
-
-    $mail->Subject = 'Новый заказ №'.$zakaz_number;
-    $mail->MsgHTML($body);
-    $mail->CharSet="utf-8";
-
-    
-    
-
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    if(!$mail->send()) {
-        
-       echo 'Письмо админу не отправлено.';
-       echo 'Oшибка письма: ' . $mail->ErrorInfo;
-    } else {
-
-        echo 'Письмо админу отправлено';
-         
-    } 
-
-
-
-    /*mail client*/
-              // Enable verbose debug output  
-    $mail->CharSet = 'UTF-8';
-    $mail->isSMTP();  
-
-    $mail->SMTPAuth = true;  
-
-    $mail->Host = $mail_controls["Host"];
-    $mail->Port = $mail_controls["Port"];
-                                 // Set mailer to use SMTP                               // Enable SMTP authentication
-    $mail->Username = $mail_controls["Username"];                 // SMTP username
-    $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
-                                // TCP port to connect to
-
-    $mail->From = $mail_controls["Username"];
-
-    $mail->FromName = 'Сайт ohcasey';
-
-    $mail->addAddress($email, $fio);     // Add a recipient
-
-    $mail->isHTML(true);                                  // Set email format to HTML
-
-    $body = file_get_contents('mail_templates/client.html');
-
-
-
-
-
-    /*$src = $_SERVER['HTTP_HOST'];*/
-    $src = 'ohcasey.dragon-web.vps-private.net';
-    $fontface ="    @font-face {
-    font-family: HelveticaNeueCyr;
-    src: local('HelveticaNeueCyr'),
-    url(".$src."/fonts/HelveticaNeueCyr-Roman.otf);}";
-
-    $body = str_replace('$fontface',$fontface  , $body);
-
-
-    
-     
-    $body =  str_replace('$href_logo', 'http://'.$src , $body);
-
-    $body =  str_replace('$logo', 'http://'.$src.'/img/logo_white.png' , $body);
-
-    $body = str_replace('$bottomemail', 'http://'.$src.'/img/mail_background2.png' , $body);
-
-
-   
-    $body = str_replace('$inst', 'http://'.$src.'/img/inst.png'  , $body);
-
-
-    $body =  str_replace('$logo', 'http://'.$src.'/img/logo_white.png' , $body);
-
-    $date = date("d.m.y");
-    $body = str_replace('$date', $date  , $body);
-
-
-    $time = date("H:i"); 
-    $body = str_replace('$time', $time  , $body);
-
-    $body = preg_replace('/\\\\/','', $body);
- 
-    
-
-    $body = str_replace('$fio', $fio, $body);
-    $body = str_replace('$zakaz_number',  $zakaz_number, $body);
-    $body = str_replace('$email', $email, $body);
-    $body = str_replace('$phone', $phone, $body);
-    $body = str_replace('$city', $city, $body);
-
-     if (isset($adress))   {
-      $body = str_replace('$adress_mail','<span  style="display: block;
-                                            color:  #000000;
-                                            font-size: 14px;
-                                            padding-top: 3px;
-                                            padding-bottom: 3px;
-                                            font-weight: 400;
-                                            text-align: left;">Адрес: <span style="color:  #405e88;
-                                            font-size: 16px;" >'.$adress.'</span></span>', $body);
-    }else{
-        $body = str_replace('$adress_mail','-', $body);
-    }
-
-    if (isset($comments)) {
-        $body = str_replace('$comments_mail','<span  style="display: block;
-                                            color:  #000000;
-                                            font-size: 14px;
-                                            padding-top: 3px;
-                                            padding-bottom: 3px;
-                                            font-weight: 400;
-                                            text-align: left;">Комментарии: <span style="color:  #405e88;
-                                            font-size: 16px;" >'.$comments.'</span></span>', $body);
-    }else{
-         $body = str_replace('$comments_mail','-', $body);
-    }
-
-    $body = str_replace('$deliver', $deliver_type, $body);
-
-    $body = str_replace('$payment', $payment_type, $body);
-
-
-
-
-    if ($payment=="sber"){
-        $body = str_replace('$sber_option','<span  style="display: block;
-                                            color:  #000000;
-                                            font-size: 14px;
-                                            padding-top: 3px;
-                                            padding-bottom: 3px;
-                                            font-weight: 400;
-                                            text-align: left;">Карта сбербанка для оплаты:  <span style="color:  #405e88;
-                                            font-size: 16px;" >6761 9600 0133 359217</span></span>', $body);
-    }else{
-        $body = str_replace('$sber_option', "", $body);
-    }
-
-
-    
-
-    $body = str_replace('$summ', $elements[1]." р." , $body);
-    $body = str_replace('$delicer_cost', $config["deliver_cost"][$deliver]." р.", $body);
-    $body = str_replace('$final', $cost." р.", $body);
-
-    $body = str_replace('$finaf', $cost." рублей", $body);
-    
-    $elem = get_client_mail($config);
-
-
-    $body = str_replace('$plant', $elem[0]   , $body);
-    
-    $mail->SMTPSecure = 'tls';
-    $mail->Subject = 'Заказ на сайте ohcasey.ru №'.$zakaz_number;
-    $mail->addAddress($email, $fio);
-    $mail->MsgHTML($body);
-    $mail->CharSet="utf-8";
-
- 
-    
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; 
-
-    if(!$mail->send()) {
-        
-        echo 'Письмо клиенту не отправлено.';
-        echo 'Oшибка письма: ' . $mail->ErrorInfo;
-    } else {
-
-         echo 'Письмо админу отправлено';
+        $query = mysql_query("SELECT count FROM settings") or die(mysql_error());
        
+        while ($value = mysql_fetch_array($query)) {
+           $zakaz_number = $value["count"]+1;
+        }
+
+
+        $query = mysql_query("UPDATE settings SET count = '$zakaz_number'") or die(mysql_error());
+
+        mysql_close($db);
+
+
+        $_SESSION['zakaz_number'] = $zakaz_number;
+        $time_order = date("d.m.y H:i:s");
+        $_SESSION['time_order'] =  $time_order;
+
+        require 'mail_functions/PHPMailerAutoload.php';
+
+        $mail = new PHPMailer;
+        $mail->SMTPDebug = 0;                               // Enable verbose debug output  
+        $mail->CharSet = 'UTF-8';
+        $mail->isSMTP();  
+
+
+
+        
+        $mail->SMTPAuth = true;   
+        $mail->Host = $mail_controls["Host"];
+        $mail->Port = $mail_controls["Port"];
+                                     // Set mailer to use SMTP                               // Enable SMTP authentication
+        $mail->Username = $mail_controls["Username"];                 // SMTP username
+        $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
+                                    // TCP port to connect to
+
+        $mail->From = $mail_controls["Username"];
+        $mail->FromName = 'Сайт ohcasey';
+        $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
+
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+
+        $body = file_get_contents('mail_templates/admin.html');
+
+
+        
+        $body = str_replace('$time_order', $time_order, $body);
+        $body = str_replace('$fio', $fio, $body);
+        $body = str_replace('$zakaz_number',  $zakaz_number, $body);
+        $body = str_replace('$email', $email, $body);
+        $body = str_replace('$phone', $phone, $body);
+        $body = str_replace('$city', $city, $body);
+
+        $cost = 0;
+        $cost += $config["deliver_cost"][$deliver];
+
+        /*
+            тут все остальное
+        */
+        $deliver_type ="";
+
+
+        if ($deliver=="self"){
+            $deliver_type = "Cамовывоз";
+
+        }
+        if ($deliver=="kur_mos"){
+              $deliver_type = "Курьер по Москве";
+
+        }
+        if ($deliver=="kur_rus"){
+            $deliver_type = "Курьер по России";
+
+        }
+        if ($deliver=="mail_ru"){
+            $deliver_type = "Почта России";
+        }
+
+
+        if ($payment=="cash"){
+            $payment_type = "Наличными";
+
+        }
+
+        if ($payment=="sber"){
+            $payment_type = "Карта сбербанка";
+        }
+
+        if ($payment=="robocassa"){
+            $payment_type = "Робокасса";
+        }
+
+
+        $elements = get_elements_to_admin_mail($config);
+
+      
+        $body = str_replace('$elements', $elements[0], $body);
+
+        $cost+=$elements[1];
+
+        $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
+        $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
+        $body = str_replace('$version', $_SESSION['items'][0]["version"], $body);
+        $body = str_replace('$useragent', $_SESSION['items'][0]["useragent"], $body);
+
+        
+
+        $body = str_replace('$deliver', $deliver_type, $body);
+
+
+
+        $body = str_replace('$payment', $payment_type, $body);
+
+        $body = str_replace('$cost', $cost, $body);
+
+        if (isset($adress) && ($adress!="")) {
+             $body = str_replace('$adress','<tr>
+                                                            <td style ="padding: 5px;" width="50%">Адрес</td>
+                                                            <td style ="padding: 5px;">'.$adress.'</td>
+                                                        </tr>', $body);
+        }else{
+            $body = str_replace('$adress', "", $body);
+        }
+
+        if (isset($comments) && ($comments!="")) {
+             $body = str_replace('$comments', '<tr>
+                                                            <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
+                                                            <td style ="padding: 5px;">'.$comments.'</td>
+                                                        </tr>', $body);
+        }else{
+            $body = str_replace('$comments', "", $body);
+        }
+
+
+
+
+        $body = str_replace('$time_order', $time_order, $body);
+        
+        // strip backslashes
+        $body = preg_replace('/\\\\/','', $body);
+
+
+
+        $mail->Subject = 'Новый заказ №'.$zakaz_number;
+        $mail->MsgHTML($body);
+        $mail->CharSet="utf-8";
+
+        
+        
+
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        if(!$mail->send()) {
+            
+           echo 'Письмо админу не отправлено.';
+           echo 'Oшибка письма: ' . $mail->ErrorInfo;
+        } else {
+
+            echo 'Письмо админу отправлено';
+             
+        } 
+
+
+
+        /*mail client*/
+
+        $mail = new PHPMailer;
+        $mail->SMTPDebug = 0;            
+
+        $db =  mysqlconnect($bd_controls);
+        
+        $query = mysql_query("SELECT count FROM settings") or die(mysql_error());
+       
+        while ($value = mysql_fetch_array($query)) {
+           $zakaz_number = $value["count"]+1;
+        }
+
+
+        $query = mysql_query("UPDATE settings SET count = '$zakaz_number'") or die(mysql_error());
+
+        mysql_close($db);
+
+
+        $_SESSION['zakaz_number'] = $zakaz_number;
+        $time_order = date("d.m.y H:i:s");
+        $_SESSION['time_order'] =  $time_order;
+
+        require 'mail_functions/PHPMailerAutoload.php';
+
+        $mail = new PHPMailer;
+        $mail->SMTPDebug = 0;                               // Enable verbose debug output  
+        $mail->CharSet = 'UTF-8';
+        $mail->isSMTP();  
+
+
+
+        
+        $mail->SMTPAuth = true;   
+        $mail->Host = $mail_controls["Host"];
+        $mail->Port = $mail_controls["Port"];
+                                     // Set mailer to use SMTP                               // Enable SMTP authentication
+        $mail->Username = $mail_controls["Username"];                 // SMTP username
+        $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
+                                    // TCP port to connect to
+
+        $mail->From = $mail_controls["Username"];
+        $mail->FromName = 'Сайт ohcasey';
+        $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
+
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+
+        $body = file_get_contents('mail_templates/admin.html');
+
+
+        
+        $body = str_replace('$time_order', $time_order, $body);
+        $body = str_replace('$fio', $fio, $body);
+        $body = str_replace('$zakaz_number',  $zakaz_number, $body);
+        $body = str_replace('$email', $email, $body);
+        $body = str_replace('$phone', $phone, $body);
+        $body = str_replace('$city', $city, $body);
+
+        $cost = 0;
+        $cost += $config["deliver_cost"][$deliver];
+
+        /*
+            тут все остальное
+        */
+        $deliver_type ="";
+
+
+        if ($deliver=="self"){
+            $deliver_type = "Cамовывоз";
+
+        }
+        if ($deliver=="kur_mos"){
+              $deliver_type = "Курьер по Москве";
+
+        }
+        if ($deliver=="kur_rus"){
+            $deliver_type = "Курьер по России";
+
+        }
+        if ($deliver=="mail_ru"){
+            $deliver_type = "Почта России";
+        }
+
+
+        if ($payment=="cash"){
+            $payment_type = "Наличными";
+
+        }
+
+        if ($payment=="sber"){
+            $payment_type = "Карта сбербанка";
+        }
+
+        if ($payment=="robocassa"){
+            $payment_type = "Робокасса";
+        }
+
+
+        $elements = get_elements_to_admin_mail($config);
+
+      
+        $body = str_replace('$elements', $elements[0], $body);
+
+        $cost+=$elements[1];
+
+        $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
+        $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
+        $body = str_replace('$version', $_SESSION['items'][0]["version"], $body);
+        $body = str_replace('$useragent', $_SESSION['items'][0]["useragent"], $body);
+
+        
+
+        $body = str_replace('$deliver', $deliver_type, $body);
+
+
+
+        $body = str_replace('$payment', $payment_type, $body);
+
+        $body = str_replace('$cost', $cost, $body);
+
+        if (isset($adress) && ($adress!="")) {
+             $body = str_replace('$adress','<tr>
+                                                            <td style ="padding: 5px;" width="50%">Адрес</td>
+                                                            <td style ="padding: 5px;">'.$adress.'</td>
+                                                        </tr>', $body);
+        }else{
+            $body = str_replace('$adress', "", $body);
+        }
+
+        if (isset($comments) && ($comments!="")) {
+             $body = str_replace('$comments', '<tr>
+                                                            <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
+                                                            <td style ="padding: 5px;">'.$comments.'</td>
+                                                        </tr>', $body);
+        }else{
+            $body = str_replace('$comments', "", $body);
+        }
+
+
+
+
+        $body = str_replace('$time_order', $time_order, $body);
+        
+        // strip backslashes
+        $body = preg_replace('/\\\\/','', $body);
+
+
+
+        $mail->Subject = 'Новый заказ №'.$zakaz_number;
+        $mail->MsgHTML($body);
+        $mail->CharSet="utf-8";
+
+        
+        
+
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        if(!$mail->send()) {
+            
+           echo 'Письмо админу не отправлено.';
+           echo 'Oшибка письма: ' . $mail->ErrorInfo;
+        } else {
+
+            echo 'Письмо админу отправлено';
+             
+        } 
+
+
+
+        /*mail client*/
+                  // Enable verbose debug output  
+        $mail->CharSet = 'UTF-8';
+        $mail->isSMTP();  
+
+        $mail->SMTPAuth = true;  
+
+        $mail->Host = $mail_controls["Host"];
+        $mail->Port = $mail_controls["Port"];
+                                     // Set mailer to use SMTP                               // Enable SMTP authentication
+        $mail->Username = $mail_controls["Username"];                 // SMTP username
+        $mail->Password = $mail_controls["Password"];                           // SMTP password                          // Enable TLS encryption, `ssl` also accepted
+                                    // TCP port to connect to
+
+        $mail->From = $mail_controls["Username"];
+
+        $mail->FromName = 'Сайт ohcasey';
+
+        $mail->addAddress($email, $fio);     // Add a recipient
+
+        $mail->isHTML(true);                                  // Set email format to HTML
+
+        $body = file_get_contents('mail_templates/client.html');
+
+
+
+
+
+        /*$src = $_SERVER['HTTP_HOST'];*/
+        $src = 'ohcasey.dragon-web.vps-private.net';
+        $fontface ="    @font-face {
+        font-family: HelveticaNeueCyr;
+        src: local('HelveticaNeueCyr'),
+        url(".$src."/fonts/HelveticaNeueCyr-Roman.otf);}";
+
+        $body = str_replace('$fontface',$fontface  , $body);
+
+
+        
+         
+        $body =  str_replace('$href_logo', 'http://'.$src , $body);
+
+        $body =  str_replace('$logo', 'http://'.$src.'/img/logo_white.png' , $body);
+
+        $body = str_replace('$bottomemail', 'http://'.$src.'/img/mail_background2.png' , $body);
+
+
+       
+        $body = str_replace('$inst', 'http://'.$src.'/img/inst.png'  , $body);
+
+
+        $body =  str_replace('$logo', 'http://'.$src.'/img/logo_white.png' , $body);
+
+        $date = date("d.m.y");
+        $body = str_replace('$date', $date  , $body);
+
+
+        $time = date("H:i"); 
+        $body = str_replace('$time', $time  , $body);
+
+        $body = preg_replace('/\\\\/','', $body);
+     
+        
+
+        $body = str_replace('$fio', $fio, $body);
+        $body = str_replace('$zakaz_number',  $zakaz_number, $body);
+        $body = str_replace('$email', $email, $body);
+        $body = str_replace('$phone', $phone, $body);
+        $body = str_replace('$city', $city, $body);
+
+         if (isset($adress))   {
+          $body = str_replace('$adress_mail','<span  style="display: block;
+                                                color:  #000000;
+                                                font-size: 14px;
+                                                padding-top: 3px;
+                                                padding-bottom: 3px;
+                                                font-weight: 400;
+                                                text-align: left;">Адрес: <span style="color:  #405e88;
+                                                font-size: 16px;" >'.$adress.'</span></span>', $body);
+        }else{
+            $body = str_replace('$adress_mail','-', $body);
+        }
+
+        if (isset($comments)) {
+            $body = str_replace('$comments_mail','<span  style="display: block;
+                                                color:  #000000;
+                                                font-size: 14px;
+                                                padding-top: 3px;
+                                                padding-bottom: 3px;
+                                                font-weight: 400;
+                                                text-align: left;">Комментарии: <span style="color:  #405e88;
+                                                font-size: 16px;" >'.$comments.'</span></span>', $body);
+        }else{
+             $body = str_replace('$comments_mail','-', $body);
+        }
+
+        $body = str_replace('$deliver', $deliver_type, $body);
+
+        $body = str_replace('$payment', $payment_type, $body);
+
+
+
+
+        if ($payment=="sber"){
+            $body = str_replace('$sber_option','<span  style="display: block;
+                                                color:  #000000;
+                                                font-size: 14px;
+                                                padding-top: 3px;
+                                                padding-bottom: 3px;
+                                                font-weight: 400;
+                                                text-align: left;">Карта сбербанка для оплаты:  <span style="color:  #405e88;
+                                                font-size: 16px;" >6761 9600 0133 359217</span></span>', $body);
+        }else{
+            $body = str_replace('$sber_option', "", $body);
+        }
+
+
+        
+
+        $body = str_replace('$summ', $elements[1]." р." , $body);
+        $body = str_replace('$delicer_cost', $config["deliver_cost"][$deliver]." р.", $body);
+        $body = str_replace('$final', $cost." р.", $body);
+
+        $body = str_replace('$finaf', $cost." рублей", $body);
+        
+        $elem = get_client_mail($config);
+
+
+        $body = str_replace('$plant', $elem[0]   , $body);
+        
+        $mail->SMTPSecure = 'tls';
+        $mail->Subject = 'Заказ на сайте ohcasey.ru №'.$zakaz_number;
+        $mail->addAddress($email, $fio);
+        $mail->MsgHTML($body);
+        $mail->CharSet="utf-8";
+
+     
+        
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; 
+
+        if(!$mail->send()) {
+            
+            echo 'Письмо клиенту не отправлено.';
+            echo 'Oшибка письма: ' . $mail->ErrorInfo;
+        } else {
+
+             echo 'Письмо админу отправлено';
+           
+        }
+
+
+        
+
+        //print_r($_SESSION["items"]);
+        header("Location: /success"); 
+
+
+
+    }else{
+        header("Location: /cart"); 
     }
-
-
-    
-
-    //print_r($_SESSION["items"]);
-    header("Location: /success"); 
-
-
-
-}else{
-    header("Location: /cart"); 
-}
 
 }
 
 
 function get_mail($config, $mail_controls, $bd_controls){
   
-
     if (isset($_POST['fio'])) {
         $fio = $_POST['fio'];
         $_SESSION['fio'] =  $_POST['fio'];
@@ -1219,7 +1218,6 @@ function get_mail($config, $mail_controls, $bd_controls){
     }else{
          send_mail();
     }
-
 
 }    
 
