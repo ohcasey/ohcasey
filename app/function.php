@@ -21,10 +21,9 @@ function styles_setup($config){
 
 function get_cost_sdec() {
 
-    echo strtotime(date("Y-m-d H:i:s"). ' +1 day')."<br>";
+
     $date = date("Y-m-d", strtotime(date("Y-m-d H:i:s"). ' +1 day'))/*."T".date("H:i:s", strtotime(date("Y-m-d H:i:s"). ' +1 day'))*/;
     date_default_timezone_set("UTC");
-    echo($date);
     $json_string = array(
         "version"=>"1.0",
         "dateExecute"=>$date,
@@ -34,24 +33,12 @@ function get_cost_sdec() {
         "receiverCityId"=>270,
         "tariffId"=>137,
      
-        "goods" => array(
-           
+        "goods" => array(   
             "width" => "25",
-            "length" => "25",
-            "height" => "10",
-            "weight" => "1"
-
+            "length" => "20",
+            "height" => "1",
+            "weight" => "0.1"
         )
-
-        /* 
-            
-    "dateExecute":"2012-07-27", 
-    "authLogin":"098f6bcd4621d373cade4e832627b4f6", 
-    "secure":"396fe8e7dfd37c7c9f361bba60db0874", 
-    "senderCityId":"270", 
-    "receiverCityId":"44", 
-    "tariffId":"137", 
-    */
     );
     echo "<pre>";
     print_r($json_string);
@@ -134,9 +121,11 @@ function get_city_sdec() {
       }else {
         echo "curl не доступен";
       }
+}
 
-
-
+function total_list(){
+    echo "<pre>";
+    print_r($_SESSION["items"]);
 }
 
 function get_cost_case($id_case, $config, $id_phone) {
@@ -152,7 +141,6 @@ function get_cost_case($id_case, $config, $id_phone) {
                 break 2;
             }
         }
-
     }
     return $cost;
 }

@@ -24,77 +24,135 @@
 				<div class="right_item">
 					<div class="right_menu_title_2">Выберите способ доставки</div>
 					<div class="checkbox_item person">
-						<input type="radio" name="deliver" value="self" id ="self" data-delivery="<?php echo $config['deliver_cost']['self'] ?>">
-						<div class="checkbox_prev_input">
-							<div class="checkbox_selector"></div>
-						</div>
-						<span class="two_line">Самовывоз - <?php echo $config['deliver_cost']['self'] ?> р.</span>
-						<span>Москва, м. Таганская
-						<br>ул. Таганская д. 5</span>
-
-
-						<div class="cart_help_button">
-							<div class="help_block">
-								Самовывоз по Москве осуществляется по адресу м. Таганская
-									ул. Гончарная д. 5 Время работы: с 10 до 19
+						<div class="order_form-box">
+								<input type="radio" name="deliver" value="self" id ="self" data-delivery="<?php echo $config['deliver_cost']['self'] ?>">
+								<div class="checkbox_prev_input">
+									<div class="checkbox_selector"></div>
+								</div>
+							<div class="cart_help_button">
+								<div class="help_block">
+									Самовывоз по Москве осуществляется по адресу м. Таганская
+										ул. Гончарная д. 5 Время работы: с 10 до 19
+								</div>
+							</div>
+							<div class="order_form-box_block"> 
+								<span class="new_line">Самовывоз из офиса</span>
+								<span class="checkbox_hided">Москва, м. Таганская
+								<br>ул. Таганская д. 5</span>
+							</div>
+							<div class="order_form-box_block">
+								<p class="time_order" >1 день</p>
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_self">
+							</div>
+							<div class="order_form-box_block right">
+								<p class="cost_level"><?php echo $config['deliver_cost']['self'] ?>р</p>
 							</div>
 						</div>
 					</div>
+
 
 					<div class="checkbox_item sdec">
-						<input type="radio" name="deliver" value="sdek" id ="sdek" data-delivery="">
-						<div class="checkbox_prev_input">
-							<div class="checkbox_selector"></div>
-						</div>
-						<div class="cart_help_button">
-							<div class="help_block">
-								Самовывоз по Москве осуществляется по адресу м. Таганская
-									ул. Гончарная д. 5 Время работы: с 10 до 19
+						<div class="order_form-box">
+								<input type="radio" name="deliver" value="sdec" id ="sdec" data-delivery="">
+								<div class="checkbox_prev_input">
+									<div class="checkbox_selector"></div>
+								</div>
+							<div class="cart_help_button">
+								<div class="help_block">
+									Москва, Нелидовская улица д.10
+								</div>
 							</div>
-						</div>
-						<span >Самовывоз их пункта выдачи СДЭК</span>
-						<!--<span>Москва, Нелидовская улица д.10<br>Стоимость: 214 р</span>-->
-						<!--class="two_line"-->
-					</div>
-
-
-					<div class="checkbox_item deliver">
-						<input type="radio" name="deliver" value="kur_mos" id ="kur_mos" data-delivery="<?php echo $config['deliver_cost']['kur_mos'] ?>">
-						<div class="checkbox_prev_input">
-							<div class="checkbox_selector"></div>
-						</div>
-						<span for ="kur_mos">Курьером по Москве — <?php echo $config['deliver_cost']['kur_mos'] ?> р.</span>
-						<div class="cart_help_button">
-							<div class="help_block">
-								Самовывоз по Москве осуществляется по адресу м. Таганская
-									ул. Гончарная д. 5 Время работы: с 10 до 19
+							<div class="order_form-box_block"> 
+								<span class="new_line">Самовывоз через пункт СДЭК</span>
+								<span class="checkbox_hided sdec_address"></span>
+							</div>
+							<div class="order_form-box_block">
+								<p class="time_order" >3-5 дней</p>
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_sdec">
+							</div>
+							<div class="order_form-box_block right">
+								<p class="cost_level sdec_cost">-</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="checkbox_item deliver">
-						<input type="radio" name="deliver" value="kur_rus" id ="kur_rus" data-delivery="<?php echo $config['deliver_cost']['kur_rus'] ?>">
-						<div class="checkbox_prev_input">
-							<div class="checkbox_selector"></div>
+
+					<div class="checkbox_item deliver moscow">
+						
+						<div class="order_form-box">
+								<input type="radio" name="deliver" value="kur_mos" id ="kur_mos" data-delivery="<?php echo $config['deliver_cost']['kur_mos'] ?>">
+								<div class="checkbox_prev_input">
+									<div class="checkbox_selector"></div>
+								</div>
+							<div class="cart_help_button">
+								<div class="help_block">
+									Москва, Нелидовская улица д.10
+								</div>
+							</div>
+							<div class="order_form-box_block"> 
+								<span class="new_line">Курьером по Москве</span>
+								
+							</div>
+							<div class="order_form-box_block">
+								<p class="time_order" >1-2 дня</p>
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_sdec">
+							</div>
+							<div class="order_form-box_block right">
+								<p class="cost_level"><?php echo $config['deliver_cost']['kur_mos'] ?>р</p>
+							</div>
 						</div>
-						<span for ="kur_rus">Курьером по России — от <?php echo $config['deliver_cost']['kur_rus'] ?> р.</span>
-						<div class="cart_help_button">
-							<div class="help_block">
-								Самовывоз по Москве осуществляется по адресу м. Таганская
-									ул. Гончарная д. 5 Время работы: с 10 до 19
+
+					</div>
+
+					<div class="checkbox_item deliver russia">
+						<div class="order_form-box">
+								<input type="radio" name="deliver" value="kur_rus" id ="kur_rus" data-delivery="<?php echo $config['deliver_cost']['kur_rus'] ?>">
+								<div class="checkbox_prev_input">
+									<div class="checkbox_selector"></div>
+								</div>
+							<div class="cart_help_button">
+								<div class="help_block">
+									Москва, Нелидовская улица д.10
+								</div>
+							</div>
+							<div class="order_form-box_block"> 
+								<span class="new_line">Курьером по России</span>
+								
+							</div>
+							<div class="order_form-box_block">
+								<p class="time_order" >3-5 дней</p>
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_sdec">
+							</div>
+							<div class="order_form-box_block right">
+								<p class="cost_level"><?php echo $config['deliver_cost']['kur_rus'] ?>р</p>
 							</div>
 						</div>
 					</div>
+
 					<div class="checkbox_item mail">
-						<input type="radio" name="deliver" value="mail_ru" id ="mail_ru" data-delivery="<?php echo $config['deliver_cost']['mail_ru'] ?>">
-						<div class="checkbox_prev_input">
-							<div class="checkbox_selector"></div>
-						</div>
-						<span for ="mail_ru">Почта России — <?php echo $config['deliver_cost']['mail_ru'] ?> р.</span>
-						<div class="cart_help_button">
-							<div class="help_block">
-								Самовывоз по Москве осуществляется по адресу м. Таганская
-									ул. Гончарная д. 5 Время работы: с 10 до 19
+					
+
+
+						<div class="order_form-box">
+									<input type="radio" name="deliver" value="mail_ru" id ="mail_ru" data-delivery="<?php echo $config['deliver_cost']['mail_ru'] ?>">
+								<div class="checkbox_prev_input">
+									<div class="checkbox_selector"></div>
+								</div>
+							<div class="cart_help_button">
+								<div class="help_block">
+									Москва, Нелидовская улица д.10
+								</div>
+							</div>
+							<div class="order_form-box_block"> 
+								<span class="new_line">Почта России</span>
+								
+							</div>
+							<div class="order_form-box_block">
+								<p class="time_order" >5-14 дней</p>
+							
+							</div>
+							<div class="order_form-box_block right">
+								<p class="cost_level"><?php echo $config['deliver_cost']['mail_ru'] ?>р</p>
 							</div>
 						</div>
 					</div>
@@ -125,8 +183,6 @@
 					</div>
 				</div>
 			</div>
-
-
 			</div>
 			
 		</form>

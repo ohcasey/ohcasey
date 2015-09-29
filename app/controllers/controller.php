@@ -31,7 +31,12 @@
 		return;
 	}
 
-	if ($controller_name == "main") {	
+	if ($controller_name == "main") {
+
+		if ($action_name=="total_list") {
+			total_list();
+		}
+
 		if ($action_name=="main" ) {
 			include("views/main.php");
 		}
@@ -73,8 +78,7 @@
 
 	if ($controller_name == "cart") {	
 		
-		if ($action_name=="main" ) {
-			
+		if ($action_name=="main" ) {			
 			$city = get_city();
 			include("views/cart.php");
 			exit;
@@ -84,8 +88,6 @@
 			get_cost_sdec();
 			exit;
 		}
-
-			
 
 		if ($action_name=="get_city_sdec" ) {
 			get_city_sdec();
@@ -117,12 +119,10 @@
 
 
 			if ($action_name=="robo_success") {
-				if (isset( $_SESSION['zakaz_number'] )) {
-					if ($_SESSION['zakaz_number']!="") {
-						header("Location: /success");
-						exit;
-					}
-				}
+				
+		
+					header("Location: /success");
+					exit;
 				
 			}
 			if ($action_name=="robo_fail") {
@@ -132,9 +132,6 @@
 			header("Location: /cart"); 
 			exit;
 		}
-
-
-
 
 		if ($action_name=="get_city") {
 			if (isset($_POST['string'])) {
