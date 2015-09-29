@@ -95,7 +95,7 @@
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >1-2 дня</p>
-								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_sdec">
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_moscow">
 							</div>
 							<div class="order_form-box_block right">
 								<p class="cost_level"><?php echo $config['deliver_cost']['kur_mos'] ?>р</p>
@@ -121,7 +121,7 @@
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >3-5 дней</p>
-								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_sdec">
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_russia">
 							</div>
 							<div class="order_form-box_block right">
 								<p class="cost_level"><?php echo $config['deliver_cost']['kur_rus'] ?>р</p>

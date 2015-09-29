@@ -323,6 +323,9 @@ $(document).on("click", ".container_mobile button, .container_tablet button, .co
 	$(".alert_block.alert_mobile, .alert_block.alert_tablet, .alert_block.alert_old ").removeClass("active");
 });
 
+
+$.datepicker.setDefaults($.datepicker.regional['ru']);
+
 $(document).ready(function(){
 	if (device.mobile() || device.tablet()) {
 		if (device.portrait()) {
@@ -334,23 +337,67 @@ $(document).ready(function(){
 		}
 	}
 
-	var dates1 = $(".calendar").datepicker({
-	monthNames:
-	["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август", 
-	"Сентябрь","Октябрь","Ноябрь","Декабрь"],
-	//minDate: Date()
-	dayNamesMin: 
-	["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
-	changeMonth: false,
-	changeYear: false,
-	dateFormat: 'dd.mm.yy',
 
-	beforeShow: function() {
-        setTimeout(function(){
-            $('.ui-datepicker').css('z-index', 99999999999999);
-        }, 0);
-    }
+	var dates1 = $(".calendar").datepicker({
+		monthNames:
+		["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август", 
+		"Сентябрь","Октябрь","Ноябрь","Декабрь"],
+		//minDate: Date()
+		dayNamesMin: 
+		["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+		changeMonth: false,
+		changeYear: false,
+		dateFormat: 'dd.mm.yy',
+
+		beforeShow: function() {
+	        setTimeout(function(){
+	            $('.ui-datepicker').css('z-index', 99999999999999);
+	        }, 0);
+	    }
 	});
+
+	/*на разные даты*/
+	var selfDate = new Date();
+
+	selfDate.setDate(selfDate.getDate() + 1);
+
+	$("#calendar_self").datepicker('option', 
+		{
+			minDate: selfDate
+		}
+	);
+	
+
+	var moscowDate = new Date();
+
+	moscowDate.setDate(moscowDate.getDate() + 2);
+
+	$("#calendar_moscow").datepicker('option', 
+		{
+			minDate: moscowDate
+		}
+	);
+
+
+	var russiaDate = new Date();
+
+	russiaDate.setDate(russiaDate.getDate() + 4);
+
+	$("#calendar_russia").datepicker('option', 
+		{
+			minDate: russiaDate
+		}
+	);
+
+
+
+
+
+
+
+
+
+
 
 	$(".container_content-bottom").css("z-index", "0");
 	$(".container_content-top").css("z-index", "0");
