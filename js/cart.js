@@ -10,7 +10,7 @@ var sdec_data = {
 	coordX: "",
 	coordY: "",
 	cost: ""
-}
+};
 
 
 
@@ -161,7 +161,7 @@ $(document).on('click',".cart_item_block__close", function(){
 	if (breakpoint_delete==false) return;
 
 	var id = $(this).parent().attr("id");
-			breakpoint_delete==false;
+			breakpoint_delete=false;
 			$.ajax({ 
 					type: "POST", 
 					url: "cart/remove_item",
@@ -177,12 +177,12 @@ $(document).on('click',".cart_item_block__close", function(){
 							
 							reset_cost_total();
 							preparing_html();
-							breakpoint_delete==true;
+							breakpoint_delete=true;
 						
 					},
 					fail: function(data){
 						sweetAlert("Ошибка", data, "error");
-						breakpoint_delete==true;
+						breakpoint_delete=true;
 					}
 				});
 });
@@ -489,12 +489,17 @@ function reset_cost_total() {
 	$("#cart").html("<span><span class='cart_count'>"+count+"</span> "+text+"</span>");
 
 	var cost =0;
+	
 	$(".cart_item_block").each(function(){
 		cost+=$(this).data("cost");
 	});
 
 	$(".cost_item").text(cost +" рублей");
+	
+
 	cost+=parseInt($(".delivery_cost").attr("data-delivery"));
+
+	
 	$("#price_total").text(cost+ " р");
 	$(".result").text("Итого: "+cost+ " рублей");
 }
