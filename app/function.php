@@ -1122,9 +1122,14 @@ function get_mail($config, $mail_controls, $bd_controls){
             $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
             /* назначение параметров */
 
-            $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
 
-        
+            if ($deliver!="sdec") {
+                 $kassa->OutSum  = get_cost_summary($config, "none");
+            }else{
+                $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
+            }
+
+
             $kassa->InvId = $zakaz_number;
             $kassa->Email = $email;
             $kassa->Desc         = 'Чехол на ohcasey.ru, заказ номер №'.$zakaz_number;
