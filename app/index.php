@@ -8,20 +8,7 @@
 
 			$action_name = 'main';
 			$controller_name = 'main';
-
-			$path = $_SERVER['REQUEST_URI'];
-			$arr = parse_url($path);
-			
-			//print_r($arr);
-
-
-			$path = $arr["path"];
-			
-			$routes = explode('/', $path);
-
-
-
-		
+			$routes = explode('/', $_SERVER['REQUEST_URI']);
 
 			if (!empty($routes[1]) )
 			{		

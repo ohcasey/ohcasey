@@ -31,7 +31,12 @@
 		return;
 	}
 
-	if ($controller_name == "main") {	
+	if ($controller_name == "main") {
+
+		if ($action_name=="total_list") {
+			total_list();
+		}
+
 		if ($action_name=="main" ) {
 			include("views/main.php");
 		}
@@ -73,19 +78,27 @@
 
 	if ($controller_name == "cart") {	
 		
-		if ($action_name=="main" ) {
-			
+		if ($action_name=="get_cost_summary" ) {			
+			echo get_cost_summary($config, "none");
+			exit;
+		}
+
+
+		if ($action_name=="main" ) {			
 			$city = get_city();
 			include("views/cart.php");
 			exit;
 		}
 
 		if ($action_name=="get_cost_sdec" ) {
-			get_cost_sdec();
+			if (isset($_POST["idcity"])) {
+				$idcity = $_POST["idcity"];
+			}else{
+				$idcity = 270;
+			}
+			get_cost_sdec($idcity);
 			exit;
 		}
-
-			
 
 		if ($action_name=="get_city_sdec" ) {
 			get_city_sdec();
@@ -117,7 +130,7 @@
 
 
 			if ($action_name=="robo_success") {
-				
+					send_mail($config, $mail_controls, $bd_controls);		
 		
 					header("Location: /success");
 					exit;
@@ -130,9 +143,6 @@
 			header("Location: /cart"); 
 			exit;
 		}
-
-
-
 
 		if ($action_name=="get_city") {
 			if (isset($_POST['string'])) {
