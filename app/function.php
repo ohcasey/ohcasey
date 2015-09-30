@@ -1123,12 +1123,11 @@ function get_mail($config, $mail_controls, $bd_controls){
             /* назначение параметров */
 
 
-            if ($deliver!="sdec") {
+            if ($payment!="sdec") {
                  $kassa->OutSum  = get_cost_summary($config, "none");
             }else{
                 $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
             }
-
 
             $kassa->InvId = $zakaz_number;
             $kassa->Email = $email;
