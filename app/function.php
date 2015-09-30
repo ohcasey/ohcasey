@@ -687,8 +687,6 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
     if ((isset($fio)) &&  (isset($email)) && (isset($phone)) && (isset($city)) && (isset($deliver)) && (isset($payment))) {
 
-   
-
         require 'mail_functions/PHPMailerAutoload.php';
 
         $mail = new PHPMailer;
@@ -741,6 +739,10 @@ function send_mail($config, $mail_controls, $bd_controls) {
         }
         if ($deliver=="mail_ru"){
             $deliver_type = "Почта России";
+        }
+
+        if ($deliver=="sdec"){
+            $deliver_type = "Самовывоз из пункта СДЭК";
         }
 
 
@@ -1115,7 +1117,6 @@ function get_mail($config, $mail_controls, $bd_controls){
     $_SESSION['zakaz_number'] = $zakaz_number;
     $time_order = date("d.m.y H:i:s");
     $_SESSION['time_order'] =  $time_order;
-
 
     if ($payment=="robocassa"){  
             $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
