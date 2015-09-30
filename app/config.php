@@ -24,9 +24,9 @@ global $pages;
 $pages= array("main","cart","success");
 global $subfunctions;
 $subfunctions= array(
-	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2"),
+	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2", "total_list"),
 	"success"=>array() , 
-	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result")
+	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result","get_city_sdec", "get_cost_sdec","get_cost_summary")
  );
 //конфиги девайсов
 global $config;
@@ -1180,7 +1180,6 @@ iphone4_black_crystal_case.png
 						"name" => "Odessa Script",
 						"filename" => "kDv32tul.otf"
 					),
-
 		),
 		
 		"backgrounds" => array(
@@ -1189,7 +1188,6 @@ iphone4_black_crystal_case.png
 				"name"=>"категория 1",
 				array( 
 					//iphone 4
-
 					array("big"=>"4-4s/bembi_i4-4s.png",
 					"small"=>"bembi_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/devochka_i4-4s.png",
@@ -1238,11 +1236,8 @@ iphone4_black_crystal_case.png
 					"small"=>"sakura_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/tufli_valentino_i4-4s.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(31,32,33,34)),
-
 					
-
 					//iphone5
-
 					array("big"=>"5-5s-5c/donuts_i5-5s-5c.png",
 					"small"=>"donuts_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					array("big"=>"5-5s-5c/mickey_i5-5s-5c.png",
@@ -1250,7 +1245,6 @@ iphone4_black_crystal_case.png
 					array("big"=>"5-5s-5c/minnie_i5-5s-5c.png",
 					"small"=>"minnie_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					
-
 					array("big"=>"5-5s-5c/bembi_i5-5s-5c.png",
 					"small"=>"bembi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					array("big"=>"5-5s-5c/devochka_i5-5s-5c.png",
@@ -1301,7 +1295,6 @@ iphone4_black_crystal_case.png
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
-
 					//iphone6
 					array("big"=>"6-6+/donuts_i6-6+.png",
 					"small"=>"donuts_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
@@ -1309,7 +1302,6 @@ iphone4_black_crystal_case.png
 					"small"=>"mickey_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/minnie_i6-6+.png",
 					"small"=>"minnie_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-
 					array("big"=>"6-6+/bembi_i6-6+.png",
 					"small"=>"bembi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/devochka_i6-6+.png",
@@ -1360,7 +1352,6 @@ iphone4_black_crystal_case.png
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-
 				)
 			),
 			array(
@@ -1667,7 +1658,6 @@ iphone4_black_crystal_case.png
 				"name"=>"Люди",
 				"images"=>array(
 					
-
 array("big"=>"persons-0001_large.png",
 "small"=>"persons-0001_large.png",),
 array("big"=>"persons-0002_large.png",
@@ -2042,15 +2032,12 @@ array("big"=>"persons-0189_large.png",
 "small"=>"persons-0189_large.png",),
 array("big"=>"persons-65_large.png",
 "small"=>"persons-65_large.png",),
-
-
 				)
 			),
 			array(
 				"link"=>"nature/",
 				"name"=>"Природа",
 				"images"=>array(
-
 						array(
 							"big"=>"nature-0002_large.png",
 							"small"=>"nature-0002_large.png",
@@ -3170,7 +3157,6 @@ array("big"=>"places-0100_large.png",
 "small"=>"places-0100_large.png",),
 array("big"=>"places-0101_large.png",
 "small"=>"places-0101_large.png",),
-
 				)
 			),
 			array(
@@ -3556,7 +3542,6 @@ array("big"=>"symbols-0191_large.png",
 "small"=>"symbols-0191_large.png",),
 array("big"=>"symbols-2_large.png",
 "small"=>"symbols-2_large.png",),
-
 				)
 			),
 			array(
@@ -3592,3 +3577,7 @@ array("big"=>"symbols-2_large.png",
 		)
 );
 ?>
+
+
+
+

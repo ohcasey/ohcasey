@@ -27,7 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
 	<script src="js/device.min.js"></script>
-	<!--[if IE]>
+	<!--[if lt IE 9]>
 		<script type="text/javascript">
 			$(document).load(function(){
 				$(".alert_block.alert_old").addClass("active");
@@ -36,12 +36,11 @@
 	<![endif]-->
 </head>
 <body>
-	
-	
-	
-	
 <?php include_once("analyticstracking.php") ?>
-<!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter32242774 = new Ya.Metrika({ id:32242774, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/32242774" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+
+
+
 <div class="alert_block alert_mobile">
 	<div class="container_mobile">
 		<h2>В данный момент наш сайт 
@@ -89,8 +88,8 @@
 		
 	</div>
 </div>
-	
-	
+
+<!-- Yandex.Metrika counter --><script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter32242774 = new Ya.Metrika({ id:32242774, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/32242774" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
 <div class="main_container">
 	<div id="header">
 		<ul id="header-menu">
@@ -98,15 +97,10 @@
 				<a href="/"></a>
 			</li>
 			<li data-menu-id="1" id="header-menu-item-1" class="header_menu__item">
-				
-				
+
 						<a title="Девайс" href="/#case" class="header_device_li">
 							ДЕВАЙС
-						</a>
-				
-
-				
-				
+						</a>				
 			</li>
 			<li class="header-menu__delimeter"><span></span></li>
 			<li data-menu-id="2" id="header-menu-item-2" class="header_menu__item">
