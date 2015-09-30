@@ -1123,7 +1123,7 @@ function get_mail($config, $mail_controls, $bd_controls){
             /* назначение параметров */
 
 
-            if ($payment!="sdec") {
+            if ($deliver!="sdec") {
                  $kassa->OutSum  = get_cost_summary($config, "none");
             }else{
                 $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
