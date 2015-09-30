@@ -35,7 +35,7 @@ $config = array(
 			"self" =>  0, //самовывоз
 			"kur_mos" =>  350,
 			"kur_rus" =>  650,
-			"mail_ru" => 200
+			"mail_ru" => 2,  //самовывоз
 		),
 		//Конфигурации
 			"default_text"=>"Введите текст",
@@ -1027,7 +1027,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1
 							)
 						)
 				),
@@ -1180,7 +1180,6 @@ iphone4_black_crystal_case.png
 						"name" => "Odessa Script",
 						"filename" => "kDv32tul.otf"
 					),
-
 		),
 		
 		"backgrounds" => array(
@@ -1189,10 +1188,6 @@ iphone4_black_crystal_case.png
 				"name"=>"категория 1",
 				array( 
 					//iphone 4
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 					array("big"=>"4-4s/bembi_i4-4s.png",
 					"small"=>"bembi_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/devochka_i4-4s.png",
@@ -1241,12 +1236,8 @@ iphone4_black_crystal_case.png
 					"small"=>"sakura_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/tufli_valentino_i4-4s.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(31,32,33,34)),
-
-<<<<<<< HEAD
 					
-
 					//iphone5
-
 					array("big"=>"5-5s-5c/donuts_i5-5s-5c.png",
 					"small"=>"donuts_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					array("big"=>"5-5s-5c/mickey_i5-5s-5c.png",
@@ -1254,10 +1245,6 @@ iphone4_black_crystal_case.png
 					array("big"=>"5-5s-5c/minnie_i5-5s-5c.png",
 					"small"=>"minnie_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					
-
-=======
-					//iphone5
->>>>>>> master
 					array("big"=>"5-5s-5c/bembi_i5-5s-5c.png",
 					"small"=>"bembi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					array("big"=>"5-5s-5c/devochka_i5-5s-5c.png",
@@ -1306,10 +1293,8 @@ iphone4_black_crystal_case.png
 					"small"=>"sakura_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
 					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
-<<<<<<< HEAD
 					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30)),
-
 					//iphone6
 					array("big"=>"6-6+/donuts_i6-6+.png",
 					"small"=>"donuts_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
@@ -1317,11 +1302,6 @@ iphone4_black_crystal_case.png
 					"small"=>"mickey_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/minnie_i6-6+.png",
 					"small"=>"minnie_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-
-=======
-
-					//iphone6
->>>>>>> master
 					array("big"=>"6-6+/bembi_i6-6+.png",
 					"small"=>"bembi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/devochka_i6-6+.png",
@@ -1330,11 +1310,7 @@ iphone4_black_crystal_case.png
 					"small"=>"dior_kedy_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/duhi_v_ruke_i6-6+.png",
 					"small"=>"duhi_v_ruke_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-<<<<<<< HEAD
 					array("big"=>"6-6+/edinorog_i6-6+.png",					
-=======
-					array("big"=>"6-6+/edinorog_i6-6+.png",
->>>>>>> master
 					"small"=>"edinorog_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/edinorog2_i6-6+.png",
 					"small"=>"edinorog2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
@@ -1374,12 +1350,8 @@ iphone4_black_crystal_case.png
 					"small"=>"sakura_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-<<<<<<< HEAD
 					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-
-=======
->>>>>>> master
 				)
 			),
 			array(
@@ -1686,7 +1658,6 @@ iphone4_black_crystal_case.png
 				"name"=>"Люди",
 				"images"=>array(
 					
-
 array("big"=>"persons-0001_large.png",
 "small"=>"persons-0001_large.png",),
 array("big"=>"persons-0002_large.png",
@@ -2061,15 +2032,12 @@ array("big"=>"persons-0189_large.png",
 "small"=>"persons-0189_large.png",),
 array("big"=>"persons-65_large.png",
 "small"=>"persons-65_large.png",),
-
-
 				)
 			),
 			array(
 				"link"=>"nature/",
 				"name"=>"Природа",
 				"images"=>array(
-
 						array(
 							"big"=>"nature-0002_large.png",
 							"small"=>"nature-0002_large.png",
@@ -3189,7 +3157,6 @@ array("big"=>"places-0100_large.png",
 "small"=>"places-0100_large.png",),
 array("big"=>"places-0101_large.png",
 "small"=>"places-0101_large.png",),
-
 				)
 			),
 			array(
@@ -3575,7 +3542,6 @@ array("big"=>"symbols-0191_large.png",
 "small"=>"symbols-0191_large.png",),
 array("big"=>"symbols-2_large.png",
 "small"=>"symbols-2_large.png",),
-
 				)
 			),
 			array(
@@ -3611,3 +3577,7 @@ array("big"=>"symbols-2_large.png",
 		)
 );
 ?>
+
+
+
+
