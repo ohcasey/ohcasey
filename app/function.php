@@ -1010,7 +1010,7 @@ function get_cost_summary($config, $deliver) {
             
         }
     }
-    if ($deliver == "none") {
+    if ($deliver != "none") {
         $cost+=$config["deliver_cost"][$deliver];
     }else{
          $cost+=$deliver;
@@ -1124,10 +1124,13 @@ function get_mail($config, $mail_controls, $bd_controls){
 
 
             if ($deliver!="sdec") {
+				
                  $kassa->OutSum  = get_cost_summary($config, "none");
             }else{
                 $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
             }
+		
+		echo $kassa->OutSum;
 
             $kassa->InvId = $zakaz_number;
             $kassa->Email = $email;
