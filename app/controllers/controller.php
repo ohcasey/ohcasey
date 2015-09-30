@@ -78,6 +78,12 @@
 
 	if ($controller_name == "cart") {	
 		
+		if ($action_name=="get_cost_summary" ) {			
+			echo get_cost_summary($config, "none");
+			exit;
+		}
+
+
 		if ($action_name=="main" ) {			
 			$city = get_city();
 			include("views/cart.php");
@@ -85,7 +91,12 @@
 		}
 
 		if ($action_name=="get_cost_sdec" ) {
-			get_cost_sdec();
+			if (isset($_POST["idcity"])) {
+				$idcity = $_POST["idcity"];
+			}else{
+				$idcity = 270;
+			}
+			get_cost_sdec($idcity);
 			exit;
 		}
 

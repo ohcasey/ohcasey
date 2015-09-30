@@ -26,7 +26,7 @@ global $subfunctions;
 $subfunctions= array(
 	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2", "total_list"),
 	"success"=>array() , 
-	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result","get_city_sdec", "get_cost_sdec")
+	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result","get_city_sdec", "get_cost_sdec","get_cost_summary")
  );
 //конфиги девайсов
 global $config;
@@ -35,7 +35,7 @@ $config = array(
 			"self" =>  0, //самовывоз
 			"kur_mos" =>  350,
 			"kur_rus" =>  650,
-			"mail_ru" => 200,  //самовывоз
+			"mail_ru" => 200
 		),
 		//Конфигурации
 			"default_text"=>"Введите текст",

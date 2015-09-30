@@ -2211,6 +2211,10 @@ input.cart_item.error,  textarea.cart_item.error{
 	width: 190px;
 }
 
+.sdec_address.error {
+	color: #da4437;
+}
+
 .checkbox_item span.two_line {
 	line-height: 30px;	
 }
@@ -2278,8 +2282,12 @@ input.cart_item.error,  textarea.cart_item.error{
 	font-size: 12px;/* Приближение из-за подстановки шрифтов */
 	font-weight: 300;
 	padding-top: 2px;
-
+	transition: 200ms all linear;
 	line-height: 18px;
+}
+
+.order_form-box_block input.error {
+	border-color: #da4437;
 }
 
 .checkbox_item input[type="radio"]{
@@ -2966,7 +2974,9 @@ ymaps button:hover {
 
 @media screen and (min-width:  1979px)  {
 
-
+	.checkbox_item span {
+		width: 280px;
+	}
 
 	/*88888888888888888888888(/*/
 	.cart_help_button {

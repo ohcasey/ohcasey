@@ -42,7 +42,7 @@
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >1 день</p>
-								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_self">
+								<input type="text" placeholder="Дата визита" name="calendar_self" class="calendar checkbox_hided" id="calendar_self">
 							</div>
 							<div class="order_form-box_block right">
 								<p class="cost_level"><?php echo $config['deliver_cost']['self'] ?>р</p>
@@ -65,10 +65,18 @@
 							<div class="order_form-box_block"> 
 								<span class="new_line">Самовывоз через пункт СДЭК</span>
 								<span class="checkbox_hided sdec_address">Выбрать пункт выдачи</span>
+
+								<input type="hidden" name="sdec_code" id="sdec_code" value="">
+								<input type="hidden" name="sdec_adress" id="sdec_adress" value="">
+								<input type="hidden" name="sdec_cost" id="sdec_cost" value="">
+								<input type="hidden" name="sdec_name" id="sdec_name" value="">
+								<input type="hidden" name="sdec_worktime" id="sdec_worktime" value="">
+
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >3-5 дней</p>
-								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_sdec">
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" name="calendar_sdec" id="calendar_sdec">
+
 							</div>
 							<div class="order_form-box_block right">
 								<p class="cost_level sdec_cost">-</p>
@@ -78,7 +86,6 @@
 
 
 					<div class="checkbox_item deliver moscow">
-						
 						<div class="order_form-box">
 								<input type="radio" name="deliver" value="kur_mos" id ="kur_mos" data-delivery="<?php echo $config['deliver_cost']['kur_mos'] ?>">
 								<div class="checkbox_prev_input">
@@ -95,7 +102,7 @@
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >1-2 дня</p>
-								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_moscow">
+								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" name="calendar_moscow"  id="calendar_moscow">
 							</div>
 							<div class="order_form-box_block right">
 								<p class="cost_level"><?php echo $config['deliver_cost']['kur_mos'] ?>р</p>
@@ -121,7 +128,7 @@
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >3-5 дней</p>
-								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" id="calendar_russia">
+								<input type="text" placeholder="Дата визита" name="calendar_russia" class="calendar checkbox_hided" id="calendar_russia">
 							</div>
 							<div class="order_form-box_block right">
 								<p class="cost_level"><?php echo $config['deliver_cost']['kur_rus'] ?>р</p>
@@ -130,9 +137,6 @@
 					</div>
 
 					<div class="checkbox_item mail">
-					
-
-
 						<div class="order_form-box">
 									<input type="radio" name="deliver" value="mail_ru" id ="mail_ru" data-delivery="<?php echo $config['deliver_cost']['mail_ru'] ?>">
 								<div class="checkbox_prev_input">
