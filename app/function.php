@@ -250,11 +250,7 @@ function add_to_cart() {
 function remove_item() {
     if ((isset($_POST['item'])) && (isset($_SESSION['items']))) { 
         $k =  (int) $_POST['item'];
-        
-
         unset($_SESSION['items'][$k]); 
-   
-
        print_r($_SESSION['items']);
     }else{
         echo $data['errors'] = "Элемента не существует";
@@ -971,7 +967,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
         }
 
         //print_r($_SESSION["items"]);
-       // header("Location: /success"); 
+       	header("Location: /success"); 
 
 
 
@@ -1155,7 +1151,7 @@ function get_client_mail($config) {
     $count = count($_SESSION['items']); 
 
     $result ="";
-    for ($i=0; $i<$count; $i++) {
+	foreach ($_SESSION['items'] as $i => $val) {
         $cur_cost = get_cost_case(($_SESSION['items'][$i]["case_id"]), $config, ($_SESSION['items'][$i]["device_id_case"]));
        
 
@@ -1397,7 +1393,7 @@ function get_elements_to_admin_mail($config) {
 
 
     $result ="";
-    for ($i=0; $i<$count; $i++) {
+    foreach ($_SESSION['items'] as $i => $val) {
         $result.='  <table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">
              <caption style="font-size: 16px; margin-bottom: 15px; padding-top:20px;" >Элемент '.($i+1).'</caption>';
 
