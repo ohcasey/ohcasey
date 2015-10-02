@@ -372,12 +372,13 @@ $(document).ready(function(){
 
 
 	var dates1 = $(".calendar").datepicker({
+		 firstDay: 1,
 		monthNames:
 		["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август", 
 		"Сентябрь","Октябрь","Ноябрь","Декабрь"],
 		//minDate: Date()
 		dayNamesMin: 
-		["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
+		["Вс","Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
 		changeMonth: false,
 		changeYear: false,
 		dateFormat: 'dd.mm.yy',

@@ -9,7 +9,6 @@ $mail_controls = array(
   	
 );
 global $bd_controls; 
-
 $bd_controls = array(
 	"dbhost" => "mysql.server",
         // Имя пользователя базы данных 
@@ -24,9 +23,9 @@ global $pages;
 $pages= array("main","cart","success");
 global $subfunctions;
 $subfunctions= array(
-	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2"),
+	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2", "total_list"),
 	"success"=>array() , 
-	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result")
+	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result","get_city_sdec", "get_cost_sdec","get_cost_summary")
  );
 //конфиги девайсов
 global $config;
@@ -35,7 +34,7 @@ $config = array(
 			"self" =>  0, //самовывоз
 			"kur_mos" =>  350,
 			"kur_rus" =>  650,
-			"mail_ru" => 300,  //самовывоз
+			"mail_ru" => 3,  //самовывоз
 		),
 		//Конфигурации
 			"default_text"=>"Введите текст",
@@ -1039,7 +1038,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1500
+								"cost"=>1
 							)
 						)
 				),
