@@ -12,13 +12,9 @@ var sdec_data = {
 	cost: ""
 };
 
-
-
 $(document).on("click",".checkbox_prev_input",function(){
 	$(this).parent().find("input").click();
 });
-
-
 
 function preparing_html() {
 	//$("body").css("min-height","768px");
@@ -57,7 +53,6 @@ function preparing_html() {
 
 $(window).resize(function(){
 	preparing_html();
-
 })
 
 $(window).scroll(function(){
@@ -87,15 +82,11 @@ $(document).on("focus", ".item_important", function(){
 });
 
 $(document).on("click", ".cart_help_button", function(){
-
 	if (!($(this).find(".help_block").hasClass("active"))) {
 		$(".help_block").removeClass("active");
 		$(this).find(".help_block").addClass("active");
 	}
 });
-
-
-
 
 $(document).on('click',".result_city span", function(){
 	$(".city").val($(this).text());
@@ -114,8 +105,6 @@ $(document).on("click", ".container_yandex_close", function(){
 	$(".alert_block.alert_cart").removeClass("active");
 
 });
-
-
 
 $(document).on('input','.city', function(){
 
@@ -189,6 +178,8 @@ $(document).on('click',".cart_item_block__close", function(){
 
 
 $(document).on('change','input[name="deliver"]', function(){
+
+
 	$(".sdec_address").removeClass("error");
 	$(".checkbox_hided").removeClass("active");
 	var delivery_cost = $(this).data("delivery");
@@ -219,7 +210,107 @@ $(document).on('change','input[name="deliver"]', function(){
 	}
 
 	if (radio_val=="kur_rus") {
-		$(".checkbox_item.russia").find(".checkbox_hided").addClass("active");
+
+		if ($(".adress").val() == "") {
+			$("input, textarea").removeClass("error");
+			$(".adress").addClass("error");
+			
+			$('input[name="deliver"]:checked').prop("checked",false);
+			if ($(".city").val() == "") {
+				
+				$(".city").addClass("error");
+				
+				$('input[name="deliver"]:checked').prop("checked",false);
+				return;
+			} 
+			return;
+		} 
+
+		if ($(".city").val() == "") {
+			$("input, textarea").removeClass("error");
+			$(".city").addClass("error");
+			
+			$('input[name="deliver"]:checked').prop("checked",false);
+			return;
+		} 
+
+			$.ajax({
+					url : "http://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
+						dataType : "jsonp",
+							data : {
+								q : function() {
+									return $(".city").val()
+								},
+								name_startsWith : function() {
+									return $(".city").val()
+								}
+							},
+							success : function(data) {
+								console.log(data);
+								$(".city_list-sdec").find("span").remove();
+								console.log("итерации");
+								for (var i = 0; i<data.geonames.length; i++) {
+									if (data.geonames[i].cityName.toLowerCase() === $(".city").val().toLowerCase()) {
+										
+												$.ajax({ 
+																type: "POST", 
+																url: "cart/get_cost_sdec",
+																dataType: 'text',
+																data: {
+																	idcity : data.geonames[i].id,
+																	kur: true
+																},
+																success: function(data)
+																	{		
+																			
+																		if (data!=false){
+																			var result = JSON.parse(data);
+																			console.log(result);
+
+																			$(".russia_cost").text(result.price+"p");
+
+																			$("#kur_rus").attr("data-delivery", result.price);
+
+																			$(".delivery_cost").attr("data-delivery", result.price);
+
+																			$("#russia_cost").val(result.price);
+
+																			
+
+																			reset_cost_total();
+																			
+																		}else{
+																			$('input[name="deliver"]:checked').prop("checked",false);
+																			$("input").removeClass("error");
+																			$(".city").addClass("error");
+																		}
+																		
+																	},
+																fail: function(data){
+																	$('input[name="deliver"]:checked').prop("checked",false);
+																			$("input").removeClass("error");
+																			$(".city").addClass("error");
+																}
+												});
+
+										$(".checkbox_item.russia").find(".checkbox_hided").addClass("active");
+										return;
+									}
+								
+								}
+
+								if ($(".adress").val() == "") {
+									$(".adress").addClass("error");
+								} 
+
+								$("input").removeClass("error");
+								$(".city").addClass("error");
+								$('input[name="deliver"]:checked').prop("checked",false);
+							}
+						});
+		//return;
+
+	
 	}
 
 
@@ -311,6 +402,11 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 	if (radio_val=="kur_rus") {
 		if ($("#calendar_russia").val()=="") {
 			$("#calendar_russia").addClass("error");
+			breakpoint=false;
+		}
+
+		if ($("#kur_rus").attr("data-delivery") == 0 ) {
+			$("#kur_rus").addClass("error");
 			breakpoint=false;
 		}
 	}

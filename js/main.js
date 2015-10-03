@@ -171,7 +171,6 @@ $(document).on("keydown", ".input_write" , function(event){
 	if (event.keyCode==13) {
 		$(".ok_write").click();
 	}
-
 });
 
 $(document).on("click", ".ok_write" , function(){

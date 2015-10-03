@@ -53,7 +53,7 @@
 
 					<div class="checkbox_item sdec">
 						<div class="order_form-box">
-								<input type="radio" name="deliver" value="sdec" id ="sdec" data-delivery="">
+								<input type="radio" name="deliver" value="sdec" id ="sdec" data-delivery="0">
 								<div class="checkbox_prev_input">
 									<div class="checkbox_selector"></div>
 								</div>
@@ -98,6 +98,7 @@
 							</div>
 							<div class="order_form-box_block"> 
 								<span class="new_line">Курьером по Москве</span>
+								<input type="hidden" name="russia_cost" id="russia_cost" value="">
 								
 							</div>
 							<div class="order_form-box_block">
@@ -113,7 +114,7 @@
 
 					<div class="checkbox_item deliver russia">
 						<div class="order_form-box">
-								<input type="radio" name="deliver" value="kur_rus" id ="kur_rus" data-delivery="<?php echo $config['deliver_cost']['kur_rus'] ?>">
+								<input type="radio" name="deliver" value="kur_rus" id ="kur_rus" data-delivery="0">
 								<div class="checkbox_prev_input">
 									<div class="checkbox_selector"></div>
 								</div>
@@ -123,15 +124,14 @@
 								</div>
 							</div>
 							<div class="order_form-box_block"> 
-								<span class="new_line">Курьером по России</span>
-								
+								<span class="new_line">Курьером по России</span>	
 							</div>
 							<div class="order_form-box_block">
 								<p class="time_order" >3-5 дней</p>
 								<input type="text" placeholder="Дата визита" name="calendar_russia" class="calendar checkbox_hided" id="calendar_russia">
 							</div>
 							<div class="order_form-box_block right">
-								<p class="cost_level"><?php echo $config['deliver_cost']['kur_rus'] ?>р</p>
+								<p class="cost_level russia_cost">-</p>
 							</div>
 						</div>
 					</div>

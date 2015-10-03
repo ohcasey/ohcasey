@@ -19,27 +19,17 @@ function styles_setup($config){
     }
 }
 
-function get_cost_sdec($idcity) {
+function get_cost_sdec($idcity, $kur) {
     $date = date("Y-m-d", strtotime(date("Y-m-d H:i:s"). ' +1 day'))/*."T".date("H:i:s", strtotime(date("Y-m-d H:i:s"). ' +1 day'))*/;
     date_default_timezone_set("UTC");
-    /*
-    $json_string = array(
-        "version"=>"1.0",
-        "dateExecute"=>$date,
-        "authLogin"=>"70706c7a6fdf9cdb2b4208348cbee331", 
-        "secure"=>md5($date.'&'."47d9f60e3b8827fbe28b1babc54ecdce"), 
-        "senderCityId"=>44,
-        "receiverCityId"=>$idcity,
-        "tariffId"=>137,
-     
-        "goods" => array(   
-            "width" => "1",
-            "length" => "1",
-            "height" => "1",
-            "weight" => "1"
-        )
-    );
-    */
+  
+    if ($kur=="none") {
+        $tarif = "136";
+    }else{
+        $tarif = "137";
+    }
+
+
      $json_string = '
     {
         "version":"1.0",
@@ -48,7 +38,7 @@ function get_cost_sdec($idcity) {
         "secure":"'.md5($date.'&'."47d9f60e3b8827fbe28b1babc54ecdce").'",
         "senderCityId":"44",
         "receiverCityId":"'.$idcity.'",
-        "tariffId":"136",
+        "tariffId":"'.$tarif.'",
         "goods": 
         [
         {
@@ -715,7 +705,18 @@ function send_mail($config, $mail_controls, $bd_controls) {
         $body = str_replace('$city', $city, $body);
 
         $cost = 0;
-        $cost += $config["deliver_cost"][$deliver];
+
+       if ($deliver!="sdec") {
+                 if ($deliver=="kur_rus") {
+                    $cost  = get_cost_summary($config, $_SESSION['russia_cost']);
+                 }else{
+                     $cost  = get_cost_summary($config, "none");
+                 }
+                
+            }else{
+                    $cost  = get_cost_summary($config, $_SESSION['sdec_cost']);
+            
+        }
 
    
         $deliver_type ="";
@@ -761,7 +762,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
       
         $body = str_replace('$elements', $elements[0], $body);
 
-        $cost+=$elements[1];
+  
 
         $body = str_replace('$os', $_SESSION['items'][0]["OS"], $body);
         $body = str_replace('$browser', $_SESSION['items'][0]["browser"], $body);
@@ -970,7 +971,6 @@ function send_mail($config, $mail_controls, $bd_controls) {
        	header("Location: /success"); 
 
 
-
     }else{
         header("Location: /cart"); 
     }
@@ -1095,6 +1095,12 @@ function get_mail($config, $mail_controls, $bd_controls){
         $_SESSION['sdec_worktime'] = $_POST['sdec_worktime'];
     }
 
+    if (isset($_POST['russia_cost'])) {
+        $_SESSION['russia_cost'] = $_POST['russia_cost'];
+    }
+
+   
+
 
     $db =  mysqlconnect($bd_controls);
         
@@ -1116,14 +1122,16 @@ function get_mail($config, $mail_controls, $bd_controls){
 
     if ($payment=="robocassa"){  
             $kassa = new Robokassa('ohcasey.ru', 'as210100', 'qw210100');
-            /* назначение параметров */
-
-
+         
             if ($deliver!="sdec") {
-				
-                 $kassa->OutSum  = get_cost_summary($config, "none");
+                 if ($deliver=="kur_rus") {
+                    $cost  = get_cost_summary($config, $_SESSION['russia_cost']);
+                 }else{
+                     $cost  = get_cost_summary($config, "none");
+                 }
             }else{
-                $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
+                    $cost  = get_cost_summary($config, $_SESSION['sdec_cost']);
+              
             }
 		
 		echo $kassa->OutSum;
