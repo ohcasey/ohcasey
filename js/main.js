@@ -129,7 +129,6 @@ var desctop = {
 		}
 };
 
-
 var steps = [];
 var cur_step=1;
 
@@ -1745,12 +1744,11 @@ var img, img0, img1;
 
 
 function save_image() {
-
 	if (breakpoint_image==true) return false;
 	breakpoint_image = true;
 	$('.alert_block.alert_safari').addClass("active");
 
-
+	d3.selectAll(".rect__loader").remove();
 	if (safari_brow=="safari") {
 		
 
