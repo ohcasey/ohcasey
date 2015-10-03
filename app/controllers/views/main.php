@@ -15,6 +15,14 @@
 							]]>
 						</style>
 					</defs>
+					<defs>
+						 <pattern id="pattern_loader" x="0" y="0"  preserveAspectRatio="xMidYMid slice" height="100%" width="100%"   >
+					    	<image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/tail-spin.svg" height="100px" width="100px" ></image>
+
+					     </pattern>
+
+					</defs>
+					
 				</svg>
 
 				<svg  xmlns="http://www.w3.org/2000/svg" version="1.1"  class="svg_text_svg">
@@ -28,9 +36,10 @@
 				</svg>
 
 				<svg xmlns="http://www.w3.org/2000/svg" version="1.1"   class="svg_second_svg">
+					<g class="rect__loader">
+						
+					</g>
 				</svg>
-
-				
 				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="controls_device_svg">
 					<defs>
 						<pattern id="move" x="0" y="0" patternUnits="objectBoundingBox" height="25" width="25">
