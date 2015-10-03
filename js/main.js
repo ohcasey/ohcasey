@@ -399,6 +399,26 @@ function preparing_data(){
 					.append("g")
 						.classed("g_smiles", true);
 
+		svg.append("g")
+			.classed("rect__loader", true)
+				.append("rect")
+					.classed("loader", true)
+					.attr("width", "100%")
+					.attr("height", "100%")
+					.attr("rx", "25")
+					.attr("ry", "25");
+
+
+		d3.selectAll(".rect__loader")
+			.append("rect")
+					.attr("preserveAspectRatio", "xMidYMid slice")
+					.classed("loader_2", true)
+					.attr("width", "100px")
+					.attr("height", "100px")
+					.attr("rx", "25")
+					.attr("ry", "25")
+					.style("fill",  "url(#pattern_loader)");
+
 	}else{
 		svg = d3.select(".center_device_svg");
 
@@ -427,6 +447,27 @@ function preparing_data(){
 							.classed("svg_mask_container", true);
 		svg_fonts_container = svg.append("defs")
 							.classed("svg_fonts_container", true);
+
+		svg.append("g")
+			.classed("rect__loader", true)
+				.append("rect")
+					.classed("loader", true)
+					.attr("width", "100%")
+					.attr("height", "100%")
+					.attr("rx", "25")
+					.attr("ry", "25");
+
+
+		d3.selectAll(".rect__loader")
+			.append("rect")
+					.attr("preserveAspectRatio", "xMidYMid slice")
+					.classed("loader_2", true)
+					.attr("width", "100px")
+					.attr("height", "100px")
+					.attr("rx", "25")
+					.attr("ry", "25")
+					.style("fill",  "url(#pattern_loader)");
+			
 	}
 	
 
@@ -1495,6 +1536,10 @@ function set_device(device_id) {
 		"height": scale_coof *config.devices[desctop.device_id].height +"px"
 	});
 
+	d3.selectAll("rect.loader_2")
+		.attr("x", (config.devices[desctop.device_id].width/2-50) + "px" )
+		.attr("y", (config.devices[desctop.device_id].height/2-50) + "px" );
+
 	$(".device_colors.chech_colors").css("margin-top","-"+ ((scale_coof-1)/2)*config.devices[desctop.device_id].height+"px");
 
 	svg_controls_svg.selectAll("g").attr({
@@ -1537,6 +1582,8 @@ function set_smile(smile_id) {
 
 function set_bg(bg_id) {
 
+	d3.selectAll(".rect__loader").classed("active", true);
+
 	desctop.bg_id = bg_id;
 	var url = d3.select("#library-background_row-"+bg_id).attr("data-url");
 
@@ -1556,6 +1603,8 @@ function set_bg(bg_id) {
 		d3.select(".device_background")
 			.attr("preserveAspectRatio", "xMidYMid slice")
       		.attr("xlink:href", "data:image/png;base64," + data); // replace link by data URI
+      		d3.selectAll(".rect__loader").classed("active", false);
+
 	});
 	$(".library-background_row").removeClass("library-background_row-selected");
 	$("#library-background_row-"+bg_id).addClass("library-background_row-selected");

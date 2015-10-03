@@ -3798,6 +3798,31 @@ ymaps button:hover {
   -ms-transform: translateZ(0);
   transform: translateZ(0);
 }
+
+rect.loader {
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	fill: rgba(0,0,0,0.4);	
+	transion: 300ms all linear;
+	
+}
+
+rect.loader_2 {
+	opacity: 0;
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	width: 100px;
+	height: 100px;
+	transion: 300ms all linear;
+}
+
+.rect__loader.active rect {
+	opacity: 1;
+}
+
 @-webkit-keyframes load4 {
   0%,
   100% {
