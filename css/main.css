@@ -1842,9 +1842,8 @@ svg {
 
 .overflow_form #right-1 {
 	overflow: hidden;
+
 }
-
-
 
 .select-city__main-input__sdec::-webkit-input-placeholder {
 	font-family: "HelveticaNeueCyr",Arial,Verdana,Helvetica,sans-serif;

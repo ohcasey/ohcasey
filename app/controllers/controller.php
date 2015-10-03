@@ -91,12 +91,20 @@
 		}
 
 		if ($action_name=="get_cost_sdec" ) {
+
 			if (isset($_POST["idcity"])) {
 				$idcity = $_POST["idcity"];
 			}else{
 				$idcity = 270;
 			}
-			get_cost_sdec($idcity);
+
+			$kur = "none";
+
+			if (isset($_POST["kur"])) {
+				$kur = $_POST["kur"];
+			}
+
+			get_cost_sdec($idcity, $kur);
 			exit;
 		}
 
