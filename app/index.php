@@ -2,7 +2,6 @@
 
 			session_start();
 	
-
 			include("config.php");
 			include("function.php");
 
@@ -11,14 +10,11 @@
 			$path = $_SERVER['REQUEST_URI'];
 			$arr = parse_url($path);
 			
-			//print_r($arr);
-
+			print_r($arr);
 
 			$path = $arr["path"];
 			
 			$routes = explode('/', $path);
-
-
 
 			if (!empty($routes[1]) )
 			{		
