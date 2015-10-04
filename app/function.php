@@ -979,9 +979,13 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
 
 function get_cost_summary($config, $deliver) {
+	
+	$not_config = false;
 
     if ($deliver == "none") {
         $deliver = $_SESSION["deliver"];
+		$not_config = true;
+		
     }
 
     echo $deliver;
@@ -1006,7 +1010,7 @@ function get_cost_summary($config, $deliver) {
             
         }
     }
-    if ($deliver != "none") {
+    if ($not_config == true) {
         $cost+=$config["deliver_cost"][$deliver];
     }else{
          $cost+=$deliver;
@@ -1036,6 +1040,13 @@ function get_mail($config, $mail_controls, $bd_controls){
        $city = $_POST['city'];
        $_SESSION['city'] = $_POST['city'];
     }
+	
+	if (isset($_POST['index'])) {
+       $city = $_POST['index'];
+       $_SESSION['index'] = $_POST['index'];
+    }
+	
+	
     if (isset($_POST['adress'])) {
      $adress =$_POST['adress'];
      $_SESSION['adress'] = $_POST['adress'];
@@ -1125,16 +1136,16 @@ function get_mail($config, $mail_controls, $bd_controls){
          
             if ($deliver!="sdec") {
                  if ($deliver=="kur_rus") {
-                    $cost  = get_cost_summary($config, $_SESSION['russia_cost']);
+                    $kassa->OutSum  = get_cost_summary($config, $_SESSION['russia_cost']);
                  }else{
-                     $cost  = get_cost_summary($config, "none");
+                    $kassa->OutSum  = get_cost_summary($config, "none");
                  }
             }else{
-                    $cost  = get_cost_summary($config, $_SESSION['sdec_cost']);
+                   $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
               
             }
 		
-		echo $kassa->OutSum;
+			echo $kassa->OutSum;
 
             $kassa->InvId = $zakaz_number;
             $kassa->Email = $email;

@@ -221,8 +221,10 @@ $(document).on('change','input[name="deliver"]', function(){
 				$(".city").addClass("error");
 				
 				$('input[name="deliver"]:checked').prop("checked",false);
+				radio_val = "dsf";
 				return;
 			} 
+			radio_val = "dsf";
 			return;
 		} 
 
@@ -231,6 +233,7 @@ $(document).on('change','input[name="deliver"]', function(){
 			$(".city").addClass("error");
 			
 			$('input[name="deliver"]:checked').prop("checked",false);
+			radio_val = "dsf";
 			return;
 		} 
 
@@ -239,10 +242,10 @@ $(document).on('change','input[name="deliver"]', function(){
 						dataType : "jsonp",
 							data : {
 								q : function() {
-									return $(".city").val()
+									return $(".city").val();
 								},
 								name_startsWith : function() {
-									return $(".city").val()
+									return $(".city").val();
 								}
 							},
 							success : function(data) {
@@ -283,6 +286,7 @@ $(document).on('change','input[name="deliver"]', function(){
 																			$('input[name="deliver"]:checked').prop("checked",false);
 																			$("input").removeClass("error");
 																			$(".city").addClass("error");
+																			radio_val = "dsf";
 																		}
 																		
 																	},
@@ -290,6 +294,7 @@ $(document).on('change','input[name="deliver"]', function(){
 																	$('input[name="deliver"]:checked').prop("checked",false);
 																			$("input").removeClass("error");
 																			$(".city").addClass("error");
+																	radio_val = "dsf";
 																}
 												});
 
@@ -306,10 +311,11 @@ $(document).on('change','input[name="deliver"]', function(){
 								$("input").removeClass("error");
 								$(".city").addClass("error");
 								$('input[name="deliver"]:checked').prop("checked",false);
+								radio_val = "dsf";
+							
 							}
 						});
-		//return;
-
+	
 	
 	}
 
@@ -932,10 +938,6 @@ $(document).on("click", "ymaps button" ,function(){
 	$("#sdec_worktime").val(sdec_data.WorkTime);
 
 
-
-
-	
-
 	/*получить цену d*/
 	$(".sdec_address").html(sdec_data.City+", "+sdec_data.Name+"<br>"+sdec_data.Address);
 
@@ -968,13 +970,7 @@ $(document).on("click", "ymaps button" ,function(){
 						}
 					);
 					reset_cost_total();
-					/*
-					for (var i = 0; i < result.length; i++) {
-
-   						 $(".result_city").append("<span>"+result[i][0]+"</span>");
-   						 $('.result_city').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
-					}
-					*/
+					
 				}
 				
 			},
