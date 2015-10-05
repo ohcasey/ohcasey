@@ -31,17 +31,17 @@
 								</div>
 							<div class="cart_help_button">
 								<div class="help_block">
-									Самовывоз по Москве осуществляется по адресу м. Таганская
-										ул. Гончарная д. 5 Время работы: с 10 до 19
+									Шоурум находится по адресу м. Таганская,
+										ул. Таганская 24 стр. 1, ежедневно с 12 до 20) 
 								</div>
 							</div>
 							<div class="order_form-box_block"> 
-								<span class="new_line">Самовывоз из офиса</span>
+								<span class="new_line">Самовывоз из шоурума</span>
 								<span class="checkbox_hided">Москва, м. Таганская
-								<br>ул. Таганская д. 5</span>
+								<br>ул. Таганская д. 24 стр. 1</span>
 							</div>
 							<div class="order_form-box_block">
-								<p class="time_order" >1 день</p>
+								<p class="time_order" >2 дня</p>
 								<input type="text" placeholder="Дата визита" name="calendar_self" class="calendar checkbox_hided" id="calendar_self">
 							</div>
 							<div class="order_form-box_block right">
