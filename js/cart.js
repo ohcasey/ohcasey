@@ -91,7 +91,7 @@ $(document).on("click", ".cart_help_button", function(){
 $(document).on('click',".result_city span", function(){
 	$(".city").val($(this).text());
 	$(".result_city").find("span").remove();
-	
+	get_kur_cost(false);
 	reset_city_depend();
 });
 
@@ -99,6 +99,7 @@ $(document).on('click',".result_city span", function(){
 $(document).on('input','.select-city__main-input__sdec', function(){
 	$(".city").val($(this).val());
 	get_city_list_sdec();
+	get_kur_cost(false);
 });
 
 $(document).on("click", ".container_yandex_close", function(){
@@ -109,7 +110,7 @@ $(document).on("click", ".container_yandex_close", function(){
 $(document).on('input','.city', function(){
 
 	$(".select-city__main-input__sdec").val($(this).val());
-
+	get_kur_cost(false);
 
 	$(".result_city").find("span").remove();
 	$.ajax({ 
@@ -237,7 +238,39 @@ $(document).on('change','input[name="deliver"]', function(){
 			return;
 		} 
 
-			$.ajax({
+		 get_kur_cost(true);
+	
+	}
+
+
+	if ((radio_val=="kur_rus") || (radio_val=="mail_ru")) {
+		var radio_vs = $('input[name="payment"]:checked').val();
+
+		if (radio_vs === "cash") {
+			$('input[name="payment"]:checked').prop("checked",false);
+		}
+
+		$(".checkbox_item.cash input").addClass("disabled");
+		$('.checkbox_item.cash').prop({"disabled": true, "readonly": true });
+	}
+
+	if (radio_val=="sdec") { 
+		$(".checkbox_item.sdec").find(".checkbox_hided").addClass("active");
+		show_sdec();
+	}
+
+	reset_cost_total();
+});
+
+function get_kur_cost(params) {
+	
+		$(".russia_cost").text("-");
+
+		$("#kur_rus").attr("data-delivery", 0);
+																		
+		$("#russia_cost").val("0");
+	
+		$.ajax({
 					url : "http://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
 						dataType : "jsonp",
 							data : {
@@ -273,9 +306,9 @@ $(document).on('change','input[name="deliver"]', function(){
 																			$(".russia_cost").text(result.price+"p");
 
 																			$("#kur_rus").attr("data-delivery", result.price);
-
-																			$(".delivery_cost").attr("data-delivery", result.price);
-
+																			if (params==true) {												
+																				$(".delivery_cost").attr("data-delivery", result.price);
+																			}
 																			$("#russia_cost").val(result.price);
 
 																			
@@ -283,61 +316,49 @@ $(document).on('change','input[name="deliver"]', function(){
 																			reset_cost_total();
 																			
 																		}else{
-																			$('input[name="deliver"]:checked').prop("checked",false);
-																			$("input").removeClass("error");
-																			$(".city").addClass("error");
-																			radio_val = "dsf";
+																				$('input[name="deliver"]:checked').prop("checked",false);
+																			if (params==true) {
+																				
+																					$("input").removeClass("error");
+																					$(".city").addClass("error");
+																				
+																			}
+																		
 																		}
 																		
 																	},
 																fail: function(data){
 																	$('input[name="deliver"]:checked').prop("checked",false);
+																		if (params==true) {	
+																	
 																			$("input").removeClass("error");
 																			$(".city").addClass("error");
-																	radio_val = "dsf";
+																	}
 																}
 												});
-
-										$(".checkbox_item.russia").find(".checkbox_hided").addClass("active");
+											if (params==true) {	
+												$(".checkbox_item.russia").find(".checkbox_hided").addClass("active");
+											}
 										return;
 									}
 								
 								}
-
-								if ($(".adress").val() == "") {
-									$(".adress").addClass("error");
-								} 
-
-								$("input").removeClass("error");
-								$(".city").addClass("error");
 								$('input[name="deliver"]:checked').prop("checked",false);
-								radio_val = "dsf";
+								if (params==true) {	
+									if ($(".adress").val() == "") {
+										$(".adress").addClass("error");
+									} 
+
+									$("input").removeClass("error");
+									$(".city").addClass("error");
+									
+								}
 							
 							}
 						});
-	
-	
-	}
-
-
-	if ((radio_val=="kur_rus") || (radio_val=="mail_ru")) {
-		var radio_vs = $('input[name="payment"]:checked').val();
-
-		if (radio_vs === "cash") {
-			$('input[name="payment"]:checked').prop("checked",false);
-		}
-
-		$(".checkbox_item.cash input").addClass("disabled");
-		$('.checkbox_item.cash').prop({"disabled": true, "readonly": true });
-	}
-
-	if (radio_val=="sdec") { 
-		$(".checkbox_item.sdec").find(".checkbox_hided").addClass("active");
-		show_sdec();
-	}
-
 	reset_cost_total();
-});
+}
+
 
 function show_sdec() {
 	$(".alert_cart").addClass("active");
@@ -412,6 +433,7 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 		}
 
 		if ($("#kur_rus").attr("data-delivery") == 0 ) {
+			$('input[name="deliver"]:checked').prop("checked",false);
 			$("#kur_rus").addClass("error");
 			breakpoint=false;
 		}
@@ -471,7 +493,8 @@ $(document).ready(function(){
 			$(".alert_block.alert_tablet").addClass("active");
 		}
 	}
-
+	get_kur_cost(false);
+	
 
 	var dates1 = $(".calendar").datepicker({
 		 firstDay: 1,
@@ -557,7 +580,7 @@ $(document).ready(function(){
 	$('.phone').mask('+7 (999) 999-99-99');
 
 	$('input,textarea').focus(function(){
-	   $(this).data('placeholder',$(this).attr('placeholder'))
+	   $(this).data('placeholder',$(this).attr('placeholder'));
 	   $(this).attr('placeholder','');
  	});
 	 $('input,textarea').blur(function(){
