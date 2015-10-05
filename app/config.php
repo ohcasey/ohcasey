@@ -34,7 +34,7 @@ $config = array(
 			"self" =>  0, //самовывоз
 			"kur_mos" =>  350,
 			"kur_rus" =>  650,
-			"mail_ru" => 3,  //самовывоз
+			"mail_ru" => 300,  //самовывоз
 		),
 		//Конфигурации
 			"default_text"=>"Введите текст",
@@ -1038,7 +1038,7 @@ iphone4_black_crystal_case.png
 								"desctop_img" => "iphone4-4s_black_softtouch_case.png",
 								"desctop_mask" => "iphone4-4s.png", //обрезка
 								"desctop_camera" => "iphone4s_black_camera.png",
-								"cost"=>1
+								"cost"=>1500
 							)
 						)
 				),
@@ -3567,38 +3567,7 @@ iphone4_black_crystal_case.png
 
 				)
 			),
-/*
-			array(
-				"link"=>"3/",
-				"name"=>"Другое",
-				"images"=>array(
-					array(
-						"big"=>"480/smile1.png",
-						"small"=>"124/smile1.png"
-					),
-					array(
-						"big"=>"480/smile1.png",
-						"small"=>"124/smile1.png"
-					),
-					array(
-						"big"=>"480/smile1.png",
-						"small"=>"124/smile1.png"
-					),
-					array(
-						"big"=>"480/smile1.png",
-						"small"=>"124/smile1.png"
-					),
-					array(
-						"big"=>"480/smile1.png",
-						"small"=>"124/smile1.png"
-					),
-					array(
-						"big"=>"480/smile1.png",
-						"small"=>"124/smile1.png"
-					),
-				)
-			),
-			*/
+
 		)
 );
 ?>
