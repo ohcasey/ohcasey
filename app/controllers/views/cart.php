@@ -59,11 +59,11 @@
 								</div>
 							<div class="cart_help_button">
 								<div class="help_block">
-									Москва, Нелидовская улица д.10
+									Пункты самовывоза курьерской компании <a href="http://cdek.ru" target="_balnk">СДЭК</a>. Выберите этот способ доставки и на появившейся карте вашего города выберите удобный вам пункт самовывоза.
 								</div>
 							</div>
 							<div class="order_form-box_block"> 
-								<span class="new_line">Самовывоз через пункт СДЭК</span>
+								<span class="new_line">Пункты самовывоза</span>
 								<span class="checkbox_hided sdec_address">Выбрать пункт выдачи</span>
 
 								<input type="hidden" name="sdec_code" id="sdec_code" value="">
@@ -74,7 +74,7 @@
 
 							</div>
 							<div class="order_form-box_block">
-								<p class="time_order" >3-5 дней</p>
+								<p class="time_order" >Выберите</br> пункт</p>
 								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" name="calendar_sdec" id="calendar_sdec">
 
 							</div>
@@ -93,16 +93,16 @@
 								</div>
 							<div class="cart_help_button">
 								<div class="help_block">
-									Москва, Нелидовская улица д.10
+									Доставка нашим курьером в пределах МКАД
 								</div>
 							</div>
 							<div class="order_form-box_block"> 
-								<span class="new_line">Курьером по Москве</span>
+								<span class="new_line">Курьер по Москве в пределах МКАД</span>
 								<input type="hidden" name="russia_cost" id="russia_cost" value="">
 								
 							</div>
 							<div class="order_form-box_block">
-								<p class="time_order" >1-2 дня</p>
+								<p class="time_order" >2 дня</p>
 								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" name="calendar_moscow"  id="calendar_moscow">
 							</div>
 							<div class="order_form-box_block right">
@@ -120,7 +120,7 @@
 								</div>
 							<div class="cart_help_button">
 								<div class="help_block">
-									Москва, Нелидовская улица д.10
+									Доставка курьерской компанией <a href="http://cdek.ru" target="_balnk">СДЭК</a>. Выберите этот способ доставки и кликните "дата визита", чтобы увидеть ближайшую возможную дату доставки в вашем городе.
 								</div>
 							</div>
 							<div class="order_form-box_block"> 
@@ -144,7 +144,7 @@
 								</div>
 							<div class="cart_help_button">
 								<div class="help_block">
-									Москва, Нелидовская улица д.10
+									Доставка в отделение Почты России
 								</div>
 							</div>
 							<div class="order_form-box_block"> 
@@ -152,7 +152,7 @@
 								
 							</div>
 							<div class="order_form-box_block">
-								<p class="time_order" >5-14 дней</p>
+								<p class="time_order" >7-9 дней</p>
 							
 							</div>
 							<div class="order_form-box_block right">
@@ -183,7 +183,7 @@
 						<div class="checkbox_prev_input">
 							<div class="checkbox_selector"></div>
 						</div>
-						<span >Робокасса</span>
+						<span >Банковской картой онлайн</span>
 					</div>
 				</div>
 			</div>
