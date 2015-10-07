@@ -244,18 +244,31 @@ $(document).on('change','input[name="deliver"]', function(){
 
 
 	if ((radio_val=="kur_rus") || (radio_val=="mail_ru")) {
-		var radio_vs = $('input[name="payment"]:checked').val();
 
+		//Убираем галочку с бокса "Наличные" если он отмечен
+        var radio_vs = $('input[name="payment"]:checked').val();
 		if (radio_vs === "cash") {
 			$('input[name="payment"]:checked').prop("checked",false);
 		}
-
+        //И делаем его недоступным
 		$(".checkbox_item.cash input").addClass("disabled");
 		$('.checkbox_item.cash').prop({"disabled": true, "readonly": true });
+        //
 	}
 
 	if (radio_val=="sdec") { 
+        
+        //Убираем галочку с бокса "Наличные" если он отмечен
+        var radio_vs = $('input[name="payment"]:checked').val();
+		if (radio_vs === "cash") {
+			$('input[name="payment"]:checked').prop("checked",false);
+		}
+        //И делаем его недоступным
+		$(".checkbox_item.cash input").addClass("disabled");
+		$('.checkbox_item.cash').prop({"disabled": true, "readonly": true });
+        //
 		$(".checkbox_item.sdec").find(".checkbox_hided").addClass("active");
+        
 		show_sdec();
 	}
 
