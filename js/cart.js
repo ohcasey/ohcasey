@@ -189,10 +189,6 @@ $(document).on('change','input[name="deliver"]', function(){
 	$('input[name="payment"]').removeClass("disabled");
 	$('input[name="payment"]').prop({"disabled": false, "readonly": false });
 
-
-	$(".cart_item.adress")
-			.addClass("item_important")
-			.attr("placeholder","* Адрес");
 	
 	var radio_val = $('input[name="deliver"]:checked').val();
 
@@ -200,16 +196,24 @@ $(document).on('change','input[name="deliver"]', function(){
 
 		$(".checkbox_item.person").find(".checkbox_hided").addClass("active");
 
+		//Делаем поле "Адрес" необязательным
 		$(".cart_item.adress")
 			.removeClass("error")
-			.removeClass("item_important")
-			.attr("placeholder","Адрес");
+			.removeClass("item_important");
+        
+	    //Делаем поле "Индекс" - необязательным
+        $('input.index').removeClass('item_important');
 	}
 
 	if (radio_val=="kur_mos") {
+        //Делаем поле "Адрес" обязательным
+        $(".cart_item.adress").addClass("item_important");
+        //А поле "Индекс" - необязательным
+        $('input.index').removeClass('item_important');
 		$(".checkbox_item.moscow").find(".checkbox_hided").addClass("active");
 	}
 
+    /*
 	if (radio_val=="kur_rus") {
 
 		if ($(".adress").val() == "") {
@@ -241,9 +245,45 @@ $(document).on('change','input[name="deliver"]', function(){
 		 get_kur_cost(true);
 	
 	}
+    */
+    
+    //Если доставка Почтой России, то сделать поле "Индекс" обязательным
+    if (radio_val=="mail_ru"){
+        $('input.index').addClass('item_important');   
+    }
+    //
+    
+    //Если доставка Курьером по Росии, то убрать обязательность поля "Индекс"
+    if (radio_val=="kur_rus"){
+        
+        //Делаем поле "Адрес" обязательным
+        $(".cart_item.adress").addClass("item_important");
+        //
+        
+        //А поле "Индекс" - необязательным
+        $('input.index').removeClass('item_important');
+        //
+        
+        if ($(".city").val() == "") {
+			$("input, textarea").removeClass("error");
+			$(".city").addClass("error");
+			
+			//$('input[name="deliver"]:checked').prop("checked",false);
+			radio_val = "dsf";
+			return;
+		}
+        else{
+            get_kur_cost(true);
+        }
+    }
+    //
 
 
 	if ((radio_val=="kur_rus") || (radio_val=="mail_ru")) {
+        
+        //Делаем поле "Адрес" обязательным
+        $(".cart_item.adress").addClass("item_important");
+        //
 
 		//Убираем галочку с бокса "Наличные" если он отмечен
         var radio_vs = $('input[name="payment"]:checked').val();
@@ -257,6 +297,12 @@ $(document).on('change','input[name="deliver"]', function(){
 	}
 
 	if (radio_val=="sdec") { 
+        
+        //Делаем поле "Адрес" необязательным
+        $(".cart_item.adress").removeClass("item_important");
+        //А поле "Индекс" - необязательным
+        $('input.index').removeClass('item_important');
+        //
         
         //Убираем галочку с бокса "Наличные" если он отмечен
         var radio_vs = $('input[name="payment"]:checked').val();
