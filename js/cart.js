@@ -577,7 +577,10 @@ $(document).ready(function(){
 
 	$(".ps-container .ps-scrollbar-x-rail").remove();
 	$("#phone_model").append("Итого");
-	$('.phone').mask('+7 (999) 999-99-99');
+
+    
+    //Артем: изменил плагин, который управляет вводом. Теперь он соответствует пожеланиям Леши
+	$('.phone').mask('+7 (999) 999 99 99?9', {placeholder: " "});
 
 	$('input,textarea').focus(function(){
 	   $(this).data('placeholder',$(this).attr('placeholder'));
