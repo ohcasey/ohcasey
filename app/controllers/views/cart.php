@@ -16,8 +16,8 @@
 						<div class = "result_city">
 						</div>
 					</div>
-					<input type="text" name="index" placeholder = "* Индекс" class="cart_item item_right half_item item_important index" value="<?php  if (isset($_SESSION['index'])) { echo $_SESSION['index'];}?>">
-					<textarea placeholder="Почтовый индекс и адрес доставки" name="adress" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
+					<input type="text" name="index" placeholder = "* Индекс" class="cart_item item_right half_item index" value="<?php  if (isset($_SESSION['index'])) { echo $_SESSION['index'];}?>">
+					<textarea placeholder="* Адрес доставки" name="adress" class="cart_item adress"><?php if (isset($_SESSION['city'])) { if ($city==$_SESSION['city'])  { echo $_SESSION['adress'];} }?></textarea>
 					<textarea placeholder="Комментарии к заказу" name="comments" class="cart_item comments"></textarea>
 				</div>
 				
