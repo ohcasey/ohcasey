@@ -286,7 +286,7 @@
 </body>
 <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-<script type="text/javascript" src="js/phone_input.js"></script>
+<script type="text/javascript" src="js/jquery.maskedinput.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/cart.js"></script>
 <script type="text/javascript" src="js/perfect-scrollbar.js"></script>
