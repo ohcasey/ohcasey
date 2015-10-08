@@ -638,8 +638,9 @@ $(document).ready(function(){
 	$("#phone_model").append("Итого");
 
     
-    //Артем: изменил плагин, который управляет вводом. Теперь он соответствует пожеланиям Леши
-	$('.phone').mask('+7 (999) 999 99 99?9', {placeholder: " "});
+    //Артем: изменил плагин, который управляет вводом
+    //Добавил autoclear:false и теперь поле для ввода не очищается с некорректно введенным значением при потере фокуса 
+	$('.phone').mask('+7 (999) 999 99 99?9', {placeholder: " ", autoclear: false});
 
 	$('input,textarea').focus(function(){
 	   $(this).data('placeholder',$(this).attr('placeholder'));
