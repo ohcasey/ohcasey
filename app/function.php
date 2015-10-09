@@ -731,7 +731,23 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
         }
         if ($deliver=="kur_rus"){
-            $deliver_type = "Курьер по России";
+            $deliver_type = '
+                <table>
+                <tbody>
+                    <tr><td colspan="2">
+                     Курьер по России
+                    </td></tr>
+                    <tr>
+                        <td style ="padding: 5px;  text-align: right;" width="25%">Дата доставки</td>
+                        <td style ="padding: 5px;  text-align: left;">'.$_SESSION['calendar_russia'].'</td>
+                    </tr>
+                    <tr>
+                        <td style ="padding: 5px;  text-align: right;" width="50%">Стоимость доставки</td>
+                        <td style ="padding: 5px;  text-align: left;">'.$_SESSION['russia_cost'].'</td>
+                    </tr>
+                </tbody>
+                </table>'
+            ;
 
         }
         if ($deliver=="mail_ru"){
@@ -739,7 +755,39 @@ function send_mail($config, $mail_controls, $bd_controls) {
         }
 
         if ($deliver=="sdec"){
-            $deliver_type = "Самовывоз из пункта СДЭК";
+            $deliver_type = '
+                <table>
+                <tbody>
+                    <tr><td colspan="2">
+                    <b>Самовывоз из пункта СДЭК</b>
+                    </td></tr>
+                    <tr>
+                        <td style ="padding: 5px;  text-align: right;" width="25%">Дата самовывоза</td>
+                        <td style ="padding: 5px;  text-align: left;">'.$_SESSION['calendar_sdec'].'</td>
+                    </tr>
+                    <tr>
+                        <td style ="padding: 5px; text-align: right;" width="25%">Пункт самовывоза</td>
+                        <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_code'].'</td>
+                    </tr>
+                    <tr>
+                        <td style ="padding: 5px; text-align: right;" width="25%">Адреса пункта</td>
+                        <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_adress'].'</td>
+                    </tr>
+                    <tr>
+                        <td style ="padding: 5px; text-align: right;" width="25%">Название пункта</td>
+                        <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_name'].'</td>
+                    </tr>
+                    <tr>
+                        <td style ="padding: 5px; text-align: right;" width="25%">Режим работы пункта</td>
+                        <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_worktime'].'</td>
+                    </tr>
+                    <tr>
+                        <td style ="padding: 5px; text-align: right;" width="25%">Стоимость самовывоза</td>
+                        <td style ="padding: 5px; ext-align: left;">'.$_SESSION['sdec_cost'].'</td>
+                    </tr>
+                </tbody>
+                </table>'
+            ;
         }
 
 
@@ -779,7 +827,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
         $body = str_replace('$cost', $cost, $body);
 
-        if (isset($adress) && ($adress!="")) {
+        if (isset($adress) && ($adress!="") && ($deliver!="self") && ($deliver!="sdec") ) {
              $body = str_replace('$adress','<tr>
                                                             <td style ="padding: 5px;" width="50%">Адрес</td>
                                                             <td style ="padding: 5px;">'.$adress.'</td>
