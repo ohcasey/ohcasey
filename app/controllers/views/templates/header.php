@@ -27,7 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
 	<script src="js/device.min.js"></script>
-	<!--[if lt IE 9]>
+	<!--[if lt IE 11]>
 		<script type="text/javascript">
 			$(document).load(function(){
 				$(".alert_block.alert_old").addClass("active");
