@@ -2201,18 +2201,19 @@ input.cart_item.error,  textarea.cart_item.error{
 
 .checkbox_item+.checkbox_item {
 	margin-top: 0px;
+
+
 }
-
-
 .checkbox_item span {
 	z-index: 300;
-	margin-top: 5px;
+	margin-top: 9px;
 	display: block;
 	float: left;
 	position: relative;
 	margin-left: 20px;
 	display: block;
-	line-height: 37px;
+	padding-top: 5px;
+	line-height: 20px;
 	cursor: pointer;
 	width: 190px;
 }

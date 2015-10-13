@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
 	<script src="js/device.min.js"></script>
+
 	<!--[if lt IE 11]>
 		<script type="text/javascript">
 			$(document).load(function(){
@@ -37,9 +38,6 @@
 </head>
 <body>
 <?php include_once("analyticstracking.php") ?>
-
-
-
 
 <div class="alert_block alert_mobile">
 	<div class="container_mobile">
