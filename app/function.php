@@ -527,7 +527,6 @@ function save_img(){
     }
 }
 
-
 function mysqlconnect($bd_controls){
 
     if (gethostname() == "dmitry-HP-Pavilion-dv7-Notebook-PC") {
