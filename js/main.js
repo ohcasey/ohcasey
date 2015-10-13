@@ -6,7 +6,6 @@ var device_height_svg;
 var text_error =0;
 var bb = -240;
 
-
 var breakpoint_image = false;
 
 var safari_brow = "";
@@ -1120,6 +1119,7 @@ function change_step(obj) {
 			}
 
 			$(".g_texts").css("display", "block");
+			$(".g_smiles").css("display", "block");
 			if ($(".svg_camera").find('image').length==0) set_check();
 
 
