@@ -1261,6 +1261,21 @@ display: block;
 	background: transparent;
 }
 
+#steps_controller.cart #steps_controller-checkout_but {
+	position: relative;
+	overflow: hidden;
+
+}
+
+#steps_controller.cart a {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	line-height: 48px;
+}
+
 
 #steps_controller-checkout_but.active *, #steps_controller-next_but.active *{
 	color: #669AC4;	
