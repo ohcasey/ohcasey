@@ -294,5 +294,78 @@
 <script type="text/javascript" src="js/sweet-alert.min.js"></script>
 <script type="text/javascript" src="js/knob.js"></script> 	
 
+<script type="text/javascript">
+	$(document).load(function(){
+			var dates1 = $(".calendar").datepicker({
+			 firstDay: 1,
+			monthNames:
+			["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август", 
+			"Сентябрь","Октябрь","Ноябрь","Декабрь"],
+			//minDate: Date()
+			dayNamesMin: 
+			["Вс","Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+			changeMonth: false,
+			changeYear: false,
+			dateFormat: 'dd.mm.yy',
 
+			beforeShow: function() {
+		        setTimeout(function(){
+		            $('.ui-datepicker').css('z-index', 99999999999999);
+		        }, 0);
+		    }
+		});
+
+		/*на разные даты*/
+		var selfDate = new Date();
+
+		selfDate.setDate(selfDate.getDate() + 1);
+
+		$("#calendar_self").datepicker('option', 
+			{
+				minDate: selfDate
+			}
+		);
+		
+
+		var moscowDate = new Date();
+
+		moscowDate.setDate(moscowDate.getDate() + 2);
+
+		$("#calendar_moscow").datepicker('option', 
+			{
+				minDate: moscowDate
+			}
+		);
+
+
+		var russiaDate = new Date();
+
+		russiaDate.setDate(russiaDate.getDate() + 4);
+
+		$("#calendar_russia").datepicker('option', 
+			{
+				minDate: russiaDate
+			}
+		);
+
+
+		
+
+		$(".calendar").change(function(){
+			$(this).val($(this).val().replace('Январь', 'Января'));
+			$(this).val($(this).val().replace('Февраль', ' Февраля '));
+			$(this).val($(this).val().replace('Март', ' Марта '));
+			$(this).val($(this).val().replace('Апрель', 'Апреля'));
+			$(this).val($(this).val().replace('Май', 'Мая'));
+			$(this).val($(this).val().replace('Июнь', 'Июня'));
+			$(this).val($(this).val().replace('Июль', 'Июля'));	
+			$(this).val($(this).val().replace('Август', 'Августа'));
+			$(this).val($(this).val().replace('Сентябрь', 'Сентября'));
+			$(this).val($(this).val().replace('Октябрь', 'Октября'));
+			$(this).val($(this).val().replace('Ноябрь', 'Ноября'));
+			$(this).val($(this).val().replace('Декабрь', 'Декабря'));
+		});
+	});
+
+</script>
 </html>
