@@ -645,7 +645,165 @@ function generatePassword($length = 24){
 }
 
 
+function save_raspechat()
+{
+    $body = file_get_contents('mail_templates/raspechat.html');
+    $body = str_replace('$time_order', $_SESSION['time_order'], $body);
+    $body = str_replace('$fio', $fio, $body);
+    $body = str_replace('$zakaz_number',  $_SESSION['zakaz_number'], $body);
+    $body = str_replace('$email', $email, $body);
+    $body = str_replace('$phone', $phone, $body);
+    $body = str_replace('$city', $city, $body);
 
+    $cost = 0;
+
+   if ($deliver!="sdec") {
+             if ($deliver=="kur_rus") {
+                $cost  = get_cost_summary($config, $_SESSION['russia_cost']);
+             }else{
+                 $cost  = get_cost_summary($config, "none");
+             }
+            
+        }else{
+                $cost  = get_cost_summary($config, $_SESSION['sdec_cost']);
+        
+    }
+
+
+    $deliver_type ="";
+
+
+    if ($deliver=="self"){
+        $deliver_type = "Cамовывоз";
+
+    }
+    if ($deliver=="kur_mos"){
+          $deliver_type = "Курьер по Москве";
+
+    }
+    if ($deliver=="kur_rus"){
+        $deliver_type = '
+            <table>
+            <tbody>
+                <tr><td colspan="2">
+                 Курьер по России
+                </td></tr>
+                <tr>
+                    <td style ="padding: 5px;  text-align: right;" width="25%">Дата доставки</td>
+                    <td style ="padding: 5px;  text-align: left;">'.$_SESSION['calendar_russia'].'</td>
+                </tr>
+                <tr>
+                    <td style ="padding: 5px;  text-align: right;" width="50%">Стоимость доставки</td>
+                    <td style ="padding: 5px;  text-align: left;">'.$_SESSION['russia_cost'].'</td>
+                </tr>
+            </tbody>
+            </table>'
+        ;
+
+    }
+    if ($deliver=="mail_ru"){
+        $deliver_type = "Почта России";
+    }
+
+    if ($deliver=="sdec"){
+        $deliver_type = '
+            <table>
+            <tbody>
+                <tr><td colspan="2">
+                <b>Самовывоз из пункта СДЭК</b>
+                </td></tr>
+                <tr>
+                    <td style ="padding: 5px;  text-align: right;" width="25%">Дата самовывоза</td>
+                    <td style ="padding: 5px;  text-align: left;">'.$_SESSION['calendar_sdec'].'</td>
+                </tr>
+                <tr>
+                    <td style ="padding: 5px; text-align: right;" width="25%">Пункт самовывоза</td>
+                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_code'].'</td>
+                </tr>
+                <tr>
+                    <td style ="padding: 5px; text-align: right;" width="25%">Адреса пункта</td>
+                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_adress'].'</td>
+                </tr>
+                <tr>
+                    <td style ="padding: 5px; text-align: right;" width="25%">Название пункта</td>
+                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_name'].'</td>
+                </tr>
+                <tr>
+                    <td style ="padding: 5px; text-align: right;" width="25%">Режим работы пункта</td>
+                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_worktime'].'</td>
+                </tr>
+                <tr>
+                    <td style ="padding: 5px; text-align: right;" width="25%">Стоимость самовывоза</td>
+                    <td style ="padding: 5px; ext-align: left;">'.$_SESSION['sdec_cost'].'</td>
+                </tr>
+            </tbody>
+            </table>'
+        ;
+    }
+
+
+    if ($payment=="cash"){
+        $payment_type = "Наличными";
+
+    }
+
+    if ($payment=="sber"){
+        $payment_type = "Карта сбербанка";
+    }
+
+    if ($payment=="robocassa"){
+        $payment_type = "Робокасса";
+    }
+
+
+    $elements = get_elements_to_raspechat($config);
+
+  
+    $body = str_replace('$elements', $elements[0], $body);
+
+
+    
+
+    $body = str_replace('$deliver', $deliver_type, $body);
+
+
+
+    $body = str_replace('$payment', $payment_type, $body);
+
+    $body = str_replace('$cost', $cost, $body);
+
+    if (isset($adress) && ($adress!="") && ($deliver!="self") && ($deliver!="sdec") ) {
+         $body = str_replace('$adress','<tr>
+                                                        <td style ="padding: 5px;" width="50%">Адрес</td>
+                                                        <td style ="padding: 5px;">'.$adress.'</td>
+                                                    </tr>', $body);
+    }else{
+        $body = str_replace('$adress', "", $body);
+    }
+
+    if (isset($comments) && ($comments!="")) {
+         $body = str_replace('$comments', '<tr>
+                                                        <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
+                                                        <td style ="padding: 5px;">'.$comments.'</td>
+                                                    </tr>', $body);
+    }else{
+        $body = str_replace('$comments', "", $body);
+    }
+
+
+
+
+    $body = str_replace('$time_order', $_SESSION['time_order'], $body);
+    
+    // strip backslashes
+    $body = preg_replace('/\\\\/','', $body);
+    
+    $order_num = 123;
+    $filename = 'orders/'.$order_num.'.html';
+    file_put_contents($filename, $body);
+    $raspech_file_url = "http://".$_SERVER['HTTP_HOST']."/".$filename;
+    return $raspech_file_url;
+}
 
 function send_mail($config, $mail_controls, $bd_controls) {
 
@@ -697,6 +855,9 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
         $body = file_get_contents('mail_templates/admin.html');
 
+        $raspech_file_url = save_raspechat();
+        
+        $body = str_replace('$raspech_file_url', $raspech_file_url, $body);
         $body = str_replace('$time_order', $_SESSION['time_order'], $body);
         $body = str_replace('$fio', $fio, $body);
         $body = str_replace('$zakaz_number',  $_SESSION['zakaz_number'], $body);
@@ -1535,6 +1696,25 @@ function get_elements_to_admin_mail($config) {
         $result.='</table></td><td style ="padding: 5px;" width="40%"><img width="auto" height="auto" src="'.$src.'" alt ="Элемент '.($i+1).'"></td></tr>';
 
         $result.='</table>';
+    }
+     return array($result, $cost);
+}
+
+function get_elements_to_raspechat($config) {
+    $cost_cur =0;
+    $cost = 0;
+    $count = count($_SESSION['items']); 
+
+
+    $result ="";
+    foreach ($_SESSION['items'] as $i => $val) {
+        $result.='<td><table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">';     
+            $result.='<tr><<td>'.$_SESSION['items'][$i]["device_name"].'</td></tr>';
+            $result.='<tr><td>'.$_SESSION['items'][$i]["name_case_1"].'</td></tr>';
+            $result.='<tr><td>'.$_SESSION['items'][$i]["name_case_2"].'</td></tr>';     
+            $src = "http://".$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"];
+            $result.='<tr><td style ="padding: 5px;" ><img width="auto" height="auto" src="'.$src.'"></td></tr>';
+        $result.='</table></td>';
     }
      return array($result, $cost);
 }
