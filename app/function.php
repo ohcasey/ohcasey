@@ -19,20 +19,16 @@ function styles_setup($config){
 }
 
 function get_cost_sdec($idcity, $kur) {
-
     $couter = 0;
     $dates = 1;
-
     while ($couter<3) {
         $date = date("Y-m-d", time() + 86400*$dates);
         if (BankDay::isWorkDay($date)) {
-           
             $couter++;
         }
          $dates++;
     }
 
-    
     date_default_timezone_set("UTC");
   
     if ($kur=="none") {
@@ -193,7 +189,6 @@ function get_config($config){
             );
     echo $result;
 }
-
 
 function get_city() {
     $ipinfo = get_ip_info($_SERVER['REMOTE_ADDR']);

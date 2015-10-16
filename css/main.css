@@ -2098,8 +2098,8 @@ input.cart_item,  textarea.cart_item{
 	text-align: center;
 }
 
-input.cart_item {
-	width: calc(100% - 2px);
+input.cart_item,  textarea.cart_item {
+	width: 100%;
 }
 
 
@@ -2187,11 +2187,11 @@ div.city_block {
 
 input.cart_item.half_item, .city_block {
 	width: 48.5%;	
-	/*width: calc(48.5% - 2px);*/
+	
 }
 
 div.city_block {
-
+	width: calc(48.5% );
 } 
 
 input.cart_item.item_right {
@@ -2209,7 +2209,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	position: relative;
 	float: left;
 	width: 100%;
-	min-height: 32px;
+	min-height: 50px;
 
 }
 
@@ -2287,6 +2287,10 @@ input.cart_item.error,  textarea.cart_item.error{
 	overflow: visible;
 	background: url("../img/time_select.svg") left 1px no-repeat;
 	background-size: 16px auto;
+}
+
+.select_city:not(.active) {
+	cursor: pointer;
 }
 
 .order_form-box_block input {
@@ -3322,7 +3326,7 @@ ymaps button:hover {
 		  font-size: 18px;
 		  font-weight: 300;
 		  text-align: center;
-	}
+		  transition: 400ms all linear;	}
 
 
 

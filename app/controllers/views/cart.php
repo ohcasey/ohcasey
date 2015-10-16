@@ -49,8 +49,7 @@
 							</div>
 						</div>
 					</div>
-
-
+					
 					<div class="checkbox_item sdec">
 						<div class="order_form-box">
 								<input type="radio" name="deliver" value="sdec" id ="sdec" data-delivery="0">
@@ -79,7 +78,7 @@
 
 							</div>
 							<div class="order_form-box_block right">
-								<p class="cost_level sdec_cost">-</p>
+								<p class="cost_level sdec_cost">- </p>
 							</div>
 						</div>
 					</div>
@@ -127,11 +126,11 @@
 								<span class="new_line">Курьером по России</span>	
 							</div>
 							<div class="order_form-box_block">
-								<p class="time_order" >3-5 дней</p>
+								<p class="time_order select_city" >Введите<br>город</p>
 								<input type="text" placeholder="Дата визита" name="calendar_russia" class="calendar checkbox_hided" id="calendar_russia">
 							</div>
 							<div class="order_form-box_block right">
-								<p class="cost_level russia_cost">-</p>
+								<p class="cost_level russia_cost">- </p>
 							</div>
 						</div>
 					</div>
@@ -214,7 +213,7 @@
 		 <div class="empty_cart">
 		 	В корзине пока ничего нет :(
 		 </div>
-		<?php // print_r($_SESSION['items']) 
+		<?php 
 			if (isset($_SESSION['items'])) {
 				   foreach ($_SESSION['items'] as $i => $value) {
 				   	$price = get_cost_case($_SESSION['items'][$i]["case_id"], $config, $_SESSION['items'][$i]["device_id_case"]);
@@ -282,7 +281,6 @@
 	</div>
 </div>
 
-
 </body>
 <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
@@ -294,78 +292,59 @@
 <script type="text/javascript" src="js/sweet-alert.min.js"></script>
 <script type="text/javascript" src="js/knob.js"></script> 	
 
+
+
+
+<?php
+	$couter = 0;
+    $dates = 1;
+    while ($couter<2) {
+        $dateself = date("Y-m-d", time() + 86400*$dates);
+        if (BankDay::isWorkDay($dateself)) {
+            $couter++;
+        }
+         $dates++;
+    }
+?>
+
 <script type="text/javascript">
-	$(document).load(function(){
-			var dates1 = $(".calendar").datepicker({
-			 firstDay: 1,
-			monthNames:
-			["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август", 
-			"Сентябрь","Октябрь","Ноябрь","Декабрь"],
-			//minDate: Date()
-			dayNamesMin: 
-			["Вс","Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-			changeMonth: false,
-			changeYear: false,
-			dateFormat: 'dd.mm.yy',
 
-			beforeShow: function() {
-		        setTimeout(function(){
-		            $('.ui-datepicker').css('z-index', 99999999999999);
-		        }, 0);
-		    }
-		});
 
-		/*на разные даты*/
-		var selfDate = new Date();
+	/*Максимальная дата хранения сдека*/
+	var date_sdec_max = 7;
 
-		selfDate.setDate(selfDate.getDate() + 1);
-
+	$(document).ready(function(){
 		$("#calendar_self").datepicker('option', 
 			{
-				minDate: selfDate
+				minDate: new Date(Date.parse("<?php echo $dateself; ?>")),
 			}
 		);
-		
-
-		var moscowDate = new Date();
-
-		moscowDate.setDate(moscowDate.getDate() + 2);
-
-		$("#calendar_moscow").datepicker('option', 
-			{
-				minDate: moscowDate
-			}
-		);
-
-
-		var russiaDate = new Date();
-
-		russiaDate.setDate(russiaDate.getDate() + 4);
-
-		$("#calendar_russia").datepicker('option', 
-			{
-				minDate: russiaDate
-			}
-		);
-
-
-		
-
-		$(".calendar").change(function(){
-			$(this).val($(this).val().replace('Январь', 'Января'));
-			$(this).val($(this).val().replace('Февраль', ' Февраля '));
-			$(this).val($(this).val().replace('Март', ' Марта '));
-			$(this).val($(this).val().replace('Апрель', 'Апреля'));
-			$(this).val($(this).val().replace('Май', 'Мая'));
-			$(this).val($(this).val().replace('Июнь', 'Июня'));
-			$(this).val($(this).val().replace('Июль', 'Июля'));	
-			$(this).val($(this).val().replace('Август', 'Августа'));
-			$(this).val($(this).val().replace('Сентябрь', 'Сентября'));
-			$(this).val($(this).val().replace('Октябрь', 'Октября'));
-			$(this).val($(this).val().replace('Ноябрь', 'Ноября'));
-			$(this).val($(this).val().replace('Декабрь', 'Декабря'));
-		});
 	});
 
+
+<?php
+	$couter = 0;
+    $dates = 1;
+    while ($couter<2) {
+        $dateself = date("Y-m-d", time() + 86400*$dates);
+        if (BankDay::isWorkDay($dateself)) {
+            $couter++;
+        }
+         $dates++;
+    }
+?>
+
+
+	$(document).ready(function(){
+		$("#calendar_moscow").datepicker('option', 
+			{
+				minDate: new Date(Date.parse("<?php echo $dateself; ?>")),
+			}
+		);
+	});
 </script>
+
+
+
+
 </html>
