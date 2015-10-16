@@ -85,7 +85,12 @@ $(document).on('click',".checkbox_item span", function(){
 
 $(document).on("click", ".select_city:not(.active)",function(){
 	$(".city").addClass("error");
+});
+
+$(document).on("click", ".select_sdec:not(.active)",function(){
+	show_sdec();
 })
+
 
 $(document).on("focus", ".item_important", function(){
 	$(this).removeClass("error");
@@ -377,11 +382,23 @@ function get_kur_cost(params) {
 												if (params==true) {												
 													$(".delivery_cost").attr("data-delivery", result.price);
 												}else{
-													$(".select_city").removeClass("active");
-													var date_max = new Date(Date.parse(result.deliveryDateMax));
+													$(".select_city").addClass("active");
+													var date_max = new Date(Date.parse(result.deliveryDateMin));
 													console.log(date_max);
-													$(".select_city").html("с "+date_max.getDate()+"<br>"+date_max.getMonthName());	
-													
+
+													$(".select_city").html("с "+date_max.getDate()+"<br>"+date_max.getMonthName());
+
+													var russiaDate =  new Date(Date.parse(result.deliveryDateMin));
+
+													russiaDate.setDate(russiaDate.getDate() + date_sdec_max);
+
+													$("#calendar_russia").datepicker('option', 
+														{
+															minDate: date_max,
+															maxDate: russiaDate
+														}
+													);	
+														
 												}
 												$("#russia_cost").val(result.price);
 
@@ -616,7 +633,7 @@ $(document).ready(function(){
 			}
 		);
 
-		/*Самовывоз из России*/
+		/*Самовывоз из России
 		var russiaDate = new Date();
 
 		russiaDate.setDate(russiaDate.getDate() + 4);
@@ -626,6 +643,7 @@ $(document).ready(function(){
 				minDate: russiaDate
 			}
 		);
+		*/
 
 		$(".calendar").change(function(){
 			$(this).val($(this).val().replace('Январь', 'Января'));
@@ -1064,15 +1082,27 @@ $(document).on("click", "ymaps button" ,function(){
 					$("#sdec").attr("data-delivery", result.price);
 					$(".delivery_cost").attr("data-delivery", result.price);
 					$("#sdec_cost").val(result.price);
-					var sdecDate = new Date();
 
-					sdecDate.setDate(sdecDate.getDate() + 1);
+					$(".select_sdec").addClass("active");
+													
+
+													
+				
+					var date_max = new Date(Date.parse(result.deliveryDateMin));
+					console.log(date_max);
+					$(".select_sdec").html("с "+date_max.getDate()+"<br>"+date_max.getMonthName());
+
+					var russiaDate =  new Date(Date.parse(result.deliveryDateMin));
+
+					russiaDate.setDate(russiaDate.getDate() + date_sdec_max);
 
 					$("#calendar_sdec").datepicker('option', 
 						{
-							minDate: new Date(Date.parse(result.deliveryDateMax)),
+							minDate: date_max,
+							maxDate: russiaDate
 						}
 					);
+
 					reset_cost_total();
 					
 				}

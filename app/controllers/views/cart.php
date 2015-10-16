@@ -73,7 +73,7 @@
 
 							</div>
 							<div class="order_form-box_block">
-								<p class="time_order" >Выберите</br> пункт</p>
+								<p class="time_order select_sdec" >Выберите</br> пункт</p>
 								<input type="text" placeholder="Дата визита" class="calendar checkbox_hided" name="calendar_sdec" id="calendar_sdec">
 
 							</div>

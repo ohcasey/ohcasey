@@ -2289,7 +2289,7 @@ input.cart_item.error,  textarea.cart_item.error{
 	background-size: 16px auto;
 }
 
-.select_city:not(.active) {
+.select_city:not(.active), .select_sdec:not(.active) {
 	cursor: pointer;
 }
 
