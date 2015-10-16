@@ -615,9 +615,8 @@ $(document).ready(function(){
 				minDate: moscowDate
 			}
 		);
-		*/
 
-		/*Самовывоз из России
+		/*Самовывоз из России*/
 		var russiaDate = new Date();
 
 		russiaDate.setDate(russiaDate.getDate() + 4);
@@ -627,7 +626,7 @@ $(document).ready(function(){
 				minDate: russiaDate
 			}
 		);
-		*/
+
 		$(".calendar").change(function(){
 			$(this).val($(this).val().replace('Январь', 'Января'));
 			$(this).val($(this).val().replace('Февраль', ' Февраля '));
@@ -1068,14 +1067,10 @@ $(document).on("click", "ymaps button" ,function(){
 					var sdecDate = new Date();
 
 					sdecDate.setDate(sdecDate.getDate() + 1);
-					var min_date =Date.parse(result.deliveryDateMin;
-					var max_date = new Date(Date.parse(result.deliveryDateMax));
-					console.log(max_date.setDate(max_date.getDate()+date_sdec_max))
 
 					$("#calendar_sdec").datepicker('option', 
 						{
-							minDate: max_date,
-							maxDate: max_date.setDate(max_date.getDate()+date_sdec_max)
+							minDate: new Date(Date.parse(result.deliveryDateMax)),
 						}
 					);
 					reset_cost_total();
