@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>*|MC:SUBJECT|*</title>
         <style type="text/css">
-			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
+			/* ///////// CLIENT-SPECIFIC STYLES ///////// */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
 			.ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
 			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
@@ -12,13 +12,13 @@
 			table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */
 			img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
 
-			/* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+			/* ///////// RESET STYLES ///////// */
 			body{margin:0; padding:0;}
 			img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
 			table{border-collapse:collapse !important;}
 			body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
 
-			/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
+			/* ///////// TEMPLATE STYLES ///////// */
 
 			/* ========== Page Styles ========== */
 
@@ -423,17 +423,17 @@
 				/*@editable*/ text-decoration:underline;
 			}
 
-			/* /\/\/\/\/\/\/\/\/ MOBILE STYLES /\/\/\/\/\/\/\/\/ */
+			/* ///////// MOBILE STYLES ///////// */
 
             @media only screen and (max-width: 480px){
-				/* /\/\/\/\/\/\/ CLIENT-SPECIFIC MOBILE STYLES /\/\/\/\/\/\/ */
+				/* /////// CLIENT-SPECIFIC MOBILE STYLES /////// */
 				body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none !important;} /* Prevent Webkit platforms from changing default text sizes */
                 body{width:100% !important; min-width:100% !important;} /* Prevent iOS Mail from adding padding to the body */
 
-				/* /\/\/\/\/\/\/ MOBILE RESET STYLES /\/\/\/\/\/\/ */
+				/* /////// MOBILE RESET STYLES /////// */
 				#bodyCell{padding:10px !important;}
 
-				/* /\/\/\/\/\/\/ MOBILE TEMPLATE STYLES /\/\/\/\/\/\/ */
+				/* /////// MOBILE TEMPLATE STYLES /////// */
 
 				/* ======== Page Styles ======== */
 
@@ -625,48 +625,45 @@
                                             <td valign="top" class="headerContent">
                                             	<table style = "text-align: center; font-size: 14px; " border="1" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">
                                             		<caption style="font-size: 22px; padding-bottom: 10px">Информация о заказе</caption>
-                                            		<tr>
-                                            			<td style ="padding: 5px;" width="50%">Ссылка на распечатку</td>
-                                            			<td style ="padding: 5px;">  <a href="$raspech_file_url" target="_blank">скачать</a></td>
-                                            		</tr>
+                                            	
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">Номер заказа</td>
-                                            			<td style ="padding: 5px;">  $zakaz_number</td>
+                                            			<td style ="padding: 5px;">  399</td>
                                             		</tr>
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">Время заказа</td>
-                                            			<td style ="padding: 5px;">$time_order</td>
+                                            			<td style ="padding: 5px;">16.10.15 13:42:19</td>
                                             		</tr>
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">ФИО</td>
-                                            			<td style ="padding: 5px;"> $fio</td>
+                                            			<td style ="padding: 5px;"> </td>
                                             		</tr>
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">E-mail</td>
-                                            			<td style ="padding: 5px;">$email</td>
+                                            			<td style ="padding: 5px;"></td>
                                             		</tr>
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">Телефон</td>
-                                            			<td style ="padding: 5px;"><a href="tel:$phone">$phone</a></td>
+                                            			<td style ="padding: 5px;"><a href="tel:"></a></td>
                                             		</tr>
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">Город</td>
-                                            			<td style ="padding: 5px;">$city</td>
+                                            			<td style ="padding: 5px;"></td>
                                             		</tr>
 
-                                            		$adress
-                                            		$comments
+                                            		
+                                            		
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">Доставка</td>
-                                            			<td style ="padding: 5px;">$deliver</td>
+                                            			<td style ="padding: 5px;"></td>
                                             		</tr>
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">Вид оплаты</td>
-                                            			<td style ="padding: 5px;">$payment</td>
+                                            			<td style ="padding: 5px;"></td>
                                             		</tr>
                                             		<tr>
                                             			<td style ="padding: 5px;" width="50%">Общая стоимость</td>
-                                            			<td style ="padding: 5px;">$cost</td>
+                                            			<td style ="padding: 5px;">0</td>
                                             		</tr>
 
 
@@ -675,13 +672,16 @@
                                         <tr>
                                             <td valign="top" class="headerContent">
                                             	<table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">
-                                            		<caption style="font-size: 20px; padding-bottom: 10px; margin-top:15px;">Информация об элементах</caption>
+                                            		<caption style="font-size: 20px; padding-bottom: 10px; margin-top:15px;">Чехлы</caption>
                                             		<tr>
-                                            			<td>
-                                            				$elements
+                                            			
+                                            				<td><table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table"><tr><<td>iPhone 6</td></tr><tr><td>Силикон</td></tr><tr><td>Полностью прозрачный</td></tr><tr><td style ="padding: 5px;" ><img width="auto" height="auto" src="http://f006.ohcasey.ru/uploaded_images/2015/10/16/Y5NbNQ5rKfd7NdSknS6AFyrQ.png
+"></td></tr></table></td><td><table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table"><tr><<td>iPhone 6</td></tr><tr><td>Силикон</td></tr><tr><td>Полностью прозрачный</td></tr><tr><td style ="padding: 5px;" ><img width="auto" height="auto" src="http://f006.ohcasey.ru/uploaded_images/2015/10/16/bDEBdeYE3EF5beYrrkkBT6nn.png
+"></td></tr></table></td><td><table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table"><tr><<td>iPhone 6</td></tr><tr><td>Силикон</td></tr><tr><td>Полностью прозрачный</td></tr><tr><td style ="padding: 5px;" ><img width="auto" height="auto" src="http://f006.ohcasey.ru/uploaded_images/2015/10/16/8sEZzzfd238YsriK3KNGdh3Q.png
+"></td></tr></table></td>
 
 	                                            			
-	                                            		</td>
+	                                            		
                                             		</tr>
                                             		
 
@@ -690,31 +690,7 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <table border="0" cellpadding="5" cellspacing="0" width="100%" id="templateHeader">
-                                        <tr>
-                                            <td valign="top" class="headerContent">
-                                            	<table style = "text-align: center; font-size: 14px; " border="1" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">
-                                            		<caption style="font-size: 22px; padding-bottom: 10px">Информация об пользователе</caption>
-                                            		<tr>
-                                            			<td style ="padding: 5px;" width="50%">Операционная система</td>
-                                            			<td style ="padding: 5px;">$os</td>
-                                            		</tr>
-                                            		<tr>
-                                            			<td style ="padding: 5px;" width="50%">Браузер</td>
-                                            			<td style ="padding: 5px;">$browser</td>
-                                            		</tr>
-                                            		<tr>
-                                            			<td style ="padding: 5px;" width="50%">Версия</td>
-                                            			<td style ="padding: 5px;">$version</td>
-                                            		</tr>
-                                            		<tr>
-                                            			<td style ="padding: 5px;" width="50%">Полный user-agent</td>
-                                            			<td style ="padding: 5px;">$useragent</td>
-                                            		</tr>
-                                            		
-                                            	
-
-                                    </table>
+                                   
                                     <!-- // END HEADER -->
                                 </td>
                             </tr>
