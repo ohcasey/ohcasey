@@ -2,20 +2,9 @@
 <div id="main" class="cart_page">
 	<?php include "templates/left_block.php";?>
 
-	<div id = "center">
-        <!--
-        <form id="city-form" class="form-top">
-            <div class="right_menu_title_2">Выберите город</div>
-                <div class="right_item">
-                    <div class="city_block">
-					    <input type="text" name="city" placeholder = "* Город" class="cart_item city item_important" value="<?php echo $city; ?>" autocomplete="off">
-					<div class = "result_city"></div>
-                </div>
-            </div>
-        </form>
-        -->        
-
-
+	<div id = "center">    
+        
+        
 		<form id = "order_form" name="order_form"  action="/cart/confirm_order" method="post">
 			<div class="overflow_form">
 				<div id="right-1" class="right_content_block">

@@ -26,7 +26,6 @@ $(document).on("click",".checkbox_prev_input",function(){
 });
 
 function preparing_html() {
-	//$("body").css("min-height","768px");
 	var html_width = $("body").width();
 	var html_height = $(document).height();
 	$(".main_container").css("height", html_height+"px");
@@ -34,7 +33,6 @@ function preparing_html() {
 	$(".header_menu__item").css({"width": ((html_width - $("#header-logo").width() - 20*5)/6) +"px", "visibility": "visible"});
 	
 	$(".center-cart_block").css("margin-left", ($("#left").width() + 50)+"px");
-	//$(".right_cart").css("width",  (html_width - $("#left").width() - $(".center-cart_block").width() - 70) +"px" );
 	to_down_of_page();
 
 	if (html_width>1979) {
@@ -67,16 +65,6 @@ $(window).resize(function(){
 $(window).scroll(function(){
 	preparing_html();
 })
-
-
-//$(document).on('click','.checkbox_item input.disabled', function(event){
-//	event.preventDefault();
-//});
-
-//$(document).on('change','.checkbox_item input.disabled', function(event){
-//	event.preventDefault();
-//});
-
 
 $(document).on('click',".checkbox_item input", function(){
 	$(this).parent().parent().find("input").removeClass("error");
@@ -111,6 +99,10 @@ $(document).on("click", ".container_yandex_close", function(){
 
 $(document).on('input','.city', function(){
   
+    if ($(this).val().length<3){
+        return;
+    }
+    
 	$(".select-city__main-input__sdec").val($(this).val());
 	get_kur_cost(false);
 
@@ -129,7 +121,7 @@ $(document).on('input','.city', function(){
                 $('div.suggestion-element').remove();
 				for (var i = 0; i < result.length; i++) {
    					 $(".result_city").append("<div class='suggestion-element'><span class='city-suggestion'>"+result[i][0]+"</span></div>");
-   					 $('.result_city').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
+   					 //$('.result_city').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
 				}
 			}				
 		},
@@ -175,109 +167,6 @@ $(document).on('click',".cart_item_block__close", function(){
 				});
 });
 
-
-
-/* OLD "CHANGE" event of delivery checkboxes HANDLER.
- * Commented by Artem Zamuruev 15/10/2015
- * 
- * 
-$(document).on('change','input[name="deliver"]', function(){
-
-
-	$(".sdec_address").removeClass("error");
-	$(".checkbox_hided").removeClass("active");
-	var delivery_cost = $(this).data("delivery");
-	$(".delivery_cost").text(delivery_cost+" рублей").attr("data-delivery",delivery_cost);
-
-	$('input[name="payment"]').removeClass("disabled");
-	$('input[name="payment"]').prop({"disabled": false, "readonly": false });
-
-	
-	var radio_val = $('input[name="deliver"]:checked').val();
-
-
-	if (radio_val=="kur_mos") {
-        //Делаем поле "Адрес" обязательным
-        $(".cart_item.adress").addClass("item_important");
-        //А поле "Индекс" - необязательным
-        $('input.index').removeClass('item_important');
-		$(".checkbox_item.moscow").find(".checkbox_hided").addClass("active");
-	}
-
-    
-	if (radio_val=="kur_rus") {
-
-		if ($(".adress").val() == "") {
-			$("input, textarea").removeClass("error");
-			$(".adress").addClass("error");
-			
-			$('input[name="deliver"]:checked').prop("checked",false);
-			if ($(".city").val() == "") {
-				
-				$(".city").addClass("error");
-				
-				$('input[name="deliver"]:checked').prop("checked",false);
-				radio_val = "dsf";
-				return;
-			} 
-			radio_val = "dsf";
-			return;
-		} 
-
-		if ($(".city").val() == "") {
-			$("input, textarea").removeClass("error");
-			$(".city").addClass("error");
-			
-			$('input[name="deliver"]:checked').prop("checked",false);
-			radio_val = "dsf";
-			return;
-		} 
-
-		 get_kur_cost(true);
-	
-	}
-    
-    
-    //Если доставка Курьером по Росии, то убрать обязательность поля "Индекс"
-    if (radio_val=="kur_rus"){
-    
-        if ($(".city").val() == "") {
-			$("input, textarea").removeClass("error");
-			$(".city").addClass("error");
-			
-			//$('input[name="deliver"]:checked').prop("checked",false);
-			radio_val = "dsf";
-			return;
-		}
-        else{
-            get_kur_cost(true);
-        }
-    }
-    //
-
-
-	if ((radio_val=="kur_rus") || (radio_val=="mail_ru")) {
-        
-	}
-
-	if (radio_val=="sdec") { 
-        
-		show_sdec();
-	}
-
-	reset_cost_total();
-});
-*/
-
-
-
-
-
-/*
- * NEW "Change" handler 
- * Artem Zamuruev
- * 15/10/2015
- */
 
 $(document).on('change','input[name="deliver"]', function(){
     
@@ -399,21 +288,15 @@ function set_city_value_to_sdec_window(){
 }
 
 
-/*End of NEW "change" handler*/
-
 
 /* Когда выбрали город вверху формы, показываем доступные способы доставки и оплаты */
-
 $(document).on('keydown', 'input.city', function(){
     if(event.keyCode == 13 || event.keyCode == 9){
-        
         $(".result_city").find("span").remove();
         set_city_value_to_sdec_window();
-        displayAvailableDelivery();
-        
+        displayAvailableDelivery();   
     }
 });
-
 $(document).on('click', 'div.suggestion-element' , function(){
     $(".city").val($(this).text());
     $(".result_city").find("span").remove();
@@ -424,7 +307,7 @@ $(document).on('focusout', 'input.city', function(){
     set_city_value_to_sdec_window();
     displayAvailableDelivery();
 });
-//
+/*--------------------------------------------------------------------------------------------------*/
 
 
 function displayAvailableDelivery(){
@@ -498,124 +381,111 @@ function reset_cost_total() {
 }
 
 
+// Метод получает стоимость доставки курьеров по России через СДЭК
+// И устанавливает допустимые даты в календарях для способа доставки
+// "Курьером по Росии"
+// 
+// TODO: Разделить логику интерфейса 
 function get_kur_cost(params) {
+    $(".russia_cost").text("-");
+	$("#kur_rus").attr("data-delivery", 0);																
+	$("#russia_cost").val("0");
 	
-		$(".russia_cost").text("-");
-		$("#kur_rus").attr("data-delivery", 0);																
-		$("#russia_cost").val("0");
-	
-		$.ajax({
-            url : "http://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
-			dataType : "jsonp",
-			data : {
-			    q : function() {
-				    return $(".city").val();
-				},
-				name_startsWith : function() {
-                    return $(".city").val();
-				}
+	$.ajax({
+        url : "http://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
+		dataType : "jsonp",
+		data : {
+		    q : function() {
+			    return $(".city").val();
 			},
-			success : function(data) {
-			    console.log(data);
-				$(".city_list-sdec").find("span").remove();
-				//console.log("итерации");
-                
-                // КОСТЫЛЬ ОТ ОШИБОК
-                if (data.geonames == null){
-                    return;
-                }
-                //
-				for (var i = 0; i<data.geonames.length; i++) {
-				    if (data.geonames[i].cityName.toLowerCase() === $(".city").val().toLowerCase()) {
-							$.ajax({ 
-									type: "POST", 
-									url: "cart/get_cost_sdec",
-									dataType: 'text',
-									data: {
-										idcity : data.geonames[i].id,
-										kur: true
-									},
-									success: function(data)
-										{			
-											if (data!=false){
-												var result = JSON.parse(data);
-												console.log(result);
-
-												$(".russia_cost").text(result.price+"p");
-
-												$("#kur_rus").attr("data-delivery", result.price);
-
-
-												if (params==true) {												
-													$(".delivery_cost").attr("data-delivery", result.price);
-												}else{
-													$(".select_city").addClass("active");
-													var date_start = new Date(Date.parse(result.deliveryDateMax));
-													console.log(date_start);
-
-													$(".select_city").html("с "+date_start.getDate()+"<br>"+date_start.getMonthName());
-
-													var russiaDate =  new Date(Date.parse(result.deliveryDateMax));
-
-													russiaDate.setDate(russiaDate.getDate() + date_sdec_kur_max);
-
-													$("#calendar_russia").datepicker('option', 
-														{
-															minDate: date_start,
-															maxDate: russiaDate
-														}
-													);	
-														
-												}
-												$("#russia_cost").val(result.price);
-
-												reset_cost_total();
-												
-											}else{
-												$('input[name="deliver"]:checked').prop("checked",false);
-												if (params==true) {
-													
-													$("input").removeClass("error");
-													$(".city").addClass("error");
-
-												}
-												else {
-													$(".select_city").removeClass("active");	
-													$(".select_city").html("Введите<br>город");	
-												}
-											
-											}
-											
-										},
-									fail: function(data){
-										$('input[name="deliver"]:checked').prop("checked",false);
-											if (params==true) {	
-										
-												$("input").removeClass("error");
-												$(".city").addClass("error");
-										}else {
-											$(".select_city").removeClass("active");
-											$(".select_city").html("Введите<br>город");		
-										}
-									}
-								});
-						if (params==true) {	
-						    $(".checkbox_item.russia").find(".checkbox_hided").addClass("active");
-						}
-						return;
-					}
-				}
-				$('input[name="deliver"]:checked').prop("checked",false);
-				if (params==true) {	
-                    if ($(".adress").val() == "") {
-					    $(".adress").addClass("error");
-					} 
-                    $("input").removeClass("error");
-					$(".city").addClass("error");
-									
-				}
+			name_startsWith : function() {
+                return $(".city").val();
 			}
-		});
+		},
+		success : function(data) {
+		    console.log(data);
+			$(".city_list-sdec").find("span").remove();
+               
+            if (data.geonames == null){
+                return;
+            }
+                
+			for (var i = 0; i<data.geonames.length; i++) {
+			    if (data.geonames[i].cityName.toLowerCase() === $(".city").val().toLowerCase()) {
+					$.ajax({ 
+					    type: "POST", 
+					    url: "cart/get_cost_sdec",
+					    dataType: 'text',
+						data: {
+						    idcity : data.geonames[i].id,
+							kur: true
+						},
+						success: function(data){			
+						    if (data!=false){
+							    var result = JSON.parse(data);
+								console.log(result);
+        						$(".russia_cost").text(result.price+"p");
+                                $("#kur_rus").attr("data-delivery", result.price);
+								if (params==true) {												
+								    $(".delivery_cost").attr("data-delivery", result.price);
+								}
+                                else{
+								    $(".select_city").addClass("active");
+									var date_start = new Date(Date.parse(result.deliveryDateMax));
+									console.log(date_start);
+    								$(".select_city").html("с "+date_start.getDate()+"<br>"+date_start.getMonthName());
+									var russiaDate =  new Date(Date.parse(result.deliveryDateMax));
+									russiaDate.setDate(russiaDate.getDate() + date_sdec_kur_max);
+									$("#calendar_russia").datepicker('option',
+                                    {
+									    minDate: date_start,
+										maxDate: russiaDate
+									});						
+								}
+								$("#russia_cost").val(result.price);
+								reset_cost_total();
+												
+							}
+                            else{
+							    $('input[name="deliver"]:checked').prop("checked",false);
+								if (params==true) {						
+                                    $("input").removeClass("error");
+                                    $(".city").addClass("error");
+                                }
+                                else {
+                                    $(".select_city").removeClass("active");	
+                                    $(".select_city").html("Введите<br>город");	
+                                }
+                            }
+                        },
+                        fail: function(data){
+                            $('input[name="deliver"]:checked').prop("checked",false);
+                            if (params==true) {	
+                                $("input").removeClass("error");
+                                $(".city").addClass("error");
+                            }
+                            else{
+                                $(".select_city").removeClass("active");
+                                $(".select_city").html("Введите<br>город");		
+                            }
+                        }
+                    });
+                    if (params==true) {	
+                        $(".checkbox_item.russia").find(".checkbox_hided").addClass("active");
+                    }
+                    return;
+			    }
+			}
+            $('input[name="deliver"]:checked').prop("checked",false);
+            if (params==true) {	
+                if ($(".adress").val() == "") {
+                    $(".adress").addClass("error");
+                } 
+                $("input").removeClass("error");
+                $(".city").addClass("error");
+            }
+        }
+    });
 	reset_cost_total();
 }
 
@@ -626,63 +496,47 @@ function show_sdec() {
 }
 
 $(document).on('keydown',".phone", function(){
-        // Разрешаем: backspace, delete, tab и escape
-        if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
-             // Разрешаем: Ctrl+A
-            (event.keyCode == 65 && event.ctrlKey === true) || 
-             // Разрешаем: home, end, влево, вправо
-            (event.keyCode >= 35 && event.keyCode <= 39)) {
-                 // Ничего не делаем
-                 return;
-        }
-        else {
-            // Обеждаемся, что это цифра, и останавливаем событие keypress
-            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
-                event.preventDefault(); 
-            }   
-        }
+    // Разрешаем: backspace, delete, tab и escape
+    if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
+        // Разрешаем: Ctrl+A
+        (event.keyCode == 65 && event.ctrlKey === true) || 
+        // Разрешаем: home, end, влево, вправо
+        (event.keyCode >= 35 && event.keyCode <= 39)) {
+        // Ничего не делаем
+        return;
+    }
+    else {
+        // Обеждаемся, что это цифра, и останавливаем событие keypress
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+            event.preventDefault(); 
+        }   
+    }
 });
 
 
-
+// Обработка нажатия на кнопку "Оформить"
 $(document).on('click',"#steps_controller-next_but div", function(){
-    
 	var breakpoint = true;
-    
-    //alert(0+": breakpoint = "+breakpoint);
     
 	$(".item_important:visible").each(function(){
 		if ($(this).val() == "") {
-            //alert('Error on element '+$(this).attr('class'));
 			breakpoint=false;
 			$(this).addClass("error");
 		}
 	});
-
-    //alert(1+": breakpoint = "+breakpoint);        
-
     if (validatePhone($('input.phone').val())==false){
         $('input.phone').addClass('error');
         breakpoint=false;
     }
-   
-    
 	if (validateEmail($(".email").val())==false) {
 		$("input.email").addClass("error");
 		breakpoint=false;
 	}
-    
-    //alert(2+": breakpoint = "+breakpoint);
-
 	var radio_val = $('input[name="deliver"]:checked').val();
-
 	if (( radio_val=="") || (radio_val===undefined) || (radio_val===null)|| (radio_val===NaN)) {
 		$('input[name="deliver"]').addClass("error");
 		breakpoint=false;
 	}
-    
-    //alert(3+": breakpoint = "+breakpoint);
-
 	if (radio_val=="self") {
 		if ($("#calendar_self").val()=="") {
 			$("#calendar_self").addClass("error");
@@ -690,80 +544,46 @@ $(document).on('click',"#steps_controller-next_but div", function(){
 		}
 	} 
 
-    //alert(4+": breakpoint = "+breakpoint);
-    
 	if (radio_val=="sdec") {
 		if ($("#calendar_sdec").val()=="") {
 			$("#calendar_sdec").addClass("error");
 			breakpoint=false;
 		}
-
 		if ($("#sdec_code").val()=="") {
 			
 			$(".sdec_address").addClass("error");
 			breakpoint=false;
 		}
 	}
-    
-    
-    //alert(5+": breakpoint = "+breakpoint);
-    
-
 	if (radio_val=="kur_rus") {
 		if ($("#calendar_russia").val()=="") {
 			$("#calendar_russia").addClass("error");
 			breakpoint=false;
 		}
-
 		if ($("#kur_rus").attr("data-delivery") == 0 ) {
 			$('input[name="deliver"]:checked').prop("checked",false);
 			$("#kur_rus").addClass("error");
 			breakpoint=false;
 		}
 	}
-    
-    //alert(6+": breakpoint = "+breakpoint);
-    
-
 	if (radio_val=="kur_mos") {
 		if ($("#calendar_moscow").val()=="") {
 			$("#calendar_moscow").addClass("error");
 			breakpoint=false;
-		}
-
-
+        }
 	}
-    
-    
-    //alert(7+": breakpoint = "+breakpoint);
-
 	var radio_val = $('input[name="payment"]:checked').val();
-
 	if (( radio_val=="") || (radio_val===undefined) || (radio_val===null)|| (radio_val===NaN)) {
 		$('input[name="payment"]').addClass("error");
 		breakpoint=false;
 	}
-
-    //alert(8+": breakpoint = "+breakpoint);
-
-
-
-	if ((breakpoint==true) && ($(".cart_item_block").length>0)) {
-        
-        //alert(9+": breakpoint = "+breakpoint);
-        
+	if ((breakpoint==true) && ($(".cart_item_block").length>0)) {   
 		$("input,textarea").removeClass("error");
-
 		reset_cost_total();
-
 		$(".main_container").after('<div id = "foo"></div>');
-
 		var target = document.getElementById('foo');
 		var spinner = new Spinner(opts).spin(target);
-
 		document.order_form.submit();
-        //alert("ITS OK MAN");
-
 	}
 	
 });
@@ -772,7 +592,6 @@ $(document).on("click", ".container_mobile button, .container_tablet button, .co
 	$(".alert_block.alert_mobile, .alert_block.alert_tablet, .alert_block.alert_old ").removeClass("active");
 });
 
-
 $.datepicker.setDefaults($.datepicker.regional['ru']);
 
 $(document).ready(function(){
@@ -780,33 +599,28 @@ $(document).ready(function(){
 		if (device.portrait()) {
 			$(".alert_block.alert_mobile").addClass("active");
 		}
-
 		if (device.landscape()) {
 			$(".alert_block.alert_tablet").addClass("active");
 		}
 	}
 	get_kur_cost(false);
 	
-
 	var dates1 = $(".calendar").datepicker({
 		 firstDay: 1,
 		monthNames:
 		["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август", 
 		"Сентябрь","Октябрь","Ноябрь","Декабрь"],
-		//minDate: Date()
 		dayNamesMin: 
 		["Вс","Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
 		changeMonth: false,
 		changeYear: false,
 		dateFormat: 'dd.mm.yy',
-
 		beforeShow: function() {
 	        setTimeout(function(){
 	            $('.ui-datepicker').css('z-index', 99999999999999);
 	        }, 0);
 	    }
 	});
-
 	/*на разные даты*/
 	var selfDate = new Date();
 
@@ -816,33 +630,21 @@ $(document).ready(function(){
 		{
 			minDate: selfDate
 		}
-	);
-	
-
+	);	
 	var moscowDate = new Date();
-
 	moscowDate.setDate(moscowDate.getDate() + 2);
-
 	$("#calendar_moscow").datepicker('option', 
 		{
 			minDate: moscowDate
 		}
 	);
-
-
 	var russiaDate = new Date();
-
 	russiaDate.setDate(russiaDate.getDate() + 4);
-
 	$("#calendar_russia").datepicker('option', 
 		{
 			minDate: russiaDate
 		}
 	);
-
-
-	
-
 	$(".calendar").change(function(){
 		$(this).val($(this).val().replace('Январь', 'Января'));
 		$(this).val($(this).val().replace('Февраль', ' Февраля '));
@@ -859,28 +661,20 @@ $(document).ready(function(){
 	});
 });
 
-
 $(document).ready(function(){
 	reset_cost_total();
-	//reset_city_depend(); Commented by Artem Zamuruev 15/10/2015
-	
 	preparing_html();
-	
-
 	$(".ps-container .ps-scrollbar-x-rail").remove();
 	$("#phone_model").append("Итого");
-
     
-    //Артем: изменил плагин, который управляет вводом
-    //Добавил autoclear:false и теперь поле для ввода не очищается с некорректно введенным значением при потере фокуса 
-	$('.phone').mask('+7 (999) 999 99 99?9', {placeholder: " ", autoclear: false});
+	$('.phone').mask('+7 (999) 999 99 99?9', {placeholder: " ", autoclear: false}); 
     
     $('input.phone').on('focusout', function(){ 
         if (validatePhone($(this).val())==false){ 
             $(this).addClass('error'); 
         } 
     });
-
+    
 	$('input,textarea').focus(function(){
 	   $(this).data('placeholder',$(this).attr('placeholder'));
 	   $(this).attr('placeholder','');
@@ -888,9 +682,6 @@ $(document).ready(function(){
 	 $('input,textarea').blur(function(){
 	   $(this).attr('placeholder',$(this).data('placeholder'));
 	 });
-
-
-	
 });
 
 
@@ -902,43 +693,6 @@ function validatePhone(phone) {
     var re = /\+7\s\([\d]{3}\)\s[\d]{3}\s[\d]{2}\s[\d]{2,3}/i;
     return re.test(phone);
 }
-
-/* OLD Function which make some inputs disable
- * Commented by Artem Zamuruev
- * 15/10/2015
- *
-function reset_city_depend(){
-	var city = $(".cart_item.city").val();
-	
-	var radio_val = $('input[name="deliver"]:checked').val();
-
-	if ((radio_val=="kur_mos") || (radio_val=="self")) { 
-
-		var delivery_cost = 0;
-		$(".delivery_cost").text(delivery_cost+" рублей").attr("data-delivery",delivery_cost);
-			reset_cost_total();
-
-
-		$('input[name="deliver"]:checked').prop("checked",false);
-		var radio_vs = $('input[name="payment"]:checked').val();
-
-		if (radio_vs === "cash") {
-			$('input[name="payment"]:checked').prop("checked",false);
-		}
-
-		$(".checkbox_item.cash input").addClass("disabled");
-		$('.checkbox_item.cash input').prop({"disabled": true, "readonly": true });
-	}
-
-	if ((city=="Москва") || (city=="москва")) {
-		$('input[name="deliver"]').removeClass("disabled");
-		$('input[name="deliver"]').prop({"disabled": false, "readonly": false });
-	}else{
-		$('#self, #kur_mos').addClass("disabled");
-		$('#self, #kur_mos').prop({"disabled": true, "readonly": true });		
-	}
-}
-*/
 
 
 jQuery(function($){
@@ -965,13 +719,11 @@ jQuery(function($){
 	});
 });
 
-
 function to_down_of_page() {
 	var browser_height = $(window).height();
 	$("#steps_controller").css("width", $("#right").width());	
 	$("#steps_controller").css({"top":  (browser_height- 2- $("#steps_controller").height() + $(window).scrollTop()), "visibility": "visible" });
 }
-
 
 jQuery(function($){
 	$(document).mouseup(function (event){ // событие клика по веб-документу
@@ -982,7 +734,6 @@ jQuery(function($){
 		}
 	});
 });
-
 
 $(document).on("click", ".city_list-sdec span", function(){
 	var idcity = $(this).attr("data-CityCode");
@@ -1033,165 +784,146 @@ function get_city_sdec(idcity) {
             myMap.geoObjects.removeAll();
             console.log(sdec_points);
 
-
 	  	    if (sdec_points.length>1) {
 	  		    for (var i = 0; i < sdec_points.length; i++) {
+                    var table = '<table><tbody>';
+                    table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+                        table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                    }
+                    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+                        table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>';	
+                    }
+                    if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+                        table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';	
+                    }
+                       table += '</tbody></table>';
+                    table += "<button ";
+                    if ((sdec_points[i]["@attributes"]["Address"]!=undefined) && (sdec_points[i]["@attributes"]["Address"]!="")) {
+                            table += "data-Address='"+sdec_points[i]["@attributes"]["Address"]+"' ";
+                    }
+                    if ((sdec_points[i]["@attributes"]["City"]!=undefined) && (sdec_points[i]["@attributes"]["City"]!="")) {
+                        table += "data-City='"+sdec_points[i]["@attributes"]["City"]+"' ";
+                    }
 
-			    var table = '<table><tbody>';
-			    table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
-			    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
-				    table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
-			    }
-			    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
-				    table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>';	
-			    }
-                if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
-                    table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';	
+                    if ((sdec_points[i]["@attributes"]["CityCode"]!=undefined) && (sdec_points[i]["@attributes"]["CityCode"]!="")) {
+                        table += "data-CityCode='"+sdec_points[i]["@attributes"]["CityCode"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Code"]!=undefined) && (sdec_points[i]["@attributes"]["Code"]!="")) {
+                        table += "data-Code='"+sdec_points[i]["@attributes"]["Code"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Name"]!=undefined) && (sdec_points[i]["@attributes"]["Name"]!="")) {
+                        table += "data-Name='"+sdec_points[i]["@attributes"]["Name"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+                        table += "data-Note='"+sdec_points[i]["@attributes"]["Note"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+                        table += "data-Phone='"+sdec_points[i]["@attributes"]["Phone"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+                        table += "data-WorkTime='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["coordX"]!=undefined) && (sdec_points[i]["@attributes"]["coordX"]!="")) {
+                        table += "data-coordX='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["coordY"]!=undefined) && (sdec_points[i]["@attributes"]["coordY"]!="")) {
+                        table += "data-coordY='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                    }
+
+                    table += " >Выбрать</button>";
+
+                    var object =  new ymaps.Placemark(
+                        [sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
+                             balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
+                             balloonContent: table
+                        }
+                    );
+                    myGeoObjects.push(object);		
+                };
+
+                clusterer = new ymaps.Clusterer();
+                clusterer.add(myGeoObjects);
+                myMap.geoObjects.add(clusterer);
+                myMap.setBounds(clusterer.getBounds());
+            }
+            else{
+                var table = '<table><tbody>';
+                table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+                    table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                }
+                if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+                    table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';	
+                }
+
+                if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+                    table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';	
                 }
                    table += '</tbody></table>';
+
                 table += "<button ";
-                if ((sdec_points[i]["@attributes"]["Address"]!=undefined) && (sdec_points[i]["@attributes"]["Address"]!="")) {
-                        table += "data-Address='"+sdec_points[i]["@attributes"]["Address"]+"' ";
-                }
-                if ((sdec_points[i]["@attributes"]["City"]!=undefined) && (sdec_points[i]["@attributes"]["City"]!="")) {
-                    table += "data-City='"+sdec_points[i]["@attributes"]["City"]+"' ";
+
+                if ((sdec_points["@attributes"]["Address"]!=undefined) && (sdec_points["@attributes"]["Address"]!="")) {
+                        table += "data-Address='"+sdec_points["@attributes"]["Address"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["CityCode"]!=undefined) && (sdec_points[i]["@attributes"]["CityCode"]!="")) {
-                    table += "data-CityCode='"+sdec_points[i]["@attributes"]["CityCode"]+"' ";
+                if ((sdec_points["@attributes"]["City"]!=undefined) && (sdec_points["@attributes"]["City"]!="")) {
+                    table += "data-City='"+sdec_points["@attributes"]["City"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["Code"]!=undefined) && (sdec_points[i]["@attributes"]["Code"]!="")) {
-                    table += "data-Code='"+sdec_points[i]["@attributes"]["Code"]+"' ";
+                if ((sdec_points["@attributes"]["CityCode"]!=undefined) && (sdec_points["@attributes"]["CityCode"]!="")) {
+                    table += "data-CityCode='"+sdec_points["@attributes"]["CityCode"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["Name"]!=undefined) && (sdec_points[i]["@attributes"]["Name"]!="")) {
-                    table += "data-Name='"+sdec_points[i]["@attributes"]["Name"]+"' ";
+                if ((sdec_points["@attributes"]["Code"]!=undefined) && (sdec_points["@attributes"]["Code"]!="")) {
+                    table += "data-Code='"+sdec_points["@attributes"]["Code"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
-                    table += "data-Note='"+sdec_points[i]["@attributes"]["Note"]+"' ";
+                if ((sdec_points["@attributes"]["Name"]!=undefined) && (sdec_points["@attributes"]["Name"]!="")) {
+                    table += "data-Name='"+sdec_points["@attributes"]["Name"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
-                    table += "data-Phone='"+sdec_points[i]["@attributes"]["Phone"]+"' ";
+                if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+                    table += "data-Note='"+sdec_points["@attributes"]["Note"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
-                    table += "data-WorkTime='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+                    table += "data-Phone='"+sdec_points["@attributes"]["Phone"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["coordX"]!=undefined) && (sdec_points[i]["@attributes"]["coordX"]!="")) {
-                    table += "data-coordX='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+                    table += "data-WorkTime='"+sdec_points["@attributes"]["WorkTime"]+"' ";
                 }
 
-                if ((sdec_points[i]["@attributes"]["coordY"]!=undefined) && (sdec_points[i]["@attributes"]["coordY"]!="")) {
-                    table += "data-coordY='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                if ((sdec_points["@attributes"]["coordX"]!=undefined) && (sdec_points["@attributes"]["coordX"]!="")) {
+                    table += "data-coordX='"+sdec_points["@attributes"]["WorkTime"]+"' ";
                 }
 
-
+                if ((sdec_points["@attributes"]["coordY"]!=undefined) && (sdec_points["@attributes"]["coordY"]!="")) {
+                    table += "data-coordY='"+sdec_points["@attributes"]["WorkTime"]+"' ";
+                }
                 table += " >Выбрать</button>";
 
-
-         
-			var object =  new ymaps.Placemark(
-					[sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
-						 balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
-               			 balloonContent: table
-
-					}
-				);
-
-			myGeoObjects.push(object);
-			
-		};
-
-		clusterer = new ymaps.Clusterer();
-		clusterer.add(myGeoObjects);
-		myMap.geoObjects.add(clusterer);
-		myMap.setBounds(clusterer.getBounds());
-	  	}
-        else{
-	  		var table = '<table><tbody>';
-			table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
-			if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
-				table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
-			}
-			if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
-				table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';	
-			}
-
-
-			if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
-				table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';	
-			}
-			   table += '</tbody></table>';
-
-			
-			table += "<button ";
-
-			if ((sdec_points["@attributes"]["Address"]!=undefined) && (sdec_points["@attributes"]["Address"]!="")) {
-					table += "data-Address='"+sdec_points["@attributes"]["Address"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["City"]!=undefined) && (sdec_points["@attributes"]["City"]!="")) {
-				table += "data-City='"+sdec_points["@attributes"]["City"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["CityCode"]!=undefined) && (sdec_points["@attributes"]["CityCode"]!="")) {
-				table += "data-CityCode='"+sdec_points["@attributes"]["CityCode"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["Code"]!=undefined) && (sdec_points["@attributes"]["Code"]!="")) {
-				table += "data-Code='"+sdec_points["@attributes"]["Code"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["Name"]!=undefined) && (sdec_points["@attributes"]["Name"]!="")) {
-				table += "data-Name='"+sdec_points["@attributes"]["Name"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
-				table += "data-Note='"+sdec_points["@attributes"]["Note"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
-				table += "data-Phone='"+sdec_points["@attributes"]["Phone"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
-				table += "data-WorkTime='"+sdec_points["@attributes"]["WorkTime"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["coordX"]!=undefined) && (sdec_points["@attributes"]["coordX"]!="")) {
-				table += "data-coordX='"+sdec_points["@attributes"]["WorkTime"]+"' ";
-			}
-
-			if ((sdec_points["@attributes"]["coordY"]!=undefined) && (sdec_points["@attributes"]["coordY"]!="")) {
-				table += "data-coordY='"+sdec_points["@attributes"]["WorkTime"]+"' ";
-			}
-
-
-			table += " >Выбрать</button>";
-
-
-         
-			var object =  new ymaps.Placemark(
-					[sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
-						 balloonContentHeader: sdec_points["@attributes"]["Name"],
-               			 balloonContent: table
-					}
-				);
-			myMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
-			myMap.geoObjects.add(object);
-		
-	  	}
-
-		
-	  }
-  	});
+                var object =  new ymaps.Placemark(
+                        [sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
+                             balloonContentHeader: sdec_points["@attributes"]["Name"],
+                             balloonContent: table
+                        }
+                    );
+                myMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
+                myMap.geoObjects.add(object);		
+            }	
+	    }
+    });
 }
-
-
 
 $(document).on("click",".sdec_address", function(){
 	show_sdec();
@@ -1216,7 +948,6 @@ $(document).on("click", "ymaps button" ,function(){
 	$("#sdec_name").val(sdec_data.Name);
 	$("#sdec_worktime").val(sdec_data.WorkTime);
 
-
 	/*получить цену d*/
 	$(".sdec_address").html(sdec_data.City+", "+sdec_data.Name+"<br>"+sdec_data.Address);
 
@@ -1227,59 +958,43 @@ $(document).on("click", "ymaps button" ,function(){
 		data: {
 			idcity : sdec_data.CityCode
 		},
-		success: function(data)
-			{		
-					
-				if (data!=false){
-					var result = JSON.parse(data);
-					console.log(result);
+		success: function(data){						
+            if (data!=false){
+                var result = JSON.parse(data);
+                console.log(result);
 
-					$(".sdec_cost").text(result.price+"p");
-					$("#sdec").attr("data-delivery", result.price);
-					$(".delivery_cost").attr("data-delivery", result.price);
-					$("#sdec_cost").val(result.price);
+                $(".sdec_cost").text(result.price+"p");
+                $("#sdec").attr("data-delivery", result.price);
+                $(".delivery_cost").attr("data-delivery", result.price);
+                $("#sdec_cost").val(result.price);
 
-					$(".select_sdec").addClass("active");
-													
+                $(".select_sdec").addClass("active");
 
-													
-				
-					var start_date = new Date(Date.parse(result.deliveryDateMax));
-					console.log(start_date);
-					$(".select_sdec").html("с "+start_date.getDate()+"<br>"+start_date.getMonthName());
+                var start_date = new Date(Date.parse(result.deliveryDateMax));
+                console.log(start_date);
+                $(".select_sdec").html("с "+start_date.getDate()+"<br>"+start_date.getMonthName());
 
-					var russiaDate =  new Date(Date.parse(result.deliveryDateMax));
+                var russiaDate =  new Date(Date.parse(result.deliveryDateMax));
 
-					russiaDate.setDate(russiaDate.getDate() + date_sdec_max);
+                russiaDate.setDate(russiaDate.getDate() + date_sdec_max);
 
-					$("#calendar_sdec").datepicker('option', 
-						{
-							minDate: start_date,
-							maxDate: russiaDate
-						}
-					);
-
-					reset_cost_total();
-					
-				}
-				
-			},
-		fail: function(data){
-					
-					}
+                $("#calendar_sdec").datepicker('option', 
+                                               {
+                    minDate: start_date,
+                    maxDate: russiaDate
+                }
+                                              );
+                reset_cost_total();					
+            }				
+		},
+		fail: function(data){}
 	});
 	/*получаем цену, и даты*/
-
-
-
 	$(".alert_block.alert_cart").removeClass("active");
 });
 
-
 /*map*/
-
 var myMap;
-
 // Дождёмся загрузки API и готовности DOM.
 ymaps.ready(init);
 
@@ -1291,17 +1006,10 @@ function init () {
         // её центр и коэффициент масштабирования.
         center: [55.76, 37.64], // Москва
         zoom: 10,
-    }, {
-        
-    });
-
+    }, {});
     myMap.controls.add(
    		new ymaps.control.ZoomControl()
 	);
-
-
-
-   // get_city_sdec();
     get_city_list_sdec();
 }
 

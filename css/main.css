@@ -2144,21 +2144,13 @@ textarea.cart_item{
 
 .city_block {
 	position: relative;
-    /*float: left;   Commented by Artem: make this div full form width */
-}
-
-div.city_block {
-	/*width: calc(48.5% + 2px); Commented by Artem: make this div full form width */
 }
 
 .result_city {
-	/*position: absolute;*/
     position: relative;
 	width: 100%;
-	/*top: 40px;*/
-	max-height: 200px;
+	max-height: 210px;
 	overflow: hidden;
-
 }
 
 .result_city span {
