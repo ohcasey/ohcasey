@@ -85,7 +85,7 @@
 
 							    </div>
 							    <div class="order_form-box_block">
-								    <p class="time_order" >Выберите</br> пункт</p>
+								    <p class="time_order select_sdec active" >Выберите</br> пункт</p>
 								    <input type="text" placeholder="Дата визита" class="calendar checkbox_hided" name="calendar_sdec" id="calendar_sdec">
 
 							    </div>
@@ -138,7 +138,7 @@
                                     <span class="new_line">Курьером по России</span>	
                                 </div>
                                 <div class="order_form-box_block">
-                                    <p class="time_order" >3-5 дней</p>
+                                    <p class="time_order select_city active" >3-5 дней</p>
                                     <input type="text" placeholder="Дата визита" name="calendar_russia" class="calendar checkbox_hided" id="calendar_russia">
                                 </div>
                                 <div class="order_form-box_block right">
