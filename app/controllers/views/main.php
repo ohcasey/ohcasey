@@ -116,7 +116,7 @@
 						<span id="change_color_but">ИЗМЕНИТЬ ТЕКСТ</span>
 						</p>
 						<p class="info_block-1-2-2">1 клик - работать с объектом</p>
-						<p class="info_block-1-2-3">крутите и вертите</p>
+						<p class="info_block-1-2-3">зажмите и крутите</p>
 						<p class="info_block-1-2-4">потяните за угол, чтобы растянуть</p>
 						<p class="info_block-1-2-5">перемещение по чехлу</p>
 					</div>
@@ -142,7 +142,7 @@
 						<span id="change_color_but">ИЗМЕНИТЬ Текст</span>
 						</p>
 						<p class="info_block-1-2-2">1 клик - работать с объектом</p>
-						<p class="info_block-1-2-3">крутите и вертите</p>
+						<p class="info_block-1-2-3">зажмите и крутите</p>
 						<p class="info_block-1-2-4">потяните за угол, чтобы растянуть</p>
 						<p class="info_block-1-2-5">перемещение по чехлу</p>
 					</div>
@@ -179,7 +179,7 @@
 					</div>
 						<div class="info_block-row">
 						<p class="info_block-1-2-2">1 клик - работать с объектом</p>
-						<p class="info_block-1-2-3">крутите и вертите</p>
+						<p class="info_block-1-2-3">зажмите и крутите</p>
 						<p class="info_block-1-2-4">потяните за угол, чтобы растянуть</p>
 						<p class="info_block-1-2-5">перемещение по чехлу</p>
 						<p class="info_block-1-2-6">удалить</p>
