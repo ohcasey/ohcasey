@@ -1252,6 +1252,23 @@ iphone4_black_crystal_case.png
 					"small"=>"sakura_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/tufli_valentino_i4-4s.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/tufli-versache-iphonei4_4-4s.png",
+					"small"=>"tufli-versache-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/unicorn-iphonei4_4-4s.png",
+					"small"=>"unicorn-prevew.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/uzoe-iphonei4_4-4s.png",
+					"small"=>"uzor-prevew.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/serdca-iphonei4_4-4s.png",
+					"small"=>"serdca-preview.png","chechs"=>array(31,32,33,34)),
+					
+					array("big"=>"4-4s/odri-iphonei4_4-4s.png",
+					"small"=>"odri-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/odri-white-iphonei4_4-4s.png",
+					"small"=>"odri-white-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ogurci-black-iphonei4_4-4s.png",
+					"small"=>"ogurci-black-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ogurci-iphonei4_4-4s.png",
+					"small"=>"ogurci-preview.png","chechs"=>array(31,32,33,34)),
 
 					
 
@@ -1315,6 +1332,24 @@ iphone4_black_crystal_case.png
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
 					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/tufli-versache-iphonei5-5s-5c.png",
+					"small"=>"tufli-versache-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/unicorn-iphonei5-5s-5c.png",
+					"small"=>"unicorn-prevew.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/uzor-iphonei5-5s-5c.png",
+					"small"=>"uzor-prevew.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/serdca-iphonei5-5s-5c.png",
+					"small"=>"serdca-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					
+					array("big"=>"5-5s-5c/ogurci-iphonei5-5s-5c.png",
+					"small"=>"odri-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/odri-white-iphonei5-5s-5c.png",
+					"small"=>"odri-white-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/ogurci-black-iphonei5-5s-5c.png",
+					"small"=>"ogurci-black-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/ogurci-iphonei5-5s-5c.png",
+					"small"=>"ogurci-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+
 
 					//iphone6
 					array("big"=>"6-6+/donuts_i6-6+.png",
@@ -1374,6 +1409,23 @@ iphone4_black_crystal_case.png
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/tufli-versache-iphonei6.png",
+					"small"=>"tufli-versache-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/unicorn-iphonei6.png",
+					"small"=>"unicorn-prevew.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/uzor-iphonei6.png",
+					"small"=>"uzor-prevew.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/serdca-iphonei6.png",
+					"small"=>"serdca-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					
+					array("big"=>"6-6+/odri-iphonei6.png",
+					"small"=>"odri-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/odri-white-iphonei6.png",
+					"small"=>"odri-white-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/ogurci-black-iphonei6.png",
+					"small"=>"ogurci-black-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/ogurci-iphonei6.png",
+					"small"=>"ogurci-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 
 				)
 			),
