@@ -645,8 +645,28 @@ function generatePassword($length = 24){
 }
 
 
-function save_raspechat()
+function save_raspechat($config)
 {
+    $fio =  $_SESSION['fio'];
+    $email  = $_SESSION['email'];
+    $phone =   $_SESSION['phone'];
+    $city = $_SESSION['city'];
+    $adress = $_SESSION['adress'];
+    $comments =$_SESSION['comments'];
+    $deliver = $_SESSION['deliver'];
+    $payment  =  $_SESSION['payment'];
+
+    $calendar_self = $_SESSION['calendar_self'];
+    $calendar_sdec = $_SESSION['calendar_sdec'];
+    $calendar_moscow = $_SESSION['calendar_moscow'];
+    $calendar_russia = $_SESSION['calendar_russia'];
+
+    $sdec_code = $_SESSION['sdec_code'];
+    $sdec_adress = $_SESSION['sdec_adress'];
+    $sdec_code = $_SESSION['sdec_code'];
+    $sdec_name = $_SESSION['sdec_name'];
+    $sdec_worktime = $_SESSION['sdec_worktime'];
+
     $body = file_get_contents('mail_templates/raspechat.html');
     $body = str_replace('$time_order', $_SESSION['time_order'], $body);
     $body = str_replace('$fio', $fio, $body);
@@ -674,7 +694,7 @@ function save_raspechat()
 
 
     if ($deliver=="self"){
-        $deliver_type = "Cамовывоз";
+        $deliver_type = "Cамовывоз из шоурума";
 
     }
     if ($deliver=="kur_mos"){
@@ -855,7 +875,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
         $body = file_get_contents('mail_templates/admin.html');
 
-        $raspech_file_url = save_raspechat();
+        $raspech_file_url = save_raspechat($config);
         
         $body = str_replace('$raspech_file_url', $raspech_file_url, $body);
         $body = str_replace('$time_order', $_SESSION['time_order'], $body);
@@ -1197,7 +1217,7 @@ function get_cost_summary($config, $deliver) {
 		
     }
 
-    echo $deliver;
+    echo "123".$deliver;
   
     $cost = 0;
  

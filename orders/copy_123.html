@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title></title>
+        <style type="text/css">
+
+			/* ///////// RESET STYLES ///////// */
+			body{margin:0; padding:0;}
+			img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+			table{border-collapse:collapse !important;}
+			body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
+
+			/* ///////// TEMPLATE STYLES ///////// */
+
+			/* ========== Page Styles ========== */
+
+			body {
+	            background-color: #FFFFFF;
+	            font-family: tahoma;
+	            color: #000000;
+	            font-size: 14px;
+
+		    	}
+	      	table#t01 th, table#t01 td {
+	      		border:1px solid lightgrey;
+	      		border-collapse: collapse;
+	      		border-spacing: 5px;
+	      	}
+	      	table#t01 {
+	      		width:500px;
+	      		margin-bottom: 25px;
+	      	}
+	      	table#t01 tr.even {
+			    background-color: #fff;
+			}
+			table#t01 tr.odd {
+			    background-color: #eee;
+			}
+	      	.col_l_info {
+	      		width:30%;
+	      		text-align: right;
+	      		padding:2px 5px 2px 5px;
+	      	}
+	      	.col_r_info {
+	      		width:70%;
+	      		text-align: left;
+	      		padding:2px 5px 2px 5px;
+	      	}
+	      	.order_num {
+	      		font-size: 15px;
+	      		font-weight: bold;
+	      	}
+	      	.delivery {
+	      		width: 100%;
+	      		margin-top: 5px;
+	      	}
+	      	.delivery .col_l_delivery {
+	      		width:30%;
+	      		text-align: right;
+	      		padding-right: 5px;
+	      	}
+	      	.delivery .col_r_delivery {
+	      		width:70%;
+	      		padding-left: 5px;
+	      	}
+			article + article {
+	      		page-break-before: always; 
+	      	}
+	      	article table {
+	      		width:100%;
+	      	}
+	      	article table tr td table  {
+	      		text-align: center;
+	      		width:100%;
+	      	}
+	      	article img {
+	      		width:auto;
+	      		height:auto;
+	      	}
+
+	      	@media print {
+	      		table#t01 tr.even {
+				    background-color: #fff!important;
+				    -webkit-print-color-adjust: exact; 
+				}
+				table#t01 tr.odd {
+				    background-color: #eee!important;
+				    -webkit-print-color-adjust: exact; 
+				}
+	      	}
+	      	
+		</style>
+    </head>
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+		<table   id="t01">
+			<tr class="even">
+				<td class="col_l_info" >Номер заказа</td>
+				<td class="col_r_info order_num">356</td>
+			</tr>
+			<tr class="odd">
+				<td class="col_l_info" >Время заказа</td>
+				<td class="col_r_info" >22.10.15 00:59:36</td>
+			</tr>
+			<tr class="even">
+				<td class="col_l_info" >ФИО</td>
+				<td class="col_r_info" > Таников</td>
+			</tr>
+			<tr class="odd">
+				<td class="col_l_info" >E-mail</td>
+				<td class="col_r_info" >atanikov@gmail.com</td>
+			</tr>
+			<tr class="even">
+				<td class="col_l_info" >Телефон</td>
+				<td class="col_r_info" ><a href="tel:+7 (123) 123">+7 (123) 123 </a></td>
+			</tr>
+			<tr class="odd">
+				<td class="col_l_info" >Город</td>
+				<td class="col_r_info" >Москва</td>
+			</tr>
+
+			<tr class="even">
+			    <td class="col_l_info" >Адрес</td>
+			    <td class="col_r_info" >фывфы</td>
+			</tr>
+			<tr class="odd">
+			    <td class="col_l_info" >Комментарии к заказу</td>
+			    <td class="col_r_info" >ohcasey_dev</td>
+			</tr>
+			<tr class="even">
+				<td class="col_l_info" >Доставка</td>
+				<td class="col_r_info" >
+					 Курьер по России
+			        <table class="delivery">
+			        <tbody>
+			            <tr>
+			                <td class="col_l_delivery">Дата доставки</td>
+			                <td class="col_r_delivery">28.10.2015</td>
+			            </tr>
+			            <tr>
+			                <td class="col_l_delivery">Стоимость доставки</td>
+			                <td class="col_r_delivery">265</td>
+			            </tr>
+			        </tbody>
+			        </table>
+			    </td>
+			</tr>
+			<tr class="odd">
+				<td class="col_l_info" >Вид оплаты</td>
+				<td class="col_r_info" >Карта сбербанка</td>
+			</tr>
+			<tr class="even">
+				<td class="col_l_info" >Общая стоимость</td>
+				<td class="col_r_info" >1765</td>
+			</tr>
+		</table>
+		<article>
+			<table>
+			    <tr>
+			    	<!-- колонка с чехлом повторяется 3 раза, после чего пишется новый article на новой странице-->
+			        <td>
+						<table>
+							<tr>
+								<td>iPhone 5s</td>
+							</tr>
+							<tr>
+								<td>Силикон</td>
+							</tr>
+							<tr>
+								<td>Полностью прозрачный</td>
+							</tr>
+							<tr>
+								<td >
+									<img src="http://localhost/uploaded_images/2015/10/22/fYkT6zr36TBf7F5t8ReAB4tA.png">
+								</td>
+							</tr>
+						</table>
+			        </td>
+			        <!-- -->
+			        <!-- колонка с чехлом повторяется 3 раза, после чего пишется новый article на новой странице-->
+			        <td>
+						<table>
+							<tr>
+								<td>iPhone 5s</td>
+							</tr>
+							<tr>
+								<td>Силикон</td>
+							</tr>
+							<tr>
+								<td>Полностью прозрачный</td>
+							</tr>
+							<tr>
+								<td >
+									<img src="http://localhost/uploaded_images/2015/10/22/fYkT6zr36TBf7F5t8ReAB4tA.png">
+								</td>
+							</tr>
+						</table>
+			        </td>
+			        <!-- -->
+			    </tr>
+			</table>
+		</article>
+				<article>
+			<table>
+			    <tr>
+			    	<!-- колонка с чехлом повторяется 3 раза, после чего пишется новый article на новой странице-->
+			        <td>
+						<table>
+							<tr>
+								<td>iPhone 5s</td>
+							</tr>
+							<tr>
+								<td>Силикон</td>
+							</tr>
+							<tr>
+								<td>Полностью прозрачный</td>
+							</tr>
+							<tr>
+								<td >
+									<img src="http://localhost/uploaded_images/2015/10/22/fYkT6zr36TBf7F5t8ReAB4tA.png">
+								</td>
+							</tr>
+						</table>
+			        </td>
+			        <!-- -->
+			        <!-- колонка с чехлом повторяется 3 раза, после чего пишется новый article на новой странице-->
+			        <td>
+						<table>
+							<tr>
+								<td>iPhone 5s</td>
+							</tr>
+							<tr>
+								<td>Силикон</td>
+							</tr>
+							<tr>
+								<td>Полностью прозрачный</td>
+							</tr>
+							<tr>
+								<td >
+									<img src="http://localhost/uploaded_images/2015/10/22/fYkT6zr36TBf7F5t8ReAB4tA.png">
+								</td>
+							</tr>
+						</table>
+			        </td>
+			        <!-- -->
+			        <!-- колонка с чехлом повторяется 3 раза, после чего пишется новый article на новой странице-->
+			        <td>
+						<table>
+							<tr>
+								<td>iPhone 5s</td>
+							</tr>
+							<tr>
+								<td>Силикон</td>
+							</tr>
+							<tr>
+								<td>Полностью прозрачный</td>
+							</tr>
+							<tr>
+								<td >
+									<img src="http://localhost/uploaded_images/2015/10/22/fYkT6zr36TBf7F5t8ReAB4tA.png">
+								</td>
+							</tr>
+						</table>
+			        </td>
+			        <!-- -->
+			    </tr>
+			</table>
+		</article>
+	</body>
+</html>
