@@ -2,10 +2,9 @@
 <div id="main" class="cart_page">
 	<?php include "templates/left_block.php";?>
 
-	<div id = "center">    
-        
-        
-		<form id = "order_form" name="order_form"  action="/cart/confirm_order" method="post">
+	<div id = "center">
+        <!--<div class="form-outer-scroll">     -->      
+		    <form id = "order_form" name="order_form"  action="/cart/confirm_order" method="post">
 			<div class="overflow_form">
 				<div id="right-1" class="right_content_block">
                     
@@ -17,9 +16,7 @@
 					    <div class="result_city"></div>
                     </div>
 
-                    <!-- // -->
-                    
-                    
+                    <!-- // -->              
                     
                     <!-- ORDER DELIVERY BLOCK-->
                     <div class="right_item delivery_block hidden-element">
@@ -222,6 +219,8 @@
 			    </div>
 			</div>
         </form>
+        <!--</div>-->        
+
         <div class="center_bottom"> 
             <div class="half">
                 <div class="half">
@@ -237,7 +236,6 @@
                 <span class="result" >Итого: 0 рублей</span> 
             </div>
         </div>
-
 	</div>
 
 

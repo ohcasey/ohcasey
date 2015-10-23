@@ -121,7 +121,6 @@ $(document).on('input','.city', function(){
                 $('div.suggestion-element').remove();
 				for (var i = 0; i < result.length; i++) {
    					 $(".result_city").append("<div class='suggestion-element'><span class='city-suggestion'>"+result[i][0]+"</span></div>");
-   					 //$('.result_city').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1, suppressScrollX: false});
 				}
 			}				
 		},
@@ -291,6 +290,7 @@ function set_city_value_to_sdec_window(){
 
 /* Когда выбрали город вверху формы, показываем доступные способы доставки и оплаты */
 $(document).on('keydown', 'input.city', function(){
+    //alert('KEYDOWN EVENT');
     if(event.keyCode == 13 || event.keyCode == 9){
         $(".result_city").find("span").remove();
         set_city_value_to_sdec_window();
@@ -298,12 +298,14 @@ $(document).on('keydown', 'input.city', function(){
     }
 });
 $(document).on('click', 'div.suggestion-element' , function(){
+    //alert("CLICK SUGGESTION EVENT");
     $(".city").val($(this).text());
     $(".result_city").find("span").remove();
     set_city_value_to_sdec_window();
     displayAvailableDelivery();
 });
 $(document).on('focusout', 'input.city', function(){
+    //alert('FOCUS OUT EVENT');
     set_city_value_to_sdec_window();
     displayAvailableDelivery();
 });
@@ -673,6 +675,9 @@ $(document).ready(function(){
         if (validatePhone($(this).val())==false){ 
             $(this).addClass('error'); 
         } 
+        if($(this).val()==""){
+            $(this).removeClass('error');
+        }
     });
     
 	$('input,textarea').focus(function(){
