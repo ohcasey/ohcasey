@@ -676,8 +676,7 @@ function save_raspechat($config)
     $body = str_replace('$city', $city, $body);
 
     $cost = 0;
-
-   if ($deliver!="sdec") {
+    if ($deliver!="sdec") {
              if ($deliver=="kur_rus") {
                 $cost  = get_cost_summary($config, $_SESSION['russia_cost']);
              }else{
@@ -685,86 +684,113 @@ function save_raspechat($config)
              }
             
         }else{
-                $cost  = get_cost_summary($config, $_SESSION['sdec_cost']);
-        
+                $cost  = get_cost_summary($config, $_SESSION['sdec_cost']);     
     }
 
-
-    $deliver_type ="";
-
+    $deliver_type = "";
 
     if ($deliver=="self"){
-        $deliver_type = "Cамовывоз из шоурума";
+        $deliver_type .= "Cамовывоз из шоурума";
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата самовывоза</td>
+                            <td class="col_r_delivery">'.$calendar_self.'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
 
     }
     if ($deliver=="kur_mos"){
-          $deliver_type = "Курьер по Москве";
-
+        $deliver_type .= "Курьер по Москве";
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата доставки</td>
+                            <td class="col_r_delivery">'.$calendar_moscow.'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость доставки</td>
+                            <td class="col_r_delivery">'.$config["deliver_cost"]["kur_mos"].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
     }
     if ($deliver=="kur_rus"){
-        $deliver_type = '
-            <table>
-            <tbody>
-                <tr><td colspan="2">
-                 Курьер по России
-                </td></tr>
-                <tr>
-                    <td style ="padding: 5px;  text-align: right;" width="25%">Дата доставки</td>
-                    <td style ="padding: 5px;  text-align: left;">'.$_SESSION['calendar_russia'].'</td>
-                </tr>
-                <tr>
-                    <td style ="padding: 5px;  text-align: right;" width="50%">Стоимость доставки</td>
-                    <td style ="padding: 5px;  text-align: left;">'.$_SESSION['russia_cost'].'</td>
-                </tr>
-            </tbody>
-            </table>'
-        ;
-
+        $deliver_type .= 'Курьер СДЭК по России';
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата доставки</td>
+                            <td class="col_r_delivery">'.$_SESSION['calendar_russia'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость доставки</td>
+                            <td class="col_r_delivery">'.$_SESSION['russia_cost'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
     }
     if ($deliver=="mail_ru"){
-        $deliver_type = "Почта России";
+        $deliver_type .= 'Почтой России';
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость доставки</td>
+                            <td class="col_r_delivery">'.$config["deliver_cost"]["kur_mos"].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Индекс</td>
+                            <td class="col_r_delivery">'.$_SESSION['index'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
     }
 
     if ($deliver=="sdec"){
-        $deliver_type = '
-            <table>
-            <tbody>
-                <tr><td colspan="2">
-                <b>Самовывоз из пункта СДЭК</b>
-                </td></tr>
-                <tr>
-                    <td style ="padding: 5px;  text-align: right;" width="25%">Дата самовывоза</td>
-                    <td style ="padding: 5px;  text-align: left;">'.$_SESSION['calendar_sdec'].'</td>
-                </tr>
-                <tr>
-                    <td style ="padding: 5px; text-align: right;" width="25%">Пункт самовывоза</td>
-                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_code'].'</td>
-                </tr>
-                <tr>
-                    <td style ="padding: 5px; text-align: right;" width="25%">Адреса пункта</td>
-                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_adress'].'</td>
-                </tr>
-                <tr>
-                    <td style ="padding: 5px; text-align: right;" width="25%">Название пункта</td>
-                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_name'].'</td>
-                </tr>
-                <tr>
-                    <td style ="padding: 5px; text-align: right;" width="25%">Режим работы пункта</td>
-                    <td style ="padding: 5px; text-align: left;">'.$_SESSION['sdec_worktime'].'</td>
-                </tr>
-                <tr>
-                    <td style ="padding: 5px; text-align: right;" width="25%">Стоимость самовывоза</td>
-                    <td style ="padding: 5px; ext-align: left;">'.$_SESSION['sdec_cost'].'</td>
-                </tr>
-            </tbody>
-            </table>'
-        ;
+        $deliver_type .= 'Самовывоз из пункта СДЭК';
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата самовывоза</td>
+                            <td class="col_r_delivery">'.$_SESSION['calendar_sdec'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Пункт самовывоза</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_code'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Адрес пункта</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_adress'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Название пункта</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_name'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Режим работы пункта</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_worktime'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость самовывоза</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_cost'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
     }
-
 
     if ($payment=="cash"){
         $payment_type = "Наличными";
-
     }
 
     if ($payment=="sber"){
@@ -772,54 +798,31 @@ function save_raspechat($config)
     }
 
     if ($payment=="robocassa"){
-        $payment_type = "Робокасса";
+        $payment_type = "Банковской картой онлайн";
     }
 
-
-    $elements = get_elements_to_raspechat($config);
+    $elements = get_elements_to_raspechat();
 
   
-    $body = str_replace('$elements', $elements[0], $body);
-
-
-    
+    $body = str_replace('$elements', $elements, $body);
 
     $body = str_replace('$deliver', $deliver_type, $body);
-
-
 
     $body = str_replace('$payment', $payment_type, $body);
 
     $body = str_replace('$cost', $cost, $body);
 
-    if (isset($adress) && ($adress!="") && ($deliver!="self") && ($deliver!="sdec") ) {
-         $body = str_replace('$adress','<tr>
-                                                        <td style ="padding: 5px;" width="50%">Адрес</td>
-                                                        <td style ="padding: 5px;">'.$adress.'</td>
-                                                    </tr>', $body);
-    }else{
-        $body = str_replace('$adress', "", $body);
-    }
-
-    if (isset($comments) && ($comments!="")) {
-         $body = str_replace('$comments', '<tr>
-                                                        <td style ="padding: 5px;" width="50%">Комментарии к заказу</td>
-                                                        <td style ="padding: 5px;">'.$comments.'</td>
-                                                    </tr>', $body);
-    }else{
-        $body = str_replace('$comments', "", $body);
-    }
-
-
-
+    $body = str_replace('$adress', $adress, $body);
+    
+    $body = str_replace('$comments', $comments, $body);
 
     $body = str_replace('$time_order', $_SESSION['time_order'], $body);
     
     // strip backslashes
     $body = preg_replace('/\\\\/','', $body);
     
-    $order_num = 123;
-    $filename = 'orders/'.$order_num.'.html';
+    
+    $filename = 'orders/'.$zakaz_number.'.html';
     file_put_contents($filename, $body);
     $raspech_file_url = "http://".$_SERVER['HTTP_HOST']."/".$filename;
     return $raspech_file_url;
@@ -868,8 +871,8 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
         $mail->From = $mail_controls["Username"];
         $mail->FromName = 'Сайт ohcasey';
-        $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
-
+        //$mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
+         $mail->addAddress('atanikov@MacBook-Pro', 'Админ Ohcasey');     // Add a recipient
         $mail->isHTML(true);                                  // Set email format to HTML
 
 
@@ -1047,7 +1050,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
            echo 'Oшибка письма: ' . $mail->ErrorInfo;
         } else {
 
-            echo 'Письмо админу отправлено';
+            echo 'Письмо админу отправлено успешно';
              
         } 
 
@@ -1192,7 +1195,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
             echo 'Oшибка письма: ' . $mails->ErrorInfo;
         } else {
 
-             echo 'Письмо админу отправлено';
+             echo 'Письмо клиенту отправлено';
            
         }
 
@@ -1217,7 +1220,7 @@ function get_cost_summary($config, $deliver) {
 		
     }
 
-    echo "123".$deliver;
+    //echo "123".$deliver;
   
     $cost = 0;
  
@@ -1650,6 +1653,7 @@ function get_elements_to_admin_mail($config) {
 
         $result.='<tr><td style ="padding: 5px;">Устройство</td><td>'.$_SESSION['items'][$i]["device_name"].'</td></tr>';
         $result.='<tr><td style ="padding: 5px;">Id чехла</td><td>'.$_SESSION['items'][$i]["case_id"].'</td></tr>';
+        if (isset($_SESSION['items'][$i]["device_color"]))
         $result.='<tr><td style ="padding: 5px;">Цвет устройства</td><td style="background-color: '.$_SESSION['items'][$i]["device_color"].';"></td></tr>';
         $result.='<tr><td style ="padding: 5px;">Название чехла</td><td>'.$_SESSION['items'][$i]["name_case_1"].'</td></tr>';
         $result.='<tr><td style ="padding: 5px;">Подназвание чехла</td><td>'.$_SESSION['items'][$i]["name_case_2"].'</td></tr>';
@@ -1720,23 +1724,50 @@ function get_elements_to_admin_mail($config) {
      return array($result, $cost);
 }
 
-function get_elements_to_raspechat($config) {
-    $cost_cur =0;
-    $cost = 0;
+function get_elements_to_raspechat() {
     $count = count($_SESSION['items']); 
-
-
     $result ="";
+    $column_num = 1;
     foreach ($_SESSION['items'] as $i => $val) {
-        $result.='<td><table style = "text-align: center; font-size: 14px; " border="0" cellpadding="0" cellspacing="0" width="100%" class="half_table admin_table">';     
-            $result.='<tr><<td>'.$_SESSION['items'][$i]["device_name"].'</td></tr>';
-            $result.='<tr><td>'.$_SESSION['items'][$i]["name_case_1"].'</td></tr>';
-            $result.='<tr><td>'.$_SESSION['items'][$i]["name_case_2"].'</td></tr>';     
-            $src = "http://".$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"];
-            $result.='<tr><td style ="padding: 5px;" ><img width="auto" height="auto" src="'.$src.'"></td></tr>';
-        $result.='</table></td>';
+        if ($column_num == 1) {
+            $result.= '
+            <article>
+                <table>
+                    <tr>
+            ';
+        }
+        $result.= '
+                        <!-- колонка с чехлом повторяется 3 раза, после чего пишется новый article на новой странице-->
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>'.$_SESSION['items'][$i]["device_name"].'</td>
+                                </tr>
+                                <tr>
+                                    <td>'.$_SESSION['items'][$i]["name_case_1"].'</td>
+                                </tr>
+                                <tr>
+                                    <td>'.$_SESSION['items'][$i]["name_case_2"].'</td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <img src="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <!-- -->';
+        if ($column_num == 3) {
+            $result.= '
+                    </tr>
+                </table>
+            </article>
+            ';
+            $column_num=0;
+        }
+        $column_num ++;
     }
-     return array($result, $cost);
+    return $result;
 }
 
 
