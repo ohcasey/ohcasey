@@ -239,7 +239,7 @@ $config = array(
 					"name" => "Soft Touch",
 					"descr_1" => "матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол. Не скользит в руке",
-					"desctop_mask_2"=>"iphone6plus.png",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"lib_img" => "iphone6_black_icon.png",
 					"default_color"=>"white",
 					"colors"=> array(
@@ -248,7 +248,7 @@ $config = array(
 											"id"=>7,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_black_softtouch_case.png",
-											"desctop_mask" => "iphone6plus.png", //обрезка
+											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gray_camera.png",
 											"cost"=>1500
 										)
@@ -261,7 +261,7 @@ $config = array(
 								array(
 					"name" => "Силикон",
 					"descr_1" => "Полностью прозрачный",
-					"desctop_mask_2"=>"iphone6.png",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"descr_2" => "Оптимальная толщина. Отличная защита устройства при падениях. Не скользит в руке",
 					"lib_img" => "iphone6_crystal_icon.png",
 					"default"=>true,
@@ -271,7 +271,7 @@ $config = array(
 											"id"=>8,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_crystal_case.png",
-											"desctop_mask" => "iphone6.png", //обрезка
+											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
 											"cost"=>1500,
 											"default"=>true
@@ -281,7 +281,7 @@ $config = array(
 											"id"=>9,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_crystal_case.png",
-											"desctop_mask" => "iphone6.png",
+											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_silver_camera.png",
 											"cost"=>1500
 									),
@@ -290,7 +290,7 @@ $config = array(
 											"id"=>10,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_crystal_case.png",
-											"desctop_mask" => "iiphone6.png",
+											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_gray_camera.png",
 											"cost"=>1500
 									),
@@ -302,7 +302,7 @@ $config = array(
 					"name" => "Пластик",
 					"descr_1" => "Матовый полупрозрачный",
 					"descr_2" => "Тонкий, но прочный, бархатистый на ощупь. Не скользит в руке",
-					"desctop_mask_2"=>"iphone6.png",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"lib_img" => "iphone6_white_crystal_icon.png",
 					"colors"=> array(
 									array(		
@@ -310,7 +310,7 @@ $config = array(
 											"id"=>11,
 											"color"=>"#CF9657",
 											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
-											"desctop_mask" => "iphone6.png", //обрезка
+											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
 											"cost"=>1500,
 											"default"=>true
@@ -320,7 +320,7 @@ $config = array(
 											"id"=>12,
 											"color"=>"#BBBBBB",
 											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
-											"desctop_mask" => "iphone6.png",
+											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_silver_camera.png",
 											"cost"=>1500
 									),
@@ -329,7 +329,7 @@ $config = array(
 											"id"=>13,
 											"color"=>"#888888",
 											"desctop_img" => "iphone6_gray_whitecrystal_case.png",
-											"desctop_mask" => "iphone6.png",
+											"desctop_mask" => "iphone6-6+.png",
 											"desctop_camera" => "iphone6_gray_camera.png",
 											"cost"=>1500
 									),
@@ -361,7 +361,7 @@ $config = array(
 					"name" => "Пластик",
 					"descr_1" => "матовый черный",
 					"descr_2" => "Бархатистый, приятный на ощупь чехол. Не скользит в руке",
-					"desctop_mask_2"=>"iphone6.png",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
 					"lib_img" => "iphone6_black_icon.png",
 					"default_color"=>"white",
 					"colors"=> array(
@@ -370,7 +370,7 @@ $config = array(
 											"id"=>15,
 											"color"=>"transparent",
 											"desctop_img" => "iphone6_black_softtouch_case.png",
-											"desctop_mask" => "iphone6.png", //обрезка
+											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gray_camera.png",
 											"cost"=>1500
 										)
@@ -1252,6 +1252,32 @@ iphone4_black_crystal_case.png
 					"small"=>"sakura_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/tufli_valentino_i4-4s.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/tufli-versache-iphonei4_4-4s.png",
+					"small"=>"tufli-versache-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/unicorn-iphonei4_4-4s.png",
+					"small"=>"unicorn-prevew.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/uzoe-iphonei4_4-4s.png",
+					"small"=>"uzor-prevew.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/serdca-iphonei4_4-4s.png",
+					"small"=>"serdca-preview.png","chechs"=>array(31,32,33,34)),
+					
+					array("big"=>"4-4s/odri-iphonei4_4-4s.png",
+					"small"=>"odri-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/odri-white-iphonei4_4-4s.png",
+					"small"=>"odri-white-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ogurci-black-iphonei4_4-4s.png",
+					"small"=>"ogurci-black-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ogurci-iphonei4_4-4s.png",
+					"small"=>"ogurci-preview.png","chechs"=>array(31,32,33,34)),
+					
+					array("big"=>"4-4s/hamsa-black-iphonei4_4-4s.png",
+					"small"=>"hamsa-black-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/hamsa-iphonei4_4-4s.png",
+					"small"=>"hamsa-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/david-black-iphonei4_4-4s.png",
+					"small"=>"david-black-preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/david-iphonei4_4-4s.png",
+					"small"=>"david-preview.png","chechs"=>array(31,32,33,34)),
 
 					
 
@@ -1315,6 +1341,34 @@ iphone4_black_crystal_case.png
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
 					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/tufli-versache-iphonei5-5s-5c.png",
+					"small"=>"tufli-versache-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/unicorn-iphonei5-5s-5c.png",
+					"small"=>"unicorn-prevew.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/uzor-iphonei5-5s-5c.png",
+					"small"=>"uzor-prevew.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/serdca-iphonei5-5s-5c.png",
+					"small"=>"serdca-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					
+					array("big"=>"5-5s-5c/ogurci-iphonei5-5s-5c.png",
+					"small"=>"odri-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/odri-white-iphonei5-5s-5c.png",
+					"small"=>"odri-white-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/ogurci-black-iphonei5-5s-5c.png",
+					"small"=>"ogurci-black-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/ogurci-iphonei5-5s-5c.png",
+					"small"=>"ogurci-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					
+					array("big"=>"5-5s-5c/hamsa-black-iphonei5-5s-5c.png",
+					"small"=>"hamsa-black-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/hamsa-iphonei5-5s-5c.png",
+					"small"=>"hamsa-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/david-black-iphonei5-5s-5c.png",
+					"small"=>"david-black-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+					array("big"=>"5-5s-5c/david-iphonei5-5s-5c.png",
+					"small"=>"david-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45)),
+
+
 
 					//iphone6
 					array("big"=>"6-6+/donuts_i6-6+.png",
@@ -1374,6 +1428,33 @@ iphone4_black_crystal_case.png
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
 					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/tufli-versache-iphonei6.png",
+					"small"=>"tufli-versache-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/unicorn-iphonei6.png",
+					"small"=>"unicorn-prevew.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/uzor-iphonei6.png",
+					"small"=>"uzor-prevew.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/serdca-iphonei6.png",
+					"small"=>"serdca-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					
+					array("big"=>"6-6+/odri-iphonei6.png",
+					"small"=>"odri-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/odri-white-iphonei6.png",
+					"small"=>"odri-white-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/ogurci-black-iphonei6.png",
+					"small"=>"ogurci-black-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/ogurci-iphonei6.png",
+					"small"=>"ogurci-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					
+					array("big"=>"6-6+/hamsa-black-iphonei6.png",
+					"small"=>"hamsa-black-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/hamsa-iphonei6.png",
+					"small"=>"hamsa-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/david-black-iphonei6.png",
+					"small"=>"david-black-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/david-iphonei6.png",
+					"small"=>"david-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+
 
 				)
 			),
