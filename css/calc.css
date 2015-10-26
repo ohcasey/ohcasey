@@ -1,0 +1,217 @@
+div.calculator-main{
+    position: absolute;
+    top: 5%;
+    left:10%;
+    width:80%;
+    min-height:620px;
+    max-height:1000px;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 1.0);
+}
+
+div.calc-window-title{
+    top: 1px;
+    height: 30px;
+    width: 100%;
+    color: rgba(255, 255, 255, 1.0);
+    background-color: #669AC4;
+    border: 1px solid #FFFFFF;
+}
+
+div.title-text, div.title-close-button{
+    display: inline;
+    position: absolute;
+    font-size: 1.3em;
+}
+div.title-text{
+    width:100%;
+    top: 5px;  
+    text-align:center;
+}
+div.title-close-button{
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+div.calculator.container{
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    right: 5%;
+    top: 8%;
+}
+
+input.city-input{
+    width: 100%;
+    height: 40px;
+    font-size: 1.2em;
+    text-align: center;
+    font-size: 14pt;
+}
+
+div.calculator.container div.suggestion-element{
+    text-align: center;
+    height:25px;
+    padding-top:10px;
+    background-color: rgba(230, 230, 230, 1.0);
+}
+div.suggest-city-list{
+    max-height: 200px;
+}
+div.calculator.container div.suggestion-element:hover{
+    background-color: rgba(240, 240, 240, 1.0);
+}
+div.calculator.container div.suggestion-element span{
+    cursor: pointer;
+}
+
+.col{
+    display: inline-block;
+} 
+
+div.delivery-method-row{
+    position: relative;
+    width: 100%;
+    height: 25%;
+    margin:auto;
+    margin-top:2%;
+}
+
+div.delivery-method-row > div.col{
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+div.delivery-method-row > div.col.active{
+    background-color: #669AC4;
+    color: #FFFFFF;
+}
+
+div.delivery-method-row > div.col:nth-child(1){
+    left: 0%;
+}
+div.delivery-method-row > div.col:nth-child(2){
+    left: 35%;
+}
+div.delivery-method-row > div.col:nth-child(3){
+    left: 70%;
+}
+
+@media screen and (max-width : 980px){
+    
+    div.calculator.container{
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        left: 5%;
+        right: 5%;
+        top: 5%;
+    }
+    
+    div.delivery-method-row{
+        position: relative;
+        width: 100%;
+        height: 25%;
+    }   
+    
+    div.delivery-method-row > div.col{
+        position: relative;
+        display: block;
+        width: 60%;
+        height: 80%;
+        border: 1px solid black;
+        margin: auto;
+        margin-top:5%;
+    }
+    div.delivery-method-row > div.col:nth-child(1){
+        left: 0%;
+    }
+    div.delivery-method-row > div.col:nth-child(2){
+        left: 0%;
+    }
+    div.delivery-method-row > div.col:nth-child(3){
+        left: 0%;
+    }
+}
+
+div.delivery-title{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+div.delivery-icon{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+    background-color: #111111;
+    
+    display:none;
+}
+
+div.delivery-time{
+    position: absolute;
+    display:inline;
+    top: 35%;   
+    width: 100%;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+img.clock-icon{
+    position:absolute;
+    display: inline;
+    width: 10%;
+    top: -40%;
+    left: 25%;
+}
+
+
+div.delivery-cost{
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+div.details-row{
+    margin-top: 2%;
+    width:100%;
+    height: 5%;
+}
+div.details-row>form.details-inactive-form{
+    height:100%;
+}
+div.details-row>form>input.address-input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.3em;
+}
+
+div.about-text-row{
+    width:80%;
+    margin: auto;
+    margin-top: 3%;
+    font-size: 1.2em;
+}
+
+hr.text-separator{
+    width: 85%;
+    margin:auto;
+}
+p.centered{
+    text-align:center;
+}
+
+.hidden {
+    display: none;
+}

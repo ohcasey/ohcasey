@@ -26,6 +26,10 @@
 	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/perfect-scrollbar.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/calc.css">
+    
+    
 	<script src="js/device.min.js"></script>
 
 	<!--[if lt IE 11]>

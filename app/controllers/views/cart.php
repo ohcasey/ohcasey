@@ -19,7 +19,7 @@
 
                     <!-- // -->
                     
-                    
+                            
                     
                     <!-- ORDER DELIVERY BLOCK-->
                     <div class="right_item delivery_block hidden-element">
@@ -315,6 +315,8 @@
 	</div>
 </div>
 
+<?php include("calc.php"); ?>
+
 
 </body>
 <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -326,6 +328,6 @@
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/sweet-alert.min.js"></script>
 <script type="text/javascript" src="js/knob.js"></script> 	
-
+<script type="text/javascript" src="js/calc.js"></script>
 
 </html>
