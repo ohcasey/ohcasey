@@ -647,6 +647,7 @@ function generatePassword($length = 24){
 
 function save_raspechat($config)
 {
+    $zakaz_number = $_SESSION['zakaz_number'];
     $fio =  $_SESSION['fio'];
     $email  = $_SESSION['email'];
     $phone =   $_SESSION['phone'];
@@ -871,8 +872,8 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
         $mail->From = $mail_controls["Username"];
         $mail->FromName = 'Сайт ohcasey';
-        //$mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
-         $mail->addAddress('atanikov@MacBook-Pro', 'Админ Ohcasey');     // Add a recipient
+        $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
+        // $mail->addAddress('atanikov@MacBook-Pro', 'Админ Ohcasey');     // Add a recipient
         $mail->isHTML(true);                                  // Set email format to HTML
 
 
