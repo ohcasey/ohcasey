@@ -156,7 +156,7 @@
 			if (isset($_POST['string'])) {
 
 				$string = $_POST['string'];
-				
+				//die(123);
 				get_city_input($string, $bd_controls);
 			}else{
 				
