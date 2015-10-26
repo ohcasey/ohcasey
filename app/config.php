@@ -32,9 +32,9 @@ global $config;
 $config = array(
 		"deliver_cost" => array(
 			"self" =>  0, //самовывоз
-			"kur_mos" =>  350,
-			"kur_rus" =>  650,
-			"mail_ru" => 300,  //самовывоз
+			"kur_mos" =>  1
+			"kur_rus" =>  2,
+			"mail_ru" => 3,  //самовывоз
 		),
 		//Конфигурации
 			"default_text"=>"Введите текст",
@@ -273,7 +273,7 @@ $config = array(
 											"desctop_img" => "iphone6_gold_crystal_case.png",
 											"desctop_mask" => "iphone6-6+.png", //обрезка
 											"desctop_camera" => "iphone6_gold_camera.png",
-											"cost"=>1500,
+											"cost"=>1,
 											"default"=>true
 									),
 									array(	
