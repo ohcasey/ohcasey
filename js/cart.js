@@ -289,6 +289,15 @@ function set_city_value_to_sdec_window(){
 
 
 /* Когда выбрали город вверху формы, показываем доступные способы доставки и оплаты */
+
+$(document).ready(function(){
+     alert('1');
+     if($("input.city").val()!=""&&$("input.city").val()!=null){
+         set_city_value_to_sdec_window();
+         displayAvailableDelivery();
+     }
+});
+
 $(document).on('keydown', 'input.city', function(){
     //alert('KEYDOWN EVENT');
     if(event.keyCode == 13 || event.keyCode == 9){
@@ -314,7 +323,10 @@ $(document).on('focusout', 'input.city', function(){
 
 function displayAvailableDelivery(){
     
+    alert('func was called');
+    
     var city_name = $('input.city').val();
+    
     if (city_name == 'Москва' || city_name == 'москва'){
         $('input.city').removeClass('error');
         show_delivery_block();
@@ -322,6 +334,7 @@ function displayAvailableDelivery(){
     }
     else{
         //Проверить правильность введенного города 
+        alert('Ajax Start');
         $.ajax({ 
             type: "POST", 
             url: "cart/get_city",
@@ -330,6 +343,8 @@ function displayAvailableDelivery(){
                 string : city_name
             },
             success: function(data){	
+                alert("Succen START");
+                alert(data);
                 var result = JSON.parse(data);
                 for (var iter = 0; iter<result.length; iter++){
                     var city_exists = false;
@@ -337,6 +352,7 @@ function displayAvailableDelivery(){
                         city_exists = true;
                     }
                 }
+                
                 if(city_exists){
                     $('input.city').removeClass('error');
                     show_delivery_block();
@@ -346,6 +362,7 @@ function displayAvailableDelivery(){
                     $('input.city').addClass('error');
                     hide_order_form();
                 }
+                alert('success_end');
             },
             fail: function(data){
                 console.log("ERROR: AJAX request to check city exists FAILED");
