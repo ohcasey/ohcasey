@@ -291,7 +291,6 @@ function set_city_value_to_sdec_window(){
 /* Когда выбрали город вверху формы, показываем доступные способы доставки и оплаты */
 
 $(document).ready(function(){
-     alert('1');
      if($("input.city").val()!=""&&$("input.city").val()!=null){
          set_city_value_to_sdec_window();
          displayAvailableDelivery();
@@ -323,8 +322,6 @@ $(document).on('focusout', 'input.city', function(){
 
 function displayAvailableDelivery(){
     
-    alert('func was called');
-    
     var city_name = $('input.city').val();
     
     if (city_name == 'Москва' || city_name == 'москва'){
@@ -334,7 +331,6 @@ function displayAvailableDelivery(){
     }
     else{
         //Проверить правильность введенного города 
-        alert('Ajax Start');
         $.ajax({ 
             type: "POST", 
             url: "cart/get_city",
@@ -343,8 +339,6 @@ function displayAvailableDelivery(){
                 string : city_name
             },
             success: function(data){	
-                alert("Succen START");
-                alert(data);
                 var result = JSON.parse(data);
                 for (var iter = 0; iter<result.length; iter++){
                     var city_exists = false;
@@ -362,7 +356,6 @@ function displayAvailableDelivery(){
                     $('input.city').addClass('error');
                     hide_order_form();
                 }
-                alert('success_end');
             },
             fail: function(data){
                 console.log("ERROR: AJAX request to check city exists FAILED");
