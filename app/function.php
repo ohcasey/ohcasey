@@ -645,7 +645,189 @@ function generatePassword($length = 24){
 }
 
 
+function save_raspechat($config)
+{
+    $zakaz_number = $_SESSION['zakaz_number'];
+    $fio =  $_SESSION['fio'];
+    $email  = $_SESSION['email'];
+    $phone =   $_SESSION['phone'];
+    $city = $_SESSION['city'];
+    $adress = $_SESSION['adress'];
+    $comments =$_SESSION['comments'];
+    $deliver = $_SESSION['deliver'];
+    $payment  =  $_SESSION['payment'];
 
+    $calendar_self = $_SESSION['calendar_self'];
+    $calendar_sdec = $_SESSION['calendar_sdec'];
+    $calendar_moscow = $_SESSION['calendar_moscow'];
+    $calendar_russia = $_SESSION['calendar_russia'];
+
+    $sdec_code = $_SESSION['sdec_code'];
+    $sdec_adress = $_SESSION['sdec_adress'];
+    $sdec_code = $_SESSION['sdec_code'];
+    $sdec_name = $_SESSION['sdec_name'];
+    $sdec_worktime = $_SESSION['sdec_worktime'];
+
+    $body = file_get_contents('mail_templates/raspechat.html');
+    $body = str_replace('$time_order', $_SESSION['time_order'], $body);
+    $body = str_replace('$fio', $fio, $body);
+    $body = str_replace('$zakaz_number',  $_SESSION['zakaz_number'], $body);
+    $body = str_replace('$email', $email, $body);
+    $body = str_replace('$phone', $phone, $body);
+    $body = str_replace('$city', $city, $body);
+
+    $cost = 0;
+    if ($deliver!="sdec") {
+             if ($deliver=="kur_rus") {
+                $cost  = get_cost_summary($config, $_SESSION['russia_cost']);
+             }else{
+                 $cost  = get_cost_summary($config, "none");
+             }
+            
+        }else{
+                $cost  = get_cost_summary($config, $_SESSION['sdec_cost']);     
+    }
+
+    $deliver_type = "";
+
+    if ($deliver=="self"){
+        $deliver_type .= "Cамовывоз из шоурума";
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата самовывоза</td>
+                            <td class="col_r_delivery">'.$calendar_self.'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
+
+    }
+    if ($deliver=="kur_mos"){
+        $deliver_type .= "Курьер по Москве";
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата доставки</td>
+                            <td class="col_r_delivery">'.$calendar_moscow.'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость доставки</td>
+                            <td class="col_r_delivery">'.$config["deliver_cost"]["kur_mos"].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
+    }
+    if ($deliver=="kur_rus"){
+        $deliver_type .= 'Курьер СДЭК по России';
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата доставки</td>
+                            <td class="col_r_delivery">'.$_SESSION['calendar_russia'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость доставки</td>
+                            <td class="col_r_delivery">'.$_SESSION['russia_cost'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
+    }
+    if ($deliver=="mail_ru"){
+        $deliver_type .= 'Почтой России';
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость доставки</td>
+                            <td class="col_r_delivery">'.$config["deliver_cost"]["kur_mos"].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Индекс</td>
+                            <td class="col_r_delivery">'.$_SESSION['index'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
+    }
+
+    if ($deliver=="sdec"){
+        $deliver_type .= 'Самовывоз из пункта СДЭК';
+        $deliver_type .= '
+                <table class="delivery">
+                    <tbody>
+                        <tr>
+                            <td class="col_l_delivery">Дата самовывоза</td>
+                            <td class="col_r_delivery">'.$_SESSION['calendar_sdec'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Пункт самовывоза</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_code'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Адрес пункта</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_adress'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Название пункта</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_name'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Режим работы пункта</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_worktime'].'</td>
+                        </tr>
+                        <tr>
+                            <td class="col_l_delivery">Стоимость самовывоза</td>
+                            <td class="col_r_delivery">'.$_SESSION['sdec_cost'].'</td>
+                        </tr>
+                    </tbody>
+                </table>
+        ';
+    }
+
+    if ($payment=="cash"){
+        $payment_type = "Наличными";
+    }
+
+    if ($payment=="sber"){
+        $payment_type = "Карта сбербанка";
+    }
+
+    if ($payment=="robocassa"){
+        $payment_type = "Банковской картой онлайн";
+    }
+
+    $elements = get_elements_to_raspechat();
+
+  
+    $body = str_replace('$elements', $elements, $body);
+
+    $body = str_replace('$deliver', $deliver_type, $body);
+
+    $body = str_replace('$payment', $payment_type, $body);
+
+    $body = str_replace('$cost', $cost, $body);
+
+    $body = str_replace('$adress', $adress, $body);
+    
+    $body = str_replace('$comments', $comments, $body);
+
+    $body = str_replace('$time_order', $_SESSION['time_order'], $body);
+    
+    // strip backslashes
+    $body = preg_replace('/\\\\/','', $body);
+    
+    
+    $filename = 'orders/'.$zakaz_number.'.html';
+    file_put_contents($filename, $body);
+    $raspech_file_url = "http://".$_SERVER['HTTP_HOST']."/".$filename;
+    return $raspech_file_url;
+}
 
 function send_mail($config, $mail_controls, $bd_controls) {
 
@@ -691,12 +873,15 @@ function send_mail($config, $mail_controls, $bd_controls) {
         $mail->From = $mail_controls["Username"];
         $mail->FromName = 'Сайт ohcasey';
         $mail->addAddress('ohcaseysales@gmail.com', 'Админ Ohcasey');     // Add a recipient
-
+        // $mail->addAddress('atanikov@MacBook-Pro', 'Админ Ohcasey');     // Add a recipient
         $mail->isHTML(true);                                  // Set email format to HTML
 
 
         $body = file_get_contents('mail_templates/admin.html');
 
+        $raspech_file_url = save_raspechat($config);
+        
+        $body = str_replace('$raspech_file_url', $raspech_file_url, $body);
         $body = str_replace('$time_order', $_SESSION['time_order'], $body);
         $body = str_replace('$fio', $fio, $body);
         $body = str_replace('$zakaz_number',  $_SESSION['zakaz_number'], $body);
@@ -866,7 +1051,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
            echo 'Oшибка письма: ' . $mail->ErrorInfo;
         } else {
 
-            echo 'Письмо админу отправлено';
+            echo 'Письмо админу отправлено успешно';
              
         } 
 
@@ -1011,7 +1196,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
             echo 'Oшибка письма: ' . $mails->ErrorInfo;
         } else {
 
-             echo 'Письмо админу отправлено';
+             echo 'Письмо клиенту отправлено';
            
         }
 
@@ -1036,7 +1221,7 @@ function get_cost_summary($config, $deliver) {
 		
     }
 
-    echo $deliver;
+    //echo "123".$deliver;
   
     $cost = 0;
  
@@ -1469,6 +1654,7 @@ function get_elements_to_admin_mail($config) {
 
         $result.='<tr><td style ="padding: 5px;">Устройство</td><td>'.$_SESSION['items'][$i]["device_name"].'</td></tr>';
         $result.='<tr><td style ="padding: 5px;">Id чехла</td><td>'.$_SESSION['items'][$i]["case_id"].'</td></tr>';
+        if (isset($_SESSION['items'][$i]["device_color"]))
         $result.='<tr><td style ="padding: 5px;">Цвет устройства</td><td style="background-color: '.$_SESSION['items'][$i]["device_color"].';"></td></tr>';
         $result.='<tr><td style ="padding: 5px;">Название чехла</td><td>'.$_SESSION['items'][$i]["name_case_1"].'</td></tr>';
         $result.='<tr><td style ="padding: 5px;">Подназвание чехла</td><td>'.$_SESSION['items'][$i]["name_case_2"].'</td></tr>';
@@ -1537,6 +1723,52 @@ function get_elements_to_admin_mail($config) {
         $result.='</table>';
     }
      return array($result, $cost);
+}
+
+function get_elements_to_raspechat() {
+    $count = count($_SESSION['items']); 
+    $result ="";
+    $column_num = 1;
+    foreach ($_SESSION['items'] as $i => $val) {
+        if ($column_num == 1) {
+            $result.= '
+            <article>
+                <table>
+                    <tr>
+            ';
+        }
+        $result.= '
+                        <!-- колонка с чехлом повторяется 3 раза, после чего пишется новый article на новой странице-->
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>'.$_SESSION['items'][$i]["device_name"].'</td>
+                                </tr>
+                                <tr>
+                                    <td>'.$_SESSION['items'][$i]["name_case_1"].'</td>
+                                </tr>
+                                <tr>
+                                    <td>'.$_SESSION['items'][$i]["name_case_2"].'</td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <img src="http://'.$_SERVER['HTTP_HOST']."/".$_SESSION['items'][$i]["preview_url"].'">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <!-- -->';
+        if ($column_num == 3) {
+            $result.= '
+                    </tr>
+                </table>
+            </article>
+            ';
+            $column_num=0;
+        }
+        $column_num ++;
+    }
+    return $result;
 }
 
 
