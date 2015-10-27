@@ -20,7 +20,16 @@ function styles_setup($config){
 }
 
 function get_cost_sdec($idcity, $kur) {
-    $date = date("Y-m-d", strtotime(date("Y-m-d H:i:s"). ' +1 day'))/*."T".date("H:i:s", strtotime(date("Y-m-d H:i:s"). ' +1 day'))*/;
+    $couter = 0;
+    $dates = 1;
+    while ($couter<3) {
+        $date = date("Y-m-d", time() + 86400*$dates);
+        if (BankDay::isWorkDay($date)) {
+            $couter++;
+        }
+         $dates++;
+    }
+
     date_default_timezone_set("UTC");
   
     if ($kur=="none") {
@@ -1201,7 +1210,7 @@ function send_mail($config, $mail_controls, $bd_controls) {
         }
 
         //print_r($_SESSION["items"]);
-       	header("Location: /success"); 
+        header("Location: /success"); 
 
 
     }else{
@@ -1212,13 +1221,13 @@ function send_mail($config, $mail_controls, $bd_controls) {
 
 
 function get_cost_summary($config, $deliver) {
-	
-	$not_config = false;
+    
+    $not_config = false;
 
     if ($deliver == "none") {
         $deliver = $_SESSION["deliver"];
-		$not_config = true;
-		
+        $not_config = true;
+        
     }
 
     //echo "123".$deliver;
@@ -1273,13 +1282,13 @@ function get_mail($config, $mail_controls, $bd_controls){
        $city = $_POST['city'];
        $_SESSION['city'] = $_POST['city'];
     }
-	
-	if (isset($_POST['index'])) {
+    
+    if (isset($_POST['index'])) {
        $city = $_POST['index'];
        $_SESSION['index'] = $_POST['index'];
     }
-	
-	
+    
+    
     if (isset($_POST['adress'])) {
      $adress =$_POST['adress'];
      $_SESSION['adress'] = $_POST['adress'];
@@ -1377,8 +1386,8 @@ function get_mail($config, $mail_controls, $bd_controls){
                    $kassa->OutSum  = get_cost_summary($config, $_SESSION['sdec_cost']);
               
             }
-		
-			echo $kassa->OutSum;
+        
+            echo $kassa->OutSum;
 
             $kassa->InvId = $zakaz_number;
             $kassa->Email = $email;
@@ -1403,7 +1412,7 @@ function get_client_mail($config) {
     $count = count($_SESSION['items']); 
 
     $result ="";
-	foreach ($_SESSION['items'] as $i => $val) {
+    foreach ($_SESSION['items'] as $i => $val) {
         $cur_cost = get_cost_case(($_SESSION['items'][$i]["case_id"]), $config, ($_SESSION['items'][$i]["device_id_case"]));
        
 
@@ -1783,6 +1792,173 @@ function url(){
   );
 }
 
+/*Определение рабочего дня*/
 
+abstract class BankDay {
+  protected static $holidays = array(
+                                '01-01',
+                                '01-02',
+                                '01-03',
+                                '01-04',
+                                '01-05',
+                                '01-07',
+                                '02-23',
+                                '03-08',
+                                '05-01',
+                                '05-09',
+                                '06-12',
+                                '11-04'
+                              );
+    # 1, 2, 3, 4 и 5 января - Новогодние каникулы;
+    # 7 января - Рождество Христово;
+    # 23 февраля - День защитника Отечества;
+    # 8 марта - Международный женский день;
+    # 1 мая - Праздник Весны и Труда;
+    # 9 мая - День Победы;
+    # 12 июня - День России;
+    # 4 ноября - День народного единств
+
+  protected static $weekends = array(0, 6);
+    # 0 - Воскресенье
+    # 6 - Суббота
+
+  /**
+   * Подготавливает дату для дальнейшей работы
+   * @param string $date Дата отсчета
+   * @return timestamp
+   */
+  public static function prepareDate($s) {
+    if ($s !== null && !is_int($s)) {
+      $ts = strtotime($s);
+      if ($ts === -1 || $ts === false) {
+        throw new Exception('Unable to parse date/time value from input: '.var_export($s, true));
+      }
+    }
+    else {
+      $ts = $s;
+    }
+    return $ts;
+  }
+
+  /**
+   * Определяет выходной ли день
+   * @param string $date Дата
+   * @return boolean
+   */
+  public static function isWeekend($date) {
+    $ts = self::prepareDate($date);
+    return in_array(date('w', $ts), self::$weekends);
+  }
+
+  /**
+   * Определяет праздничный ли день
+   * @param string $date Дата
+   * @return boolean
+   */
+  public static function isHoliday($date) {
+    $ts = self::prepareDate($date);
+    return in_array(date('m-d', $ts), self::$holidays);
+  }
+
+  /**
+   * Определяет рабочий ли день
+   * @param string $date Дата
+   * @return boolean
+   */
+  public static function isWorkDay($date) {
+    $ts = self::prepareDate($date);
+    $holidays = self::getHolidays($ts);
+    return !in_array(date('Y-m-d', $ts), $holidays);
+  }
+
+  /**
+   * Возвращает массив выходных дней с учетом праздников
+   * @param string $date Дата отсчета
+   * @param integer $interval Интервал (дней)
+   * @return array
+   */
+  public static function getHolidays($date, $interval = 30) {
+    $ts = self::prepareDate($date);
+    $holidays = array();
+
+    for ($i = -$interval; $i <= $interval; $i++) {
+      $curr = strtotime($i.' days', $ts);
+
+      if (self::isWeekend($curr) || self::isHoliday($curr)) {
+        $holidays[] = date('Y-m-d', $curr);
+      }
+    }
+
+    // Перенос праздников
+    foreach ($holidays as $date) {
+      $ts = self::prepareDate($date);
+      if (self::isHoliday($ts) && self::isWeekend($ts)) {
+        $i = 0;
+        while (in_array(date('Y-m-d', strtotime($i.' days', $ts)), $holidays)) {
+          $i++;
+        }
+        $holidays[] = date('Y-m-d', strtotime($i.' days', $ts));
+      }
+    }
+
+    return $holidays;
+  }
+
+
+  /**
+   * Возвращает дату +$days банковских дней
+   * @param string $start Дата отсчета
+   * @param integer $days Кол-во банковских дней
+   * @param string $format Формат date()
+   * @return integer, string
+   */
+  public static function getEndDate($start, $days, $format = null) {
+    $ts = self::prepareDate($start);
+    $holidays = self::getHolidays($start);
+
+    for ($i = 0; $i <= $days; $i++) {
+      $curr = strtotime('+'.$i.' days', $ts);
+      if (in_array(date('Y-m-d', $curr), $holidays)) {
+        $days++;
+      }
+    }
+
+    if ($format) {
+      return date($format, strtotime('+'.$days.' days', $ts));
+    }
+    else {
+      return strtotime('+'.$days.' days', $ts);
+    }
+  }
+
+
+
+  /**
+   * Возвращает кол-во банковских дней заданном периоде
+   * @param string $start Дата отсчета
+   * @param string $end Кол-во банковских дней
+   * @return integer
+   */
+  public static function getNumDays($start_in, $end_in) {
+    $start = self::prepareDate($start_in);
+    $end = self::prepareDate($end_in);
+
+    if ($start > $end) {
+      throw new Exception(sprintf('Start date ("%s") bust be greater then end date ("%s"). ', $start_in, $end_in));
+    }
+
+    $bank_days = 0;
+    $days = ceil(($end - $start) / 3600 / 24 );
+    $holidays = self::getHolidays($start, $days);
+    for ($i = 0; $i <= $days; $i++) {
+      $curr = strtotime('+'.$i.' days', $start);
+      if (!in_array(date('Y-m-d', $curr), $holidays)) {
+        $bank_days++;
+      }
+    }
+
+    return $bank_days;
+  }
+}
 
 ?>
