@@ -415,7 +415,7 @@ $config = array(
 											"desctop_camera" => "iphone5s_gray_camera.png",
 											"cost"=>1500
 										),
-									array(		
+									    array(		
 											"id"=>39,
 											"color"=>"#FFFFFF",   
 											"desctop_img" => "iphone5_white_crystal_case.png",
@@ -423,7 +423,7 @@ $config = array(
 											"desctop_camera" => "iphone5_white_camera.png",
 											"cost"=>1500,
 											"default"=>true
-									),
+									    ),
 										array(	
 											"id"=>40,
 											"color"=>"#000000",
@@ -1207,7 +1207,7 @@ iphone4_black_crystal_case.png
 						"chechs"=>array(31,32,33,34)
 						),
 					array("big"=>"4-4s/devochka_i4-4s.png",
-					"small"=>"devochka_r82.png","chechs"=>array(31,32,33,34)),
+					"small"=>"devochka_r82.png","chechs"=>array(31,32,33,34)),   
 					array("big"=>"4-4s/dior_kedy_i4-4s.png",
 					"small"=>"dior_kedy_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/duhi_v_ruke_i4-4s.png",
