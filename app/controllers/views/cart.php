@@ -208,6 +208,7 @@
 						    </div>
 						    <span >Картой сбербанка</span>
 					    </div>
+					    <!--
 					    <div class="checkbox_item robocassa">
 						    <input type="radio" name="payment" value="robocassa" id = "robocassa">
 						    <div class="checkbox_prev_input">
@@ -215,6 +216,7 @@
 						    </div>
 						    <span >Банковской картой онлайн</span>
 					    </div>
+						-->
 				    </div>
 			    </div>
 			</div>
