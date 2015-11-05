@@ -3,6 +3,11 @@ html {
 	transition: 200ms all ease-out;
 }
 
+.hidden-element {
+    display: none;
+}
+
+
 a {
 	color: #669AC4;
 }
