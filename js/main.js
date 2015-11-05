@@ -678,15 +678,15 @@ function setup_backgrounds() {
         
             for (ind in available_backgrounds){
                 var hash = randomHash(4);
-                if (value1 == 0) {
+                if (ind == 0) {
                     html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                 }
                 else{
-                    if((value1 % 4) == 0) {
+                    if((ind % 4) == 0) {
                         html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                     }
                     else{
-                        if((value1 % 4) == 3) {
+                        if((ind % 4) == 3) {
                             html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                         }else{
                             html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
