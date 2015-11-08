@@ -1,3 +1,5 @@
+var current_city_id;
+
 $(document).ready(function(){
 	$('select').selectpicker();
 });
@@ -10,31 +12,23 @@ $(document).ready(function(){
 
 $(document).ready(function(){
      show_zaglushki();
-     if($("input.city-input").val()!=""&&$("input.city-input").val()!=null){
-         //set_city_value_to_sdec_window();
-         
+     if($("input.city-input").val()!=""&&$("input.city-input").val()!=null){         
          displayAvailableDelivery();
      }
 });
 
 $(document).on('keydown', 'input.city-input', function(){
-    //alert('KEYDOWN EVENT');
     if(event.keyCode == 13 || event.keyCode == 9){
         $(".suggestions-list").find("span").remove();
-        //set_city_value_to_sdec_window();
         displayAvailableDelivery();   
     }
 });
 $(document).on('click', 'div.suggestion-element' , function(){
-    //alert("CLICK SUGGESTION EVENT");
     $(".city-input").val($(this).text());
     $(".suggestions-list").find("span").remove();
-    //set_city_value_to_sdec_window();
     displayAvailableDelivery();
 });
 $(document).on('focusout', 'input.city-input', function(){
-    //alert('FOCUS OUT EVENT');
-    //set_city_value_to_sdec_window();
     displayAvailableDelivery();
 });
 /*--------------------------------------------------------------------------------------------------*/
@@ -51,7 +45,7 @@ function displayAvailableDelivery(){
         //Проверить правильность введенного города 
         $.ajax({ 
             type: "POST", 
-            url: "cart/get_city",
+            url: "/cart/get_city",
             dataType: 'text',
             data: {
                 string : city_name
@@ -64,9 +58,6 @@ function displayAvailableDelivery(){
                         city_exists = true;
                     }
                 }
-                
-                
-                alert("Ave!!!" + city_exists);
                 
                 if(city_exists){
                     $('input.city-input').removeClass('error');
@@ -93,7 +84,6 @@ $(document).on('input','.city-input', function(){
     }
     
 	$(".select-city__main-input__sdec").val($(this).val());
-	//get_kur_cost(false);
 
 	$(".suggestion-list").find("span").remove();
 	$.ajax({ 
@@ -120,16 +110,260 @@ $(document).on('input','.city-input', function(){
 });
 
 
+function get_sdec_kur_cost(params) {
+
+    $.ajax({ 
+        type: "POST", 
+        url: "/cart/get_cost_sdec",
+        dataType: 'text',
+        data: {
+            idcity : params["city_id"],
+            kur: true
+        },
+        success: function(data){			
+            console.log("Ajax request to /cart/get_cost_sdec suceessfull");
+            console.log(data);
+            if (data!=false){
+                var result = JSON.parse(data);
+                console.log(result);		
+                return result;
+            }
+            else{
+                console.log("AJAX request to SDEC API returned an empty array\n");
+                return false;
+            }
+        },
+        fail: function(data){
+            console.log("AJAX request to SDEC API failed\n");
+            return false;
+        }
+    });
+}
+
+function getCityGeoNameSdec(city_name){
+    $.ajax({
+        url : "http://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
+        dataType : "jsonp",
+        data : {
+            q : city_name,
+            name_startsWith : city_name
+        },
+        success : function(data) {
+		    console.log("get_kur_cost  AJAX RESULT : "+data);
+               
+            if (data.geonames == null || data.geonames == undefined){
+                return false;
+            }               
+                
+			for (var i = 0; i<data.geonames.length; i++) {
+			    if (data.geonames[i].cityName.toLowerCase() === city_name.toLowerCase()) {
+                    return data.geonames[i].id;
+                }
+            }
+        
+        },
+        fail: function(data){
+            console.log("AJAX request to SDEC API failed\n");
+            return false;
+        }
+            
+    });    
+        
+}
+
+
+//Функция, получающая список пунктов самовывоза в городе
+//
+function getPointsSdec(idcity) {
+    $.ajax({
+        type: "POST",
+        data: {
+            "idcity": idcity
+        },
+        url: "/cart/get_city_sdec",
+        success: function(data){
+            sdec_points=JSON.parse(data);
+            myGeoObjects = [];
+            myMap.geoObjects.removeAll();
+            console.log(sdec_points);
+
+	  	    if (sdec_points.length>1) {
+	  		    for (var i = 0; i < sdec_points.length; i++) {
+                    var table = '<table><tbody>';
+                    table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+                        table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                    }
+                    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+                        table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>';	
+                    }
+                    if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+                        table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';	
+                    }
+                       table += '</tbody></table>';
+                    table += "<button ";
+                    if ((sdec_points[i]["@attributes"]["Address"]!=undefined) && (sdec_points[i]["@attributes"]["Address"]!="")) {
+                            table += "data-Address='"+sdec_points[i]["@attributes"]["Address"]+"' ";
+                    }
+                    if ((sdec_points[i]["@attributes"]["City"]!=undefined) && (sdec_points[i]["@attributes"]["City"]!="")) {
+                        table += "data-City='"+sdec_points[i]["@attributes"]["City"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["CityCode"]!=undefined) && (sdec_points[i]["@attributes"]["CityCode"]!="")) {
+                        table += "data-CityCode='"+sdec_points[i]["@attributes"]["CityCode"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Code"]!=undefined) && (sdec_points[i]["@attributes"]["Code"]!="")) {
+                        table += "data-Code='"+sdec_points[i]["@attributes"]["Code"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Name"]!=undefined) && (sdec_points[i]["@attributes"]["Name"]!="")) {
+                        table += "data-Name='"+sdec_points[i]["@attributes"]["Name"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+                        table += "data-Note='"+sdec_points[i]["@attributes"]["Note"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+                        table += "data-Phone='"+sdec_points[i]["@attributes"]["Phone"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+                        table += "data-WorkTime='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["coordX"]!=undefined) && (sdec_points[i]["@attributes"]["coordX"]!="")) {
+                        table += "data-coordX='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                    }
+
+                    if ((sdec_points[i]["@attributes"]["coordY"]!=undefined) && (sdec_points[i]["@attributes"]["coordY"]!="")) {
+                        table += "data-coordY='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
+                    }
+
+                    table += " >Выбрать</button>";
+
+                    var object =  new ymaps.Placemark(
+                        [sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
+                             balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
+                             balloonContent: table
+                        }
+                    );
+                    myGeoObjects.push(object);		
+                };
+
+                clusterer = new ymaps.Clusterer();
+                clusterer.add(myGeoObjects);
+                myMap.geoObjects.add(clusterer);
+                myMap.setBounds(clusterer.getBounds());
+            }
+            else{
+                var table = '<table><tbody>';
+                table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+                    table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                }
+                if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+                    table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';	
+                }
+
+                if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+                    table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';	
+                }
+                   table += '</tbody></table>';
+
+                table += "<button ";
+
+                if ((sdec_points["@attributes"]["Address"]!=undefined) && (sdec_points["@attributes"]["Address"]!="")) {
+                        table += "data-Address='"+sdec_points["@attributes"]["Address"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["City"]!=undefined) && (sdec_points["@attributes"]["City"]!="")) {
+                    table += "data-City='"+sdec_points["@attributes"]["City"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["CityCode"]!=undefined) && (sdec_points["@attributes"]["CityCode"]!="")) {
+                    table += "data-CityCode='"+sdec_points["@attributes"]["CityCode"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["Code"]!=undefined) && (sdec_points["@attributes"]["Code"]!="")) {
+                    table += "data-Code='"+sdec_points["@attributes"]["Code"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["Name"]!=undefined) && (sdec_points["@attributes"]["Name"]!="")) {
+                    table += "data-Name='"+sdec_points["@attributes"]["Name"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+                    table += "data-Note='"+sdec_points["@attributes"]["Note"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+                    table += "data-Phone='"+sdec_points["@attributes"]["Phone"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+                    table += "data-WorkTime='"+sdec_points["@attributes"]["WorkTime"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["coordX"]!=undefined) && (sdec_points["@attributes"]["coordX"]!="")) {
+                    table += "data-coordX='"+sdec_points["@attributes"]["WorkTime"]+"' ";
+                }
+
+                if ((sdec_points["@attributes"]["coordY"]!=undefined) && (sdec_points["@attributes"]["coordY"]!="")) {
+                    table += "data-coordY='"+sdec_points["@attributes"]["WorkTime"]+"' ";
+                }
+                table += " >Выбрать</button>";
+
+                var object =  new ymaps.Placemark(
+                        [sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
+                             balloonContentHeader: sdec_points["@attributes"]["Name"],
+                             balloonContent: table
+                        }
+                    );
+                myMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
+                myMap.geoObjects.add(object);		
+            }	
+	    }
+    });
+}
+
+
+
 function show_delivery_methods_for_Moscow(){
     $(".zaglushki").hide();
     $(".not-moscow").hide();
     $(".moscow").show();
 }
 
+
+// TODO
+// Проверить работоспособность отрисовки доставки курьером СДЭК
+// Доделать отрисовку цены, даты и списка пунктов выдачи для самовывоза из пункта СДЭК
+// 
 function show_delivery_methods_for_not_Moscow(){
     $(".zaglushki").hide();
     $(".moscow").hide();
     $(".not-moscow").show();
+    
+    current_city_id = getCityGeoNameSdec($("input.city-input").val());
+    
+    var sdec_delivery_data = get_sdec_kur_cost({"city_id": current_city_id});
+    if (!sdec_delivery_data){
+        $("div.courier_sdec").show();
+        $("div.courier_sdec span.cost").text(sdec_delivery_data.price+"p.");
+        
+        var date_start = new Date(Date.parse(result.deliveryDateMax));
+        
+    	$("div.courier_sdec span.text").text("с "+date_start.getDate()+" "+date_start.getMonthName());
+    }
+    else{
+        $("div.courier_sdec").hide();
+    }
+    
+    getPointsSdec(current_city_id);
+    //Возвращаем из GetPointSdec массив пунктов свамовывоза и на его основе формируем таблицу
+    
 }
 
 function show_zaglushki(){
