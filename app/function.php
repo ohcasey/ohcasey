@@ -77,32 +77,40 @@ function get_cost_sdec($idcity, $kur) {
 
         curl_close($ch);  
         
-        $result = array(
-            "price" => $outputarray["result"]["price"],
-            "deliveryDateMin"=> $outputarray["result"]["deliveryDateMin"],
-            "deliveryDateMax"=> $outputarray["result"]["deliveryDateMax"],
-            "idreceiver"=>$idcity
-        );
-
+        if(isset($outputarray["error"])){
+            $result = array(
+                "error" => true
+            );
+        }
+        else{
         
+            $result = array(
+                "price" => $outputarray["result"]["price"],
+                "deliveryDateMin"=> $outputarray["result"]["deliveryDateMin"],
+                "deliveryDateMax"=> $outputarray["result"]["deliveryDateMax"],
+                "idreceiver"=>$idcity
+            );
+        }
 
         $result =  json_encode($result, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
         $result = preg_replace_callback(
-                '/\\\\u([0-9a-f]{4})/i',
-                function ($matches) {
-                    $sym = mb_convert_encoding(
-                        pack('H*', $matches[1]),
-                        'UTF-8',
-                        'UTF-16'
-                    );
-                    return $sym;
-                },
-                $result 
-            );
+            '/\\\\u([0-9a-f]{4})/i',
+            function ($matches) {
+                $sym = mb_convert_encoding(
+                    pack('H*', $matches[1]),
+                    'UTF-8',
+                    'UTF-16'
+                );
+                return $sym;
+            },
+            $result
+        );
+        
         echo $result;
-      }else {
+    }
+    else {
         echo "curl не доступен";
-      }
+    }
 }
 
 function get_city_sdec() {
