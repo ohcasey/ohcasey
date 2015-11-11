@@ -7,6 +7,9 @@ html {
     display: none;
 }
 
+.error{
+    border: 1px solid red;
+}
 
 a {
 	color: #669AC4;

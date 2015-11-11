@@ -5,12 +5,16 @@ $(document).ready(function(){
 });
 
 
-
-
+Date.prototype.getMonthName = function() {
+    var month = ['января','февраля','марта','апреля','мая','июня',
+    'июля','августа','сентября','октября','ноября','декабря'];
+    return month[this.getMonth()];
+}
 
 /* Когда выбрали город вверху формы, показываем доступные способы доставки и оплаты */
 
 $(document).ready(function(){
+    $("div.delivery-description").hide();
      show_zaglushki();
      if($("input.city-input").val()!=""&&$("input.city-input").val()!=null){         
          displayAvailableDelivery();
@@ -19,13 +23,11 @@ $(document).ready(function(){
 
 $(document).on('keydown', 'input.city-input', function(){
     if(event.keyCode == 13 || event.keyCode == 9){
-        $(".suggestions-list").find("span").remove();
-        displayAvailableDelivery();   
+        displayAvailableDelivery();  
     }
 });
 $(document).on('click', 'div.suggestion-element' , function(){
     $(".city-input").val($(this).text());
-    $(".suggestions-list").find("span").remove();
     displayAvailableDelivery();
 });
 $(document).on('focusout', 'input.city-input', function(){
@@ -39,7 +41,9 @@ function displayAvailableDelivery(){
     
     if (city_name == 'Москва' || city_name == 'москва'){
         $('input.city-input').removeClass('error');
+        removeSuggestionElements();
         show_delivery_methods_for_Moscow();
+        
     }
     else{
         //Проверить правильность введенного города 
@@ -61,6 +65,7 @@ function displayAvailableDelivery(){
                 
                 if(city_exists){
                     $('input.city-input').removeClass('error');
+                    removeSuggestionElements();
                     show_delivery_methods_for_not_Moscow();
                 }
                 else{
@@ -110,8 +115,8 @@ $(document).on('input','.city-input', function(){
 });
 
 
-function get_sdec_kur_cost(params) {
-
+function GetCostAndDateUsingSDEKGeoNameID(params) {
+    
     $.ajax({ 
         type: "POST", 
         url: "/cart/get_cost_sdec",
@@ -121,12 +126,16 @@ function get_sdec_kur_cost(params) {
             kur: true
         },
         success: function(data){			
-            console.log("Ajax request to /cart/get_cost_sdec suceessfull");
             console.log(data);
             if (data!=false){
                 var result = JSON.parse(data);
-                console.log(result);		
-                return result;
+                
+                if(result["error"]){
+                    hideSdecCourierDeliveryOption();
+                }
+                else{
+                    setSdecPriceAndTimeToTheDivs(result);
+                }                
             }
             else{
                 console.log("AJAX request to SDEC API returned an empty array\n");
@@ -140,40 +149,71 @@ function get_sdec_kur_cost(params) {
     });
 }
 
-function getCityGeoNameSdec(city_name){
-    $.ajax({
+
+//TODO: Решить что делать, когда 2 города с абсолютно одинаковыми названиями
+//Посмотреть в документации как конкретизировать регион
+function GetSDEKCourierDeliveryCostAndDate(city_name){
+    
+    var req = $.ajax({
         url : "http://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
         dataType : "jsonp",
         data : {
-            q : city_name,
-            name_startsWith : city_name
-        },
-        success : function(data) {
-		    console.log("get_kur_cost  AJAX RESULT : "+data);
-               
-            if (data.geonames == null || data.geonames == undefined){
-                return false;
-            }               
-                
-			for (var i = 0; i<data.geonames.length; i++) {
-			    if (data.geonames[i].cityName.toLowerCase() === city_name.toLowerCase()) {
-                    return data.geonames[i].id;
-                }
+            q : function(){
+                return city_name;
+            },
+            name_startsWith : function(){
+                return city_name;
             }
-        
+        },
+        success : function(data) {      
+                        
+            if (data.geonames == null || data.geonames == undefined){
+                hideSdecCourierDeliveryOption();
+            }
+            else{
+                if (data.geonames.length == 0){
+                    hideSdecCourierDeliveryOption();
+                }
+                else{
+                    for (var i = 0; i<data.geonames.length; i++) {
+			            if (data.geonames[i].cityName.toLowerCase() == city_name.toLowerCase()) {
+                            GetCostAndDateUsingSDEKGeoNameID({"city_id": data.geonames[i].id});
+                            break;
+                        }
+                    } 
+                }
+            }       
         },
         fail: function(data){
             console.log("AJAX request to SDEC API failed\n");
-            return false;
-        }
-            
-    });    
+            hideSdecCourierDeliveryOption();
+        }        
+    });
         
 }
 
 
 //Функция, получающая список пунктов самовывоза в городе
 //
+
+var myMap;
+// Дождёмся загрузки API и готовности DOM.
+ymaps.ready(init);
+
+function init () {
+    // Создание экземпляра карты и его привязка к контейнеру с
+    // заданным id ("map").
+    myMap = new ymaps.Map('map', {
+        // При инициализации карты обязательно нужно указать
+        // её центр и коэффициент масштабирования.
+        center: [55.76, 37.64], // Москва
+        zoom: 10,
+    }, {});
+    myMap.controls.add(
+   		new ymaps.control.ZoomControl()
+	);
+    get_city_list_sdec();
+}
 function getPointsSdec(idcity) {
     $.ajax({
         type: "POST",
@@ -334,6 +374,10 @@ function show_delivery_methods_for_Moscow(){
     $(".zaglushki").hide();
     $(".not-moscow").hide();
     $(".moscow").show();
+    $(".delivery-method").removeClass("active");
+    $(".moscow .delivery-method:first").addClass("active");
+    $("div.delivery-description").hide();
+    $("div.delivery-description[delivery-description-to="+$(".moscow .delivery-method:first").attr("delivery-name")+"]").show();
 }
 
 
@@ -345,23 +389,14 @@ function show_delivery_methods_for_not_Moscow(){
     $(".zaglushki").hide();
     $(".moscow").hide();
     $(".not-moscow").show();
+    $(".delivery-method").removeClass("active");
+    $(".not-moscow .delivery-method:first").addClass("active");
+    $("div.delivery-description").hide();
+    $("div.delivery-description[delivery-description-to="+$(".not-moscow .delivery-method:first").attr("delivery-name")+"]").show();
     
-    current_city_id = getCityGeoNameSdec($("input.city-input").val());
+    GetSDEKCourierDeliveryCostAndDate($("input.city-input").val());
     
-    var sdec_delivery_data = get_sdec_kur_cost({"city_id": current_city_id});
-    if (!sdec_delivery_data){
-        $("div.courier_sdec").show();
-        $("div.courier_sdec span.cost").text(sdec_delivery_data.price+"p.");
-        
-        var date_start = new Date(Date.parse(result.deliveryDateMax));
-        
-    	$("div.courier_sdec span.text").text("с "+date_start.getDate()+" "+date_start.getMonthName());
-    }
-    else{
-        $("div.courier_sdec").hide();
-    }
-    
-    getPointsSdec(current_city_id);
+    //getPointsSdec(current_city_id);
     //Возвращаем из GetPointSdec массив пунктов свамовывоза и на его основе формируем таблицу
     
 }
@@ -370,4 +405,41 @@ function show_zaglushki(){
     $(".moscow").hide();
     $(".not-moscow").hide();
     $(".zaglushki").show();
+}
+
+function setSdecPriceAndTimeToTheDivs(sdec_delivery_data){
+    $("div.courier_sdec").show();
+    $("div.courier_sdec span.cost").text(sdec_delivery_data.price+" p.");
+        
+    var date_start = new Date(Date.parse(sdec_delivery_data.deliveryDateMax));
+        
+    $("div.courier_sdec span.text").html("<span class='glyphicon glyphicon-time'></span> с <strong>"+date_start.getDate()+"</strong> "+date_start.getMonthName());
+}
+
+function hideSdecCourierDeliveryOption(){
+    $("div.courier_sdec").hide();
+}
+
+function removeSuggestionElements(){
+    $("div.suggestion-element").remove();
+}
+
+$(".delivery-method").on("click", function(){
+    $(".delivery-method").removeClass("active");
+    $(this).addClass("active");
+    $("div.delivery-description").hide();
+    $("div.delivery-description[delivery-description-to="+$(this).attr("delivery-name")+"]").show();
+});
+
+
+function dump(obj) {
+    var out = "";
+    if(obj && typeof(obj) == "object"){
+        for (var i in obj) {
+            out += i + ": " + obj[i] + "\n";
+        }
+    } else {
+        out = obj;
+    }
+    console.log(out);
 }
