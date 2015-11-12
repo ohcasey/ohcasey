@@ -463,66 +463,66 @@ display: block;
 
 
 #header-menu > li:hover:nth-child(2) a {
-	background: url('../img/svg/icon-menu-1-device-01-naved.svg') right 0px no-repeat;	
+	background: url('../img/svg/naved/device-01.svg') right 0px no-repeat;	
 }
 
 #header-menu > li:hover:nth-child(2) span {
-	background: url('../img/svg/icon-menu-1-device-01-naved.svg') right 0px no-repeat;
+	background: url('../img/svg/naved/device-01.svg') right 0px no-repeat;
 	
 }
 
 #header-menu > li:hover:nth-child(4) a {
-	background: url('../img/svg/icon-menu-2-chehol-01-naved.svg') right 0px no-repeat;
+	background: url('../img/svg/naved/chehol-01.svg') right 0px no-repeat;
 	
 }
 
 #header-menu > li:hover:nth-child(6) a {
-	background: url('../img/svg/icon-menu-3-text-01-naved.svg') right 0px no-repeat;
+	background: url('../img/svg/naved/text-01.svg') right 2px no-repeat;
 	
 }
 
 #header-menu > li:hover:nth-child(8) a {
-	background: url('../img/svg/icon-menu-4-zvet-01-naved.svg') right 0px no-repeat;
+	background: url('../img/svg/naved/zvet-01.svg') right 2px no-repeat;
 
 }
 
 #header-menu > li:hover:nth-child(10) a {
-	background: url('../img/svg/icon-menu-5-fon-01-naved.svg') right 0px no-repeat;
+	background: url('../img/svg/naved/fon-01.svg') right 3px no-repeat;
 	
 }
 
 #header-menu > li:hover:nth-child(12) a {
-	background: url('../img/svg/icon-menu-6-smile-01-naved.svg') right 0px no-repeat;
+	background: url('../img/svg/naved/smile-01.svg') right 3px no-repeat;
 
 }
 
 
 #header-menu > li:nth-child(2) a, #header-menu > li.header-menu-selected:nth-child(2) > a, #header-menu > li.header-menu-active:nth-child(2) > a   {
-	background: url('../img/svg/icon-menu-1-device-01-pres.svg') right 0px no-repeat;
+	background: url('../img/svg/nenaj/device-01.svg') right 0px no-repeat;
 }
 
 #header-menu > li:nth-child(2) span, #header-menu > li.header-menu-selected:nth-child(2) > span, #header-menu > li.header-menu-active:nth-child(2) > span   {
-	background: url('../img/svg/icon-menu-1-device-01-pres.svg') right 0px no-repeat;
+	background: url('../img/svg/nenaj/device-01.svg') right 0px no-repeat;
 }
 
 #header-menu > li:nth-child(4) a, #header-menu > li.header-menu-selected:nth-child(4) > a, #header-menu > li.header-menu-active:nth-child(4) > a {
-	background: url('../img/svg/icon-menu-2-chehol-01-pres.svg') right 0px no-repeat;
+	background: url('../img/svg/nenaj/chehol-01.svg') right 0px no-repeat;
 }
 
 #header-menu > li:nth-child(6) a, #header-menu > li.header-menu-selected:nth-child(6) > a, #header-menu > li.header-menu-active:nth-child(6) > a {
-	background: url('../img/svg/icon-menu-3-text-01-pres.svg') right 0px no-repeat;
+	background: url('../img/svg/nenaj/text-01.svg') right 2px no-repeat;
 }
 
 #header-menu > li:nth-child(8) a, #header-menu > li.header-menu-selected:nth-child(8) > a, #header-menu > li.header-menu-active:nth-child(8) > a {
-	background: url('../img/svg/icon-menu-4-zvet-01-pres.svg') right 0px no-repeat;
+	background: url('../img/svg/nenaj/zvet-01.svg') right 2px no-repeat;
 }
 
 #header-menu > li:nth-child(10) a, #header-menu > li.header-menu-selected:nth-child(10) > a, #header-menu > li.header-menu-active:nth-child(10) > a {
-	background: url('../img/svg/icon-menu-5-fon-01-pres.svg') right 0px no-repeat;
+	background: url('../img/svg/nenaj/fon-01.svg') right 3px no-repeat;
 }
 
 #header-menu > li:nth-child(12) a, #header-menu > li.header-menu-selected:nth-child(12) > a, #header-menu > li.header-menu-active:nth-child(12) > a {
-	background: url('../img/svg/icon-menu-6-smile-01-pres.svg') right 0px no-repeat;
+	background: url('../img/svg/nenaj/smile-01.svg') right 3px no-repeat;
 }
 
 
