@@ -212,8 +212,10 @@ function init () {
     myMap.controls.add(
    		new ymaps.control.ZoomControl()
 	);
-    get_city_list_sdec();
+    //get_city_list_sdec();
 }
+
+
 function getPointsSdec(idcity) {
     $.ajax({
         type: "POST",
