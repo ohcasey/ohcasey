@@ -4,12 +4,16 @@ AddDefaultCharset Utf-8
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
+    #RewriteRule ^index\.php$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . /index.php [L]
 </IfModule>
 
+#php_value display_errors 1
+
 # Установите директорию хранения сессий для сайта с помощью session.save_path.
+
 
 # Установите максимальное время жизни сессии в секундах.
 # 604800 - 1 неделя.
@@ -18,6 +22,9 @@ php_value session.gc_maxlifetime 110073600
 # Установите время жизни cookie, которая сохраняет идентификатор сессии
 # в браузере пользователя.
 php_value session.cookie_lifetime 110073600
+
+
+
 
 <ifModule mod_headers.c>
     # Все html и htm файлы будут храниться в кэше браузера один день
@@ -37,3 +44,4 @@ php_value session.cookie_lifetime 110073600
         Header unset Cache-Control
     </FilesMatch>
 </IfModule>
+
