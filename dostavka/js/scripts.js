@@ -178,6 +178,7 @@ function GetSDEKCourierDeliveryCostAndDate(city_name){
                     for (var i = 0; i<data.geonames.length; i++) {
 			            if (data.geonames[i].cityName.toLowerCase() == city_name.toLowerCase()) {
                             GetCostAndDateUsingSDEKGeoNameID({"city_id": data.geonames[i].id});
+                            getPointsSdec(data.geonames[i].id);
                             break;
                         }
                     } 
@@ -225,148 +226,18 @@ function getPointsSdec(idcity) {
         url: "/cart/get_city_sdec",
         success: function(data){
             sdec_points=JSON.parse(data);
-            myGeoObjects = [];
-            myMap.geoObjects.removeAll();
-            console.log(sdec_points);
+            
+            $('div.sdec-point-list ul li').remove();
 
 	  	    if (sdec_points.length>1) {
 	  		    for (var i = 0; i < sdec_points.length; i++) {
-                    var table = '<table><tbody>';
-                    table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
-                    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
-                        table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
-                    }
-                    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
-                        table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>';	
-                    }
-                    if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
-                        table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';	
-                    }
-                       table += '</tbody></table>';
-                    table += "<button ";
-                    if ((sdec_points[i]["@attributes"]["Address"]!=undefined) && (sdec_points[i]["@attributes"]["Address"]!="")) {
-                            table += "data-Address='"+sdec_points[i]["@attributes"]["Address"]+"' ";
-                    }
-                    if ((sdec_points[i]["@attributes"]["City"]!=undefined) && (sdec_points[i]["@attributes"]["City"]!="")) {
-                        table += "data-City='"+sdec_points[i]["@attributes"]["City"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["CityCode"]!=undefined) && (sdec_points[i]["@attributes"]["CityCode"]!="")) {
-                        table += "data-CityCode='"+sdec_points[i]["@attributes"]["CityCode"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["Code"]!=undefined) && (sdec_points[i]["@attributes"]["Code"]!="")) {
-                        table += "data-Code='"+sdec_points[i]["@attributes"]["Code"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["Name"]!=undefined) && (sdec_points[i]["@attributes"]["Name"]!="")) {
-                        table += "data-Name='"+sdec_points[i]["@attributes"]["Name"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
-                        table += "data-Note='"+sdec_points[i]["@attributes"]["Note"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
-                        table += "data-Phone='"+sdec_points[i]["@attributes"]["Phone"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
-                        table += "data-WorkTime='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["coordX"]!=undefined) && (sdec_points[i]["@attributes"]["coordX"]!="")) {
-                        table += "data-coordX='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
-                    }
-
-                    if ((sdec_points[i]["@attributes"]["coordY"]!=undefined) && (sdec_points[i]["@attributes"]["coordY"]!="")) {
-                        table += "data-coordY='"+sdec_points[i]["@attributes"]["WorkTime"]+"' ";
-                    }
-
-                    table += " >Выбрать</button>";
-
-                    var object =  new ymaps.Placemark(
-                        [sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
-                             balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
-                             balloonContent: table
-                        }
-                    );
-                    myGeoObjects.push(object);		
-                };
-
-                clusterer = new ymaps.Clusterer();
-                clusterer.add(myGeoObjects);
-                myMap.geoObjects.add(clusterer);
-                myMap.setBounds(clusterer.getBounds());
+                    $('div.sdec-point-list ul').append('<li>'+sdec_points[i]["@attributes"]["Address"].toLowerCase()+'</li>');
+                }
             }
             else{
-                var table = '<table><tbody>';
-                table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
-                if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
-                    table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
-                }
-                if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
-                    table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';	
-                }
-
-                if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
-                    table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';	
-                }
-                   table += '</tbody></table>';
-
-                table += "<button ";
-
-                if ((sdec_points["@attributes"]["Address"]!=undefined) && (sdec_points["@attributes"]["Address"]!="")) {
-                        table += "data-Address='"+sdec_points["@attributes"]["Address"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["City"]!=undefined) && (sdec_points["@attributes"]["City"]!="")) {
-                    table += "data-City='"+sdec_points["@attributes"]["City"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["CityCode"]!=undefined) && (sdec_points["@attributes"]["CityCode"]!="")) {
-                    table += "data-CityCode='"+sdec_points["@attributes"]["CityCode"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["Code"]!=undefined) && (sdec_points["@attributes"]["Code"]!="")) {
-                    table += "data-Code='"+sdec_points["@attributes"]["Code"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["Name"]!=undefined) && (sdec_points["@attributes"]["Name"]!="")) {
-                    table += "data-Name='"+sdec_points["@attributes"]["Name"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
-                    table += "data-Note='"+sdec_points["@attributes"]["Note"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
-                    table += "data-Phone='"+sdec_points["@attributes"]["Phone"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
-                    table += "data-WorkTime='"+sdec_points["@attributes"]["WorkTime"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["coordX"]!=undefined) && (sdec_points["@attributes"]["coordX"]!="")) {
-                    table += "data-coordX='"+sdec_points["@attributes"]["WorkTime"]+"' ";
-                }
-
-                if ((sdec_points["@attributes"]["coordY"]!=undefined) && (sdec_points["@attributes"]["coordY"]!="")) {
-                    table += "data-coordY='"+sdec_points["@attributes"]["WorkTime"]+"' ";
-                }
-                table += " >Выбрать</button>";
-
-                var object =  new ymaps.Placemark(
-                        [sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
-                             balloonContentHeader: sdec_points["@attributes"]["Name"],
-                             balloonContent: table
-                        }
-                    );
-                myMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
-                myMap.geoObjects.add(object);		
-            }	
-	    }
+                $('div.sdec-point-list ul').append('<li>'+sdec_points["@attributes"]["Address"].toLowerCase()+'</li>');
+	        }
+        }
     });
 }
 
