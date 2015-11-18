@@ -1747,6 +1747,25 @@ var getImageBase64 = function (url, callback) {
 
 var img, img0, img1;
 
+function loadImages(sources, callback) {
+	var images = {};
+	var loadedImages = 0;
+	var numImages = 0;
+	// get num of sources
+	for(var src in sources) {
+	  numImages++;
+	}
+	for(var src in sources) {
+	  images[src] = new Image();
+	  images[src].onload = function() {
+	    if(++loadedImages >= numImages) {
+	      callback(images);
+	    }
+	  };
+	  images[src].src = sources[src];
+	}
+}
+
 
 function save_image() {
 	if (breakpoint_image==true) return false;
@@ -1780,13 +1799,56 @@ function save_image() {
 
 
 			svg_text_svg.style("margin-top", "0px");
-
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
-
 			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
+			//console.log(svgData);
 
-			console.log(svgData);
+			// чтобы не было постоянного аякса к save_img
 
+
+	
+
+			var canvas = document.createElement("canvas");
+		
+			canvas.width = $("#device").width();
+			canvas.height = $("#device").height();
+			
+			var ctx = canvas.getContext( "2d" );
+
+			var sources = {
+				img: links[0]["image"],//'http://localhost/js/darth-vader.jpg',
+				img0: links[1]["image1"],//'http://localhost/js/yoda.jpg',
+				img1: "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData)))
+				};
+
+			loadImages(sources, function(images) {
+					ctx.drawImage(images.img, 0, 0);
+					ctx.drawImage(images.img0, 0, 0);
+					ctx.drawImage(images.img1, 0, 0);
+
+					$.ajax({ 
+						type: "POST", 
+						url: "main/save_img",
+						dataType: 'text',
+						data: {
+							image : canvas.toDataURL("image/png" )
+						},
+						success: function(data){
+							//$(".main_container").append(img0);
+							//$(".main_container").append(img);
+							//$(".main_container").append(img1);
+							//$(".main_container").append(canvas);
+							console.log(data);
+							//response_to_server(data);
+								
+						},
+						fail: function(data){
+							sweetAlert("Ошибка", data, "error");
+						}
+					});
+				});
+
+/*
 			var canvas = document.createElement("canvas");
 
 			canvas.width = $("#device").width();
@@ -1847,12 +1909,14 @@ function save_image() {
 					
 			}, 10);
 			
+*/
 
 			},
 			fail: function(data){
 				sweetAlert("Ошибка", data, "error");
 				}
 			});
+
 		return;
 	}else{
 
