@@ -2,6 +2,7 @@
 
 
 global $config;
+
 function styles_setup($config){
 
     $path = $config["desctop_font_path"];
@@ -230,6 +231,8 @@ function get_ip_info($ip)
 }
 
 function add_to_cart() {
+    $_POST = stripslashes_deep( $_POST );
+
     if(isset($_POST['desctop'])) {
 
         print_r($_POST['desctop']);
@@ -247,6 +250,8 @@ function add_to_cart() {
 }
 
 function remove_item() {
+    $_POST = stripslashes_deep( $_POST );
+
     if ((isset($_POST['item'])) && (isset($_SESSION['items']))) { 
         $k =  (int) $_POST['item'];
         unset($_SESSION['items'][$k]); 
@@ -288,6 +293,8 @@ function svg_string($svgString) {
 
 
 function save_png2() {
+      $_POST = stripslashes_deep( $_POST );
+
       if(isset($_POST['image']) && isset($_POST['image1'])) {
 
             $array = array();
@@ -297,8 +304,10 @@ function save_png2() {
             $im = new Imagick();
 
             $im->setBackgroundColor(new ImagickPixel('transparent'));
+            $svgString = str_replace(array("'"),array('"'),$svgString);
 
             $im->readImageBlob($svgString);
+
 
             /*png settings*/
             $im->setImageFormat("png24");
@@ -310,6 +319,8 @@ function save_png2() {
 
 
             $svgString =  svg_string($_POST['image1']);
+            //$svgString = str_replace(array('\"',"\\'"),array('"','"'),$svgString);
+
 
             $im = new Imagick();
 
@@ -319,16 +330,18 @@ function save_png2() {
 
             /*png settings*/
             $im->setImageFormat("png24");
+
+
                    
             array_push($array, array("image1" => save_to_file($svgString,  $im)));
 
             $im->clear();
-            $im->destroy();  
+            $im->destroy();
 
 
 
             $result = json_encode( $array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
-    $result = preg_replace_callback(
+            $result = preg_replace_callback(
                 '/\\\\u([0-9a-f]{4})/i',
                 function ($matches) {
                     $sym = mb_convert_encoding(
@@ -340,6 +353,9 @@ function save_png2() {
                 },
                 $result 
             );
+
+          //file_put_contents("filename4.txt",$result);
+
     echo $result;   
 
 
@@ -349,6 +365,7 @@ function save_png2() {
 
 
 function save_svg_to_png() {
+    $_POST = stripslashes_deep( $_POST );
 
      if(isset($_POST['image'])) {
 
@@ -387,6 +404,7 @@ function save_svg_to_png() {
 }
 
 function save_svg() {
+    $_POST = stripslashes_deep( $_POST );
 
      if(isset($_POST['image'])) {
 
@@ -513,7 +531,9 @@ function save_to_file($image, $im){
 }
 
 
-function save_img(){  
+function save_img(){
+    $_POST = stripslashes_deep( $_POST );
+
     if(isset($_POST['image'])) {
 
         $image = $_POST['image'];  
