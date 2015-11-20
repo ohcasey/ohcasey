@@ -1,6 +1,6 @@
 <?php
 		//main
-	
+
 	//
 	if (isset($_SESSION['items'])) {
 		$count_tov = count($_SESSION['items']);
@@ -76,8 +76,8 @@
 		}	
 	}
 
-	if ($controller_name == "cart") {	
-		
+	if ($controller_name == "cart") {
+
 		if ($action_name=="get_cost_summary" ) {			
 			echo get_cost_summary($config, "none");
 			exit;
@@ -180,10 +180,59 @@
 		}
 
 		if ($action_name=="confirm_order" ) {
+
+
+
+
+            foreach ($_SESSION["items"] as $itm) {
+                $arrCasey[] = $itm["case_id"];
+            }
+            $k=0;
+            $args = array( 'posts_per_page' => 20000, 'offset'=> 0, 'category' => 13 );
+            $myposts = get_posts($args);
+            foreach ($myposts as $k=>$post) {
+                $case_id = get_post_meta($post->ID, "casey_id", true);
+                if (in_array($case_id,$arrCasey)) {
+                    $arProdID[$k]["id"] = get_post_meta($post->ID, "casey_case", true);
+                    $arProdID[$k]["case_id"] = $case_id;
+                }
+            }
+
+            $address = array(
+                'first_name' => $_SESSION['fio'],
+                'last_name'  => '',
+                'company'    => '',
+                'email'      => $_SESSION['email'],
+                'phone'      => $_SESSION['phone'],
+                'address_1'  => $_SESSION['adress'],
+                'address_2'  => '',
+                'city'       => $_SESSION['city'],
+                'state'      => '',
+                'postcode'   => $_SESSION['index'],
+                'country'    => 'RU'
+            );
+
+            $order = wc_create_order();
+            foreach ($arProdID as $prod) {
+                $order->add_product(get_product($prod["id"]), 1);
+            }
+            //$order->set_address( $address, 'billing' );
+            $order->set_address( $address, 'shipping' );
+            $order->calculate_totals();
+            foreach ($arProdID as $prod) {
+                $preview_url = '';
+                foreach ($_SESSION["items"] as $itm) {
+                    if ($prod["case_id"]==$itm["case_id"]) $preview_url = trim($itm["preview_url"]);
+                }
+                update_post_meta($order->id, 'case_preview_url_'.$prod["id"], $preview_url);
+            }
+
 		
 			get_mail($config, $mail_controls, $bd_controls);
 			exit;
 		}
+
+
 
 		header("Location: /cart");
 	}

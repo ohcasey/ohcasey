@@ -654,38 +654,47 @@ function setup_backgrounds() {
 			}
 			
 			html_text+='<div class="library_in">';
-		
-		
-			for(value1 in category) {
-
-				var array_allowed = category[value1].chechs;
 				
-				if (array_allowed == undefined) {
-					array_allowed = "all";
-				}else{
+            var available_backgrounds = [];   
+        
+			for(value1 in category) {
+				var array_allowed = category[value1].chechs;				
+				if (array_allowed == undefined) {                    
+					array_allowed = "all";                    
+				}              
+                else{                 
+                    //Filter backgrounds
+                    if (array_allowed.indexOf(desctop.case_id)==-1){
+                        continue;
+                    }  
+                    //                 
 					array_allowed = array_allowed.join(",")
 				}
-
-				console.log(array_allowed);
-				
-				
-				var hash = randomHash(4);
-				if (value1 == 0) {
-					html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-				}else{
-					if((value1 % 4) == 0) {
-						html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-					}else{
-						if((value1 % 4) == 3) {
-							html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row library-background_row-last" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-						}else{
-							html_text+='<div data-check_allowed = '+array_allowed+' class="library-background_row " style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-background_row-'+value1+hash+'" data-bg-id="'+value1+hash+'"></div>';
-						}
-					}
-				}
+				console.log(array_allowed);		
+                
+                available_backgrounds.push(category[value1]);	
 			}
 		
-	
+        
+            for (ind in available_backgrounds){
+                var hash = randomHash(4);
+                if (ind == 0) {
+                    html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                }
+                else{
+                    if((ind % 4) == 0) {
+                        html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                    }
+                    else{
+                        if((ind % 4) == 3) {
+                            html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                        }else{
+                            html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                        }
+                    }
+                }
+            }
+	        
 		
 			html_text+="</div></div>";
 		$("#right-5").append(html_text);
@@ -1114,29 +1123,25 @@ function change_step(obj) {
 		}
 
 		if (id=="5"){
-			if (!($(".library-backgrouds div").length>0)) {
-				setup_backgrounds();
-			}
-
+               
+            //Если ID чехла не определен, то установить дефолтный
+            if (!desctop.case_id){
+                set_material_default();
+            }
+            
+            
+            //Если какие-то фоны были загружены ранее, то удалить их
+            if (($(".library-backgrouds div").length != 0)) {
+                    $('div.library_5.library-backgrouds').remove();
+            }
+            
+            //Загрузка фонов
+            setup_backgrounds();
+            
 			$(".g_texts").css("display", "block");
 			$(".g_smiles").css("display", "block");
 			if ($(".svg_camera").find('image').length==0) set_check();
 
-
-			$(".library-background_row").each(function(){
-				var array_allowed = $(this).attr("data-check_allowed");
-				if (array_allowed!="all") {
-					array_allowed = array_allowed.split(",");
-					console.log(array_allowed);
-					if (array_allowed.indexOf(desctop.case_id.toString())==-1) {
-						console.log("hide");
-						$(this).css("display","none");
-					}else{
-						$(this).css("display", "block");
-					}
-				}
-			});
-				
 		}
 		if (id=="6"){
 			$("#steps_controller-next_but").removeClass("active");
@@ -1741,6 +1746,25 @@ var getImageBase64 = function (url, callback) {
 
 
 var img, img0, img1;
+// функция вызывает нужную нам функцию, указываемую вместо callback, после того, как загрузятся все картинки, перечисленные в массиве sources
+function loadImages(sources, callback) {
+	var images = {};
+	var loadedImages = 0;
+	var numImages = 0;
+	// get num of sources
+	for(var src in sources) {
+	  numImages++;
+	}
+	for(var src in sources) {
+	  images[src] = new Image();
+	  images[src].onload = function() {
+	    if(++loadedImages >= numImages) {
+	      callback(images);
+	    }
+	  };
+	  images[src].src = sources[src];
+	}
+}
 
 
 function save_image() {
@@ -1771,82 +1795,53 @@ function save_image() {
 
 		success: function(data){
 			var links = JSON.parse(data);
-
+			console.log (data);
 
 			svg_text_svg.style("margin-top", "0px");
-
 			var svgData = new XMLSerializer().serializeToString(document.getElementsByClassName("svg_text_svg")[0]);
-
 			svg_text_svg.style("margin-top", "-" + $("#device").height() + "px");
 
-			console.log(svgData);
-
-			var canvas = document.createElement("canvas");
-
+			var canvas = document.createElement("canvas");		
 			canvas.width = $("#device").width();
 			canvas.height = $("#device").height();
-
-			var ctx = canvas.getContext("2d");
-
-			img = new Image();
-			img.setAttribute( "src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
-
-			img0 = new Image();
-			img0.setAttribute( "src", links[0]["image"] );
-
-			img1 = new Image();
-			img1.setAttribute( "src", links[1]["image1"] );
-
-
-			console.log(links);
-			console.log(img0);
-			console.log(img1);
-
 			
-			var i = setInterval (function(){
+			var ctx = canvas.getContext( "2d" );
 
+			var sources = {
+				img0: links[0]["image"], //чехол и фон
+				img1: links[1]["image1"],//камера, кнопки и смайлики c серой рамкой вокруг (вместо маски)
+				img: "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))) //текст
+				};
 
-				if (!img.complete) return false;
-				if (!img0.complete) return false;
-				if (!img1.complete) return false;
+			loadImages(sources, function(images) {
+					ctx.drawImage(images.img0, 0, 0);
+					ctx.drawImage(images.img, 0, 0);
+					ctx.drawImage(images.img1, 0, 0);
 
-				
-				ctx.drawImage(img0, 0, 0 );
-
-				ctx.drawImage(img, 0, 0 );
-
-				ctx.drawImage(img1, 0, 0 );
-			
-				
-				$.ajax({ 
-					type: "POST", 
-					url: "main/save_img",
-					dataType: 'text',
-					data: {
-						image : canvas.toDataURL("image/png" )
-					},
-					success: function(data){
-						//$(".main_container").append(img0);
-						//$(".main_container").append(img);
-						//$(".main_container").append(img1);
-						//$(".main_container").append(canvas);
-						response_to_server(data);
-							
-					},
-					fail: function(data){
-						sweetAlert("Ошибка", data, "error");
-					}
+					$.ajax({ 
+						type: "POST", 
+						url: "main/save_img",
+						dataType: 'text',
+						data: {
+							image : canvas.toDataURL("image/png" )
+						},
+						success: function(data){
+							console.log(data);
+							response_to_server(data);
+								
+						},
+						fail: function(data){
+							sweetAlert("Ошибка", data, "error");
+						}
+					});
 				});
-
-					
-			}, 10);
-			
 
 			},
 			fail: function(data){
-				sweetAlert("Ошибка", data, "error");
+				sweetAlert("Ошибка при сохранении слоя с фоном и слоя со смайлами, камерой", data, "error");
 				}
 			});
+
 		return;
 	}else{
 
