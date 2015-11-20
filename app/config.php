@@ -1253,7 +1253,16 @@ iphone4_black_crystal_case.png
 				"name"=>"категория 1",
 				array( 
 					//iphone 4
-
+					array("big"=>"4-4s/paket_i4-4s.png",
+					"small"=>"paket_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/starbucks_i4-4s.png",
+					"small"=>"starbucks_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/pryanik_i4-4s.png",
+					"small"=>"pryanik_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/blonde_i4-4s.png",
+					"small"=>"blonde_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/brunette_i4-4s.png",
+					"small"=>"brunette_r82.png","chechs"=>array(31,32,33,34)),
 					array(
 						"big"=>"4-4s/bembi_i4-4s.png",
 						"small"=>"bembi_r82.png",
@@ -1335,6 +1344,16 @@ iphone4_black_crystal_case.png
 					
 
 					//iphone5
+					array("big"=>"5-5s-5c/paket_i5-5s-5c.png",
+					"small"=>"paket_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/starbucks_i5-5s-5c.png",
+					"small"=>"starbucks_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/pryanik_i5-5s-5c.png",
+					"small"=>"pryanik_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/blonde_i5-5s-5c.png",
+					"small"=>"blonde_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/brunette_i5-5s-5c.png",
+					"small"=>"brunette_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 
 					array("big"=>"5-5s-5c/donuts_i5-5s-5c.png",
 					"small"=>"donuts_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
@@ -1424,6 +1443,17 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					array("big"=>"6-6+/paket_i6-6+.png",
+					"small"=>"paket_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/starbucks_i6-6+.png",
+					"small"=>"starbucks_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/pryanik_i6-6+.png",
+					"small"=>"pryanik_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/blonde_i6-6+.png",
+					"small"=>"blonde_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/brunette_i6-6+.png",
+					"small"=>"brunette_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					
 					array("big"=>"6-6+/donuts_i6-6+.png",
 					"small"=>"donuts_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/mickey_i6-6+.png",
