@@ -587,3 +587,28 @@ footer a {
 
 }
 
+@media (max-width: 600px) { 
+	h1 {
+		padding-top: 50px;
+	}
+	
+	.select_cases {
+		width: 100%;
+		margin-left: 0%;
+	}
+	
+	.slider_cases {
+		width: 100%;
+		margin-left: 0%;
+	}
+	
+	.text_cases_left {
+		width: 100%;
+		margin-left: 0%;
+	}
+	
+	.btn_ohcasey {
+		width: 100%;
+		margin-bottom: 25px;
+	}
+}
