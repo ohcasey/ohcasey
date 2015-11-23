@@ -520,7 +520,18 @@ footer a {
 
 @media (max-width: 768px) {
 	.header_div .select_cases {
-		display: none;
+		/*display: none;*/
+		
+		height: auto;
+		margin-bottom: 20px;
+	}
+	
+	.col-sm-4.select_cases div {
+		min-height: 0px;
+	}
+	
+	.header_div {
+		margin-bottom: 20px;
 	}
 
 	.slider_cases {
