@@ -1,4 +1,8 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+//ini_set('session.save_path', $_SERVER['DOCUMENT_ROOT'].'/sessions'); // давай использовать эту папку. в случае сбоя, можно будет найти хоть какие-то следы (номер телефона, сохраненный макет и т.д.)
 /**
  * Front to the WordPress application. This file doesn't do anything, but loads
  * wp-blog-header.php which does and tells WordPress to load the theme.

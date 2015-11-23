@@ -1,5 +1,5 @@
 <?php
-
+die(5555); //походу этот файл /config.php можно удалить
 if ( !isset($wp_did_header) ) {
     $wp_did_header = true;
     require_once( $_SERVER["DOCUMENT_ROOT"].'/wp-load.php' );
