@@ -5,7 +5,9 @@ if ( !isset($wp_did_header) ) {
     require_once( $_SERVER["DOCUMENT_ROOT"].'/wp-load.php' );
     wp();
 }
-header("HTTP/1.0 200 OK");
+if (substr_count($_SERVER["REQUEST_URI"],"main")>0 OR substr_count($_SERVER["REQUEST_URI"],"cart")>0 OR substr_count($_SERVER["REQUEST_URI"],"success")>0) { 
+    header("HTTP/1.0 200 OK"); //можно это перенести в /index.php, там где require(dirname(__FILE__) . '/wp-blog-header.php'); ? 
+}
 //отключаем мэджик quotes
 if (get_magic_quotes_gpc()) {
     $process = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
@@ -25,17 +27,17 @@ if (get_magic_quotes_gpc()) {
 
 global $mail_controls;
 $mail_controls = array(
-	
-	"Host" => 'smtp.yandex.ru',
+    
+    "Host" => 'smtp.yandex.ru',
     "Port" => "25",
     "Username" => 'wisethetwice@yandex.ru',              
     "Password" => '2glvPRO100'                  
-  	
+    
 );
 global $bd_controls; 
 
 $bd_controls = array(
-	"dbhost" => "mysql.server",
+    "dbhost" => "mysql.server",
         // Имя пользователя базы данных 
      "dbuser" => "u11014_ohcasey", 
             // и его пароль 
@@ -48,9 +50,9 @@ global $cont_pages;
 $cont_pages= array("main","cart","success");
 global $subfunctions;
 $subfunctions= array(
-	"main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2"),
-	"success"=>array() , 
-	"cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result")
+    "main" =>array("get_data", "save_img", "add_to_cart", "save_png", "save_svg", "save_png2", "total_list"),
+    "success"=>array() , 
+    "cart" =>array("remove_item", "confirm_order", "get_city", "robo_success","robo_fail","robo_result","get_city_sdec", "get_cost_sdec","get_cost_summary")
  );
 //конфиги девайсов
 global $config;
@@ -75,7 +77,7 @@ $config = array(
     "smiles_path"=>'',
     "desctop_material_path"=>'',
     "chech_material_path" =>'',
-    "material_mask_path"=>""	,
+    "material_mask_path"=>""    ,
     "material_mask_camera"=>"",
     "inspire_path"=>"",
     //Картинки inspire
@@ -292,6 +294,7 @@ wp_reset_postdata();
 foreach($field_label as $k=>$v) {
     unset($fons);
     $to_sort = $arrPreFon[$k];
+    if (!isset($to_sort)) continue;
     ksort($to_sort);
     foreach ($to_sort as $item) {
         $fons[] = array(
