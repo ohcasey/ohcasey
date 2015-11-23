@@ -194,9 +194,6 @@ function GetSDEKCourierDeliveryCostAndDate(city_name){
 }
 
 
-//Функция, получающая список пунктов самовывоза в городе
-//
-
 var myMap;
 // Дождёмся загрузки API и готовности DOM.
 ymaps.ready(init);
@@ -213,7 +210,6 @@ function init () {
     myMap.controls.add(
    		new ymaps.control.ZoomControl()
 	);
-    //get_city_list_sdec();
 }
 
 
@@ -226,16 +222,69 @@ function getPointsSdec(idcity) {
         url: "/cart/get_city_sdec",
         success: function(data){
             sdec_points=JSON.parse(data);
+            myGeoObjects = [];
+            myMap.geoObjects.removeAll();
+            console.log(sdec_points);
             
             $('div.sdec-point-list ul li').remove();
 
 	  	    if (sdec_points.length>1) {
 	  		    for (var i = 0; i < sdec_points.length; i++) {
-                    $('div.sdec-point-list ul').append('<li>'+sdec_points[i]["@attributes"]["Address"].toLowerCase()+'</li>');
-                }
+                    $('div.sdec-point-list ul').append('<li>'+sdec_points[i]["@attributes"]["Address"].toLowerCase()+'</li>');                
+                    
+                    var table = '<table><tbody>';
+                    table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                    if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+                        table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                    }
+                    if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+                        table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>';	
+                    }
+                    if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+                        table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';	
+                    }
+                    table += '</tbody></table>';
+
+                    var object =  new ymaps.Placemark(
+                        [sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
+                             balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
+                             balloonContent: table
+                        }
+                    );
+                    myGeoObjects.push(object);		
+                };
+
+                clusterer = new ymaps.Clusterer();
+                clusterer.add(myGeoObjects);
+                myMap.geoObjects.add(clusterer);
+                myMap.setBounds(clusterer.getBounds());
+                
             }
             else{
                 $('div.sdec-point-list ul').append('<li>'+sdec_points["@attributes"]["Address"].toLowerCase()+'</li>');
+                
+                var table = '<table><tbody>';
+                table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+                    table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                }
+                if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+                    table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';	
+                }
+
+                if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+                    table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';	
+                }
+                table += '</tbody></table>';
+
+                var object =  new ymaps.Placemark(
+                        [sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
+                             balloonContentHeader: sdec_points["@attributes"]["Name"],
+                             balloonContent: table
+                        }
+                    );
+                myMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
+                myMap.geoObjects.add(object);	
 	        }
         }
     });
@@ -251,6 +300,11 @@ function show_delivery_methods_for_Moscow(){
     $(".moscow .delivery-method:first").addClass("active");
     $("div.delivery-description").hide();
     $("div.delivery-description[delivery-description-to="+$(".moscow .delivery-method:first").attr("delivery-name")+"]").show();
+    if($(".moscow .delivery-method:first").attr("delivery-name")=="sdec-point"){
+        $("div.map-row").show();
+        $('div.sdec-point-list').show();
+    }
+    GetSDEKCourierDeliveryCostAndDate($("input.city-input").val());
 }
 
 
@@ -267,10 +321,12 @@ function show_delivery_methods_for_not_Moscow(){
     $("div.delivery-description").hide();
     $("div.delivery-description[delivery-description-to="+$(".not-moscow .delivery-method:first").attr("delivery-name")+"]").show();
     
-    GetSDEKCourierDeliveryCostAndDate($("input.city-input").val());
+    if($(".not-moscow .delivery-method:first").attr("delivery-name")=="sdec-point"){
+        $("div.map-row").show();
+        $('div.sdec-point-list').show();
+    }
     
-    //getPointsSdec(current_city_id);
-    //Возвращаем из GetPointSdec массив пунктов свамовывоза и на его основе формируем таблицу
+    GetSDEKCourierDeliveryCostAndDate($("input.city-input").val());
     
 }
 
@@ -302,6 +358,13 @@ $(".delivery-method").on("click", function(){
     $(this).addClass("active");
     $("div.delivery-description").hide();
     $("div.delivery-description[delivery-description-to="+$(this).attr("delivery-name")+"]").show();
+    
+    $('div.map-row').hide();
+    $('div.sdec-point-list').hide();
+    if($(this).attr("delivery-name")=="sdec-point"){
+        $('div.map-row').show();
+        $('div.sdec-point-list').show();
+    }
 });
 
 
@@ -315,4 +378,10 @@ function dump(obj) {
         out = obj;
     }
     console.log(out);
+}
+
+function ucfirst(str) 
+{
+    var first = str.charAt(0).toUpperCase();
+    return first + str.substr(1);
 }
