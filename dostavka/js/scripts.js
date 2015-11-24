@@ -194,22 +194,55 @@ function GetSDEKCourierDeliveryCostAndDate(city_name){
 }
 
 
-var myMap;
+var sdecPointsMap;
+var showRoomMap;
+
 // Дождёмся загрузки API и готовности DOM.
 ymaps.ready(init);
 
 function init () {
     // Создание экземпляра карты и его привязка к контейнеру с
     // заданным id ("map").
-    myMap = new ymaps.Map('map', {
+    sdecPointsMap = new ymaps.Map('map', {
         // При инициализации карты обязательно нужно указать
         // её центр и коэффициент масштабирования.
         center: [55.76, 37.64], // Москва
         zoom: 10,
     }, {});
-    myMap.controls.add(
+    sdecPointsMap.controls.add(
    		new ymaps.control.ZoomControl()
 	);
+    
+    var showroom_coord_x = 55.739275;
+    var showroom_coord_y = 37.661221;
+    
+    showRoomMap = new ymaps.Map('map-showroom',
+        {
+            center: [showroom_coord_x, showroom_coord_y],
+            zoom: 17
+        },
+        {}
+    );
+    
+    
+    var adress = 'Москва, м. Таганская ул. Таганская д. 24 стр. 1';
+    var worktime = "С 10:00 до 22:00";
+    var phone = "8 (800) 555 35 35";
+    
+    var showroom_info = "<table><tbody>";
+    showroom_info+="<tr><td>Адрес</td><td>"+adress+"</td></tr>";
+    showroom_info+="<tr><td>Время работы</td><td>"+worktime+"</td></tr>";
+    showroom_info+="<tr><td>Телефон</td><td>"+phone+"</td></tr>";
+    showroom_info+="</tbody></table>";
+    
+    var showroom = new ymaps.Placemark(
+        [showroom_coord_x, showroom_coord_y],
+        {
+            balloonContentHeader: "Шоурум OhCasey",
+            balloonContent: showroom_info
+        }
+    );
+    showRoomMap.geoObjects.add(showroom);
 }
 
 
@@ -223,8 +256,7 @@ function getPointsSdec(idcity) {
         success: function(data){
             sdec_points=JSON.parse(data);
             myGeoObjects = [];
-            myMap.geoObjects.removeAll();
-            console.log(sdec_points);
+            sdecPointsMap.geoObjects.removeAll();
             
             $('div.sdec-point-list ul li').remove();
 
@@ -256,8 +288,8 @@ function getPointsSdec(idcity) {
 
                 clusterer = new ymaps.Clusterer();
                 clusterer.add(myGeoObjects);
-                myMap.geoObjects.add(clusterer);
-                myMap.setBounds(clusterer.getBounds());
+                sdecPointsMap.geoObjects.add(clusterer);
+                sdecPointsMap.setBounds(clusterer.getBounds());
                 
             }
             else{
@@ -283,14 +315,13 @@ function getPointsSdec(idcity) {
                              balloonContent: table
                         }
                     );
-                myMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
-                myMap.geoObjects.add(object);	
+                sdecPointsMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
+                sdecPointsMap.geoObjects.add(object);	
+                //alert("coordY = "+);
 	        }
         }
     });
 }
-
-
 
 function show_delivery_methods_for_Moscow(){
     $(".zaglushki").hide();
@@ -300,11 +331,23 @@ function show_delivery_methods_for_Moscow(){
     $(".moscow .delivery-method:first").addClass("active");
     $("div.delivery-description").hide();
     $("div.delivery-description[delivery-description-to="+$(".moscow .delivery-method:first").attr("delivery-name")+"]").show();
+    
+    $('div.map-row').hide();
+    $('div.sdec-point-list').hide();
+    $("div.map-row-showroom").hide();
+    
+    GetSDEKCourierDeliveryCostAndDate($("input.city-input").val());
+    
+    
     if($(".moscow .delivery-method:first").attr("delivery-name")=="sdec-point"){
         $("div.map-row").show();
         $('div.sdec-point-list').show();
     }
-    GetSDEKCourierDeliveryCostAndDate($("input.city-input").val());
+    
+    if($(".moscow .delivery-method:first").attr("delivery-name")=="showroom"){
+        $("div.map-row-showroom").show();
+    }
+    
 }
 
 
@@ -321,6 +364,10 @@ function show_delivery_methods_for_not_Moscow(){
     $("div.delivery-description").hide();
     $("div.delivery-description[delivery-description-to="+$(".not-moscow .delivery-method:first").attr("delivery-name")+"]").show();
     
+    $('div.map-row').hide();
+    $('div.sdec-point-list').hide();
+    $("div.map-row-showroom").hide();
+    
     if($(".not-moscow .delivery-method:first").attr("delivery-name")=="sdec-point"){
         $("div.map-row").show();
         $('div.sdec-point-list').show();
@@ -334,6 +381,10 @@ function show_zaglushki(){
     $(".moscow").hide();
     $(".not-moscow").hide();
     $(".zaglushki").show();
+    $('div.map-row').hide();
+    $("div.map-row-showroom").hide();
+    $('div.sdec-point-list').hide();
+    $("div.delivery-description").hide();
 }
 
 function setSdecPriceAndTimeToTheDivs(sdec_delivery_data){
@@ -361,9 +412,14 @@ $(".delivery-method").on("click", function(){
     
     $('div.map-row').hide();
     $('div.sdec-point-list').hide();
+    $("div.map-row-showroom").hide();
+    
     if($(this).attr("delivery-name")=="sdec-point"){
         $('div.map-row').show();
         $('div.sdec-point-list').show();
+    }
+    if($(this).attr('delivery-name')=="showroom"){
+        $("div.map-row-showroom").show();
     }
 });
 
