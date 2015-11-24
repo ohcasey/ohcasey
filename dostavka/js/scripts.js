@@ -258,11 +258,14 @@ function getPointsSdec(idcity) {
             myGeoObjects = [];
             sdecPointsMap.geoObjects.removeAll();
             
+            console.log("SDEC POINTS!!!");
+            console.log(sdec_points);
+            
             $('div.sdec-point-list ul li').remove();
 
 	  	    if (sdec_points.length>1) {
 	  		    for (var i = 0; i < sdec_points.length; i++) {
-                    $('div.sdec-point-list ul').append('<li>'+sdec_points[i]["@attributes"]["Address"].toLowerCase()+'</li>');                
+                    $('div.sdec-point-list ul').append('<li><b>'+ucfirst(sdec_points[i]["@attributes"]["Name"].toLowerCase())+"</b> - "+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</li>');                
                     
                     var table = '<table><tbody>';
                     table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
@@ -293,7 +296,7 @@ function getPointsSdec(idcity) {
                 
             }
             else{
-                $('div.sdec-point-list ul').append('<li>'+sdec_points["@attributes"]["Address"].toLowerCase()+'</li>');
+                $('div.sdec-point-list ul').append('<li><b>'+ucfirst(sdec_points["@attributes"]["Name"].toLowerCase())+"</b> - "+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</li>');
                 
                 var table = '<table><tbody>';
                 table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
@@ -317,7 +320,6 @@ function getPointsSdec(idcity) {
                     );
                 sdecPointsMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
                 sdecPointsMap.geoObjects.add(object);	
-                //alert("coordY = "+);
 	        }
         }
     });
