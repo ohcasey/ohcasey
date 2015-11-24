@@ -1934,7 +1934,7 @@ iphone4_black_crystal_case.png
 						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 						),
 					array(
-						"big"=>"6-6+/goroh2_i6-6+.png",
+						"big"=>"6-6+/goroh2_.png",
 						"small"=>"goroh2_r82.png",
 						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 						),
@@ -2304,6 +2304,41 @@ iphone4_black_crystal_case.png
                                 "link"=>"3/",
                                 "name"=>"Новинки",
                                 "images"=>array(
+                                
+                                // новые смайлы нг
+								 		array(
+                                                "big"=>"480/superman-480-big.png",
+                                                "small"=>"124/superman-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/keks-480-big.png",
+                                                "small"=>"124/keks-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ng-480-big.png",
+                                                "small"=>"124/ng-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ng2-480-big.png",
+                                                "small"=>"124/ng2-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ng3-480-big.png",
+                                                "small"=>"124/ng3-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ng4-480-big.png",
+                                                "small"=>"124/ng4-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ng5-480-big.png",
+                                                "small"=>"124/ng5-124-small.png"
+                                        ),
+                                
+                                    
+                                        
+                                        // добавлено 20.10                                
+                                
                                         array(
                                                 "big"=>"480/Unicorn-big.png",
                                                 "small"=>"124/Unicorn-small.png"
@@ -2407,6 +2442,37 @@ iphone4_black_crystal_case.png
                                         array(
                                                 "big"=>"480/Gus-480-big.png",
                                                 "small"=>"124/Gus-124-small.png"
+                                        ),
+                                        
+                                        // смайлы 
+                                        
+                                         array(
+                                                "big"=>"480/heart2black-480-big.png",
+                                                "small"=>"124/heart2black-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/heart2pink-480-big.png",
+                                                "small"=>"124/heart2pink-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/heart2red-480-big.png",
+                                                "small"=>"124/heart2red-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/heart2white-480-big.png",
+                                                "small"=>"124/heart2white-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/heartpink-480-big.png",
+                                                "small"=>"124/heartpink-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/heartred-480-big.png",
+                                                "small"=>"124/heartred-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/heartwhite-480-big.png",
+                                                "small"=>"124/heartwhite-124-small.png"
                                         ),
                                 )
                         ),
