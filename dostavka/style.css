@@ -7,19 +7,18 @@ html {
     display: none;
 }
 
-#map {
-	width: 800px;
-	height: 550px;
+#map, #map-showroom {
+	width: 100%;
+    height: 500px;
 	position: relative;
 	float: left;
+    padding-bottom: 50px;
 }
 
 .central_block {
 	position: relative;
 	float: left;
-	width: 800px;
-	height: 550px;
-	padding: 10px;
+	width: 100%;
 }
 
 .error{
