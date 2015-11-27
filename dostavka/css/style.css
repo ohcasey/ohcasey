@@ -97,12 +97,12 @@ select {
 	cursor: pointer;
 	transition: 200ms all linear;
 	margin-top: 10px;
-	border: 1px solid #7491b9;
+	border: 1px solid #6592bc;
 	
 }
 
 .item.active, .item:hover {
-	background: #7491b9;
+	background: #6592bc;
 }
 
 
@@ -140,7 +140,7 @@ select {
 	line-height: 60px;
 	padding-bottom: 10px;
 	display: block;
-	color:  #7491b9;
+	color:  #6592bc;
 	font-size: 24px;
 }
 
@@ -224,7 +224,7 @@ background-image: url(../img/russianpost.png) ;
 	padding-left: 5px;
 	padding-right: 5px;
 	display: block;
-	color:  #7491b9;
+	color:  #6592bc;
 font-size: 12px;/* Приближение из-за подстановки шрифтов */
 font-weight: 300;
 display: inline;
@@ -246,7 +246,7 @@ padding-bottom: 2px;
 }
 
 .result_city:hover span {
-	color: #7491b9;
+	color: #6592bc;
 }
 
 .result_city span:before {
@@ -285,7 +285,7 @@ padding-bottom: 2px;
 
 
  strong {
- 	color:  #7491b9;
+ 	color:  #6592bc;
  	font-size: 24px;
  }
 
@@ -309,7 +309,7 @@ html,
         height: 50px;
       }
  footer a {
- 	background: #7491b9;
+ 	background: #6592bc;
  	color: white;
  	line-height: 50px;
  	display: block;
@@ -324,7 +324,7 @@ html,
 
  footer a:hover {
  	color: white;
- 	background: #2F6EA3;
+ 	background: #669ac4;
  	text-decoration: none;
  }
 
