@@ -1,5 +1,4 @@
 <?php
-
 if ( !isset($wp_did_header) ) {
     $wp_did_header = true;
     require_once( $_SERVER["DOCUMENT_ROOT"].'/wp-load.php' );
@@ -37,13 +36,13 @@ $mail_controls = array(
 global $bd_controls; 
 
 $bd_controls = array(
-    "dbhost" => "mysql.server",
+    "dbhost" => "127.0.0.1",
         // Имя пользователя базы данных 
-     "dbuser" => "u11014_ohcasey", 
+     "dbuser" => "bitrix", 
             // и его пароль 
-     "dbpass" => "ohcasey",
+     "dbpass" => "Ioel2L_wxV",
             // Имя базы данных, на хостинге или локальной машине 
-     "dbname" => "u11014_ohcasey" 
+     "dbname" => "server2" 
 );
 //страницы
 global $cont_pages;

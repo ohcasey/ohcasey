@@ -10,8 +10,6 @@ AddDefaultCharset Utf-8
     RewriteRule . /index.php [L]
 </IfModule>
 
-#php_value display_errors 1
-
 # Установите директорию хранения сессий для сайта с помощью session.save_path.
 
 

@@ -1,3 +1,6 @@
 sessions
 uploaded_images
 ohcasey.master.tar.bz
+wp_config.php
+/app/config.php
+/wp-includes/template-loader.php

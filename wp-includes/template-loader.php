@@ -9,8 +9,9 @@ if ( defined('WP_USE_THEMES') && WP_USE_THEMES )
 	 *
 	 * @since 1.5.0
 	 */
-	do_action( 'template_redirect' );
-
+	 
+	/* ugly hack - not to use in production!! */
+	//do_action( 'template_redirect' );
 /**
  * Filter whether to allow 'HEAD' requests to generate content.
  *
