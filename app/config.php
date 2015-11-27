@@ -11,10 +11,13 @@ $mail_controls = array(
 global $bd_controls; 
 $bd_controls = array(
 	"dbhost" => "mysql.server",
+	//"dbhost" => "localhost",
         // Имя пользователя базы данных 
-     "dbuser" => "u11014_ohcasey", 
+    "dbuser" => "u11014_ohcasey", 
+    //"dbuser" => "root",
             // и его пароль 
      "dbpass" => "ohcasey",
+    //"dbpass" => "12345",
             // Имя базы данных, на хостинге или локальной машине 
      "dbname" => "u11014_ohcasey" 
 );
