@@ -1,5 +1,5 @@
 <div id="left">
-		<div id="phone"><a href="tel:79269798139" title="Телефон"> +7 (926) 979-81-39</a></div>
+		<div id="phone"><a href="tel:79269798139" title="Телефон"> +7 (965) 396-97-85</a></div>
 		<div id="left_menu">
 			<a id="cart"  href="/cart" title="Корзина" class="<?php if ($controller_name=="cart") {echo "cart_cart";}?>">
 				<span>
