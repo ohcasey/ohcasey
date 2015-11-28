@@ -47,8 +47,12 @@ if ( ! is_multisite() ) {
 $menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
 
 /**** - edit by argonianin at gmail dot com ****/
-if (!current_user_can('print_design')) {
-    $menu[5] = array( __('Posts'), 'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'dashicons-admin-post' );
+if (is_admin()) {
+	$menu[5] = array(__('Posts'), 'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'dashicons-admin-post');
+} else {
+	if (!current_user_can('print_design')) {
+		$menu[5] = array(__('Posts'), 'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'dashicons-admin-post');
+	}
 }
 /**** - edit by argonianin at gmail dot com ****/
 
@@ -100,8 +104,12 @@ $awaiting_mod = wp_count_comments();
 $awaiting_mod = $awaiting_mod->moderated;
 
 /**** - edit by argonianin at gmail dot com ****/
-if (!current_user_can('print_design')) {
-    $menu[25] = array( sprintf( __('Comments %s'), "<span class='awaiting-mod count-$awaiting_mod'><span class='pending-count'>" . number_format_i18n($awaiting_mod) . "</span></span>" ), 'edit_posts', 'edit-comments.php', '', 'menu-top menu-icon-comments', 'menu-comments', 'dashicons-admin-comments' );
+if (is_admin()) {
+	$menu[25] = array(sprintf(__('Comments %s'), "<span class='awaiting-mod count-$awaiting_mod'><span class='pending-count'>" . number_format_i18n($awaiting_mod) . "</span></span>"), 'edit_posts', 'edit-comments.php', '', 'menu-top menu-icon-comments', 'menu-comments', 'dashicons-admin-comments');
+} else {
+	if (!current_user_can('print_design')) {
+		$menu[25] = array(sprintf(__('Comments %s'), "<span class='awaiting-mod count-$awaiting_mod'><span class='pending-count'>" . number_format_i18n($awaiting_mod) . "</span></span>"), 'edit_posts', 'edit-comments.php', '', 'menu-top menu-icon-comments', 'menu-comments', 'dashicons-admin-comments');
+	}
 }
 /**** - edit by argonianin at gmail dot com ****/
 unset($awaiting_mod);
