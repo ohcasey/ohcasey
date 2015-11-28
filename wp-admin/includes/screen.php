@@ -972,16 +972,22 @@ final class WP_Screen {
 			return;
 		?>
 		<div id="screen-meta-links">
-		<?php if ( $this->get_help_tabs() AND !current_user_can('print_design') ) : ?>
-			<div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle">
-			<button type="button" id="contextual-help-link" class="button show-settings" aria-controls="contextual-help-wrap" aria-expanded="false"><?php _e( 'Help' ); ?></button>
-			</div>
-		<?php endif;
-		if ( $this->show_screen_options() AND !current_user_can('print_design') ) : ?>
-			<div id="screen-options-link-wrap" class="hide-if-no-js screen-meta-toggle">
-			<button type="button" id="show-settings-link" class="button show-settings" aria-controls="screen-options-wrap" aria-expanded="false"><?php _e( 'Screen Options' ); ?></button>
-			</div>
-		<?php endif;?>
+		<?php if ( $this->get_help_tabs() ) { ?>
+				<? if (current_user_can('print_design')) {?>
+				<?}else{?>
+					<div id="contextual-help-link-wrap" class="hide-if-no-js screen-meta-toggle">
+					<button type="button" id="contextual-help-link" class="button show-settings" aria-controls="contextual-help-wrap" aria-expanded="false"><?php _e( 'Help' ); ?></button>
+					</div>
+				<?}?>
+		<?php }
+		if ( $this->show_screen_options() ) { ?>
+			<? if (current_user_can('print_design')) {?>
+			<?}else{?>
+				<div id="screen-options-link-wrap" class="hide-if-no-js screen-meta-toggle">
+				<button type="button" id="show-settings-link" class="button show-settings" aria-controls="screen-options-wrap" aria-expanded="false"><?php _e( 'Screen Options' ); ?></button>
+				</div>
+			<?}?>
+		<?php }?>
 		</div>
 		<?php
 	}
