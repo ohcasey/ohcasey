@@ -2312,39 +2312,39 @@ iphone4_black_crystal_case.png
                     		array(
 								"variants" => array(
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear004_big.png",
+									"preview" => "variants/ear004.png",
 									"normal" => "variants/ear004_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear005_big.png",
+									"preview" => "variants/ear005.png",
 									"normal" => "variants/ear005_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear006_big.png",
+									"preview" => "variants/ear006.png",
 									"normal" => "variants/ear006_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 								),
@@ -2354,39 +2354,39 @@ iphone4_black_crystal_case.png
 							array(
 								"variants" => array(
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear004_big.png",
+									"preview" => "variants/ear004.png",
 									"normal" => "variants/ear004_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear005_big.png",
+									"preview" => "variants/ear005.png",
 									"normal" => "variants/ear005_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear006_big.png",
+									"preview" => "variants/ear006.png",
 									"normal" => "variants/ear006_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 								),
@@ -2405,39 +2405,39 @@ iphone4_black_crystal_case.png
 							array(
 								"variants" => array(
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear004_big.png",
+									"preview" => "variants/ear004.png",
 									"normal" => "variants/ear004_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear005_big.png",
+									"preview" => "variants/ear005.png",
 									"normal" => "variants/ear005_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear006_big.png",
+									"preview" => "variants/ear006.png",
 									"normal" => "variants/ear006_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 								),
@@ -2446,39 +2446,39 @@ iphone4_black_crystal_case.png
 							array(
 								"variants" => array(
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear004_big.png",
+									"preview" => "variants/ear004.png",
 									"normal" => "variants/ear004_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear005_big.png",
+									"preview" => "variants/ear005.png",
 									"normal" => "variants/ear005_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear006_big.png",
+									"preview" => "variants/ear006.png",
 									"normal" => "variants/ear006_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 								),
@@ -2487,39 +2487,39 @@ iphone4_black_crystal_case.png
 							array(
 								"variants" => array(
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear004_big.png",
+									"preview" => "variants/ear004.png",
 									"normal" => "variants/ear004_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear005_big.png",
+									"preview" => "variants/ear005.png",
 									"normal" => "variants/ear005_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear006_big.png",
+									"preview" => "variants/ear006.png",
 									"normal" => "variants/ear006_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 								),
@@ -2528,39 +2528,39 @@ iphone4_black_crystal_case.png
 							array(
 								"variants" => array(
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear004_big.png",
+									"preview" => "variants/ear004.png",
 									"normal" => "variants/ear004_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear005_big.png",
+									"preview" => "variants/ear005.png",
 									"normal" => "variants/ear005_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear006_big.png",
+									"preview" => "variants/ear006.png",
 									"normal" => "variants/ear006_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear001_big.png",
+									"preview" => "variants/ear001.png",
 									"normal" => "variants/ear001_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear002_big.png",
+									"preview" => "variants/ear002.png",
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
-									"preview" => "variants/ear003_big.png",
+									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 								),
