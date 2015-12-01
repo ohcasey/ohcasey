@@ -2304,15 +2304,303 @@ iphone4_black_crystal_case.png
 /*	
 */			
 			array(
-                                "link"=>"3/",
-                                "name"=>"Новинки",
-                                "images"=>array(
-                                
-                                // новые смайлы нг
-								 		array(
-                                                "big"=>"480/superman-480-big.png",
-                                                "small"=>"124/superman-124-small.png"
-                                        ),
+                    "link"=>"3/",
+                    "name"=>"Новинки",
+                    "images"=>array(
+                    
+                    // новые смайлы нг
+                    		array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004_big.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005_big.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006_big.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear01_default.png"
+							),
+
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004_big.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005_big.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006_big.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear02_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004_big.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005_big.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006_big.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear03_default.png"
+							),
+
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004_big.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005_big.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006_big.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear04_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004_big.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005_big.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006_big.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear05_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004_big.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005_big.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006_big.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear06_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004_big.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005_big.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006_big.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001_big.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002_big.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear07_default.png"
+							),
+
+
+								 		/*
                                         array(
                                                 "big"=>"480/keks-480-big.png",
                                                 "small"=>"124/keks-124-small.png"
@@ -2477,8 +2765,10 @@ iphone4_black_crystal_case.png
                                                 "big"=>"480/heartwhite-480-big.png",
                                                 "small"=>"124/heartwhite-124-small.png"
                                         ),
+                                        */
                                 )
                         ),
+/*
 			array(
 				"link"=>"people/",
 				"name"=>"Люди",
@@ -4370,6 +4660,7 @@ iphone4_black_crystal_case.png
 
 				)
 			),
+			*/
 
 		)
 );
