@@ -42,12 +42,10 @@ if ( ! is_multisite() ) {
 	unset( $cap );
 }
 
-
-
 $menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
 
 /**** - edit by argonianin at gmail dot com ****/
-if (is_admin()) {
+if (is_super_admin()) {
 	$menu[5] = array(__('Posts'), 'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'dashicons-admin-post');
 } else {
 	if (!current_user_can('print_design')) {
@@ -58,7 +56,8 @@ if (is_admin()) {
 
 	$submenu['edit.php'][5]  = array( __('All Posts'), 'edit_posts', 'edit.php' );
 	/* translators: add new post */
-	$submenu['edit.php'][10]  = array( _x('Add New', 'post'), get_post_type_object( 'post' )->cap->create_posts, 'post-new.php' );
+	$submenu['edit.php'][10] = array(_x('Add New', 'post'), get_post_type_object('post')->cap->create_posts, 'post-new.php');
+
 
 	$i = 15;
 	foreach ( get_taxonomies( array(), 'objects' ) as $tax ) {
@@ -103,8 +102,9 @@ $menu[20] = array( __('Pages'), 'edit_pages', 'edit.php?post_type=page', '', 'me
 $awaiting_mod = wp_count_comments();
 $awaiting_mod = $awaiting_mod->moderated;
 
+
 /**** - edit by argonianin at gmail dot com ****/
-if (is_admin()) {
+if (is_super_admin()) {
 	$menu[25] = array(sprintf(__('Comments %s'), "<span class='awaiting-mod count-$awaiting_mod'><span class='pending-count'>" . number_format_i18n($awaiting_mod) . "</span></span>"), 'edit_posts', 'edit-comments.php', '', 'menu-top menu-icon-comments', 'menu-comments', 'dashicons-admin-comments');
 } else {
 	if (!current_user_can('print_design')) {
@@ -117,6 +117,7 @@ unset($awaiting_mod);
 $submenu[ 'edit-comments.php' ][0] = array( __('All Comments'), 'edit_posts', 'edit-comments.php' );
 
 $_wp_last_object_menu = 25; // The index of the last top-level menu in the object menu group
+
 
 foreach ( (array) get_post_types( array('show_ui' => true, '_builtin' => false, 'show_in_menu' => true ) ) as $ptype ) {
 	$ptype_obj = get_post_type_object( $ptype );
@@ -149,7 +150,12 @@ foreach ( (array) get_post_types( array('show_ui' => true, '_builtin' => false, 
 
 	$menu[$ptype_menu_position] = array( esc_attr( $ptype_obj->labels->menu_name ), $ptype_obj->cap->edit_posts, "edit.php?post_type=$ptype", '', 'menu-top menu-icon-' . $ptype_class, 'menu-posts-' . $ptype_for_id, $menu_icon );
 	$submenu["edit.php?post_type=$ptype"][5]  = array( $ptype_obj->labels->all_items, $ptype_obj->cap->edit_posts,  "edit.php?post_type=$ptype");
-	$submenu["edit.php?post_type=$ptype"][10]  = array( $ptype_obj->labels->add_new, $ptype_obj->cap->create_posts, "post-new.php?post_type=$ptype" );
+	if ($ptype_menu_position==27) {
+		if (is_super_admin()) $submenu["edit.php?post_type=$ptype"][10] = array($ptype_obj->labels->add_new, $ptype_obj->cap->create_posts, "post-new.php?post_type=$ptype");
+		elseif (!current_user_can('print_design')) $submenu["edit.php?post_type=$ptype"][10] = array($ptype_obj->labels->add_new, $ptype_obj->cap->create_posts, "post-new.php?post_type=$ptype");
+	} else {
+		$submenu["edit.php?post_type=$ptype"][10] = array($ptype_obj->labels->add_new, $ptype_obj->cap->create_posts, "post-new.php?post_type=$ptype");
+	}
 
 	$i = 15;
 	foreach ( get_taxonomies( array(), 'objects' ) as $tax ) {
@@ -160,6 +166,7 @@ foreach ( (array) get_post_types( array('show_ui' => true, '_builtin' => false, 
 	}
 }
 unset($ptype, $ptype_obj, $ptype_class, $ptype_for_id, $ptype_menu_position, $menu_icon, $i, $tax);
+
 
 $menu[59] = array( '', 'read', 'separator2', '', 'wp-menu-separator' );
 
@@ -287,5 +294,6 @@ $compat = array(
 	'options-general' => 'settings',
 	'themes' => 'appearance',
 	);
+
 
 require_once(ABSPATH . 'wp-admin/includes/menu.php');

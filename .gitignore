@@ -4,3 +4,5 @@ ohcasey.master.tar.bz
 wp_config.php
 /app/config.php
 /wp-includes/template-loader.php
+/wp-content/uploads/GeoIP.dat
+/wp-content/uploads/GeoIPv6.dat
