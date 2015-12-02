@@ -5,7 +5,7 @@ var ymap_requested = false;
 var sdec_points;
 
 $(document).ready(function(){
-	$('select').selectpicker(); //хз что это
+	//$('select').selectpicker(); //хз что это
     $(".loader_spin").hide();
     //$("div.delivery-description").hide();
     $(".city-input").show();

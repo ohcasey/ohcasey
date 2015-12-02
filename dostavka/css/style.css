@@ -335,7 +335,7 @@ html,
  	font-size: 24px;
  	right: 15px;
  	transition: 200ms all linear;
- 	color: #262424;;
+ 	color: #262424;
  	z-index: 30;
  }
 
@@ -373,15 +373,18 @@ html,
 		padding-left: 0px;
 	} 
 	.suggestion-element {
-		border: 1px solid grey;
-	    line-height: 30px;
-	    font-size: 20px;
-	    margin: 5px;
-	    padding: 5px;
+		line-height: 35px;
+		font-size: 20px;
+		margin-left: 11px;   
+	}
+	#map, #map-showroom {
+		height: 85vh;
 	}
 
    }
-
+.suggestion-element {
+	cursor: pointer;
+}
 .container {
 	position: relative;
 }
