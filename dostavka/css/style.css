@@ -372,6 +372,13 @@ html,
 		padding-right: 0px;
 		padding-left: 0px;
 	} 
+	.suggestion-element {
+		border: 1px solid grey;
+	    line-height: 30px;
+	    font-size: 20px;
+	    margin: 5px;
+	    padding: 5px;
+	}
 
    }
 
