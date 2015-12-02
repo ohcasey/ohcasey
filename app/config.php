@@ -36,13 +36,13 @@ $mail_controls = array(
 global $bd_controls; 
 
 $bd_controls = array(
-    "dbhost" => "localhost",
+    "dbhost" => "127.0.0.1",
         // Имя пользователя базы данных 
-     "dbuser" => "u12658_ohcasey", 
+     "dbuser" => "bitrix", 
             // и его пароль 
-     "dbpass" => "ohcasey",
+     "dbpass" => "Ioel2L_wxV",
             // Имя базы данных, на хостинге или локальной машине 
-     "dbname" => "u12658_ohcasey"
+     "dbname" => "server2"
 );
 //страницы
 global $cont_pages;

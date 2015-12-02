@@ -1532,7 +1532,7 @@ class WC_Geo_IP {
 			}
 		}
 
-		trigger_error( 'GeoIP API: Error traversing database - perhaps it is corrupt?', E_USER_ERROR );
+		#trigger_error( 'GeoIP API: Error traversing database - perhaps it is corrupt?', E_USER_ERROR );
 
 		return false;
 	}
