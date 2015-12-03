@@ -538,7 +538,11 @@ display: block;
 }
 
 #left {
+<<<<<<< HEAD
 	width: 140px;
+=======
+	width: 128px;
+>>>>>>> 485ab08ddd6f0237d08f12a396e5374e9d30e87e
 	height: 100%;
 	position: absolute;
 	bottom: 0;
@@ -716,6 +720,7 @@ display: block;
 #left_menu-shipping, #left_menu-help {
 	color: #555;
 	padding: 12px;
+	padding-right: 0px;
 	cursor: pointer;
 }
 
