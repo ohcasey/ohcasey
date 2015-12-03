@@ -12,16 +12,9 @@
 				<div id="price_total" class="<?php  if ($controller_name=="cart") {		echo 'cart_name_price';	}?>"></div>
 				<div id="price-point"></div>
 			</div>
-<<<<<<< HEAD
 			<!--
 			<a id="left_menu-shipping" title="О доставке">О ДОСТАВКЕ</a>
 			<a id="left_menu-help"  title="Нужна помощь">НУЖНА ПОМОЩЬ</a>
 			-->
-=======
-			
-			<a id="left_menu-shipping" title="Калькулятор доставки" href="/dostavka">КАЛЬКУЛЯТОР ДОСТАВКИ</a>
-			<a id="left_menu-help"  title="О наших чехлах" href="/podrobnee">О НАШИХ ЧЕХЛАХ</a>
-			
->>>>>>> 485ab08ddd6f0237d08f12a396e5374e9d30e87e
 		</div>
 </div>

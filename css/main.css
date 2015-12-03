@@ -538,11 +538,7 @@ display: block;
 }
 
 #left {
-<<<<<<< HEAD
 	width: 140px;
-=======
-	width: 128px;
->>>>>>> 485ab08ddd6f0237d08f12a396e5374e9d30e87e
 	height: 100%;
 	position: absolute;
 	bottom: 0;
