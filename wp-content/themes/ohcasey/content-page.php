@@ -6,13 +6,21 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
+<<<<<<< HEAD
+=======
+include($_SERVER["DOCUMENT_ROOT"]."/app/controllers/controller.php");
+>>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
 include($_SERVER["DOCUMENT_ROOT"]."/app/config.php");
 include($_SERVER["DOCUMENT_ROOT"]."/app/function.php");
 ?>
 <?if (substr_count($_SERVER["REQUEST_URI"],"cart")>0) {?>
 
     <div id="main" class="cart_page">
+<<<<<<< HEAD
         <?php include "templates/left_block.php";?>
+=======
+        <?php include $_SERVER["DOCUMENT_ROOT"]."/app/controllers/views/templates/left_block.php";?>
+>>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
 
         <div id = "center">
             <!--<div class="form-outer-scroll">     -->
@@ -290,6 +298,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/app/function.php");
 <?}else{?>
 
 <div id="main">
+<<<<<<< HEAD
     <div id="left">
         <div id="phone"><a href="tel:79269798139" title="Телефон"> +7 (926) 979-81-39</a></div>
         <div id="left_menu">
@@ -310,6 +319,9 @@ include($_SERVER["DOCUMENT_ROOT"]."/app/function.php");
             -->
         </div>
     </div>
+=======
+    <?php include $_SERVER["DOCUMENT_ROOT"]."/app/controllers/views/templates/left_block.php";?>
+>>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
 
     <div id="center">
 		<div id="center_in" >

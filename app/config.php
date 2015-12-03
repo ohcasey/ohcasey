@@ -33,7 +33,22 @@ $mail_controls = array(
     "Password" => '2glvPRO100'                  
     
 );
+//<<<<<<< HEAD
 require_once("db_controls.php");
+/*=======
+global $bd_controls; 
+
+$bd_controls = array(
+    "dbhost" => "127.0.0.1",
+        // Имя пользователя базы данных 
+     "dbuser" => "bitrix", 
+            // и его пароль 
+     "dbpass" => "Ioel2L_wxV",
+            // Имя базы данных, на хостинге или локальной машине 
+     "dbname" => "server2"
+);
+>>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
+*/
 //страницы
 global $cont_pages;
 $cont_pages= array("main","cart","success");

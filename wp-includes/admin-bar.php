@@ -601,7 +601,11 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
 function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 	$actions = array();
 
+<<<<<<< HEAD
     if (current_user_can('print_design') AND !is_admin()) return;
+=======
+    if (current_user_can('print_design') AND !is_super_admin()) return;
+>>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
 
     $cpts = (array) get_post_types( array( 'show_in_admin_bar' => true ), 'objects' );
 
@@ -668,7 +672,11 @@ function wp_admin_bar_comments_menu( $wp_admin_bar ) {
 	if ( !current_user_can('edit_posts') )
 		return;
 
+<<<<<<< HEAD
     if (current_user_can('print_design') AND !is_admin()) return;
+=======
+    if (current_user_can('print_design') AND !is_super_admin()) return;
+>>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
 
 	$awaiting_mod = wp_count_comments();
 	$awaiting_mod = $awaiting_mod->moderated;
