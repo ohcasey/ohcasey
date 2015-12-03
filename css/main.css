@@ -20,9 +20,7 @@
  * --------------------
  */
     
-    
-    
-    
+ 
     
     
 .checkbox_hided {
@@ -767,25 +765,26 @@ display: block;
 
 .library_6, .library_5, .library_2, .library {
 	background: none;
-	height: auto;
+	height: auto;library_in
 	bottom: 60px;
-	top: 100px;
-	position: absolute;
-	overflow: hidden;
+	top: 10px;
+	position: relative;
+	
 }
 
 .library_5, .library_2, .library {
-	top: 50px;
+	top: 0px;
 }
 
 .library, .library_2 {
-	top: 55px;	
+	top: 0px;	
 }
 
 .library_in {
 	height: 100%;
 	display: inline-block;
 	width: 100%;
+
 }
 
 .library-font_row {
@@ -888,7 +887,7 @@ display: block;
 	box-shadow: inset 0 0 0 4px #669AC4;
 }
 
-.library-device_row-selected, .library-case_row-selected, .library-font_row-selected, .library-color_row-selected, .library-pattern_row-selected, .library-background_row-selected, .library-smile_row-selected {
+.library-device_row-selected, .library-case_row-selected, .library-font_row-selected, .library-color_row-selected, .library-pattern_row-selected, .library-background_row-selected {
 	-moz-box-shadow: inset 0 0 0 4px #295E93;
 	-webkit-box-shadow: inset 0 0 0 4px #295E93;
 	box-shadow: inset 0 0 0 4px #295E93;
@@ -917,7 +916,7 @@ display: block;
 	display: none;
 }
 .library_5 {
-	top: 53px!important;
+	top: 0px!important;
 }
 
 .library_tab_but:hover {
@@ -3888,3 +3887,65 @@ rect.loader_2 {
 }
 
 
+/*Smiles__new*/
+
+.library-smile_row-selected .library-smile_popup {
+	visibility: visible;
+}
+
+
+
+.library-smile_row-first_first {
+	
+}
+
+.library-smile_popup {
+	visibility: hidden;
+	position: relative;
+	height: auto;
+	overflow: hidden;
+	cursor: default;
+	width: auto;
+	background-color: rgb(255, 255, 255);
+	padding: 0px 9.5px;
+	border: 1px solid #423f40;
+}
+
+.library-smile_row-first .library-smile_popup {
+	left: 0px;
+}
+
+.library-background_row-last .library-smile_popup {
+	right: 13px;
+}
+
+.library_smiles-popup_row {
+	padding-bottom: 5px;
+	padding-top: 5px;
+	height: 43px;
+	white-space: nowrap
+}
+
+.library_smiles-popup_row+.library_smiles-popup_row {
+	border-top: 1px solid #c8c8c8;
+}
+
+.library_smiles-item {
+	height: 38px;
+	width: 38px;
+	cursor: pointer;
+	position: relative;
+	float: left;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	border: 3px solid transparent;
+}
+
+.library_smiles-item:hover {
+	border: 3px solid #669AC4;	
+}
+
+.library_smiles-item:active {
+	border: 3px solid #295E93;
+}

@@ -11,7 +11,7 @@
 					<defs class ="font_block">
 						<style type="text/css">
 							<![CDATA[
-								<?php styles_setup($config);?>
+								<?php //styles_setup($config);?>
 							]]>
 						</style>
 					</defs>
@@ -29,7 +29,7 @@
 					<defs class ="font_block">
 						<style type="text/css">
 							<![CDATA[
-								<?php styles_setup($config);?>
+								<?php //styles_setup($config);?>
 							]]>
 						</style>
 					</defs>
