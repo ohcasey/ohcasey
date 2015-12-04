@@ -6,21 +6,15 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
-<<<<<<< HEAD
-=======
 include($_SERVER["DOCUMENT_ROOT"]."/app/controllers/controller.php");
->>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
 include($_SERVER["DOCUMENT_ROOT"]."/app/config.php");
 include($_SERVER["DOCUMENT_ROOT"]."/app/function.php");
 ?>
 <?if (substr_count($_SERVER["REQUEST_URI"],"cart")>0) {?>
 
     <div id="main" class="cart_page">
-<<<<<<< HEAD
-        <?php include "templates/left_block.php";?>
-=======
         <?php include $_SERVER["DOCUMENT_ROOT"]."/app/controllers/views/templates/left_block.php";?>
->>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
+
 
         <div id = "center">
             <!--<div class="form-outer-scroll">     -->
@@ -298,30 +292,8 @@ include($_SERVER["DOCUMENT_ROOT"]."/app/function.php");
 <?}else{?>
 
 <div id="main">
-<<<<<<< HEAD
-    <div id="left">
-        <div id="phone"><a href="tel:79269798139" title="Телефон"> +7 (926) 979-81-39</a></div>
-        <div id="left_menu">
-            <a id="cart"  href="/cart" title="Корзина" class="<?php if ($controller_name=="cart") {echo "cart_cart";}?>">
-				<span>
-					<span class="cart_count"><?php echo $count_tov;?></span>
-                    <?php echo $count_text;?>
-				</span>
-            </a>
-            <div id="price">
-                <div id="phone_model" class="<?php if ($controller_name=="cart") {		echo 'cart_name_price';	} ?>"></div>
-                <div id="price_total" class="<?php if ($controller_name=="cart") {		echo 'cart_name_price';	} ?>"></div>
-                <div id="price-point"></div>
-            </div>
-            <!--
-            <a id="left_menu-shipping" title="О доставке">О ДОСТАВКЕ</a>
-            <a id="left_menu-help"  title="Нужна помощь">НУЖНА ПОМОЩЬ</a>
-            -->
-        </div>
-    </div>
-=======
     <?php include $_SERVER["DOCUMENT_ROOT"]."/app/controllers/views/templates/left_block.php";?>
->>>>>>> 63fad7a1e49d3da96649269b57c15320e8c514c0
+
 
     <div id="center">
 		<div id="center_in" >
