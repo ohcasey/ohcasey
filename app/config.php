@@ -1256,6 +1256,20 @@ iphone4_black_crystal_case.png
 				"name"=>"категория 1",
 				array( 
 					//iphone 4
+					
+					// новые принты 20.11.2015
+					array("big"=>"4-4s/orhidei_i4-4s.png",
+					"small"=>"orhidei_preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ded_pattern_i4-4s.png",
+					"small"=>"ded_pattern_preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ded_moroz_i4-4s.png",
+					"small"=>"ded_moroz_preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/hello_winter_white_i4-4s.png",
+					"small"=>"hello_winter_white_preview.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/cherep_i4-4s.png",
+					"small"=>"cherep_preview.png","chechs"=>array(31,32,33,34)),
+					
+					
 					// новые принты 20.11.2015
 					array("big"=>"4-4s/paket_i4-4s.png",
 					"small"=>"paket_r82.png","chechs"=>array(31,32,33,34)),
@@ -1501,6 +1515,19 @@ iphone4_black_crystal_case.png
 					
 
 					//iphone5
+					
+						// новые принты 20.11.2015
+					array("big"=>"5-5s-5c/orhidei_i5-5s-5c.png",
+					"small"=>"orhidei_preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/ded_pattern_i5-5s-5c.png",
+					"small"=>"ded_pattern_preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/ded_moroz_i5-5s-5c.png",
+					"small"=>"ded_moroz_preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/hello_winter_white_i5-5s-5c.png",
+					"small"=>"hello_winter_white_preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/cherep_i5-5s-5c.png",
+					"small"=>"cherep_preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					
 					array("big"=>"5-5s-5c/paket_i5-5s-5c.png",
 					"small"=>"paket_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 					array("big"=>"5-5s-5c/starbucks_i5-5s-5c.png",
@@ -1753,6 +1780,19 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					
+					// новые принты 20.11.2015
+					array("big"=>"6-6+/orhidei_i6-6+.png",
+					"small"=>"orhidei_preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/ded_pattern_i6-6+.png",
+					"small"=>"ded_pattern_preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/ded_moroz_i6-6+.png",
+					"small"=>"ded_moroz_preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/hello_winter_white_i6-6+.png",
+					"small"=>"hello_winter_white_preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					array("big"=>"6-6+/cherep_i6-6+.png",
+					"small"=>"cherep_preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
+					
 					array("big"=>"6-6+/paket_i6-6+.png",
 					"small"=>"paket_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
 					array("big"=>"6-6+/starbucks_i6-6+.png",
