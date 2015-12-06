@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$('select').selectpicker();
 
 	 $('.carousel').carousel({
-	    pause: true,
+	     pause: "hover",
 	    interval: 3000,
 	  });
 	set_slider_height();
