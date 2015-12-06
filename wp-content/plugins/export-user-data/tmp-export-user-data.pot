@@ -1,0 +1,231 @@
+# Copyright (C) 2015 Export User Data
+# This file is distributed under the same license as the Export User Data package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Export User Data 1.2.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/export-user-data\n"
+"POT-Creation-Date: 2015-11-12 00:30:42+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. #-#-#-#-#  tmp-export-user-data.pot (Export User Data 1.2.5)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: export-user-data.php:156 export-user-data.php:1111
+msgid "Export User Data"
+msgstr ""
+
+#: export-user-data.php:1009
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: export-user-data.php:1116
+msgid "No users found."
+msgstr ""
+
+#: export-user-data.php:1172
+msgid "User Meta Fields"
+msgstr ""
+
+#: export-user-data.php:1174
+msgid "Filter"
+msgstr ""
+
+#: export-user-data.php:1174 export-user-data.php:1177
+#: export-user-data.php:1260 export-user-data.php:1297
+msgid "All"
+msgstr ""
+
+#: export-user-data.php:1174
+msgid "Common"
+msgstr ""
+
+#: export-user-data.php:1177 export-user-data.php:1260
+#: export-user-data.php:1297
+msgid "Select"
+msgstr ""
+
+#: export-user-data.php:1177 export-user-data.php:1260
+#: export-user-data.php:1297
+msgid "None"
+msgstr ""
+
+#: export-user-data.php:1228
+msgid ""
+"Select the user meta keys to export, use the filters to simplify the list."
+msgstr ""
+
+#: export-user-data.php:1258
+msgid "BP xProfile Fields"
+msgstr ""
+
+#: export-user-data.php:1283
+msgid "Select the BuddyPress XProfile keys to export"
+msgstr ""
+
+#: export-user-data.php:1295
+msgid "BP xProfile Fields Update Time"
+msgstr ""
+
+#: export-user-data.php:1314
+msgid "Select the BuddyPress XProfile keys updated dates to export"
+msgstr ""
+
+#: export-user-data.php:1321
+msgid "BP User Groups"
+msgstr ""
+
+#: export-user-data.php:1326
+msgid "Include BuddyPress Group Data. <a href=\"%s\" target=\"_blank\">%s</a>"
+msgstr ""
+
+#: export-user-data.php:1339
+msgid "Standard User Fields"
+msgstr ""
+
+#: export-user-data.php:1352
+msgid ""
+"Include Standard user profile fields, such as user_login. <a href=\"%s\" "
+"target=\"_blank\">%s</a>"
+msgstr ""
+
+#: export-user-data.php:1362
+msgid "Role"
+msgstr ""
+
+#: export-user-data.php:1367
+msgid "All Roles"
+msgstr ""
+
+#: export-user-data.php:1388
+msgid ""
+"Filter the exported users by a WordPress Role. <a href=\"%s\" target=\"_blank"
+"\">%s</a>"
+msgstr ""
+
+#: export-user-data.php:1397
+msgid "User Roles"
+msgstr ""
+
+#: export-user-data.php:1402
+msgid "Include all of the users <a href=\"%s\" target=\"_blank\">%s</a>"
+msgstr ""
+
+#: export-user-data.php:1416
+msgid "Programs"
+msgstr ""
+
+#: export-user-data.php:1421
+msgid "All Programs"
+msgstr ""
+
+#: export-user-data.php:1442
+msgid "Registered"
+msgstr ""
+
+#: export-user-data.php:1448
+msgid "Pick a start and end user registration date to limit the results."
+msgstr ""
+
+#: export-user-data.php:1455
+msgid "Limit Range"
+msgstr ""
+
+#: export-user-data.php:1457
+msgid "Offset"
+msgstr ""
+
+#: export-user-data.php:1458
+msgid "Total"
+msgstr ""
+
+#: export-user-data.php:1461
+msgid ""
+"Enter an offset start number and a total number of users to export. <a href="
+"\"%s\" target=\"_blank\">%s</a>"
+msgstr ""
+
+#: export-user-data.php:1470
+msgid "Updated Since"
+msgstr ""
+
+#: export-user-data.php:1489
+msgid ""
+"Limit the results to users who have updated this extended profile field "
+"after this date."
+msgstr ""
+
+#: export-user-data.php:1496
+msgid "Format"
+msgstr ""
+
+#: export-user-data.php:1501 export-user-data.php:1503
+msgid "Excel"
+msgstr ""
+
+#: export-user-data.php:1506 export-user-data.php:1508
+msgid "CSV"
+msgstr ""
+
+#: export-user-data.php:1514
+msgid "Select the format for the export file."
+msgstr ""
+
+#: export-user-data.php:1521
+msgid "Stored Options"
+msgstr ""
+
+#: export-user-data.php:1525
+msgid "Export Name"
+msgstr ""
+
+#: export-user-data.php:1526
+msgid "Save"
+msgstr ""
+
+#: export-user-data.php:1562
+msgid "Load"
+msgstr ""
+
+#: export-user-data.php:1563
+msgid "Delete"
+msgstr ""
+
+#: export-user-data.php:1570
+msgid "Save, load or delete your stored export options."
+msgstr ""
+
+#: export-user-data.php:1577
+msgid "Advanced Options"
+msgstr ""
+
+#: export-user-data.php:1581 export-user-data.php:1674
+msgid "Show"
+msgstr ""
+
+#: export-user-data.php:1589
+msgid "Run Export"
+msgstr ""
+
+#: export-user-data.php:1672
+msgid "Hide"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://qstudio.us/plugins/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Export User data, metadata and BuddyPress X-Profile data."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Q Studio"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://qstudio.us"
+msgstr ""

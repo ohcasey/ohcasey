@@ -1,0 +1,322 @@
+msgid ""
+msgstr "MIME-Version: 1.0\n"
+
+#. Name.
+msgid "Export User Data"
+msgstr ""
+
+#. Short description.
+msgid "Export users data, metadata and buddypress xprofile data to a csv or Excel file"
+msgstr ""
+
+#. Screenshot description.
+msgid "User export screen"
+msgstr ""
+
+#. Found in description header.
+msgid "Features"
+msgstr ""
+
+#. Found in description list item.
+msgid "Exports all users fields"
+msgstr ""
+
+#. Found in description list item.
+msgid "Exports users meta"
+msgstr ""
+
+#. Found in description list item.
+msgid "Exports users by role"
+msgstr ""
+
+#. Found in description list item.
+msgid "Exports users by date range"
+msgstr ""
+
+#. Found in description list item.
+msgid "Export user BuddyPress xProfile data"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "A plugin that exports ALL user data, meta data and BuddyPress xProfile data."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Includes an option to export the users by role, registration date range, usermeta option and two export formats."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "For feature request and bug reports, <a href=\"http://www.wp-support.co/view/categories/export-user-data\">please use the WP Support Website</a>."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Please do not use the Wordpress.org forum to report bugs, as we no longer monitor or respond to questions there."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Go to the 'Add New' plugins screen in your WordPress admin area"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Search for 'Export User Data'"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Click 'Install Now' and activate the plugin"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Go the 'Export User Data' menu, under 'Users'"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Upload the <code>export-user-data</code> directory to the <code>/wp-content/plugins/</code> directory"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Activate the plugin through the 'Plugins' screen in your WordPress admin area"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Upload the downloaded zip file on the 'Add New' plugins screen (see the 'Upload' tab) in your WordPress admin area and activate."
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "For an automatic installation through WordPress:"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "For a manual installation via FTP:"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "To upload the plugin through WordPress, instead of FTP:"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix: Moved \"Standard User Fields\" option outside of BP conditional loop - spotted by @j4t"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix: Removed comments to screen"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix: to remove minor security loop hole"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New: Added option to remove standard wp_users data from export"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix: removed roles and groups columns from export when options hidden"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor Fixes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Checked on WP 4.3.1"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Moved text-domain to string in preperation for addition to translate.wordpress.org"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added Log() method to allow for debugging to WP Error Log"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added Greek translation - Thanks @Leonidas Mi"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added option to limit export by last_updated date of specific xprofile field - Thanks to @cwjordan"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Data stored in recursive and serialized arrays is now exported in a flat string format with safer delimiters ( ||, ||| - etc. )"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removed anonymous function calls giving errors on older versions of PHP"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removed accidently included .git files"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Version change to sync SVN on wordpress.org"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added unserialize function with @ fallback"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removed anonymous function to allow support for PHP &lt; 5.2"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tested as working on WordPress 4.1.0."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removed get_user_meta method, as not effective."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added registration date from and to pickers - to replace monthly  lists."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added recursive_implode() method to flatten data stored in arrays ( exported with keys and values divided by \"|\" )"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Reduced all get_user_meta queries to a single call to improve performance"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Serialized data is now returned in it's pure stored format - not imploded or unserialized to avoid data structure loss"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "get_uermeta renamed get_user_meta to be more consistent with WP"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "get_user_meta tidied up and tested on larger exports"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "added option to export user BP Groups"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "added option to export all user WP Roles"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "added get_usermeta() to check if meta keys are unique and return an array if not "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "removed known_arrays() filter to allow for array data to be returned correctly - too hacky"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added known_arrays() filter to allow for array data to be returned correctly"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Save, load and delete stored export settings - thanks to @cwjordan"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Overcome memory outages on large exports - thanks to @grexican"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tested on WP 4.0.0 &amp; BP 2.1.0"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "BP Serialized data fixes - thanks to @nicmare &amp; @grexican"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tested on WP 3.9.2 &amp; BP 2.0.2"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "BP X Profile Export Fix ( &gt; version 2.0 )"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "fix for hidden admin bar"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "removed $key assignment casting to integer"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tested with WP 3.9"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix for BuddyPress 2.0 bug"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Moved plugin class to singleton model"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved language handling"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "French translation - thanks @bastho - http://wordpress.org/support/profile/bastho"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "clarified export limit options"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "corrected buddypress export option - broken in 0.8.1"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "changed get_users arguments, in attempt to reduce memory usage"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added experimental range limiter for exports"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Extra input data sanitizing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "moved plugin instatiation to the WP hook: init"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "moved bp calls outside export loop"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "added extra isset calls on values in export loop to clean up error log not sets"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "added xml template for Excel exports - thanks to phil@fixitlab.com :)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "fixes to allow exports without selecting extra user date from usermeta or x-profile"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "added multiselect to pick usermeta and xprofile fields "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "First public release."
+msgstr ""
+
+#. Found in faq header.
+msgid "How to use?"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Click on the 'Export User Data' link in the 'Users' menu, choose the role and the date range or don't select anything if you want to export all users, then click 'Export'. That's all!"
+msgstr ""
