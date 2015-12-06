@@ -7,9 +7,9 @@ $(document).ready(function(){
 	  });
 	set_slider_height();
 	$(".carousel-slider").addClass("loader_spin");
-	$('<img/>').attr('src', 'img/loader_spin.gif').load(function() {
+	$('.test').attr('src', 'img/loader_spin.gif').load(function() {
 		$(this).remove(); // prevent memory leaks as @benweet suggested
-		$("loader_spin").css('background-image', 'url(img/loader_spin.gif)');
+		//$(".loader_spin").css('background-image', 'url(img/loader_spin.gif)');
 	});
 });
 
