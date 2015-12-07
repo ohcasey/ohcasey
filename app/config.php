@@ -2029,7 +2029,7 @@ iphone4_black_crystal_case.png
 									"normal" => "variants/ear003_big.png"
 									),
 								),
-								"preview_default"=>"ear07_default.png"
+								"preview_default"=>"ear08_default.png"
 							),
 
 
