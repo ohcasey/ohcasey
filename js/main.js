@@ -227,8 +227,58 @@ $(document).on("click", ".chech_colors div" , function(){
 });
 
 
+
+$(document).on("click", "#right-6 .library-smile_row" , function(event) {	
+	set_smile($(this).attr('data-smile-id'));
+});
+
+$(document).on("click", "#right-5 .library_smiles-item" , function() {
+		set_bg($(this).parent().parent().data('bgId'),$(this).attr('data-url') );
+});
+
+
 $(document).on("click", ".library-background_row" , function() {
-	set_bg($(this).data('bgId'));
+	if (event.target.className == "library_smiles-item") return;
+	var bg_id = $(this).data('bgId');
+	
+	
+	
+	$(".library-background_row").removeClass("library-background_row-selected");
+	$("#library-background_row-"+bg_id).addClass("library-background_row-selected");
+	
+	var width_popup = $(".library-background_row-selected .library_smiles-popup_row:first").find(".library_smiles-item").length * 65;
+	
+	$(".library-background_row-selected .library-smile_popup").css("width", width_popup +"px");
+	
+	var height_popup = $(".library-background_row-selected .library_smiles-popup_row").length * 111 + 7;
+	
+	$(".library-background_row-selected .library-smile_popup").css("top", "-" + height_popup +"px");
+	
+	if ($(".library-background_row-selected .library_smiles-item").length <2) {
+		
+		var url = $(".library-background_row-selected .library_smiles-item").attr("data-url");
+		$(".library-background_row-selected .library-smile_popup-tringled, .library-background_row-selected .library-smile_popup-tringled_2").remove();
+		
+		
+		
+		set_bg(bg_id, url);
+		$(".library-background_row-selected .library-smile_popup").css("visibility","hidden");
+	}
+	
+	
+	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
+  
+	
+
+	
+	//Append mask and camera
+	//required data
+	
+	
+	$(".ps-scrollbar-x-rail").remove();
+	
+	
+	//set_bg($(this).data('bgId'));
 });
 
 
@@ -257,8 +307,13 @@ $(document).on("click", "#right-6 .library_tab_but" , function(){
 });
 
 
-$(document).on("click", ".library-smile_row" , function() {
-		set_smile($(this).attr('data-smile-id'));
+$(document).on("click", "#right-6 .library-smile_row" , function(event) {
+	if (event.target.className == "library_smiles-item") return;
+	set_smile($(this).attr('data-smile-id'));
+});
+
+$(document).on("click", "#right-6 .library_smiles-item" , function() {
+		set_smiles_popup($(this).attr('data-url'));
 });
 
 
@@ -580,11 +635,12 @@ function setup_smiles(){
 			for(value1 in category) {
 			
 				var hash = randomHash(4);
-				var smiles_inner = "<div class='library_smiles-popup_row'>";
+		
 				
 				var smiles_variants = category[value1].variants;
 				
-				
+			  
+				var smiles_inner = "<div class='library_smiles-popup_row'>";
 				
 				for(value2 in smiles_variants) {
 					if (((value2 % 6) == 0) && (value2!=0)) {
@@ -595,8 +651,6 @@ function setup_smiles(){
 				
 				smiles_inner+= "</div>";
 			
-			  if (smiles_inner != "<div class='library_smiles-popup_row'></div>");	
-				
 				if (value1 == 0) {
 					html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+path+category[value1].preview_default+');" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'">';
 						html_text+='<div class="library-smile_row-first_first library-smile_popup">';
@@ -619,7 +673,7 @@ function setup_smiles(){
 								html_text+='</div>';
 						}else{
 							html_text+='<div class="library-smile_row " style="background-image: url('+path+category[value1].preview_default+');" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'">';
-								html_text+='<div class="library-smile_row-default library-smile_popup">';
+								html_text+='<div class="library-smile_row-default library-smile_popup library-smile_popup_'+(value1 % 5)+'">';
 									html_text+=smiles_inner;
 								html_text+='</div>';
 							html_text+='</div>';
@@ -657,6 +711,8 @@ function setup_smiles(){
 
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
+	$(".library-smile_row").append("<div class='library-smile_popup-tringled'></div>");
+	$(".library-smile_row").append("<div class='library-smile_popup-tringled_2'></div>");
 	
 }
 
@@ -688,44 +744,98 @@ function setup_backgrounds() {
 				html_text+='<div class="library_5  library-backgrouds" id="library_backgrouds-'+value+'" style="display: none;">';	
 			}
 			
+		
+		
 			html_text+='<div class="library_in">';
 				
             var available_backgrounds = [];   
         
 			for(value1 in category) {
-				var array_allowed = category[value1].chechs;				
+				var array_allowed = category[value1].chechs;
+				
 				if (array_allowed == undefined) {                    
 					array_allowed = "all";                    
 				}              
                 else{                 
                     //Filter backgrounds
                     if (array_allowed.indexOf(desctop.case_id)==-1){
+											 
                         continue;
                     }  
                     //                 
 					array_allowed = array_allowed.join(",")
 				}
-				console.log(array_allowed);		
+				         console.log(array_allowed);		
                 
                 available_backgrounds.push(category[value1]);	
 			}
 		
-        
-            for (ind in available_backgrounds){
+		
+		     
+  
+		
+
+       for (ind in available_backgrounds){
+							
+							
+							
+					var smiles_variants = available_backgrounds[ind].variants;
+		
+		       var smiles_inner = "<div class='library_smiles-popup_row'>";
+				   console.log(smiles_variants);
+						
+						for(value2 in smiles_variants) {
+							if (((value2 % 5) == 0) && (value2!=0)) {
+								smiles_inner+="</div><div class='library_smiles-popup_row'>";
+							}
+							smiles_inner+="<div class='library_smiles-item' data-url="+path+smiles_variants[value2].normal+" style='background-image: url("+path+smiles_variants[value2].preview+");'></div>";
+						}
+				
+						smiles_inner+= "</div>";
+						
+						
                 var hash = randomHash(4);
                 if (ind == 0) {
-                    html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                    html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].preview_default+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'">';
+									html_text+='<div class="library-smile_row-default library-smile_popup library-smile_popup_'+(value2 % 4)+'">';
+									html_text+=smiles_inner;
+								html_text+='</div>';	
+									
+									
+									html_text+='</div>';
                 }
                 else{
                     if((ind % 4) == 0) {
-                        html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
-                    }
+                        html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].preview_default+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'">';
+                   		
+											html_text+='<div class="library-smile_row-default library-smile_popup library-smile_popup_'+(value2 % 4)+'">';
+									html_text+=smiles_inner;
+								html_text+='</div>';
+											
+											
+											html_text+='</div>';
+										}
                     else{
                         if((ind % 4) == 3) {
-                            html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
-                        }else{
-                            html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
-                        }
+                            html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+path+available_backgrounds[ind].preview_default+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'">';
+                        		
+													html_text+='<div class="library-smile_row-default library-smile_popup library-smile_popup_'+(value2 % 4)+'">';
+									html_text+=smiles_inner;
+								html_text+='</div>';
+													
+													
+													html_text+='</div>';
+												}else{
+                            html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+path+available_backgrounds[ind].preview_default+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'">';
+                        		
+													html_text+='<div class="library-smile_row-default library-smile_popup library-smile_popup_'+(value2 % 4)+'">';
+									html_text+=smiles_inner;
+								html_text+='</div>';
+													
+													
+													
+													html_text+='</div>';
+												}
                     }
                 }
             }
@@ -753,7 +863,8 @@ function setup_backgrounds() {
 	}
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
-
+   $(".library-background_row").append("<div class='library-smile_popup-tringled'></div>");
+	$(".library-background_row").append("<div class='library-smile_popup-tringled_2'></div>");
 }
 
 function setup_colors() {
@@ -945,6 +1056,8 @@ function set_default_text(){
 
 	//svg_controls.append("image").
 }
+
+
 
 
 function set_smiles_image(url) {
@@ -1605,30 +1718,49 @@ function set_device(device_id) {
 	//$('#device').css('background-image', 'url(' + config.devices_desctop_path + config.devices[device_id].desctop_img + ')');
 }
 
+function set_smiles_popup(url) {
+	
+	set_smiles_image(url);
+	
+	$(".library-smile_row-selected").removeClass("library-smile_row-selected");
+}
 
 function set_smile(smile_id) {
 	var url = d3.select("#library-smile_row-"+smile_id).attr("data-url");
 	
-	set_smiles_image(url);
-	
 	$(".library-smile_row").removeClass("library-smile_row-selected");
 	$("#library-smile_row-"+smile_id).addClass("library-smile_row-selected");
 	
-	$(".library-smile_row-selected .library-smile_popup").css("width", ($(".library-smile_row-selected .library_smiles-popup_row:first").find(".library_smiles-item").length * 44)+"px");
+	var width_popup = $(".library-smile_row-selected .library_smiles-popup_row:first").find(".library_smiles-item").length * 44;
 	
-	$(".library-smile_row-selected .library-smile_popup").css("top", ($(".library-smile_row-selected .library_smiles-popup_row:first").find(".library_smiles-item").length * 44)+"px");
+	$(".library-smile_row-selected .library-smile_popup").css("width", width_popup +"px");
+	
+	var height_popup = $(".library-smile_row-selected .library_smiles-popup_row").length * 54 + 10;
+	
+	$(".library-smile_row-selected .library-smile_popup").css("top", "-" + height_popup +"px");
+	
+	if ($(".library-smile_row-selected .library_smiles-item").length <2) {
+		//var url
+		$(".library-smile_row-selected .library-smile_popup-tringled, .library-smile_row-selected .library-smile_popup-tringled_2").remove();
+		set_smiles_image($(".library-smile_row-selected .library_smiles-item").attr("data-url"));
+		$(".library-smile_row-selected .library-smile_popup").css("visibility","hidden");
+	}
+	
 	
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
-
+  
+	
+	
+	$(".ps-scrollbar-x-rail").remove();
 }
 
 
-function set_bg(bg_id) {
+function set_bg(bg_id , url) {
 
 	d3.selectAll(".rect__loader").classed("active", true);
 
 	desctop.bg_id = bg_id;
-	var url = d3.select("#library-background_row-"+bg_id).attr("data-url");
+	
 
 	desctop.bg_case = url;
 
@@ -1649,16 +1781,9 @@ function set_bg(bg_id) {
       		d3.selectAll(".rect__loader").classed("active", false);
 
 	});
-	$(".library-background_row").removeClass("library-background_row-selected");
-	$("#library-background_row-"+bg_id).addClass("library-background_row-selected");
-	$(".icon-close").css("display", "block");
-	
-	//Append mask and camera
-	//required data
-	$("#header-menu-item-5").addClass("header-menu-active");
-	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
-		
+  $("#header-menu-item-5").addClass("header-menu-active");
+			$(".icon-close").css("display", "block");
 }
 
 
@@ -2915,12 +3040,12 @@ jQuery(function($){
 		if (!div.is(event.target) // если клик был не по нашему блоку
 		   && (div.has(event.target).length === 0)
 			) {
-			$(".library-smile_row").removeClass("library-smile_row-selected");
-			
+			$(".library-smile_row ").removeClass("library-smile_row-selected");
+			$(".library-background_row").removeClass("library-background_row-selected");
+
 		}
 	});
 });
-
 
 //SVG DOM injection
 jQuery(function($){

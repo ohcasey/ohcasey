@@ -1255,754 +1255,178 @@ iphone4_black_crystal_case.png
 				"link"=>"1/",
 				"name"=>"категория 1",
 				array( 
-					//iphone 4
-					// новые принты 20.11.2015
-					array("big"=>"4-4s/paket_i4-4s.png",
-					"small"=>"paket_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/starbucks_i4-4s.png",
-					"small"=>"starbucks_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/pryanik_i4-4s.png",
-					"small"=>"pryanik_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/blonde_i4-4s.png",
-					"small"=>"blonde_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/brunette_i4-4s.png",
-					"small"=>"brunette_r82.png","chechs"=>array(31,32,33,34)),
 					
-					array(
-						"big"=>"4-4s/s_elkoi_i4-4s.png",
-						"small"=>"s_elkoi_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/dart_i4-4s.png",
-						"small"=>"dart_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/chr-pat_i4-4s.png",
-						"small"=>"chr-pat_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/koritsa_i4-4s.png",
-						"small"=>"koritsa_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/ledentsi_koritsa_i4-4s.png",
-						"small"=>"ledentsi_koritsa_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/lollipops_i4-4s.png",
-						"small"=>"lollipops_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/rozochki_i4-4s.png",
-						"small"=>"rozochki_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/snegiri_i4-4s.png",
-						"small"=>"snegiri_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/zajka_i4-4s.png",
-						"small"=>"zajka_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
 					
+			      array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+														),
+														
+							),
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					
+					      array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					
+					
+					
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+
+	
 				
-					// 
-					array(
-						"big"=>"4-4s/bembi_i4-4s.png",
-						"small"=>"bembi_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array("big"=>"4-4s/devochka_i4-4s.png",
-					"small"=>"devochka_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/dior_kedy_i4-4s.png",
-					"small"=>"dior_kedy_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/duhi_v_ruke_i4-4s.png",
-					"small"=>"duhi_v_ruke_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/edinorog_i4-4s.png",
-					"small"=>"edinorog_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/edinorog2_i4-4s.png",
-					"small"=>"edinorog2_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/fashion_i4-4s.png",
-					"small"=>"fashion_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/fendi_i4-4s.png",
-					"small"=>"fendi_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/karl_i4-4s.png",
-					"small"=>"karl_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/katava_i4-4s.png",
-					"small"=>"katava_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/koko_madm_i4-4s.png",
-					"small"=>"koko_madm_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/Lubuteny_i4-4s.png",
-					"small"=>"Lubuteny_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/makaruny_i4-4s.png",
-					"small"=>"makaruny_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/manolo_i4-4s.png",
-					"small"=>"manolo_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/miss_dior_i4-4s.png",
-					"small"=>"miss_dior_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/nike_i4-4s.png",
-					"small"=>"nike_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/palmy_i4-4s.png",
-					"small"=>"palmy_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/paris_i4-4s.png",
-					"small"=>"paris_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/pomada_mac_i4-4s.png",
-					"small"=>"pomada_mac_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/pomada2_i4-4s.png",
-					"small"=>"pomada2_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/rozy_i4-4s.png",
-					"small"=>"rozy_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/ryukzak_i4-4s.png",
-					"small"=>"ryukzak_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/sakura_i4-4s.png",
-					"small"=>"sakura_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/tufli_valentino_i4-4s.png",
-					"small"=>"tufli_valentino_r82.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/tufli-versache-iphonei4_4-4s.png",
-					"small"=>"tufli-versache-preview.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/unicorn-iphonei4_4-4s.png",
-					"small"=>"unicorn-prevew.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/uzoe-iphonei4_4-4s.png",
-					"small"=>"uzor-prevew.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/serdca-iphonei4_4-4s.png",
-					"small"=>"serdca-preview.png","chechs"=>array(31,32,33,34)),
-					
-					array("big"=>"4-4s/odri-iphonei4_4-4s.png",
-					"small"=>"odri-preview.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/odri-white-iphonei4_4-4s.png",
-					"small"=>"odri-white-preview.png","chechs"=>array(31,32,33,34)),
-					
-					// паттерны черные - белые - цветные 
-					
-					array(
-						"big"=>"4-4s/chr1_i4-4s.png",
-						"small"=>"chr1_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/chr2_i4-4s.png",
-						"small"=>"chr2_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/chr3_i4-4s.png",
-						"small"=>"chr3_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/confetti1_i4-4s.png",
-						"small"=>"confetti1_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/confetti2_i4-4s.png",
-						"small"=>"confetti2_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/confetti3_i4-4s.png",
-						"small"=>"confetti3_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/confetti4_i4-4s.png",
-						"small"=>"confetti4_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/confetti5_i4-4s.png",
-						"small"=>"confetti5_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/gor1_i4-4s.png",
-						"small"=>"gor1_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/gor2_i4-4s.png",
-						"small"=>"gor2_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/goroh2_i4-4s.png",
-						"small"=>"goroh2_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/goroh3_i4-4s.png",
-						"small"=>"goroh3_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/goroshki_i4-4s.png",
-						"small"=>"goroshki_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/hearts_black_i4-4s.png",
-						"small"=>"hearts_black_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/hearts_white_i4-4s.png",
-						"small"=>"hearts_white_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/ny_pattern_black_i4-4s.png",
-						"small"=>"ny_pattern_black_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/ny_pattern_color_i4-4s.png",
-						"small"=>"ny_pattern_color_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/ny_pattern_white_i4-4s.png",
-						"small"=>"ny_pattern_white_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/snowflakes_red_i4-4s.png",
-						"small"=>"snowflakes_red_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/snowflakes_white_i4-4s.png",
-						"small"=>"snowflakes_white_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					
-					array("big"=>"4-4s/ogurci-black-iphonei4_4-4s.png",
-					"small"=>"ogurci-black-preview.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/ogurci-iphonei4_4-4s.png",
-					"small"=>"ogurci-preview.png","chechs"=>array(31,32,33,34)),
-					
-					array("big"=>"4-4s/hamsa-black-iphonei4_4-4s.png",
-					"small"=>"hamsa-black-preview.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/hamsa-iphonei4_4-4s.png",
-					"small"=>"hamsa-preview.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/david-black-iphonei4_4-4s.png",
-					"small"=>"david-black-preview.png","chechs"=>array(31,32,33,34)),
-					array("big"=>"4-4s/david-iphonei4_4-4s.png",
-					"small"=>"david-preview.png","chechs"=>array(31,32,33,34)),
+			
+			
 
-					
-
-					//iphone5
-					array("big"=>"5-5s-5c/paket_i5-5s-5c.png",
-					"small"=>"paket_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/starbucks_i5-5s-5c.png",
-					"small"=>"starbucks_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/pryanik_i5-5s-5c.png",
-					"small"=>"pryanik_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/blonde_i5-5s-5c.png",
-					"small"=>"blonde_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/brunette_i5-5s-5c.png",
-					"small"=>"brunette_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-
-					// новые принты 20.11.2015
-					array(
-						"big"=>"5-5s-5c/s_elkoi_i5-5s-5c.png",
-						"small"=>"s_elkoi_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/dart_i5-5s-5c.png",
-						"small"=>"dart_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/chr-pat_i5-5s-5c.png",
-						"small"=>"chr-pat_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/koritsa_i5-5s-5c.png",
-						"small"=>"koritsa_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/ledentsi_koritsa_i5-5s-5c.png",
-						"small"=>"ledentsi_koritsa_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/lollipops_i5-5s-5c.png",
-						"small"=>"lollipops_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/rozochki_i5-5s-5c.png",
-						"small"=>"rozochki_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/snegiri_i5-5s-5c.png",
-						"small"=>"snegiri_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/zajka_i5-5s-5c.png",
-						"small"=>"zajka_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					
-					
-					
-
-					// 
-					array("big"=>"5-5s-5c/donuts_i5-5s-5c.png",
-					"small"=>"donuts_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/mickey_i5-5s-5c.png",
-					"small"=>"mickey_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/minnie_i5-5s-5c.png",
-					"small"=>"minnie_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					
-
-					array("big"=>"5-5s-5c/bembi_i5-5s-5c.png",
-					"small"=>"bembi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/devochka_i5-5s-5c.png",
-					"small"=>"devochka_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/dior_kedy_i5-5s-5c.png",
-					"small"=>"dior_kedy_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/duhi_v_ruke_i5-5s-5c.png",
-					"small"=>"duhi_v_ruke_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/edinorog_i5-5s-5c.png",
-					"small"=>"edinorog_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/edinorog2_i5-5s-5c.png",
-					"small"=>"edinorog2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/fashion_i5-5s-5c.png",
-					"small"=>"fashion_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/fendi_i5-5s-5c.png",
-					"small"=>"fendi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/karl_i5-5s-5c.png",
-					"small"=>"karl_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/katava_i5-5s-5c.png",
-					"small"=>"katava_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/koko_madm_i5-5s-5c.png",
-					"small"=>"koko_madm_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/Lubuteny_i5-5s-5c.png",
-					"small"=>"Lubuteny_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/makaruny_i5-5s-5c.png",
-					"small"=>"makaruny_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/manolo_i5-5s-5c.png",
-					"small"=>"manolo_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/miss_dior_i5-5s-5c.png",
-					"small"=>"miss_dior_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/nike_i5-5s-5c.png",
-					"small"=>"nike_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/palmy_i5-5s-5c.png",
-					"small"=>"palmy_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/paris_i5-5s-5c.png",
-					"small"=>"paris_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/pomada_mac_i5-5s-5c.png",
-					"small"=>"pomada_mac_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/pomada2_i5-5s-5c.png",
-					"small"=>"pomada2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/rozy_i5-5s-5c.png",
-					"small"=>"rozy_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/ryukzak_i5-5s-5c.png",
-					"small"=>"ryukzak_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/sakura_i5-5s-5c.png",
-					"small"=>"sakura_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
-					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/tufli_valentino_i5-5s-5c.png",
-					"small"=>"tufli_valentino_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/tufli-versache-iphonei5-5s-5c.png",
-					"small"=>"tufli-versache-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/unicorn-iphonei5-5s-5c.png",
-					"small"=>"unicorn-prevew.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/uzor-iphonei5-5s-5c.png",
-					"small"=>"uzor-prevew.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/serdca-iphonei5-5s-5c.png",
-					"small"=>"serdca-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					
-					array("big"=>"5-5s-5c/ogurci-iphonei5-5s-5c.png",
-					"small"=>"odri-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/odri-white-iphonei5-5s-5c.png",
-					"small"=>"odri-white-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					
-					// паттерны - четное - белое - цветное
-					array(
-						"big"=>"5-5s-5c/chr1_i5-5s-5c.png",
-						"small"=>"chr1_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/chr2_i5-5s-5c.png",
-						"small"=>"chr2_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/chr3_i5-5s-5c.png",
-						"small"=>"chr3_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/confetti1_i5-5s-5c.png",
-						"small"=>"confetti1_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/confetti2_i5-5s-5c.png",
-						"small"=>"confetti2_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/confetti3_i5-5s-5c.png",
-						"small"=>"confetti3_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/confetti4_i5-5s-5c.png",
-						"small"=>"confetti4_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/confetti5_i5-5s-5c.png",
-						"small"=>"confetti5_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/gor1_i5-5s-5c.png",
-						"small"=>"gor1_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/gor2_i5-5s-5c.png",
-						"small"=>"gor2_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/goroh2_i5-5s-5c.png",
-						"small"=>"goroh2_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/goroh3_i5-5s-5c.png",
-						"small"=>"goroh3_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/goroshki_i5-5s-5c.png",
-						"small"=>"goroshki_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/hearts_black_i5-5s-5c.png",
-						"small"=>"hearts_black_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/hearts_white_i5-5s-5c.png",
-						"small"=>"hearts_white_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/ny_pattern_black_i5-5s-5c.png",
-						"small"=>"ny_pattern_black_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/ny_pattern_color_i5-5s-5c.png",
-						"small"=>"ny_pattern_color_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/ny_pattern_white_i5-5s-5c.png",
-						"small"=>"ny_pattern_white_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/snowflakes_red_i5-5s-5c.png",
-						"small"=>"snowflakes_red_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/snowflakes_white_i5-5s-5c.png",
-						"small"=>"snowflakes_white_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array("big"=>"5-5s-5c/ogurci-black-iphonei5-5s-5c.png",
-					"small"=>"ogurci-black-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/ogurci-iphonei5-5s-5c.png",
-					"small"=>"ogurci-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					
-					array("big"=>"5-5s-5c/hamsa-black-iphonei5-5s-5c.png",
-					"small"=>"hamsa-black-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/hamsa-iphonei5-5s-5c.png",
-					"small"=>"hamsa-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/david-black-iphonei5-5s-5c.png",
-					"small"=>"david-black-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-					array("big"=>"5-5s-5c/david-iphonei5-5s-5c.png",
-					"small"=>"david-preview.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
-
-
-
-					//iphone6
-					array("big"=>"6-6+/paket_i6-6+.png",
-					"small"=>"paket_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/starbucks_i6-6+.png",
-					"small"=>"starbucks_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/pryanik_i6-6+.png",
-					"small"=>"pryanik_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/blonde_i6-6+.png",
-					"small"=>"blonde_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/brunette_i6-6+.png",
-					"small"=>"brunette_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					
-					// новые принты 20.11.2015
-					
-					array(
-						"big"=>"6-6+/s_elkoi_i6-6+.png",
-						"small"=>"s_elkoi_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/dart_i6-6+.png",
-						"small"=>"dart_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/chr-pat_i6-6+.png",
-						"small"=>"chr-pat_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/koritsa_i6-6+.png",
-						"small"=>"koritsa_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/ledentsi_koritsa_i6-6+.png",
-						"small"=>"ledentsi_koritsa_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/lollipops_i6-6+.png",
-						"small"=>"lollipops_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/rozochki_i6-6+.png",
-						"small"=>"rozochki_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/snegiri_i6-6+.png",
-						"small"=>"snegiri_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/zajka_i6-6+.png",
-						"small"=>"zajka_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					
-
-					//
-					array("big"=>"6-6+/donuts_i6-6+.png",
-					"small"=>"donuts_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/mickey_i6-6+.png",
-					"small"=>"mickey_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/minnie_i6-6+.png",
-					"small"=>"minnie_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-
-					array("big"=>"6-6+/bembi_i6-6+.png",
-					"small"=>"bembi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/devochka_i6-6+.png",
-					"small"=>"devochka_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/dior_kedy_i6-6+.png",
-					"small"=>"dior_kedy_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/duhi_v_ruke_i6-6+.png",
-					"small"=>"duhi_v_ruke_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/edinorog_i6-6+.png",					
-					"small"=>"edinorog_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/edinorog2_i6-6+.png",
-					"small"=>"edinorog2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/fashion_i6-6+.png",
-					"small"=>"fashion_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/fendi_i6-6+.png",
-					"small"=>"fendi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/karl_i6-6+.png",
-					"small"=>"karl_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/katava_i6-6+.png",
-					"small"=>"katava_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/koko_madm_i6-6+.png",
-					"small"=>"koko_madm_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/Lubuteny_i6-6+.png",
-					"small"=>"Lubuteny_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/makaruny_i6-6+.png",
-					"small"=>"makaruny_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/manolo_i6-6+.png",
-					"small"=>"manolo_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/miss_dior_i6-6+.png",
-					"small"=>"miss_dior_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/nike_i6-6+.png",
-					"small"=>"nike_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/palmy_i6-6+.png",
-					"small"=>"palmy_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/paris_i6-6+.png",
-					"small"=>"paris_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/pomada_mac_i6-6+.png",
-					"small"=>"pomada_mac_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/pomada2_i6-6+.png",
-					"small"=>"pomada2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/rozy_i6-6+.png",
-					"small"=>"rozy_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/ryukzak_i6-6+.png",
-					"small"=>"ryukzak_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/sakura_i6-6+.png",
-					"small"=>"sakura_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
-					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/tufli_valentino_i6-6+.png",
-					"small"=>"tufli_valentino_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/tufli-versache-iphonei6.png",
-					"small"=>"tufli-versache-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/unicorn-iphonei6.png",
-					"small"=>"unicorn-prevew.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/uzor-iphonei6.png",
-					"small"=>"uzor-prevew.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/serdca-iphonei6.png",
-					"small"=>"serdca-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					
-					array("big"=>"6-6+/odri-iphonei6.png",
-					"small"=>"odri-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/odri-white-iphonei6.png",
-					"small"=>"odri-white-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					
-					// паттерны - черное - белое - цветное
-					array(
-						"big"=>"6-6+/chr1_i6-6+.png",
-						"small"=>"chr1_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/chr2_i6-6+.png",
-						"small"=>"chr2_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/chr3_i6-6+.png",
-						"small"=>"chr3_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/confetti1_i6-6+.png",
-						"small"=>"confetti1_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/confetti2_i6-6+.png",
-						"small"=>"confetti2_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/confetti3_i6-6+.png",
-						"small"=>"confetti3_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/confetti4_i6-6+.png",
-						"small"=>"confetti4_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/confetti5_i6-6+.png",
-						"small"=>"confetti5_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/gor1_i6-6+.png",
-						"small"=>"gor1_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/gor2_i6-6+.png",
-						"small"=>"gor2_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/goroh2_.png",
-						"small"=>"goroh2_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/goroh3_i6-6+.png",
-						"small"=>"goroh3_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/goroshki_i6-6+.png",
-						"small"=>"goroshki_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/hearts_black_i6-6+.png",
-						"small"=>"hearts_black_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/hearts_white_i6-6+.png",
-						"small"=>"hearts_white_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/ny_pattern_black_i6-6+.png",
-						"small"=>"ny_pattern_black_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/ny_pattern_color_i6-6+.png",
-						"small"=>"ny_pattern_color_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/ny_pattern_white_i6-6+.png",
-						"small"=>"ny_pattern_white_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/snowflakes_red_i6-6+.png",
-						"small"=>"snowflakes_red_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/snowflakes_white_i6-6+.png",
-						"small"=>"snowflakes_white_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array("big"=>"6-6+/ogurci-black-iphonei6.png",
-					"small"=>"ogurci-black-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/ogurci-iphonei6.png",
-					"small"=>"ogurci-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					
-					array("big"=>"6-6+/hamsa-black-iphonei6.png",
-					"small"=>"hamsa-black-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/hamsa-iphonei6.png",
-					"small"=>"hamsa-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/david-black-iphonei6.png",
-					"small"=>"david-black-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-					array("big"=>"6-6+/david-iphonei6.png",
-					"small"=>"david-preview.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)),
-
-
-				)
-			),
+				
+				),
+		 ),
 			array(
 				"link"=>"2/",
 				"name"=>"категория 2",
@@ -2310,45 +1734,45 @@ iphone4_black_crystal_case.png
                     
                     // новые смайлы нг
                     		array(
-								"variants" => array(
-									array ( 
-									"preview" => "variants/ear001.png",
-									"normal" => "variants/ear001_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear002.png",
-									"normal" => "variants/ear002_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear003.png",
-									"normal" => "variants/ear003_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear004.png",
-									"normal" => "variants/ear004_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear005.png",
-									"normal" => "variants/ear005_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear006.png",
-									"normal" => "variants/ear006_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear001.png",
-									"normal" => "variants/ear001_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear002.png",
-									"normal" => "variants/ear002_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear003.png",
-									"normal" => "variants/ear003_big.png"
-									),
-								),
-								"preview_default"=>"ear01_default.png"
+														"variants" => array(
+															array ( 
+															"preview" => "variants/ear001.png",
+															"normal" => "variants/ear001_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear002.png",
+															"normal" => "variants/ear002_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear003.png",
+															"normal" => "variants/ear003_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear004.png",
+															"normal" => "variants/ear004_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear005.png",
+															"normal" => "variants/ear005_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear006.png",
+															"normal" => "variants/ear006_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear001.png",
+															"normal" => "variants/ear001_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear002.png",
+															"normal" => "variants/ear002_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear003.png",
+															"normal" => "variants/ear003_big.png"
+															),
+														),
+														"preview_default"=>"ear01_default.png"
 							),
 
 							array(
@@ -2524,6 +1948,47 @@ iphone4_black_crystal_case.png
 									),
 								),
 								"preview_default"=>"ear06_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear07_default.png"
 							),
 							array(
 								"variants" => array(
