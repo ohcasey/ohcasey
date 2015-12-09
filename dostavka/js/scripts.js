@@ -509,54 +509,55 @@ function removeSuggestionElements(){
 
 function changeActiveMethod(available_methods){
 
-    console.log("самовывоз сдэк: "+available_methods['sdec_points']+"; доставка СДЭК: "+available_methods['courier_sdec']+"; почта россии: "+available_methods['russian_post'] + "Москва: "+available_methods.msk + "; все методы проверены: "+available_methods.all_checked);
-    
-    $("div.delivery-description").hide();
-    $('div.map-row').hide();
-    $('div.sdec-point-list').hide();
-    // Сброс выбранного способа, т.к. из-за асинхронного ответа СДЭК о дате-стоимости и о пунктах самовывоза, сначала может вернуться курьер СДЭК, а потом самовывоз СДЭК. поэтому при при каждом ответе. сначала сбрасываем интерфейс  
-    $(".not-moscow .delivery-method").removeClass("active");
-    // Показываем в шапке доступные методы доставки
-    $(".not-moscow .item_block").hide();
+    console.log("самовывоз сдэк: "+available_methods['sdec_points']+"; доставка СДЭК: "+available_methods['courier_sdec']+"; почта россии: "+available_methods['russian_post'] + "Москва: "+available_methods.msk );
+    if (available_methods.msk != true){
+        $("div.delivery-description").hide();
+        $('div.map-row').hide();
+        $('div.sdec-point-list').hide();
+        // Сброс выбранного способа, т.к. из-за асинхронного ответа СДЭК о дате-стоимости и о пунктах самовывоза, сначала может вернуться курьер СДЭК, а потом самовывоз СДЭК. поэтому при при каждом ответе. сначала сбрасываем интерфейс  
+        $(".not-moscow .delivery-method").removeClass("active");
+        // Показываем в шапке доступные методы доставки
+        $(".not-moscow .item_block").hide();
 
-    if ((available_methods.sdec_points_checked == true) && (available_methods.courier_sdec_checked == true)) {
-        available_methods.all_checked = true;
-        $(".not-moscow").removeClass("spin");
-        if (available_methods.sdec_points == true) {
-            $(".not-moscow .sdec-point").show();
-        }
-        if (available_methods.courier_sdec == true) {
-            $(".not-moscow .courier_sdec").show();
-        }
-        if (available_methods.russian_post == true) {
-            $(".not-moscow .russian_post").show();
-        }
-        // Почта России по-умолчанию из верстки показана
-
-
-       
-
-        if (available_methods.msk != true){
-            $("div.map-row-showroom").hide();
-
-            // Исходя из доступных, определяем какокй методо доставки активен и раскрыт по-умолчанию: самовывоз СДЭК, а если он недоступен, то курьер СДЭК, а если он недоступен, то почта России
+        if ((available_methods.sdec_points_checked == true) && (available_methods.courier_sdec_checked == true)) {
+            available_methods.all_checked = true;
+            $(".not-moscow").removeClass("spin");
             if (available_methods.sdec_points == true) {
-                $(".not-moscow .sdec-point .delivery-method").addClass("active");
-                //и без пользовательского клика показываем описание способа доставки СДЭК, карту и список точек самовывоза
-                $("div.delivery-description[delivery-description-to="+$(".not-moscow .sdec-point .delivery-method").attr("delivery-name")+"]").show();
-                $("div.map-row").show();
-                $('div.sdec-point-list').show();
+                $(".not-moscow .sdec-point").show();
             }
-            else {
-                if (available_methods.courier_sdec == true) {
-                    $(".not-moscow .courier_sdec .delivery-method").addClass("active");
-                    $("div.delivery-description[delivery-description-to="+$(".not-moscow .courier_sdec .delivery-method").attr("delivery-name")+"]").show();
+            if (available_methods.courier_sdec == true) {
+                $(".not-moscow .courier_sdec").show();
+            }
+            if (available_methods.russian_post == true) {
+                $(".not-moscow .russian_post").show();
+            }
+            // Почта России по-умолчанию из верстки показана
+
+
+           
+
+            
+                $("div.map-row-showroom").hide();
+
+                // Исходя из доступных, определяем какокй методо доставки активен и раскрыт по-умолчанию: самовывоз СДЭК, а если он недоступен, то курьер СДЭК, а если он недоступен, то почта России
+                if (available_methods.sdec_points == true) {
+                    $(".not-moscow .sdec-point .delivery-method").addClass("active");
+                    //и без пользовательского клика показываем описание способа доставки СДЭК, карту и список точек самовывоза
+                    $("div.delivery-description[delivery-description-to="+$(".not-moscow .sdec-point .delivery-method").attr("delivery-name")+"]").show();
+                    $("div.map-row").show();
+                    $('div.sdec-point-list').show();
                 }
                 else {
-                    $(".not-moscow .russian_post .delivery-method").addClass("active");
-                    $("div.delivery-description[delivery-description-to="+$(".not-moscow .russian_post .delivery-method").attr("delivery-name")+"]").show();
+                    if (available_methods.courier_sdec == true) {
+                        $(".not-moscow .courier_sdec .delivery-method").addClass("active");
+                        $("div.delivery-description[delivery-description-to="+$(".not-moscow .courier_sdec .delivery-method").attr("delivery-name")+"]").show();
+                    }
+                    else {
+                        $(".not-moscow .russian_post .delivery-method").addClass("active");
+                        $("div.delivery-description[delivery-description-to="+$(".not-moscow .russian_post .delivery-method").attr("delivery-name")+"]").show();
+                    }
                 }
-            }
+            
         }
     }
     
