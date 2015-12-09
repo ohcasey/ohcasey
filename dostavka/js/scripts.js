@@ -142,6 +142,8 @@ function GetCostAndDateUsingSDEKGeoNameID(params) {
                 
                 if(result["error"]){
                     hideSdecCourierDeliveryOption();
+                    console.log("Нет доставки CDEK в выбранный город");
+
                 }
                 else{
                     setSdecPriceAndTimeToTheDivs(result);
@@ -265,91 +267,100 @@ function getPointsSdec(idcity) {
         },
         url: "/cart/get_city_sdec",
         success: function(data){
-            sdec_points = "";
-            sdec_points=JSON.parse(data);
-            $('.sdec-point-list .spin').hide();
-            
-            if (sdec_points.length < 1){
-                $('div.sdec-point-list').val('В выбранном населенном пункте нет пунктов самовывоза');
-                $('.map-row').hide();
+            if (data == "PVZ_NOT_FOUND") {
+                console.log("В этом городе нет пунктов самовывоза");
+                hideSdecPointsDeliveryOption();
             }
             else {
-                console.log("SDEC POINTS!!!");
-                console.log(sdec_points);
-
-                $('div.sdec-point-list ul').empty();
-                if (sdec_points.length>1) {
-                    for (var i = 0; i < sdec_points.length; i++) {
-                        $('div.sdec-point-list ul').append('<li><b>'+ucfirst(sdec_points[i]["@attributes"]["Name"].toLowerCase())+"</b> - "+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</li>');                
-                    }
+                sdec_points = "";
+                sdec_points=JSON.parse(data);
+                $('.sdec-point-list .spin').hide();
+                
+                if (sdec_points.length < 1){
+                    $('div.sdec-point-list').val('В выбранном населенном пункте нет пунктов самовывоза');
+                    $('.map-row').hide();
+                    console.log("В выбранном городе нет пунктов самовывоза");
+                    hideSdecPointsDeliveryOption();
                 }
-                else{
-                    $('div.sdec-point-list ul').append('<li><b>'+ucfirst(sdec_points["@attributes"]["Name"].toLowerCase())+"</b> - "+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</li>');
-                 }
-
-                ymaps.ready(function () {
-                    myGeoObjects = [];
-                    sdecPointsMap.geoObjects.removeAll();
-                    console.log("карта готова. убираем spin с карты сдэк");
-
+                else {
+                    console.log("SDEC POINTS!!!");
+                    console.log(sdec_points);
+                    $("div.sdec-point").show();
+                    $('div.sdec-point-list ul').empty();
                     if (sdec_points.length>1) {
                         for (var i = 0; i < sdec_points.length; i++) {
-                           
+                            $('div.sdec-point-list ul').append('<li><b>'+ucfirst(sdec_points[i]["@attributes"]["Name"].toLowerCase())+"</b> - "+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</li>');                
+                        }
+                    }
+                    else{
+                        $('div.sdec-point-list ul').append('<li><b>'+ucfirst(sdec_points["@attributes"]["Name"].toLowerCase())+"</b> - "+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</li>');
+                     }
+
+                    ymaps.ready(function () {
+                        myGeoObjects = [];
+                        sdecPointsMap.geoObjects.removeAll();
+                        console.log("карта готова. убираем spin с карты сдэк");
+
+                        if (sdec_points.length>1) {
+                            for (var i = 0; i < sdec_points.length; i++) {
+                               
+                                var table = '<table><tbody>';
+                                table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                                if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
+                                    table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                                }
+                                if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
+                                    table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>'; 
+                                }
+                                if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
+                                    table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';   
+                                }
+                                table += '</tbody></table>';
+
+                                var object =  new ymaps.Placemark(
+                                    [sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
+                                         balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
+                                         balloonContent: table
+                                    }
+                                );
+                                myGeoObjects.push(object);      
+                            };
+
+                            clusterer = new ymaps.Clusterer();
+                            clusterer.add(myGeoObjects);
+                            sdecPointsMap.geoObjects.add(clusterer);
+                            sdecPointsMap.setBounds(clusterer.getBounds());
+                            
+                        }
+                        else{
+                            
                             var table = '<table><tbody>';
-                            table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points[i]["@attributes"]["Address"].toLowerCase())+'</td><tr>';
-                            if ((sdec_points[i]["@attributes"]["WorkTime"]!=undefined) && (sdec_points[i]["@attributes"]["WorkTime"]!="")) {
-                                table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points[i]["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                            table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
+                            if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
+                                table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
                             }
-                            if ((sdec_points[i]["@attributes"]["Phone"]!=undefined) && (sdec_points[i]["@attributes"]["Phone"]!="")) {
-                                table += '<tr><td>Телефон</td><td>'+sdec_points[i]["@attributes"]["Phone"]+'</td><tr>'; 
+                            if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
+                                table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';    
                             }
-                            if ((sdec_points[i]["@attributes"]["Note"]!=undefined) && (sdec_points[i]["@attributes"]["Note"]!="")) {
-                                table += '<tr><td>Примечание</td><td>'+sdec_points[i]["@attributes"]["Note"]+'</td><tr>';   
+
+                            if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
+                                table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';  
                             }
                             table += '</tbody></table>';
 
                             var object =  new ymaps.Placemark(
-                                [sdec_points[i]["@attributes"]["coordY"], sdec_points[i]["@attributes"]["coordX"]], {
-                                     balloonContentHeader: sdec_points[i]["@attributes"]["Name"],
-                                     balloonContent: table
-                                }
-                            );
-                            myGeoObjects.push(object);      
-                        };
-
-                        clusterer = new ymaps.Clusterer();
-                        clusterer.add(myGeoObjects);
-                        sdecPointsMap.geoObjects.add(clusterer);
-                        sdecPointsMap.setBounds(clusterer.getBounds());
-                        
-                    }
-                    else{
-                        
-                        var table = '<table><tbody>';
-                        table += '<tr><td>Адрес:</td><td>'+ucfirst(sdec_points["@attributes"]["Address"].toLowerCase())+'</td><tr>';
-                        if ((sdec_points["@attributes"]["WorkTime"]!=undefined) && (sdec_points["@attributes"]["WorkTime"]!="")) {
-                            table += '<tr><td>Рабочее время</td><td>'+ucfirst(sdec_points["@attributes"]["WorkTime"].toLowerCase())+'</td><tr>';
+                                    [sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
+                                         balloonContentHeader: sdec_points["@attributes"]["Name"],
+                                         balloonContent: table
+                                    }
+                                );
+                            sdecPointsMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
+                            sdecPointsMap.geoObjects.add(object);   
                         }
-                        if ((sdec_points["@attributes"]["Phone"]!=undefined) && (sdec_points["@attributes"]["Phone"]!="")) {
-                            table += '<tr><td>Телефон</td><td>'+sdec_points["@attributes"]["Phone"]+'</td><tr>';    
-                        }
-
-                        if ((sdec_points["@attributes"]["Note"]!=undefined) && (sdec_points["@attributes"]["Note"]!="")) {
-                            table += '<tr><td>Примечание</td><td>'+sdec_points["@attributes"]["Note"]+'</td><tr>';  
-                        }
-                        table += '</tbody></table>';
-
-                        var object =  new ymaps.Placemark(
-                                [sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]], {
-                                     balloonContentHeader: sdec_points["@attributes"]["Name"],
-                                     balloonContent: table
-                                }
-                            );
-                        sdecPointsMap.setCenter([sdec_points["@attributes"]["coordY"], sdec_points["@attributes"]["coordX"]]);
-                        sdecPointsMap.geoObjects.add(object);   
-                    }
-                });
+                    });
+                }
             }
+            
 
    
         }
@@ -455,9 +466,19 @@ function setSdecPriceAndTimeToTheDivs(sdec_delivery_data){
 function hideSdecCourierDeliveryOption(){
     $("div.courier_sdec").hide();
 }
+function hideSdecPointsDeliveryOption(){
+    $("div.sdec-point").hide();
+    $(".sdec-point-list").hide();
+    $(".map-row").hide();
+}
 
 function removeSuggestionElements(){
     $("div.suggestion-element").remove();
+}
+
+function changeActiveMethod(available_methods){
+
+    console.log("самовывоз сдэк: "+available_methods['sdec-points']+"; доставка СДЭК: "+available_methods['courier_sdec']+"; почта россии"+available_methods['russian-post']);
 }
 
 $(".delivery-method").on("click", function(){
