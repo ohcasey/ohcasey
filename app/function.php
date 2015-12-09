@@ -137,23 +137,27 @@ function get_city_sdec() {
         $json = json_encode($xml);
         $array = json_decode($json,TRUE);
 
-       
-        $normalarray = $array["Pvz"];
-    
-        $result =  json_encode($normalarray, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
-        $result = preg_replace_callback(
-                '/\\\\u([0-9a-f]{4})/i',
-                function ($matches) {
-                    $sym = mb_convert_encoding(
-                        pack('H*', $matches[1]),
-                        'UTF-8',
-                        'UTF-16'
-                    );
-                    return $sym;
-                },
-                $result 
-            );
-        echo $result;
+       if(isset($array["Pvz"]) and !is_null($array["Pvz"])){
+            $normalarray = $array["Pvz"];
+        
+            $result =  json_encode($normalarray, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP );
+            $result = preg_replace_callback(
+                    '/\\\\u([0-9a-f]{4})/i',
+                    function ($matches) {
+                        $sym = mb_convert_encoding(
+                            pack('H*', $matches[1]),
+                            'UTF-8',
+                            'UTF-16'
+                        );
+                        return $sym;
+                    },
+                    $result 
+                );
+            echo $result;
+        }
+        else {
+            echo "PVZ_NOT_FOUND";
+        }
 
       }else {
         echo "curl не доступен";
