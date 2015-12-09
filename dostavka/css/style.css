@@ -26,6 +26,11 @@ html {
 	position: relative;
 	text-align: center;
 }
+
+.not-moscow.spin {
+	background: url(../img/loader_spin.gif) center no-repeat; 
+	height:126px;
+}
 	
 .central_block {
 	position: relative;
