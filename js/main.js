@@ -343,6 +343,8 @@ function preparing_data(){
 	
 
 	if (safari_brow=="safari") {
+				
+	
 			
 		svg = d3.select(".center_device_svg");
 
@@ -360,11 +362,8 @@ function preparing_data(){
 		svg_mask_container = svg_second_svg.append("defs")
 								.classed("svg_mask_container", true);
 
-
 		svg_fonts_container = svg_text_svg.append("defs")
 								.classed("svg_fonts_container", true);
-
-		
 		
 		svg_device = svg.append("g")
 				.classed("svg_device", true);
@@ -374,10 +373,16 @@ function preparing_data(){
 		svg_background = svg.append("g")
 				.classed("svg_background", true);
 
+				
+		svg_smiles = svg.append("g")
+				.classed("svg_smiles", true);
+		
 		svg_text = svg_text_svg.append("g")
 				.classed("svg_text", true);
-		svg_smiles = svg_second_svg.append("g")
-				.classed("svg_smiles", true);
+		
+
+		
+		
 		svg_mask_body = svg_second_svg.append("g")
 				.classed("svg_mask_body", true);
 		svg_camera = svg_second_svg.append("g")
@@ -387,14 +392,14 @@ function preparing_data(){
 		svg_controls  = svg_controls_svg .append("g")
 				.classed("svg_controls", true);
 
+		g_smiles = svg_controls
+					.append("g")
+						.classed("g_smiles", true);
 		
 		g_texts = svg_controls
 					.append("g")
 						.classed("g_texts", true);
 
-		g_smiles = svg_controls
-					.append("g")
-						.classed("g_smiles", true);
 
 		svg.append("g")
 			.classed("rect__loader", true)
@@ -432,10 +437,11 @@ function preparing_data(){
 		svg_background = svg.append("g")
 				.classed("svg_background", true);
 
-		svg_text = svg.append("g")
-				.classed("svg_text", true);
+		
 		svg_smiles = svg.append("g")
 				.classed("svg_smiles", true);
+		svg_text = svg.append("g")
+				.classed("svg_text", true);
 		svg_mask_body = svg.append("g")
 				.classed("svg_mask_body", true);
 		svg_camera = svg.append("g")
@@ -473,13 +479,15 @@ function preparing_data(){
 			.classed("svg_controls", true);
 
 	
-	g_texts = svg_controls
-				.append("g")
-					.classed("g_texts", true);
+	
 
 	g_smiles = svg_controls
 				.append("g")
 					.classed("g_smiles", true);
+
+	g_texts = svg_controls
+				.append("g")
+					.classed("g_texts", true);
 
 	
 	

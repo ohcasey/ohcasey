@@ -2341,8 +2341,7 @@ iphone4_black_crystal_case.png
 				*/	
 		),
 		"smiles"=>array(
-/*	
-*/			
+	
 			array(
                                 "link"=>"3/",
                                 "name"=>"Новинки",
