@@ -353,24 +353,56 @@ html,
  	footer a {
  		display: none;
  	}
-
+	
+	select,
+	textarea,
+	input {
+		font-size: 16px!important;
+	}
 
  	.close {
  		display: block;
  	}
  	.col-sm-4.item_block {
- 		width: 80%;
- 		margin-left: 10%;
+ 		width: 90%;
+ 		margin-left: 5%;
  	}
 
  	.item h2 {
  		height: auto;
+ 		margin-top: 11px;
+ 		font-size: 16px;
  	}
 
-	 	.colons div.item_block:first-child {
+ 	.text {
+ 		padding-top: 0px;
+    	font-size: 18px;
+ 	}
+
+ 	.colons {
+ 		padding-top: 0px;
+ 		padding-bottom: 20px;
+ 	}
+
+	.colons div.item_block:first-child {
 		padding-left: 0px;
 		padding-right: 0px;
+	}
 
+	.item_block:first-of-type .delivery-method {
+		margin-top: 0px;
+	}
+	
+	.delivery-method strong {
+		font-size: 22px;
+	}
+
+	.delivery-method .item .glyphicon {
+		font-size: 20px;
+	}
+	.delivery-method .cost {
+		line-height: 50px;
+	    padding-bottom: 5px;
 	}
 
 	.colons div.item_block:last-child {
@@ -381,6 +413,10 @@ html,
 		line-height: 35px;
 		font-size: 20px;
 		margin-left: 11px;   
+	}
+
+	.delivery-description .text_form {
+		padding-top: 0px;
 	}
 	#map, #map-showroom {
 		height: 85vh;
@@ -393,4 +429,12 @@ html,
 .container {
 	position: relative;
 }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }

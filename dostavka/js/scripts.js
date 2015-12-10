@@ -430,6 +430,8 @@ function show_delivery_methods_for_Moscow(){
         $("div.map-row-showroom").show();
     }
     
+    $('body').scrollTo("input.city-input",{duration:'slow', offsetTop : '20'});
+    console.log("скрол до инпута");
 }
 
 
@@ -557,6 +559,9 @@ function changeActiveMethod(available_methods){
                         $("div.delivery-description[delivery-description-to="+$(".not-moscow .russian_post .delivery-method").attr("delivery-name")+"]").show();
                     }
                 }
+
+                $('body').scrollTo("input.city-input",{duration:'slow', offsetTop : '50'});
+                console.log("скрол до инпута");
             
         }
     }
