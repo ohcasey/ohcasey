@@ -600,8 +600,7 @@ function wp_admin_bar_edit_menu( $wp_admin_bar ) {
  */
 function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 	$actions = array();
-	
-    if (current_user_can('print_design') AND !is_super_admin()) return;
+
     $cpts = (array) get_post_types( array( 'show_in_admin_bar' => true ), 'objects' );
 
 	if ( isset( $cpts['post'] ) && current_user_can( $cpts['post']->cap->create_posts ) )
@@ -666,9 +665,7 @@ function wp_admin_bar_new_content_menu( $wp_admin_bar ) {
 function wp_admin_bar_comments_menu( $wp_admin_bar ) {
 	if ( !current_user_can('edit_posts') )
 		return;
-		
-    if (current_user_can('print_design') AND !is_super_admin()) return;
-    
+
 	$awaiting_mod = wp_count_comments();
 	$awaiting_mod = $awaiting_mod->moderated;
 	$awaiting_title = esc_attr( sprintf( _n( '%s comment awaiting moderation', '%s comments awaiting moderation', $awaiting_mod ), number_format_i18n( $awaiting_mod ) ) );
