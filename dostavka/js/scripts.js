@@ -250,8 +250,8 @@ function init () {
    		new ymaps.control.ZoomControl()
 	);
     
-    var showroom_coord_x = 55.739275;
-    var showroom_coord_y = 37.661221;
+    var showroom_coord_x = 55.740031;
+    var showroom_coord_y = 37.66176;
     
     showRoomMap = new ymaps.Map('map-showroom',
         {
