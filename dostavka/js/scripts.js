@@ -580,6 +580,7 @@ $(".delivery-method").on("click", function(){
     if($(this).attr('delivery-name')=="showroom"){
         $("div.map-row-showroom").show();
     }
+    $('body').scrollTo("div.delivery-description[delivery-description-to="+$(this).attr("delivery-name")+"]",{duration:'slow', offsetTop : '50'});
 });
 
 
