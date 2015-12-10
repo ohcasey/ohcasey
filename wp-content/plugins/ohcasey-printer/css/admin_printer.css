@@ -1,0 +1,11 @@
+p.search-box { display: none !important; }
+div.update-nag { display: none !important; }
+div.wc-customer-search { display: none !important; }
+div.view-switch { display: none !important; }
+li.wc-pending { display: none !important; }
+li.wc-completed { display: none !important; }
+li.wc-cancelled { display: none !important; }
+li.wc-refunded { display: none !important; }
+li.wc-failed { display: none !important; }
+li.wc-courier { display: none !important; }
+
