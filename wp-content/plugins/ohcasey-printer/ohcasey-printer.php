@@ -26,36 +26,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 
-function ohcasey_designer_remove_bulk_actions(){
+function ohcasey_printer_remove_bulk_actions(){
     if (current_user_can('print_design') AND !is_super_admin()) {
         return array();
     }
 }
-add_filter('bulk_actions-edit-post', 'ohcasey_designer_remove_bulk_actions');
+add_filter('bulk_actions-edit-post', 'ohcasey_printer_remove_bulk_actions');
 
-function ohcasey_designer_remove_options_show_screen(){
+function ohcasey_printer_remove_options_show_screen(){
     if (current_user_can('print_design') AND !is_super_admin()) {
         return false;
     }
 }
-add_filter('screen_options_show_screen', 'ohcasey_designer_remove_options_show_screen');
+add_filter('screen_options_show_screen', 'ohcasey_printer_remove_options_show_screen');
 
-function ohcasey_designer_remove_help_tabs($old_help, $screen_id, $screen){
+function ohcasey_printer_remove_help_tabs($old_help, $screen_id, $screen){
     if (current_user_can('print_design') AND !is_super_admin()) {
         $screen->remove_help_tabs();
         return $old_help;
     }
 }
-add_filter( 'contextual_help', 'ohcasey_designer_remove_help_tabs', 999, 3 );
+add_filter( 'contextual_help', 'ohcasey_printer_remove_help_tabs', 999, 3 );
 
-function ohcasey_designer_admin_bar_render() {
+function ohcasey_printer_admin_bar_render() {
     global $wp_admin_bar;
     if (current_user_can('print_design') AND !is_super_admin()) {
         $wp_admin_bar->remove_menu('comments');
         $wp_admin_bar->remove_menu('new-content');
     }
 }
-add_action('wp_before_admin_bar_render', 'ohcasey_designer_admin_bar_render');
+add_action('wp_before_admin_bar_render', 'ohcasey_printer_admin_bar_render');
 
 
 
