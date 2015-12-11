@@ -6,7 +6,7 @@ var sdec_points;
 var available_methods = {sdec_points:false, courier_sdec:false, russian_post:true, msk:false, all_checked:false, sdec_points_checked:false,courier_sdec_checked:false};
 
 $(document).ready(function(){
-	//$('select').selectpicker(); //хз что это
+    //$('select').selectpicker(); //хз что это
     $(".loader_spin").hide();
     //$("div.delivery-description").hide();
     $(".city-input").show();
@@ -69,7 +69,7 @@ function displayAvailableDelivery(){
             data: {
                 string : city_name
             },
-            success: function(data){	
+            success: function(data){    
                 var result = JSON.parse(data);
                 for (var iter = 0; iter<result.length; iter++){
                     var city_exists = false;
@@ -103,30 +103,30 @@ $(document).on('input','.city-input', function(){
         return;
     }
     
-	$(".select-city__main-input__sdec").val($(this).val());
+    $(".select-city__main-input__sdec").val($(this).val());
 
-	$(".suggestion-list").find("span").remove();
-	$.ajax({ 
-		type: "POST", 
-		url: "/cart/get_city",
-		dataType: 'text',
-		data: {
-			string : $(".city-input").val()
-		},
-		success: function(data){		
+    $(".suggestion-list").find("span").remove();
+    $.ajax({ 
+        type: "POST", 
+        url: "/cart/get_city",
+        dataType: 'text',
+        data: {
+            string : $(".city-input").val()
+        },
+        success: function(data){        
             if (data!=false){
-				var result = JSON.parse(data);
-				console.log(result);
+                var result = JSON.parse(data);
+                console.log(result);
                 $('div.suggestion-element').remove();
-				for (var i = 0; i < result.length; i++) {
-   					 $(".suggestions-list").append("<div class='suggestion-element'><span class='city-suggestion'>"+result[i][0]+"</span></div>");
-				}
-			}				
-		},
-		fail: function(data){
-					
-	    }
-	});
+                for (var i = 0; i < result.length; i++) {
+                     $(".suggestions-list").append("<div class='suggestion-element'><span class='city-suggestion'>"+result[i][0]+"</span></div>");
+                }
+            }               
+        },
+        fail: function(data){
+                    
+        }
+    });
 });
 
 
@@ -140,7 +140,7 @@ function GetCostAndDateUsingSDEKGeoNameID(params) {
             idcity : params["city_id"],
             kur: true
         },
-        success: function(data){			
+        success: function(data){            
             console.log(data);
             if (data!=false){
                 var result = JSON.parse(data);
@@ -210,7 +210,7 @@ function GetSDEKCourierDeliveryCostAndDate(city_name){
                 }
                 else{
                     for (var i = 0; i<data.geonames.length; i++) {
-			            if (data.geonames[i].cityName.toLowerCase() == city_name.toLowerCase()) {
+                        if (data.geonames[i].cityName.toLowerCase() == city_name.toLowerCase()) {
                             GetCostAndDateUsingSDEKGeoNameID({"city_id": data.geonames[i].id});
                             getPointsSdec(data.geonames[i].id);
                             break;
@@ -247,8 +247,8 @@ function init () {
         zoom: 10,
     }, {});
     sdecPointsMap.controls.add(
-   		new ymaps.control.ZoomControl()
-	);
+        new ymaps.control.ZoomControl()
+    );
     
     var showroom_coord_x = 55.740031;
     var showroom_coord_y = 37.66176;
@@ -406,9 +406,9 @@ function show_delivery_methods_for_Moscow(){
     $(".not-moscow").hide();
     $(".moscow").show();
     $(".delivery-method").removeClass("active");
-    $(".moscow .delivery-method:first").addClass("active");
+    //$(".moscow .delivery-method:first").addClass("active");
     $("div.delivery-description").hide();
-    $("div.delivery-description[delivery-description-to="+$(".moscow .delivery-method:first").attr("delivery-name")+"]").show();
+    //$("div.delivery-description[delivery-description-to="+$(".moscow .delivery-method:first").attr("delivery-name")+"]").show();
     
     $('div.map-row').hide();
     $('div.sdec-point-list').hide();
@@ -417,7 +417,7 @@ function show_delivery_methods_for_Moscow(){
     GetSDEKCourierDeliveryCostAndDate($("input.city-input").val());
     
     add_yndex_map();
-     
+    /* 
     if($(".moscow .delivery-method:first").attr("delivery-name")=="sdec-point"){
         console.log("Москва: выбран самовыоз СДЭК");
         $("div.map-row").show();
@@ -429,9 +429,8 @@ function show_delivery_methods_for_Moscow(){
         console.log("Москва: выбран шоурум");
         $("div.map-row-showroom").show();
     }
+    */
     
-    $('body').scrollTo("input.city-input",{duration:'slow', offsetTop : '20'});
-    console.log("скрол до инпута");
 }
 
 
@@ -540,7 +539,7 @@ function changeActiveMethod(available_methods){
 
             
                 $("div.map-row-showroom").hide();
-
+                /*
                 // Исходя из доступных, определяем какокй методо доставки активен и раскрыт по-умолчанию: самовывоз СДЭК, а если он недоступен, то курьер СДЭК, а если он недоступен, то почта России
                 if (available_methods.sdec_points == true) {
                     $(".not-moscow .sdec-point .delivery-method").addClass("active");
@@ -559,9 +558,7 @@ function changeActiveMethod(available_methods){
                         $("div.delivery-description[delivery-description-to="+$(".not-moscow .russian_post .delivery-method").attr("delivery-name")+"]").show();
                     }
                 }
-
-                $('body').scrollTo("input.city-input",{duration:'slow', offsetTop : '50'});
-                console.log("скрол до инпута");
+                */
             
         }
     }
