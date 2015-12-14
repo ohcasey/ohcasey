@@ -1298,16 +1298,6 @@ iphone4_black_crystal_case.png
 						"chechs"=>array(31,32,33,34)
 						),
 					array(
-						"big"=>"4-4s/koritsa_i4-4s.png",
-						"small"=>"koritsa_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
-						"big"=>"4-4s/ledentsi_koritsa_i4-4s.png",
-						"small"=>"ledentsi_koritsa_r82.png",
-						"chechs"=>array(31,32,33,34)
-						),
-					array(
 						"big"=>"4-4s/lollipops_i4-4s.png",
 						"small"=>"lollipops_r82.png",
 						"chechs"=>array(31,32,33,34)
@@ -1553,16 +1543,6 @@ iphone4_black_crystal_case.png
 					array(
 						"big"=>"5-5s-5c/chr-pat_i5-5s-5c.png",
 						"small"=>"chr-pat_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/koritsa_i5-5s-5c.png",
-						"small"=>"koritsa_r82.png",
-						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
-						),
-					array(
-						"big"=>"5-5s-5c/ledentsi_koritsa_i5-5s-5c.png",
-						"small"=>"ledentsi_koritsa_r82.png",
 						"chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)
 						),
 					array(
@@ -1819,16 +1799,6 @@ iphone4_black_crystal_case.png
 					array(
 						"big"=>"6-6+/chr-pat_i6-6+.png",
 						"small"=>"chr-pat_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/koritsa_i6-6+.png",
-						"small"=>"koritsa_r82.png",
-						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-						),
-					array(
-						"big"=>"6-6+/ledentsi_koritsa_i6-6+.png",
-						"small"=>"ledentsi_koritsa_r82.png",
 						"chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
 						),
 					array(
@@ -2365,18 +2335,7 @@ iphone4_black_crystal_case.png
                                                 "big"=>"480/ng2-480-big.png",
                                                 "small"=>"124/ng2-124-small.png"
                                         ),
-                                        array(
-                                                "big"=>"480/ng3-480-big.png",
-                                                "small"=>"124/ng3-124-small.png"
-                                        ),
-                                        array(
-                                                "big"=>"480/ng4-480-big.png",
-                                                "small"=>"124/ng4-124-small.png"
-                                        ),
-                                        array(
-                                                "big"=>"480/ng5-480-big.png",
-                                                "small"=>"124/ng5-124-small.png"
-                                        ),
+                
                                 
                                     
                                         
