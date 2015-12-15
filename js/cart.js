@@ -174,14 +174,15 @@ $(document).on('change','input[name="deliver"]', function(){
     
     var radio_val = $('input[name="deliver"]:checked').val();
     
-    show_details_block();
-    show_payment_block();
+   // show_details_block();
+   // show_payment_block();
     
     
     switch(radio_val){
         case 'self':{
             reset_inputs_to_default();
             $('input#calendar_self').addClass('active');
+            $('input#calendar_self').datepicker("show");
             $('span#info_span_self').addClass('active');
             $('div.cash').removeClass('hidden-element');
             break;
@@ -189,6 +190,7 @@ $(document).on('change','input[name="deliver"]', function(){
         case 'sdec':{
             reset_inputs_to_default();
             $('input#calendar_sdec').addClass('active');
+            //$('input#calendar_sdec').datepicker("show");
             $('span#info_span_sdec').addClass('active');
             show_sdec();
             break;
@@ -196,6 +198,7 @@ $(document).on('change','input[name="deliver"]', function(){
         case 'kur_mos':{
             reset_inputs_to_default();
             $('input#calendar_moscow').addClass('active');
+            $('input#calendar_moscow').datepicker("show");
             $('.cart_item.adress').removeClass('hidden-element');
             $('div.cash').removeClass('hidden-element');
             break;
@@ -203,6 +206,7 @@ $(document).on('change','input[name="deliver"]', function(){
         case 'kur_rus':{
             reset_inputs_to_default();
             $('input#calendar_russia').addClass('active');
+            //$('input#calendar_russia').datepicker("show");
             $('.cart_item.adress').removeClass('hidden-element');
             get_kur_cost();
             break;
@@ -211,12 +215,23 @@ $(document).on('change','input[name="deliver"]', function(){
             reset_inputs_to_default();
             $('.cart_item.adress').removeClass('hidden-element');
             $('.cart_item.index').removeClass('hidden-element');
+            show_details_block();
+            show_payment_block();
+            $('div.payment_block').height(400);
+            $(".overflow_form").scrollTo(".right_item.details_block",{duration:800, offsetTop : '100'});
             break;
         }
     }
     
     reset_cost_total();
 });
+
+$(document).on('change','input.calendar', function(){
+    show_details_block();
+    show_payment_block();
+    $('div.payment_block').height(400);
+    $(".overflow_form").scrollTo(".right_item.details_block",{duration:800, offsetTop : '100'});
+    });
 
 function reset_inputs_to_default(){
     $('.cart_item').removeClass('error');
@@ -452,7 +467,8 @@ function get_kur_cost(params) {
                                     {
 									    minDate: date_start,
 										maxDate: russiaDate
-									});						
+									});	
+                                    $('input#calendar_russia').datepicker("show");					
 								}
 								$("#russia_cost").val(result.price);
 								reset_cost_total();
@@ -999,6 +1015,8 @@ $(document).on("click", "ymaps button" ,function(){
                     maxDate: russiaDate
                 }
                                               );
+                //показать календарь для самовывоза СДЭК
+                $("#calendar_sdec").datepicker("show");
                 reset_cost_total();					
             }				
 		},
@@ -1032,4 +1050,22 @@ function ucfirst(str)
 {
     var first = str.charAt(0).toUpperCase();
     return first + str.substr(1);
+}
+
+$.fn.scrollTo = function( target, options, callback ){
+  if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
+  var settings = $.extend({
+    scrollTarget  : target,
+    offsetTop     : 50,
+    duration      : 500,
+    easing        : 'swing'
+  }, options);
+  return this.each(function(){
+    var scrollPane = $(this);
+    var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+    var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+    scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
+      if (typeof callback == 'function') { callback.call(this); }
+    });
+  });
 }
