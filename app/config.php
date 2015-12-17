@@ -86,6 +86,15 @@ $config = array(
 					   "desctop_img"=>"iphone-6-6.png",
 					   "width"=>240,
 					   "height"=>472,
+					   //"default"=>true
+				),
+			array(
+					   "id"=>"iphone6s",	
+					   "name"=>"iPhone 6s",
+					   "lib_img"=>"device-2.png",
+					   "desctop_img"=>"iphone-6-6.png",
+					   "width"=>240,
+					   "height"=>472,
 					   "default"=>true
 				),
 			array(
@@ -157,15 +166,6 @@ $config = array(
 											"cost"=>1500,
 											"default"=>true
 									),
-									array(		
-										//розовый прозрачный
-											"id"=>60,
-											"color"=>"#E2A2AC",
-											"desctop_img" => "iphone6s_pink_crystal_case.png",
-											"desctop_mask" => "iphone6-6+.png", //обрезка
-											"desctop_camera" => "iphone6-6plus_pink_camera.png",
-											"cost"=>1500
-									),
 									array(	
 										//серебристый прозрачный
 											"id"=>1,
@@ -204,15 +204,6 @@ $config = array(
 											"desctop_camera" => "iphone6_gold_camera.png",
 											"cost"=>1500,
 											"default"=>true
-									),
-									array(		
-										//розовый полупрозрачный
-											"id"=>61,
-											"color"=>"#E2A2AC",
-											"desctop_img" => "iphone6s_pink_whitecrystal_case.png",
-											"desctop_mask" => "iphone6-6+.png", //обрезка
-											"desctop_camera" => "iphone6-6plus_pink_camera.png",
-											"cost"=>1500
 									),
 									array(	
 										//серебристый прозрачный
@@ -399,7 +390,146 @@ $config = array(
 									)
 				)
 			),
-			
+			//id device
+			"iphone6s"=>array(
+				array(
+					"name" => "Силикон",
+					"descr_1" => "Полностью прозрачный",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"descr_2" => "Оптимальная толщина. Отличная защита устройства при падениях. Не скользит в руке",
+					"lib_img" => "iphone6_crystal_icon.png",
+					"default"=>true,
+					"colors"=> array(
+									array(		
+										//золотой прозрачный
+											"id"=>0,
+											"color"=>"#CF9657",
+											"desctop_img" => "iphone6_gold_crystal_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_gold_camera.png",
+											"cost"=>1500,
+											"default"=>true
+									),
+									array(		
+										//розовый прозрачный
+											"id"=>60,
+											"color"=>"#E2A2AC",
+											"desctop_img" => "iphone6s_pink_crystal_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6-6plus_pink_camera.png",
+											"cost"=>1500
+									),
+									array(	
+										//серебристый прозрачный
+											"id"=>1,
+											"color"=>"#BBBBBB",
+											"desctop_img" => "iphone6_silver_crystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1500
+									),
+									array(	
+										//серый прозрачный прозрачный
+											"id"=>2,
+											"color"=>"#888888",
+											"desctop_img" => "iphone6_gray_crystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1500
+									),
+										
+								)
+				),
+				
+				array(
+					"name" => "Пластик",
+					"descr_1" => "Матовый полупрозрачный",
+					"descr_2" => "Тонкий, но прочный, бархатистый на ощупь. Не скользит в руке",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_white_crystal_icon.png",
+					"colors"=> array(
+									array(		
+										//золотой прозрачный
+											"id"=>3,
+											"color"=>"#CF9657",
+											"desctop_img" => "iphone6_gold_whitecrystal_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_gold_camera.png",
+											"cost"=>1500,
+											"default"=>true
+									),
+									array(		
+										//розовый полупрозрачный
+											"id"=>61,
+											"color"=>"#E2A2AC",
+											"desctop_img" => "iphone6s_pink_whitecrystal_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6-6plus_pink_camera.png",
+											"cost"=>1500
+									),
+									array(	
+										//серебристый прозрачный
+											"id"=>4,
+											"color"=>"#BBBBBB",
+											"desctop_img" => "iphone6_silver_whitecrystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1500
+									),
+									array(	
+										//серый прозрачный прозрачный
+											"id"=>5,
+											"color"=>"#888888",
+											"desctop_img" => "iphone6_gray_whitecrystal_case.png",
+											"desctop_mask" => "iphone6-6+.png",
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1500
+									),
+										
+								)
+				),
+				/*
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "матовый белый",
+					"descr_2" => "Бархатистый, приятный на ощупь чехол. Аккуратно! Сильно пачкается.",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_white_icon.png",
+					"colors"=> array(
+									//цвет - вид (hex, rgb, transparent или название цвета)
+										array(		
+											"id"=>6,
+											"color"=>"transparent",
+											"desctop_img" => "iphone6_white_softtouch_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_silver_camera.png",
+											"cost"=>1500
+										)
+									
+									)
+				),
+				*/
+				array(
+					"name" => "Soft Touch",
+					"descr_1" => "матовый черный",
+					"descr_2" => "Бархатистый, приятный на ощупь чехол. Не скользит в руке",
+					"desctop_mask_2"=>"iphone_6_mask_2.png",
+					"lib_img" => "iphone6_black_icon.png",
+					"default_color"=>"white",
+					"colors"=> array(
+									//цвет - вид (hex, rgb, transparent или название цвета)
+										array(		
+											"id"=>7,
+											"color"=>"transparent",
+											"desctop_img" => "iphone6_black_softtouch_case.png",
+											"desctop_mask" => "iphone6-6+.png", //обрезка
+											"desctop_camera" => "iphone6_gray_camera.png",
+											"cost"=>1500
+										)
+									
+									)
+				)
+			),	
 		
 		"iphone5s"=>array(
 				
