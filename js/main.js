@@ -554,8 +554,6 @@ function setup_smiles(){
 	var smiles = config.smiles;	
 	var desctop_bg_path = config.smiles_path;
 	
-	var cdn_smiles = 'http://cdn003ohcasey.dragon-web.vps-private.net/';
-	var cdn_smiles_big = 'https://crossorigin.me/http://cdn003ohcasey.dragon-web.vps-private.net/';
 	for (value in smiles) {	
 			
 		
@@ -583,15 +581,15 @@ function setup_smiles(){
 			
 				var hash = randomHash(4);
 				if (value1 == 0) {
-					html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+					html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 				}else{
 					if((value1 % 5) == 0) {
-						html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+						html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 					}else{
 						if((value1 % 5) == 4) {
-							html_text+='<div class="library-smile_row library-background_row-last" style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+							html_text+='<div class="library-smile_row library-background_row-last" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 						}else{
-							html_text+='<div class="library-smile_row " style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+							html_text+='<div class="library-smile_row " style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 						}
 					}
 				}
@@ -635,8 +633,6 @@ function setup_backgrounds() {
 	
 	var desctop_bg_path = config.desctop_bg_path;
 	
-	var cdn_bg = 'http://cdn002ohcasey.dragon-web.vps-private.net/';
-	var cdn_bg_big = 'https://crossorigin.me/http://cdn002ohcasey.dragon-web.vps-private.net/';
 	for (value in backgrounds) {	
 			
 		
@@ -682,17 +678,17 @@ function setup_backgrounds() {
             for (ind in available_backgrounds){
                 var hash = randomHash(4);
                 if (ind == 0) {
-                    html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                    html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                 }
                 else{
                     if((ind % 4) == 0) {
-                        html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                        html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                     }
                     else{
                         if((ind % 4) == 3) {
-                            html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                            html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                         }else{
-                            html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                            html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                         }
                     }
                 }
