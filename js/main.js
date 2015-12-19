@@ -554,6 +554,8 @@ function setup_smiles(){
 	var smiles = config.smiles;	
 	var desctop_bg_path = config.smiles_path;
 	
+	var cdn_smiles = 'http://cdn003ohcasey.dragon-web.vps-private.net/';
+	var cdn_smiles_big = 'https://crossorigin.me/http://cdn003ohcasey.dragon-web.vps-private.net/';
 	for (value in smiles) {	
 			
 		
@@ -581,15 +583,15 @@ function setup_smiles(){
 			
 				var hash = randomHash(4);
 				if (value1 == 0) {
-					html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+					html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 				}else{
 					if((value1 % 5) == 0) {
-						html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+						html_text+='<div class="library-smile_row library-smile_row-first" style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 					}else{
 						if((value1 % 5) == 4) {
-							html_text+='<div class="library-smile_row library-background_row-last" style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+							html_text+='<div class="library-smile_row library-background_row-last" style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 						}else{
-							html_text+='<div class="library-smile_row " style="background-image: url('+path+category[value1].small+');" data-url="'+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
+							html_text+='<div class="library-smile_row " style="background-image: url('+cdn_smiles+path+category[value1].small+');" data-url="'+cdn_smiles_big+path+category[value1].big+'" id="library-smile_row-'+value1+hash+'" data-smile-id="'+value1+hash+'"></div>';
 						}
 					}
 				}
@@ -633,7 +635,8 @@ function setup_backgrounds() {
 	
 	var desctop_bg_path = config.desctop_bg_path;
 	
-	
+	var cdn_bg = 'http://cdn002ohcasey.dragon-web.vps-private.net/';
+	var cdn_bg_big = 'https://crossorigin.me/http://cdn002ohcasey.dragon-web.vps-private.net/';
 	for (value in backgrounds) {	
 			
 		
@@ -679,17 +682,17 @@ function setup_backgrounds() {
             for (ind in available_backgrounds){
                 var hash = randomHash(4);
                 if (ind == 0) {
-                    html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                    html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                 }
                 else{
                     if((ind % 4) == 0) {
-                        html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                        html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-first" style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                     }
                     else{
                         if((ind % 4) == 3) {
-                            html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                            html_text+='<div data-check_allowed = "" class="library-background_row library-background_row-last" style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                         }else{
-                            html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+path+available_backgrounds[ind].small+');" data-url="'+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
+                            html_text+='<div data-check_allowed = "" class="library-background_row " style="background-image: url('+cdn_bg+path+available_backgrounds[ind].small+');" data-url="'+cdn_bg_big+path+available_backgrounds[ind].big+'" id="library-background_row-'+ind+hash+'" data-bg-id="'+ind+hash+'"></div>';
                         }
                     }
                 }
@@ -1123,11 +1126,11 @@ function change_step(obj) {
 		}
 
 		if (id=="5"){
-               
+         if ($(".svg_camera").find('image').length==0) set_check();    
             //Если ID чехла не определен, то установить дефолтный
-            if (!desctop.case_id){
+      		/*if (!desctop.case_id){
                 set_material_default();
-            }
+            }*/
             
             
             //Если какие-то фоны были загружены ранее, то удалить их
@@ -1140,7 +1143,7 @@ function change_step(obj) {
             
 			$(".g_texts").css("display", "block");
 			$(".g_smiles").css("display", "block");
-			if ($(".svg_camera").find('image').length==0) set_check();
+			
 
 		}
 		if (id=="6"){
@@ -1293,7 +1296,6 @@ function set_material_color_default(material_id) {
 						console.log("Ошибка, несколько дефолтных чехлов при телефоне" + id_device);
 					}else{
 					   set_material_color(material_id, value, cost);
-					  
 					   breakpoint = false;
 					}
 				}
@@ -1312,9 +1314,7 @@ function set_material_color_default(material_id) {
 
 function set_material_color(material_id, material_color, cost) {
 
-
 	var id_device = config.devices[desctop.device_id].id;
-
 
 	var color_object = config.materials[id_device][material_id].colors[material_color];
 
@@ -1468,7 +1468,6 @@ function set_material_color(material_id, material_color, cost) {
 function set_check() {
 	var id_device = config.devices[desctop.device_id].id;
 	var lib_path =  config.desctop_material_path;
-	
 
 	for (value in config.materials[id_device]) {	
 
@@ -1479,7 +1478,7 @@ function set_check() {
 	
 		var html_text = "";
 		
-		html_text+='<div class="library-case_row"  id="library-case_row-'+value+'" data-material_color-font="'+material_font_color+'" data-material-id="'+value+'" style="background-image: url('+lib_path+config.materials[id_device][value].lib_img+');">';
+		html_text+='<div class="library-case_row" data-check_name="'+config.materials[id_device][value].name+'" id="library-case_row-'+value+'" data-material_color-font="'+material_font_color+'" data-material-id="'+value+'" style="background-image: url('+lib_path+config.materials[id_device][value].lib_img+');">';
 		html_text+='<div class="library-case_row-block-1">'+config.materials[id_device][value].name+'</div>';	
 		html_text+='<div class="library-case_row-block-2">'+config.materials[id_device][value].descr_1+'</div>';	
 		html_text+='<div class="library-case_row-block-3">'+config.materials[id_device][value].descr_2+'</div>';	
