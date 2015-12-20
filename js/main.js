@@ -1076,6 +1076,7 @@ function change_step(obj) {
 	$("#steps_controller-next_but").addClass("active");
 
 	var id = $(obj).data('menuId');
+	console.log(id);
 
 	$(".g_texts").css("display", "none");
 	$(".g_smiles").css("display", "none");

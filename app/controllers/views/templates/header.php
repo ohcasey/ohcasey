@@ -104,14 +104,7 @@
 			<li data-menu-id="2" id="header-menu-item-2" class="header_menu__item">
 				<a title="Чехол" href="/#case">ЧЕХОЛ</a>
 			</li>
-			<li class="header-menu__delimeter"><span></span></li>
-			<li data-menu-id="3" id="header-menu-item-3" class="header_menu__item">
-				<a title="Текст" href="/#text">ТЕКСТ</a>
-			</li>
-			<li class="header-menu__delimeter"><span></span></li>
-			<li data-menu-id="4" id="header-menu-item-4" class="header_menu__item">
-				<a title="Цвет" href="/#color">ЦВЕТ</a>
-			</li>
+			
 			<li class="header-menu__delimeter"><span></span></li>
 			<li data-menu-id="5" id="header-menu-item-5" class="header_menu__item">
 				<a title="Фон" href="/#background">ФОН</a>
@@ -119,6 +112,14 @@
 			<li class="header-menu__delimeter"><span></span></li>
 			<li data-menu-id="6" id="header-menu-item-6" class="header_menu__item">
 				<a title="Смайлы" href="/#smiles">СМАЙЛЫ</a>
+			</li>
+			<li class="header-menu__delimeter"><span></span></li>
+			<li data-menu-id="3" id="header-menu-item-3" class="header_menu__item">
+				<a title="Текст" href="/#text">ТЕКСТ</a>
+			</li>
+			<li class="header-menu__delimeter"><span></span></li>
+			<li data-menu-id="4" id="header-menu-item-4" class="header_menu__item">
+				<a title="Цвет" href="/#color">ЦВЕТ</a>
 			</li>
 		</ul>
 	</div>
