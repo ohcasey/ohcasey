@@ -172,6 +172,7 @@ $(document).on("keydown", ".input_write" , function(event){
 });
 
 $(document).on("click", ".ok_write" , function(){
+	$("#header-menu-item-3").addClass("header-menu-active");
 	$(".alert_write").removeClass("active");
 	svg_text.select("text")
 		.text($(".input_write").val());
@@ -210,8 +211,34 @@ $(document).on("click", ".library-color_row" , function(){
 
 $(document).on("click", "#steps_controller-next_but" , function(){
 	if ($(this).hasClass("active")) {
-		var id = parseInt($(".header-menu-selected").attr("data-menu-id"))+1;
-		change_step($("#header-menu-item-"+id));	
+		//var id = parseInt($(".header-menu-selected").attr("data-menu-id"))+1;
+		//change_step($("#header-menu-item-"+id));
+		var id = parseInt($(".header-menu-selected").attr("data-menu-id"));
+		var next_id = 0;
+		switch (id) {
+			case 1: //девайс
+				next_id = 2; 
+				change_step($("#header-menu-item-"+next_id));
+				break;
+			case 2: //чехол
+				next_id = 5; 
+				change_step($("#header-menu-item-"+next_id));
+				break;
+			case 3: //текст
+				next_id = 4;
+				change_step($("#header-menu-item-"+next_id));
+				break;
+			case 4: //цвет
+				break;
+			case 5: //фоны
+				next_id = 6; 
+				change_step($("#header-menu-item-"+next_id));
+				break;
+			case 6: //смайлы
+				next_id = 3; 
+				change_step($("#header-menu-item-"+next_id));
+				break;
+		}
 	}
 	
 });
@@ -913,7 +940,7 @@ function set_default_text(){
 	
 	
 	
-	$("#header-menu-item-3").addClass("header-menu-active");
+	//$("#header-menu-item-3").addClass("header-menu-active");
 	$('.library, .library_2, .library_3, .library_4, .library_5, .library_6').perfectScrollbar({wheelSpeed: 30, wheelPropagation: false, minScrollbarLength: 1});
 
 	//svg_controls.append("image").
@@ -1117,6 +1144,7 @@ function change_step(obj) {
 			d3.selectAll(".control_text").classed("work", true);
 		}
 		if (id=="4") {
+			$("#steps_controller-next_but").removeClass("active");
 			if ($(".library_font div").length==0) setup_font();
 			if ($(".svg_camera").find('image').length==0) set_check();
 			if (!($(".library_color div").length>0)) {
@@ -1153,7 +1181,7 @@ function change_step(obj) {
 
 		}
 		if (id=="6"){
-			$("#steps_controller-next_but").removeClass("active");
+			
 			if ($(".svg_camera").find('image').length==0) set_check();
 			if (!($("#right-6 .category_buttons div").length>0)) {
 				setup_smiles();
@@ -1636,7 +1664,7 @@ function set_font(font_family) {
 	svg_fonts_container.selectAll("style").remove();
 
 	
-	$("#header-menu-item-6").addClass("header-menu-active");
+	$("#header-menu-item-3").addClass("header-menu-active");
 	
 	
 	
