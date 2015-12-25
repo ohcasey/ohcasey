@@ -306,6 +306,7 @@ $(document).on("click", ".icon-close" , function(){
 	desctop.bg_case = "";
 	$(".library-background_row").removeClass("library-background_row-selected");
 	$(".icon-close").css("display","none");
+	$("#header-menu-item-5").removeClass("header-menu-active");
 });
 
 $('#header-menu li.header_menu__item').on("click", function() {
