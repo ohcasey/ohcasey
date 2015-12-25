@@ -509,19 +509,19 @@ display: block;
 	background: url('../img/svg/nenaj/chehol-01.svg') right 0px no-repeat;
 }
 
-#header-menu > li:nth-child(6) a, #header-menu > li.header-menu-selected:nth-child(10) > a, #header-menu > li.header-menu-active:nth-child(10) > a {
+#header-menu > li:nth-child(6) a, #header-menu > li.header-menu-selected:nth-child(6) > a, #header-menu > li.header-menu-active:nth-child(6) > a {
 	background: url('../img/svg/nenaj/fon-01.svg') right 3px no-repeat;
 }
 
-#header-menu > li:nth-child(8) a, #header-menu > li.header-menu-selected:nth-child(12) > a, #header-menu > li.header-menu-active:nth-child(12) > a {
+#header-menu > li:nth-child(8) a, #header-menu > li.header-menu-selected:nth-child(8) > a, #header-menu > li.header-menu-active:nth-child(8) > a {
 	background: url('../img/svg/nenaj/smile-01.svg') right 3px no-repeat;
 }
 
-#header-menu > li:nth-child(10) a, #header-menu > li.header-menu-selected:nth-child(6) > a, #header-menu > li.header-menu-active:nth-child(6) > a {
+#header-menu > li:nth-child(10) a, #header-menu > li.header-menu-selected:nth-child(10) > a, #header-menu > li.header-menu-active:nth-child(10) > a {
 	background: url('../img/svg/nenaj/text-01.svg') right 2px no-repeat;
 }
 
-#header-menu > li:nth-child(12) a, #header-menu > li.header-menu-selected:nth-child(8) > a, #header-menu > li.header-menu-active:nth-child(8) > a {
+#header-menu > li:nth-child(12) a, #header-menu > li.header-menu-selected:nth-child(12) > a, #header-menu > li.header-menu-active:nth-child(12) > a {
 	background: url('../img/svg/nenaj/zvet-01.svg') right 2px no-repeat;
 }
 
