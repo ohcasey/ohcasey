@@ -1257,7 +1257,7 @@ iphone4_black_crystal_case.png
 				array( 
 					
 					
-			      array(
+			       array(
 							    "chechs"=>array(0,1,8,31,32,33,34),
 							    "preview_default"=>"tufli-versache-preview.png",
 					
@@ -1420,7 +1420,170 @@ iphone4_black_crystal_case.png
 							),
 
 	
-				
+array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+														),
+														
+							),
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					
+					      array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+					
+					
+					
+					    array(
+							    "chechs"=>array(0,1,8,31,32,33,34),
+							    "preview_default"=>"tufli-versache-preview.png",
+					
+							    "variants" => array(
+															array ( 
+																"preview" => "variants/tufli_versache_01.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_01.png"
+															),
+										 					array ( 
+																"preview" => "variants/tufli_versache_02.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_02.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_03.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_03.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_04.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_04.png"
+															),
+															array ( 
+																"preview" => "variants/tufli_versache_05.png",
+																"normal" => "variants/iphone6/tufli_versache_i6_05.png"
+															),
+										         
+														),
+														
+							),
+
+	
+								
 			
 			
 
@@ -1727,7 +1890,7 @@ iphone4_black_crystal_case.png
 		"smiles"=>array(
 /*	
 */			
-			array(
+			   array(
                     "link"=>"3/",
                     "name"=>"Новинки",
                     "images"=>array(
@@ -1748,29 +1911,10 @@ iphone4_black_crystal_case.png
 															"normal" => "variants/ear003_big.png"
 															),
 															array ( 
-															"preview" => "variants/ear004.png",
-															"normal" => "variants/ear004_big.png"
-															),
-															array ( 
-															"preview" => "variants/ear005.png",
-															"normal" => "variants/ear005_big.png"
-															),
-															array ( 
-															"preview" => "variants/ear006.png",
-															"normal" => "variants/ear006_big.png"
-															),
-															array ( 
-															"preview" => "variants/ear001.png",
-															"normal" => "variants/ear001_big.png"
-															),
-															array ( 
-															"preview" => "variants/ear002.png",
-															"normal" => "variants/ear002_big.png"
-															),
-															array ( 
 															"preview" => "variants/ear003.png",
 															"normal" => "variants/ear003_big.png"
 															),
+															
 														),
 														"preview_default"=>"ear01_default.png"
 							),
@@ -1789,30 +1933,7 @@ iphone4_black_crystal_case.png
 									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
-									array ( 
-									"preview" => "variants/ear004.png",
-									"normal" => "variants/ear004_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear005.png",
-									"normal" => "variants/ear005_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear006.png",
-									"normal" => "variants/ear006_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear001.png",
-									"normal" => "variants/ear001_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear002.png",
-									"normal" => "variants/ear002_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear003.png",
-									"normal" => "variants/ear003_big.png"
-									),
+								
 								),
 								"preview_default"=>"ear02_default.png"
 							),
@@ -1821,6 +1942,10 @@ iphone4_black_crystal_case.png
 									array ( 
 									"preview" => "variants/ear003_big.png",
 									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+										"preview" => "variants/ear005.png",
+										"normal" => "variants/ear005_big.png"
 									),
 								),
 								"preview_default"=>"ear03_default.png"
@@ -1852,18 +1977,7 @@ iphone4_black_crystal_case.png
 									"preview" => "variants/ear006.png",
 									"normal" => "variants/ear006_big.png"
 									),
-									array ( 
-									"preview" => "variants/ear001.png",
-									"normal" => "variants/ear001_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear002.png",
-									"normal" => "variants/ear002_big.png"
-									),
-									array ( 
-									"preview" => "variants/ear003.png",
-									"normal" => "variants/ear003_big.png"
-									),
+									
 								),
 								"preview_default"=>"ear04_default.png"
 							),
@@ -2025,13 +2139,301 @@ iphone4_black_crystal_case.png
 									"normal" => "variants/ear002_big.png"
 									),
 									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
 									"preview" => "variants/ear003.png",
 									"normal" => "variants/ear003_big.png"
 									),
 								),
 								"preview_default"=>"ear08_default.png"
 							),
+              	array(
+														"variants" => array(
+															array ( 
+															"preview" => "variants/ear001.png",
+															"normal" => "variants/ear001_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear002.png",
+															"normal" => "variants/ear002_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear003.png",
+															"normal" => "variants/ear003_big.png"
+															),
+															array ( 
+															"preview" => "variants/ear003.png",
+															"normal" => "variants/ear003_big.png"
+															),
+															
+														),
+														"preview_default"=>"ear01_default.png"
+							),
 
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								
+								),
+								"preview_default"=>"ear02_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear003_big.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+										"preview" => "variants/ear005.png",
+										"normal" => "variants/ear005_big.png"
+									),
+								),
+								"preview_default"=>"ear03_default.png"
+							),
+
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									
+								),
+								"preview_default"=>"ear04_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear05_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear06_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear07_default.png"
+							),
+							array(
+								"variants" => array(
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear004.png",
+									"normal" => "variants/ear004_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear005.png",
+									"normal" => "variants/ear005_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear006.png",
+									"normal" => "variants/ear006_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear001.png",
+									"normal" => "variants/ear001_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear002.png",
+									"normal" => "variants/ear002_big.png"
+									),
+									array ( 
+									"preview" => "variants/ear003.png",
+									"normal" => "variants/ear003_big.png"
+									),
+								),
+								"preview_default"=>"ear08_default.png"
+							),
 
 								 		/*
                                         array(
