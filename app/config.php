@@ -1407,6 +1407,14 @@ iphone4_black_crystal_case.png
 				array( 
 					//iphone 4
 					
+					// новый принты 15.01.2016
+					array("big"=>"4-4s/origami_i4-4s.png",
+					"small"=>"origami_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/kitty-pakety_i4-4s.png",
+					"small"=>"kitty-pakety_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/kitty_i4-4s.png",
+					"small"=>"kitty_r82.png","chechs"=>array(31,32,33,34)),
+					
 					// новые принты 20.11.2015
 					array("big"=>"4-4s/orhidei_i4-4s.png",
 					"small"=>"orhidei_preview.png","chechs"=>array(31,32,33,34)),
@@ -1655,6 +1663,14 @@ iphone4_black_crystal_case.png
 					
 
 					//iphone5
+					
+					// новый принты 15.01.2016
+					array("big"=>"5-5s-5c/origami_i5-5s-5c.png",
+					"small"=>"origami_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/kitty-pakety_i5-5s-5c.png",
+					"small"=>"kitty-pakety_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/kitty_i5-5s-5c.png",
+					"small"=>"kitty_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 					
 						// новые принты 20.11.2015
 					array("big"=>"5-5s-5c/orhidei_i5-5s-5c.png",
@@ -1910,6 +1926,14 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					
+					// новый принты 15.01.2016
+					array("big"=>"6-6+/origami-i6-6+.png",
+					"small"=>"origami_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/kitty-pakety-i6-6+.png",
+					"small"=>"kitty-pakety_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/kitty-i6-6+.png",
+					"small"=>"kitty_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					
 					// новые принты 20.11.2015
 					array("big"=>"6-6+/orhidei_i6-6+.png",
