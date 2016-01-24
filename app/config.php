@@ -1407,6 +1407,31 @@ iphone4_black_crystal_case.png
 				array( 
 					//iphone 4
 					
+					// принты 24.01.2016
+					array("big"=>"4-4s/tropiki_i4-4s.png",
+					"small"=>"tropiki_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/sobaka_i4-4s.png",
+					"small"=>"sobaka_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/rozovie-rozi_i4-4s.png",
+					"small"=>"rozovie-rozi_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/puanti_i4-4s.png",
+					"small"=>"puanti_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/paporotnik_i4-4s.png",
+					"small"=>"paporotnik_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/kaktus_i4-4s.png",
+					"small"=>"kaktus_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/flamingo2_i4-4s.png",
+					"small"=>"flamingo2_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/flamingo_i4-4s.png",
+					"small"=>"flamingo_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/cherep-s-zvetami_i4-4s.png",
+					"small"=>"cherep-s-zvetami_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/bonjour_i4-4s.png",
+					"small"=>"bonjour_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/mandala_i4-4s.png",
+					"small"=>"mandala_r82.png","chechs"=>array(31,32,33,34)),
+				
+					
 					// новый принты 15.01.2016
 					array("big"=>"4-4s/origami_i4-4s.png",
 					"small"=>"origami_r82.png","chechs"=>array(31,32,33,34)),
@@ -1663,6 +1688,30 @@ iphone4_black_crystal_case.png
 					
 
 					//iphone5
+					
+						// принты 24.01.2016
+					array("big"=>"5-5s-5c/tropiki_i5-5s-5c.png",
+					"small"=>"tropiki_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/sobaka_i5-5s-5c.png",
+					"small"=>"sobaka_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/rozovie-rozi_i5-5s-5c.png",
+					"small"=>"rozovie-rozi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/puanti_i5-5s-5c.png",
+					"small"=>"puanti_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/paporotnik_i5-5s-5c.png",
+					"small"=>"paporotnik_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/kaktus_i5-5s-5c.png",
+					"small"=>"kaktus_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/flamingo2_i5-5s-5c.png",
+					"small"=>"flamingo2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/flamingo_i5-5s-5c.png",
+					"small"=>"flamingo_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/cherep-s-zvetami_i5-5s-5c.png",
+					"small"=>"cherep-s-zvetami_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/bonjour_i5-5s-5c.png",
+					"small"=>"bonjour_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/mandala_i5-5s-5c.png",
+					"small"=>"mandala_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 					
 					// новый принты 15.01.2016
 					array("big"=>"5-5s-5c/origami_i5-5s-5c.png",
@@ -1926,6 +1975,31 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					
+					// принты 24.01.2016
+					
+					array("big"=>"6-6+/tropiki-i6-6+.png",
+					"small"=>"tropiki_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/sobaka-i6-6+.png",
+					"small"=>"sobaka_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/rozovie-rozi-i6-6+.png",
+					"small"=>"rozovie-rozi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/puanti-i6-6+.png",
+					"small"=>"puanti_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/paporotnik-i6-6+.png",
+					"small"=>"paporotnik_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/kaktus-i6-6+.png",
+					"small"=>"kaktus_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/flamingo2-i6-6+.png",
+					"small"=>"flamingo2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/flamingo-i6-6+.png",
+					"small"=>"flamingo_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/cherep-s-zvetami-i6-6+.png",
+					"small"=>"cherep-s-zvetami_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/bonjour-i6-6+.png",
+					"small"=>"bonjour_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/mandala-i6-6+.png",
+					"small"=>"mandala_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					
 					// новый принты 15.01.2016
 					array("big"=>"6-6+/origami-i6-6+.png",
