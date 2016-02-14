@@ -1407,6 +1407,25 @@ iphone4_black_crystal_case.png
 				array( 
 					//iphone 4
 					
+					//новые принты 14.02.2016
+					array("big"=>"4-4s/devushka_serdce_i4-4s.png",
+					"small"=>"devushka_serdce_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/Jurnali_i4-4s.png",
+					"small"=>"Jurnali_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/kotik_i4-4s.png",
+					"small"=>"kotik_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/Love_i4-4s.png",
+					"small"=>"Love_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/nogi_i4-4s.png",
+					"small"=>"nogi_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/paris-ice-cream_i4-4s.png",
+					"small"=>"paris-ice-cream_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/shturmovik_i4-4s.png",
+					"small"=>"shturmovik_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/starbucks_pioni_i4-4s.png",
+					"small"=>"starbucks_pioni_r82.png","chechs"=>array(31,32,33,34)),
+				
+					
 					//принты 1.02.2016
 					array("big"=>"4-4s/Ulyana_koko_i4-4s.png",
 					"small"=>"Ulyana_koko_r82.png","chechs"=>array(31,32,33,34)),
@@ -1416,6 +1435,8 @@ iphone4_black_crystal_case.png
 					"small"=>"krujevo_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/krujevo_white_i4-4s.png",
 					"small"=>"krujevo_white_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/york_i4-4s.png",
+					"small"=>"york_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/shpiz_1_i4-4s.png",
 					"small"=>"shpiz_1_r82.png","chechs"=>array(31,32,33,34)),
 					array("big"=>"4-4s/shpiz_2_i4-4s.png",
@@ -1712,6 +1733,25 @@ iphone4_black_crystal_case.png
 
 					//iphone5
 					
+					//новые принты 14.02.2016
+					array("big"=>"5-5s-5c/devushka_serdce_i5-5s-5c.png",
+					"small"=>"devushka_serdce_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/Jurnali_i5-5s-5c.png",
+					"small"=>"Jurnali_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/kotik_i5-5s-5c.png",
+					"small"=>"kotik_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/Love_i5-5s-5c.png",
+					"small"=>"Love_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/nogi_i5-5s-5c.png",
+					"small"=>"nogi_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/paris-ice-cream_i5-5s-5c.png",
+					"small"=>"paris-ice-cream_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/shturmovik_i5-5s-5c.png",
+					"small"=>"shturmovik_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/starbucks_pioni_i5-5s-5c.png",
+					"small"=>"starbucks_pioni_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					
+					
 					//принты 1.02.2016
 					array("big"=>"5-5s-5c/Ulyana_koko_i5-5s-5c.png",
 					"small"=>"Ulyana_koko_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
@@ -1721,6 +1761,8 @@ iphone4_black_crystal_case.png
 					"small"=>"krujevo_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 					array("big"=>"5-5s-5c/krujevo_white_i5-5s-5c.png",
 					"small"=>"krujevo_white_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/york_i5-5s-5c.png",
+					"small"=>"york_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 					array("big"=>"5-5s-5c/shpiz_1_i5-5s-5c.png",
 					"small"=>"shpiz_1_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 					array("big"=>"5-5s-5c/shpiz_2_i5-5s-5c.png",
@@ -2017,6 +2059,25 @@ iphone4_black_crystal_case.png
 
 					//iphone6
 					
+					//принты 14.02.2016
+					array("big"=>"6-6+/devushka_serdce_i6-6+.png",
+					"small"=>"devushka_serdce_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/Jurnali_i6-6+.png",
+					"small"=>"Jurnali_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/kotik_i6-6+.png",
+					"small"=>"kotik_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/Love_i6-6+.png",
+					"small"=>"Love_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/nogi_i6-6+.png",
+					"small"=>"nogi_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/paris-ice-cream_i6-6+.png",
+					"small"=>"paris-ice-cream_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/shturmovik_i6-6+.png",
+					"small"=>"shturmovik_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/starbucks_pioni_i6-6+.png",
+					"small"=>"starbucks_pioni_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+				
+					
 					//принты 1.02.2016
 					array("big"=>"6-6+/Ulyana_koko_i6-6+.png",
 					"small"=>"Ulyana_koko_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
@@ -2026,6 +2087,8 @@ iphone4_black_crystal_case.png
 					"small"=>"krujevo_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					array("big"=>"6-6+/krujevo_white_i6-6+.png",
 					"small"=>"krujevo_white_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/york_i6-6+.png",
+					"small"=>"york_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					array("big"=>"6-6+/shpiz_1_i6-6+.png",
 					"small"=>"shpiz_1_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					array("big"=>"6-6+/shpiz_2_i6-6+.png",
