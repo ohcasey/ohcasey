@@ -12,7 +12,7 @@ $mail_controls = array(
 );
 global $bd_controls; 
 $bd_controls = array(
-	"dbhost" => "mysql.server",
+	"dbhost" => "localhost",
 	//"dbhost" => "localhost",
         // Имя пользователя базы данных 
     "dbuser" => "u11014_ohcasey", 
@@ -1407,6 +1407,40 @@ iphone4_black_crystal_case.png
 				array( 
 					//iphone 4
 					
+					//новые принты 6.03.2016
+					array("big"=>"4-4s/malvina_i4-4s.png",
+					"small"=>"malvina_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/roza_orhidei_i4-4s.png",
+					"small"=>"roza_orhidei_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/lilii_zerkalo_i4-4s.png",
+					"small"=>"lilii_zerkalo_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/vishenki_i4-4s.png",
+					"small"=>"vishenki_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/terier2_i4-4s.png",
+					"small"=>"terier2_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/sobaka_goroh_i4-4s.png",
+					"small"=>"sobaka_goroh_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/york_lezhit_i4-4s.png",
+					"small"=>"york_lezhit_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/pantera_i4-4s.png",
+					"small"=>"pantera_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/buldog_angl_i4-4s.png",
+					"small"=>"buldog_angl_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/buldog_kolpak_i4-4s.png",
+					"small"=>"buldog_kolpak_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/mops_i4-4s.png",
+					"small"=>"mops_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/cara_i4-4s.png",
+					"small"=>"cara_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/chihuahua_blue_i4-4s.png",
+					"small"=>"chihuahua_blue_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/chihuahua_pink_i4-4s.png",
+					"small"=>"chihuahua_pink_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/chihuahua_v_sumke_i4-4s.png",
+					"small"=>"chihuahua_v_sumke_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/girldog_red_i4-4s.png",
+					"small"=>"girldog_red_r82.png","chechs"=>array(31,32,33,34)),
+					
 					//новые принты 14.02.2016
 					array("big"=>"4-4s/devushka_serdce_i4-4s.png",
 					"small"=>"devushka_serdce_r82.png","chechs"=>array(31,32,33,34)),
@@ -1734,6 +1768,40 @@ iphone4_black_crystal_case.png
 					//iphone5
 					
 					//новые принты 14.02.2016
+					array("big"=>"5-5s-5c/malvina_i5-5s-5c.png",
+					"small"=>"malvina_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/roza_orhidei_i5-5s-5c.png",
+					"small"=>"roza_orhidei_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/lilii_zerkalo_i5-5s-5c.png",
+					"small"=>"lilii_zerkalo_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/vishenki_i5-5s-5c.png",
+					"small"=>"vishenki_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/terier2_i5-5s-5c.png",
+					"small"=>"terier2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/sobaka_goroh_i5-5s-5c.png",
+					"small"=>"sobaka_goroh_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/york_lezhit_i5-5s-5c.png",
+					"small"=>"york_lezhit_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/pantera_i5-5s-5c.png",
+					"small"=>"pantera_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/buldog_angl_i5-5s-5c.png",
+					"small"=>"buldog_angl_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/buldog_kolpak_i5-5s-5c.png",
+					"small"=>"buldog_kolpak_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/mops_i5-5s-5c.png",
+					"small"=>"mops_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/cara_i5-5s-5c.png",
+					"small"=>"cara_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/chihuahua_blue_i5-5s-5c.png",
+					"small"=>"chihuahua_blue_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/chihuahua_pink_i5-5s-5c.png",
+					"small"=>"chihuahua_pink_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/chihuahua_v_sumke_i5-5s-5c.png",
+					"small"=>"chihuahua_v_sumke_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/girldog_red_i5-5s-5c.png",
+					"small"=>"girldog_red_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					
+					//новые принты 14.02.2016
 					array("big"=>"5-5s-5c/devushka_serdce_i5-5s-5c.png",
 					"small"=>"devushka_serdce_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
 					array("big"=>"5-5s-5c/Jurnali_i5-5s-5c.png",
@@ -2058,6 +2126,40 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					
+					//новые макеты 5.03.2016
+					array("big"=>"6-6+/malvina_i6-6+.png",
+					"small"=>"malvina_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/roza_orhidei_i6-6+.png",
+					"small"=>"roza_orhidei_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/lilii_zerkalo_i6-6+.png",
+					"small"=>"lilii_zerkalo_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/vishenki_i6-6+.png",
+					"small"=>"vishenki_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/terier2_i6-6+.png",
+					"small"=>"terier2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/sobaka_goroh_i6-6+.png",
+					"small"=>"sobaka_goroh_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/york_lezhit_i6-6+.png",
+					"small"=>"york_lezhit_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/pantera_i6-6+.png",
+					"small"=>"pantera_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/buldog_angl_i6-6+.png",
+					"small"=>"buldog_angl_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/buldog_kolpak_i6-6+.png",
+					"small"=>"buldog_kolpak_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/mops_i6-6+.png",
+					"small"=>"mops_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/cara_i6-6+.png",
+					"small"=>"cara_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/chihuahua_blue_i6-6+.png",
+					"small"=>"chihuahua_blue_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/chihuahua_pink_i6-6+.png",
+					"small"=>"chihuahua_pink_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/chihuahua_v_sumke_i6-6+.png",
+					"small"=>"chihuahua_v_sumke_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/girldog_red_i6-6+.png",
+					"small"=>"girldog_red_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					
 					//принты 14.02.2016
 					array("big"=>"6-6+/devushka_serdce_i6-6+.png",
