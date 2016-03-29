@@ -1407,6 +1407,38 @@ iphone4_black_crystal_case.png
 				array( 
 					//iphone 4
 					
+					// новое 29.03.2016
+					array("big"=>"4-4s/111_i4-4s.png",
+					"small"=>"111_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/Alisa_i4-4s.png",
+					"small"=>"Alisa_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/Avengers_i4-4s.png",
+					"small"=>"Avengers_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/baletki_Chiara_i4-4s.png",
+					"small"=>"baletki_Chiara_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/baletki_Chiara2_i4-4s.png",
+					"small"=>"baletki_Chiara2_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/banani_i4-4s.png",
+					"small"=>"banani_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/Beyonce_i4-4s.png",
+					"small"=>"Beyonce_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/CIPA_i4-4s.png",
+					"small"=>"CIPA_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/fotiki_i4-4s.png",
+					"small"=>"fotiki_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/Mnogo_Mickey_i4-4s.png",
+					"small"=>"Mnogo_Mickey_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ponchiki2_i4-4s.png",
+					"small"=>"ponchiki2_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/ponchiki1_i4-4s.png",
+					"small"=>"ponchiki1_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/paporotnik_white_i4-4s.png",
+					"small"=>"paporotnik_white_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/paporotnik_black_i4-4s.png",
+					"small"=>"paporotnik_black_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/nevesta_i4-4s.png",
+					"small"=>"nevesta_r82.png","chechs"=>array(31,32,33,34)),
+					
 					//новые принты 6.03.2016
 					array("big"=>"4-4s/malvina_i4-4s.png",
 					"small"=>"malvina_r82.png","chechs"=>array(31,32,33,34)),
@@ -1767,6 +1799,38 @@ iphone4_black_crystal_case.png
 
 					//iphone5
 					
+					// новое 29.03.2016
+					array("big"=>"5-5s-5c/111_i5-5s-5c.png",
+					"small"=>"111_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/Alisa_i5-5s-5c.png",
+					"small"=>"Alisa_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/Avengers_i5-5s-5c.png",
+					"small"=>"Avengers_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/baletki_Chiara_i5-5s-5c.png",
+					"small"=>"baletki_Chiara_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/baletki_Chiara2_i5-5s-5c.png",
+					"small"=>"baletki_Chiara2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/banani_i5-5s-5c.png",
+					"small"=>"banani_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/Beyonce_i5-5s-5c.png",
+					"small"=>"Beyonce_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/CIPA_i5-5s-5c.png",
+					"small"=>"CIPA_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/fotiki_i5-5s-5c.png",
+					"small"=>"fotiki_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/Mnogo_Mickey_i5-5s-5c.png",
+					"small"=>"Mnogo_Mickey_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/ponchiki2_i5-5s-5c.png",
+					"small"=>"ponchiki2_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/ponchiki1_i5-5s-5c.png",
+					"small"=>"ponchiki1_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/paporotnik_white_i5-5s-5c.png",
+					"small"=>"paporotnik_white_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/paporotnik_black_i5-5s-5c.png",
+					"small"=>"paporotnik_black_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/nevesta_i5-5s-5c.png",
+					"small"=>"nevesta_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					
 					//новые принты 14.02.2016
 					array("big"=>"5-5s-5c/malvina_i5-5s-5c.png",
 					"small"=>"malvina_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
@@ -2126,6 +2190,38 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					
+					// новые 29.03
+						array("big"=>"6-6+/111_i6-6+.png",
+					"small"=>"111_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/Alisa_i6-6+.png",
+					"small"=>"Alisa_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/Avengers_i6-6+.png",
+					"small"=>"Avengers_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/baletki_Chiara_i6-6+.png",
+					"small"=>"baletki_Chiara_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/baletki_Chiara2_i6-6+.png",
+					"small"=>"baletki_Chiara2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/banani_i6-6+.png",
+					"small"=>"banani_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/Beyonce_i6-6+.png",
+					"small"=>"Beyonce_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/CIPA_i6-6+.png",
+					"small"=>"CIPA_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/fotiki_i6-6+.png",
+					"small"=>"fotiki_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/Mnogo_Mickey_i6-6+.png",
+					"small"=>"Mnogo_Mickey_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/ponchiki2_i6-6+.png",
+					"small"=>"ponchiki2_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/ponchiki1_i6-6+.png",
+					"small"=>"ponchiki1_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/paporotnik_white_i6-6+.png",
+					"small"=>"paporotnik_white_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/paporotnik_black_i6-6+.png",
+					"small"=>"paporotnik_black_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/nevesta_i6-6+.png",
+					"small"=>"nevesta_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					
 					//новые макеты 5.03.2016
 					array("big"=>"6-6+/malvina_i6-6+.png",
@@ -2789,6 +2885,154 @@ iphone4_black_crystal_case.png
                                 "link"=>"3/",
                                 "name"=>"Новинки",
                                 "images"=>array(
+                                
+                                // новые смайлы 29.03
+                                 array(
+                                                "big"=>"480/awesome_Smiles-480-big.png",
+                                                "small"=>"124/awesome_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/chihua_Smiles-480-big.png",
+                                                "small"=>"124/chihua_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/fotik_Smiles-1480-big.png",
+                                                "small"=>"124/fotik_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/nichosi_Smiles-480-big.png",
+                                                "small"=>"124/nichosi_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/patrik_Smiles-480-big.png",
+                                                "small"=>"124/patrik_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ponchik_green_Smiles-480-big.png",
+                                                "small"=>"124/ponchik_green_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ponchik_pink_Smiles-480-big.png",
+                                                "small"=>"124/ponchik_pink_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ponchik_white_Smiles-480-big.png",
+                                                "small"=>"124/ponchik_white_Smiles-124-small.png"
+                                        ),
+                                
+                             			array(
+                                                "big"=>"480/poni_Smiles-480-big.png",
+                                                "small"=>"124/poni_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/popeye_Sailor_Smiles-480-big.png",
+                                                "small"=>"124/popeye_Sailor_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/utochka_Smiles-480-big.png",
+                                                "small"=>"124/utochka_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/spanchbob_Smiles-480-big.png",
+                                                "small"=>"124/spanchbob_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/Sailor_Moon_Smiles-480-big.png",
+                                                "small"=>"124/Sailor_Moon_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/sobaka_Smiles-480-big.png",
+                                                "small"=>"124/sobaka_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/sobaka2_Smiles-480-big.png",
+                                                "small"=>"124/sobaka2_Smiles-124-small.png"
+                                        ),
+   
+                                    array(
+                                                "big"=>"480/batman_Smiles-480-big.png",
+                                                "small"=>"124/batman_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/bolshe_kofe_Smiles-480-big.png",
+                                                "small"=>"124/bolshe_kofe_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/enot_Smiles-480-big.png",
+                                                "small"=>"124/enot_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/gomer_Smiles-480-big.png",
+                                                "small"=>"124/gomer_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/GrumpyCat_Smiles-480-big.png",
+                                                "small"=>"124/GrumpyCat_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/kotik_mem_Smiles-480-big.png",
+                                                "small"=>"124/kotik_mem_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/minion_Smiles-480-big.png",
+                                                "small"=>"124/minion_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/superman_Smiles-480-big.png",
+                                                "small"=>"124/superman_Smiles-124-small.png"
+                                        ),
+                                
+                             			array(
+                                                "big"=>"480/audi_Smiles-480-big.png",
+                                                "small"=>"124/audi_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/bentley_Smiles-480-big.png",
+                                                "small"=>"124/bentley_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/bmw_Smiles-480-big.png",
+                                                "small"=>"124/bmw_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ferrari_Smiles-480-big.png",
+                                                "small"=>"124/ferrari_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/infiniti_Smiles-480-big.png",
+                                                "small"=>"124/infiniti_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/jaguar_Smiles-480-big.png",
+                                                "small"=>"124/jaguar_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/lamborghini_Smiles-480-big.png",
+                                                "small"=>"124/lamborghini_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/landrover_Smiles-480-big.png",
+                                                "small"=>"124/landrover_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/logo_mini_Smiles-480-big.png",
+                                                "small"=>"124/logo_mini_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/mercedes_benz_Smiles-480-big.png",
+                                                "small"=>"124/mercedes_benz_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/porche_Smiles-480-big.png",
+                                                "small"=>"124/porche_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/nissan_Smiles-480-big.png",
+                                                "small"=>"124/nissan_Smiles-124-small.png"
+                                        ),
+                                      
+                                
+                                
                                 
                                 // новые смайлы нг
 								 		array(
