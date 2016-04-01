@@ -2887,7 +2887,12 @@ iphone4_black_crystal_case.png
                                 "images"=>array(
                                 
                                 // новые смайлы 29.03
-                                 array(
+                                
+                                 		array(
+                                                "big"=>"480/fuckkim-480-big.png",
+                                                "small"=>"124/fuckkim-124-small.png"
+                                        ),
+                                		 array(
                                                 "big"=>"480/awesome_Smiles-480-big.png",
                                                 "small"=>"124/awesome_Smiles-124-small.png"
                                         ),
@@ -2896,7 +2901,7 @@ iphone4_black_crystal_case.png
                                                 "small"=>"124/chihua_Smiles-124-small.png"
                                         ),
                                         array(
-                                                "big"=>"480/fotik_Smiles-1480-big.png",
+                                                "big"=>"480/fotik_Smiles-480-big.png",
                                                 "small"=>"124/fotik_Smiles-124-small.png"
                                         ),
                                         array(
