@@ -1407,6 +1407,16 @@ iphone4_black_crystal_case.png
 				array( 
 					//iphone 4
 					
+					// новое 12.04.2016
+					array("big"=>"4-4s/autobuses_i4-4s.png",
+					"small"=>"autobuses_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/lovec_s_cvetami_i4-4s.png",
+					"small"=>"lovec_s_cvetami_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/periya_i4-4s.png",
+					"small"=>"periya_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/tufli_nov_i4-4s.png",
+					"small"=>"tufli_nov_r82.png","chechs"=>array(31,32,33,34)),
+					
 					// новое 29.03.2016
 					array("big"=>"4-4s/111_i4-4s.png",
 					"small"=>"111_r82.png","chechs"=>array(31,32,33,34)),
@@ -1799,6 +1809,16 @@ iphone4_black_crystal_case.png
 
 					//iphone5
 					
+					// новое 12.04.2016
+					array("big"=>"5-5s-5c/autobuses_i5-5s-5c.png",
+					"small"=>"autobuses_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/lovec_s_cvetami_i5-5s-5c.png",
+					"small"=>"lovec_s_cvetami_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/periya_i5-5s-5c.png",
+					"small"=>"periya_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/tufli_nov_i5-5s-5c.png",
+					"small"=>"tufli_nov_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					
 					// новое 29.03.2016
 					array("big"=>"5-5s-5c/111_i5-5s-5c.png",
 					"small"=>"111_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
@@ -2190,6 +2210,16 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					
+					// новое 14.03
+					array("big"=>"6-6+/autobuses_i6-6+.png",
+					"small"=>"autobuses_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/lovec_s_cvetami_i6-6+.png",
+					"small"=>"lovec_s_cvetami_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/periya_i6-6+.png",
+					"small"=>"periya_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/tufli_nov_i6-6+.png",
+					"small"=>"tufli_nov_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					
 					// новые 29.03
 						array("big"=>"6-6+/111_i6-6+.png",
@@ -2885,6 +2915,58 @@ iphone4_black_crystal_case.png
                                 "link"=>"3/",
                                 "name"=>"Новинки",
                                 "images"=>array(
+                                
+                                // смайлы 12.04
+                                
+                                		array(
+                                                "big"=>"480/blue_flower_Smiles-480-big.png",
+                                                "small"=>"124/blue_flower_Smiles-124-small.png"
+                                        ),
+                                		 array(
+                                                "big"=>"480/pink_flower_Smiles-480-big.png",
+                                                "small"=>"124/pink_flower_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/palm_Smiles-480-big.png",
+                                                "small"=>"124/palm_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/ochki_Smiles-480-big.png",
+                                                "small"=>"124/ochki_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/bus_blue_Smiles-480-big.png",
+                                                "small"=>"124/bus_blue_Smiles-124-small.png"
+                                        ),
+                                         array(
+                                                "big"=>"480/red_bus_Smiles-480-big.png",
+                                                "small"=>"124/red_bus_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/board_Smiles-480-big.png",
+                                                "small"=>"124/board_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/rakushka2_Smiles-480-big.png",
+                                                "small"=>"124/rakushka2_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/rakushka_Smiles-480-big.png",
+                                                "small"=>"124/rakushka_Smiles-124-small.png"
+                                        ),
+                                         array(
+                                                "big"=>"480/broccoli_Smiles-480-big.png",
+                                                "small"=>"124/broccoli_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/red_heart_shar_Smiles-480-big.png",
+                                                "small"=>"124/red_heart_shar_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/pink_heart_shar_Smiles-480-big.png",
+                                                "small"=>"124/pink_heart_shar_Smiles-124-small.png"
+                                        ),
+                                
                                 
                                 // новые смайлы 29.03
                                 
