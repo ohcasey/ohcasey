@@ -1407,6 +1407,19 @@ iphone4_black_crystal_case.png
 				array( 
 					//iphone 4
 					
+						// новое 20.04.2016
+					array("big"=>"4-4s/limons_i4-4s.png",
+					"small"=>"limons_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/maki_i4-4s.png",
+					"small"=>"maki_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/romashki_i4-4s.png",
+					"small"=>"romashki_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/tiger_i4-4s.png",
+					"small"=>"tiger_r82.png","chechs"=>array(31,32,33,34)),
+					array("big"=>"4-4s/tiger_white_i4-4s.png",
+					"small"=>"tiger_white_r82.png","chechs"=>array(31,32,33,34)),
+					
+					
 					// новое 12.04.2016
 					array("big"=>"4-4s/autobuses_i4-4s.png",
 					"small"=>"autobuses_r82.png","chechs"=>array(31,32,33,34)),
@@ -1809,6 +1822,18 @@ iphone4_black_crystal_case.png
 
 					//iphone5
 					
+					// новое 20.04.2016
+					array("big"=>"5-5s-5c/limons_i5-5s-5c.png",
+					"small"=>"limons_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/maki_i5-5s-5c.png",
+					"small"=>"maki_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/romashki_i5-5s-5c.png",
+					"small"=>"romashki_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/tiger_i5-5s-5c.png",
+					"small"=>"tiger_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					array("big"=>"5-5s-5c/tiger_white_i5-5s-5c.png",
+					"small"=>"tiger_white_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
+					
 					// новое 12.04.2016
 					array("big"=>"5-5s-5c/autobuses_i5-5s-5c.png",
 					"small"=>"autobuses_r82.png","chechs"=>array(16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)),
@@ -2210,6 +2235,18 @@ iphone4_black_crystal_case.png
 
 
 					//iphone6
+					
+					// новое 20.04.2016
+					array("big"=>"6-6+/limons_i6-6+.png",
+					"small"=>"limons_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/maki_i6-6+.png",
+					"small"=>"maki_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/romashki_i6-6+.png",
+					"small"=>"romashki_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/tiger_i6-6+.png",
+					"small"=>"tiger_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
+					array("big"=>"6-6+/tiger_white_i6-6+.png",
+					"small"=>"tiger_white_r82.png","chechs"=>array(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,60,61,62,63,64,65,66,67)),
 					
 					// новое 14.03
 					array("big"=>"6-6+/autobuses_i6-6+.png",
