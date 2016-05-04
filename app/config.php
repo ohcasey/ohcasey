@@ -2955,6 +2955,15 @@ iphone4_black_crystal_case.png
                                 
                                 // смайлы 12.04
                                 
+                                        array(
+                                                "big"=>"480/kimcry_Smiles-480-big.png",
+                                                "small"=>"124/kimcry_Smiles-124-small.png"
+                                        ),
+                                        array(
+                                                "big"=>"480/kimass_Smiles-480-big.png",
+                                                "small"=>"124/kimass_Smiles-124-small.png"
+                                        ),
+                                
                                 		array(
                                                 "big"=>"480/blue_flower_Smiles-480-big.png",
                                                 "small"=>"124/blue_flower_Smiles-124-small.png"
